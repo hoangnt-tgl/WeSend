@@ -30,6 +30,7 @@ declare module '@vue/runtime-core' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Shortcuts: typeof import('./src/@core/components/Shortcuts.vue')['default']
+    TabsGrow: typeof import('./src/components/TabsGrow.vue')['default']
     TheCustomizer: typeof import('./src/@core/components/TheCustomizer.vue')['default']
     ThemeSwitcher: typeof import('./src/@core/components/ThemeSwitcher.vue')['default']
     UserInfoEditDialog: typeof import('./src/@core/components/UserInfoEditDialog.vue')['default']

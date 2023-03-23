@@ -1,8 +1,9 @@
-<script   lang="ts">
+<script lang="ts">
 import DashboardTitlee from '../dashboard-title/index.vue'
 
 export default {
   name: 'CardNotifications',
+  components: { DashboardTitlee },
   props: {
     title: {
       type: String,
@@ -11,11 +12,20 @@ export default {
     date: { type: String, required: true },
     type: { type: String, required: true },
   },
+  setup() {
+    return {
+      headTitle: 'Notifications',
+      buttonTitle: 'View all',
+    }
+  },
 }
 </script>
 
 <template>
-  <DashboardTitlee />
+  <DashboardTitlee
+    :title="headTitle"
+    :button-title="buttonTitle"
+  />
   <VCard
     :class="type === 'deleted' ? 'notification-container deleled' : type === 'overrided' ? 'notification-container overrided'
       : 'notification-container create'

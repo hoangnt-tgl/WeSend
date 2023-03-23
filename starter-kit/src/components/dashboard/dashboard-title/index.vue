@@ -1,25 +1,22 @@
-<script   lang="ts">
-import DashboardTitlee from '../dashboard-title/index.vue'
-
+<script  lang="ts">
 export default {
-  name: 'CardNotifications',
+  name: 'DashboardTitle',
   props: {
     title: {
       type: String,
       required: true,
     },
-    date: { type: String, required: true },
-    type: { type: String, required: true },
+    buttonTitle: {
+      type: String,
+      required: true,
+    },
   },
 }
 </script>
 
 <template>
-  <DashboardTitlee />
   <VCard
-    :class="type === 'deleted' ? 'notification-container deleled' : type === 'overrided' ? 'notification-container overrided'
-      : 'notification-container create'
-    "
+    class=" "
   >
     <div class="d-flex flex-column-reverse flex-md-row">
       <div>
@@ -27,11 +24,8 @@ export default {
           <VCardTitle class="notification-title">
             {{ title }}
           </VCardTitle>
+          <VBtnGroup>{{ buttonTitle }}</VBtnGroup>
         </VCardItem>
-
-        <VCardText class="d-flex align-center flex-wrap text-body-1">
-          <span class="notification-date">{{ date }}</span>
-        </VCardText>
       </div>
     </div>
   </VCard>

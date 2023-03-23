@@ -8,8 +8,8 @@ export default [
   },
   {
     title: 'Campaign',
-    to: { name: 'second-page' },
-    icon: { icon: 'tabler-file' },
+    to: { name: 'campaign' },
+    icon: { icon: 'tabler-message-forward' },
   },
   {
     title: 'History',
@@ -18,22 +18,22 @@ export default [
   },
   {
     title: 'Calendar',
-    to: { name: 'second-page' },
+    to: { name: 'calendar' },
     icon: { icon: 'tabler-calendar-event' },
   },
   {
     title: 'Contacts',
-    to: { name: 'second-page' },
-    icon: { icon: 'tabler-users' },
+    to: { name: 'contacts' },
+    icon: { icon: 'tabler-address-book' },
   },
   {
     title: 'Profile',
-    to: { name: 'second-page' },
-    icon: { icon: 'tabler-user' },
+    to: { name: 'profile' },
+    icon: { icon: 'tabler-user-circle' },
   },
   {
     title: 'WhatsApp Bot',
-    to: { name: 'second-page' },
-    icon: { icon: 'tabler-whatsapp' },
+    to: { name: 'whats-app-bot' },
+    icon: { icon: 'tabler-brand-whatsapp' },
   },
 ] as HorizontalNavItems

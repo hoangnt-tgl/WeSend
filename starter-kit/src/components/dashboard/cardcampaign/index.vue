@@ -11,28 +11,26 @@ const percentage = 50
 </script>
 
 <template>
-  <div>
-    <VCard class="card-campaign">
-      <div class="d-flex">
-        <VCardItem class="top-card">
-          <Datecard :msg="msg" />
-        </VCardItem>
-        <VCardItem class="top-card">
-          <Progress
-            :progress="progress"
-            :progress-total="progressTotal"
-            :is-running="isRunning"
-          />
-        </VCardItem>
-      </div>
-      <VCardText class="card-description">
-        Lorem ipsum dolor sit amet consectetur
-      </VCardText>
-      <Progressbar
-        :percentage="percentage"
-      />
-    </VCard>
-  </div>
+  <VCard class="card-campaign">
+    <div class="d-flex">
+      <VCardItem class="top-card">
+        <Datecard :msg="msg" />
+      </VCardItem>
+      <VCardItem class="top-card">
+        <Progress
+          :progress="progress"
+          :progress-total="progressTotal"
+          :is-running="isRunning"
+        />
+      </VCardItem>
+    </div>
+    <VCardText class="card-description">
+      Lorem ipsum dolor sit amet consectetur
+    </VCardText>
+    <Progressbar
+      :percentage="percentage"
+    />
+  </VCard>
 </template>
 
 <style>
@@ -42,24 +40,18 @@ const percentage = 50
   }
 
   .card-description {
-    padding-block-start: 0;
-  }
-
-  .card-description,
-  .top-card {
     padding: 14px;
-  }
-
-  .card-description {
     font-size: var(--font-size-sm);
-  }
-
-  .card-campaign {
-    border-radius: 15px;
+    padding-block-start: 0;
   }
 
   .top-card {
     flex: 1;
+    padding: 14px;
+  }
+
+  .card-campaign {
+    border-radius: 15px;
   }
 }
 

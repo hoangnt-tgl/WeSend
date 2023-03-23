@@ -64,4 +64,15 @@ export default {
     border-inline-start: 3px solid #f59e0b;
   }
 }
+
+@media screen and (min-width: 425px) {
+  .notification-title {
+    font-size: var(--font-size);
+    white-space: unset;
+  }
+
+  .notification-date {
+    font-size: var(--font-size-sm);
+  }
+}
 </style>

@@ -48,6 +48,12 @@ export default {
 
 <style>
 @media screen and (min-width: 350px) {
+  .dash-title {
+    color: var(--text-dark);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight);
+  }
+
   .dash-title-box {
     display: flex;
     align-items: center;
@@ -58,12 +64,11 @@ export default {
 
 @media screen and (min-width: 425px) {
   .notification-title {
-    font-size: var(--font-size);
-    white-space: unset;
+
   }
 
   .notification-date {
-    font-size: var(--font-size-sm);
+
   }
 }
 </style>

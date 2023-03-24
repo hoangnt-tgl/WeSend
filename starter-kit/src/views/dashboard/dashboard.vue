@@ -7,7 +7,7 @@ import { btnPurple } from '@/constant/buttonColor'
 import { btnTitle, title } from '@/constant/commonTitle'
 import { notifications } from '@/data/notifications'
 
-const items = [1, 2]
+const items = []
 </script>
 
 <template>
@@ -20,6 +20,7 @@ const items = [1, 2]
       <DashboardTitle
         :title="title.calendar"
         :button-title="btnTitle.viewAll"
+        :action="() => { }"
       />
       <div>Calendar</div>
     </VCol>

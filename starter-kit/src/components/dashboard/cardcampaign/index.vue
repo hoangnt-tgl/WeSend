@@ -6,7 +6,7 @@ import Progress from './progresscard.vue'
 const msg = '123'
 const progress = 1723
 const progressTotal = 4500
-const isRunning = true
+const isRunning = false
 const percentage = 50
 </script>
 

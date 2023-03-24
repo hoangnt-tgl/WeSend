@@ -7,7 +7,7 @@ import { btnPurple } from '@/constant/buttonColor'
 import { btnTitle, title } from '@/constant/commonTitle'
 import { notifications } from '@/data/notifications'
 
-const items = []
+const items = [1, 2]
 </script>
 
 <template>
@@ -30,6 +30,7 @@ const items = []
     >
       <div class="campaign-wrapper">
         <DashboardTitle
+          :action="() => { }"
           :title="title.campaigns"
           :button-title="btnTitle.viewAll"
         />
@@ -51,6 +52,7 @@ const items = []
       </div>
       <div class="notifications-wrapper">
         <DashboardTitle
+          :action="() => { }"
           :title="title.notifications"
           :button-title="btnTitle.viewAll"
         />

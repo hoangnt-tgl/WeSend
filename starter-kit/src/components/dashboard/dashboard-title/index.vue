@@ -40,7 +40,6 @@ export default {
         color="btnOutLine.color"
         :style="btnOutLine"
         variant="'outlined'"
-        :@click="action"
       />
     </div>
   </div>

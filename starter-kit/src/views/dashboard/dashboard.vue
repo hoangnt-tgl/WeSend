@@ -29,6 +29,7 @@ const items = [1, 2]
     >
       <div class="campaign-wrapper">
         <DashboardTitle
+          :action="() => { }"
           :title="title.campaigns"
           :button-title="btnTitle.viewAll"
         />
@@ -50,6 +51,7 @@ const items = [1, 2]
       </div>
       <div class="notifications-wrapper">
         <DashboardTitle
+          :action="() => { }"
           :title="title.notifications"
           :button-title="btnTitle.viewAll"
         />

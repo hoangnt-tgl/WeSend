@@ -1,27 +1,31 @@
 <script lang="ts">
-import LastActionCard from '@/components/histories/LastActionCard.vue'
-import { lastAction } from '@/data/history'
+import CardHistory from '@/components/histories/CardHistory.vue'
+import { lastActions } from '@/data/history'
 
 export default {
   components: {
-    LastActionCard,
+    CardHistory,
   },
   setup() {
     return {
-      lastAction,
+      lastActions,
     }
   },
 }
 </script>
 
 <template>
-  <VCard>
+  <VCard class="pt-5">
     <div
-      v-for="(item, idx) in lastAction"
+      v-for="(item, idx) in lastActions"
       :key="idx"
     >
-      <div class="mx-4 my-2">
-        <LastActionCard :item="item" />
+      <div class="mx-6 my-1">
+        <CardHistory
+          :title="item.title"
+          :time="item.time"
+          :type="item.type"
+        />
       </div>
     </div>
   </VCard>

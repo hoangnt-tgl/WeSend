@@ -8,8 +8,8 @@
           <p>Enter your phone number to Sign in
             to your account</p>
           <div class="input-number">
-            <input type="number" placeholder="+083" />
-            <input type="number" placeholder="123456789" class="phone-number" />
+            <input type="number" placeholder="+972" />
+            <input type="number" placeholder="0000000000" class="phone-number" />
             <button>Sign in</button>
           </div>
           <div class="sign-up-input-checkbox">
@@ -121,6 +121,7 @@
   color: #374151;
   font-size: 14px;
   border-radius: 5px;
+  outline: none;
 }
 
 input::-webkit-outer-spin-button,
@@ -172,8 +173,9 @@ input[type=number] {
   background: rgba(17, 24, 39, 0.7);
 }
 
-.sign-up__container>p a:hover {
+.sign-up__container>p a {
   text-decoration: underline;
+  color: #6354D9;
 }
 
 .sign-up__footer {

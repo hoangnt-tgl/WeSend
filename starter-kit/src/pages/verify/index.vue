@@ -112,6 +112,7 @@ import AppOtpInput from '@/@core/components/AppOtpInput.vue';
   font-size: 14px;
   border-radius: 5px;
   width: 48px;
+  outline: none;
 }
 
 input::-webkit-outer-spin-button,

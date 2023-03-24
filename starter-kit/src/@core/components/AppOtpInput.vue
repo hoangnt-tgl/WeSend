@@ -73,6 +73,8 @@ const handleKeyDown = (event: KeyboardEvent, index: number) => {
     text-align: center;
     background: #F3F4FB;
     color: #374151;
+    outline: none !important;
+    border: none !important;
   }
 }
 </style>

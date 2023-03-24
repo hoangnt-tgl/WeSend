@@ -76,19 +76,34 @@ const handleNavScroll = (evt: Event) => {
       <slot name="nav-header">
         <RouterLink
           to="/"
-          class="app-logo d-flex align-center gap-x-3 app-title-wrapper"
+          class="app-logo d-flex align-center gap-x-3 app-title-wrapper mx-auto"
         >
-          <VNodeRenderer :nodes="config.app.logo" />
-
           <Transition name="vertical-nav-app-title">
-            <h1
-              v-show="!hideTitleAndIcon"
-              class="app-title font-weight-bold leading-normal text-xl"
+            <div
+              v-if="hideTitleAndIcon"
+              class="text"
             >
-              {{ config.app.title }}
-            </h1>
+              <!-- <b>We</b><span>Send</span> -->
+            </div>
+            <div
+              v-else
+              class="app-title leading-normal text-xl text-h5"
+            >
+              <b>We</b><span>Send</span>
+            </div>
           </Transition>
+          <!--
+            <Transition name="vertical-nav-app-title">
+            <h1
+            v-show="!hideTitleAndIcon"
+            class="app-title font-weight-bold leading-normal text-xl"
+            >
+            {{ config.app.title }}
+            </h1>
+            </Transition>
+          -->
         </RouterLink>
+
         <!-- 👉 Vertical nav actions -->
         <!-- Show toggle collapsible in >md and close button in <md -->
         <template v-if="!isLessThanOverlayNavBreakpoint(windowWidth)">
@@ -116,6 +131,13 @@ const handleNavScroll = (evt: Event) => {
           />
         </template>
       </slot>
+    </div>
+    <div
+      v-if="!hideTitleAndIcon"
+      class="d-flex mx-4 py-4 flex-column align-center border-t-4 border-b border-dark-50"
+    >
+      <p>Connected With</p>
+      <div></div>
     </div>
     <slot name="before-nav-items">
       <div class="vertical-nav-items-shadow" />

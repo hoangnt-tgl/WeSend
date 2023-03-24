@@ -575,6 +575,11 @@
     "@intlify/core-base" "9.2.2"
     "@intlify/shared" "9.2.2"
 
+"@jamescoyle/vue-icon@^0.1.2":
+  "integrity" "sha512-KFrImXx5TKIi6iQXlnyLEBl4rNosNKbTeRnr70ucTdUaciVmd9qK9d/pZAaKt1Ob/8xNnX2GMp8LisyHdKtEgw=="
+  "resolved" "https://registry.npmjs.org/@jamescoyle/vue-icon/-/vue-icon-0.1.2.tgz"
+  "version" "0.1.2"
+
 "@jridgewell/gen-mapping@^0.1.0":
   "integrity" "sha512-sQXCasFk+U8lWYEe66WxRDOE9PjVz4vSM51fTu3Hw+ClTpUSQb718772vH3pyS5pShp6lvQM7SxgIDXXXmOX7w=="
   "resolved" "https://registry.npmjs.org/@jridgewell/gen-mapping/-/gen-mapping-0.1.1.tgz"
@@ -614,6 +619,11 @@
   dependencies:
     "@jridgewell/resolve-uri" "3.1.0"
     "@jridgewell/sourcemap-codec" "1.4.14"
+
+"@mdi/js@^7.2.96":
+  "integrity" "sha512-paR9M9ZT7rKbh2boksNUynuSZMHhqRYnEZOm/KrZTjQ4/FzyhjLHuvw/8XYzP+E7fS4+/Ms/82EN1pl/OFsiIA=="
+  "resolved" "https://registry.npmjs.org/@mdi/js/-/js-7.2.96.tgz"
+  "version" "7.2.96"
 
 "@nodelib/fs.scandir@2.1.5":
   "integrity" "sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g=="
@@ -1950,9 +1960,9 @@
     "is-date-object" "^1.0.1"
     "is-symbol" "^1.0.2"
 
-"esbuild-darwin-arm64@0.15.16":
-  "integrity" "sha512-fMXaUr5ou0M4WnewBKsspMtX++C1yIa3nJ5R2LSbLCfJT3uFdcRoU/NZjoM4kOMKyOD9Sa/2vlgN8G07K3SJnw=="
-  "resolved" "https://registry.npmjs.org/esbuild-darwin-arm64/-/esbuild-darwin-arm64-0.15.16.tgz"
+"esbuild-windows-64@0.15.16":
+  "integrity" "sha512-HjW1hHRLSncnM3MBCP7iquatHVJq9l0S2xxsHHj4yzf4nm9TU4Z7k4NkeMlD/dHQ4jPlQQhwcMvwbJiOefSuZw=="
+  "resolved" "https://registry.npmjs.org/esbuild-windows-64/-/esbuild-windows-64-0.15.16.tgz"
   "version" "0.15.16"
 
 "esbuild@^0.15.9":
@@ -2531,11 +2541,6 @@
   "integrity" "sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw=="
   "resolved" "https://registry.npmjs.org/fs.realpath/-/fs.realpath-1.0.0.tgz"
   "version" "1.0.0"
-
-"fsevents@~2.3.2":
-  "integrity" "sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA=="
-  "resolved" "https://registry.npmjs.org/fsevents/-/fsevents-2.3.2.tgz"
-  "version" "2.3.2"
 
 "function-bind@^1.1.1":
   "integrity" "sha512-yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A=="

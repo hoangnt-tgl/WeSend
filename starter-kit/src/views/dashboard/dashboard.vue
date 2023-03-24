@@ -1,53 +1,127 @@
 <script setup lang="ts">
+import RoundedButton from '@/components/buttons/roundedButton/index.vue'
 import CardNotifications from '@/components/dashboard/card-notifications/index.vue'
 import Cardcampaign from '@/components/dashboard/cardcampaign/index.vue'
+import DashboardTitle from '@/components/dashboard/dashboard-title/index.vue'
+import { btnPurple } from '@/constant/buttonColor'
+import { btnTitle, title } from '@/constant/commonTitle'
+import { notifications } from '@/data/notifications'
 
-const items = [1, 2, 3, 4]
-const notifications = [{ title: 'Campaign “Halloween Discount” was deleted.', date: '24 Sep 2022 / 04:30 AM', type: 'deleted' }, { title: 'Campaign “Halloween Discount” was deleted.', date: '24 Sep 2022 / 04:30 AM', type: 'create' }, { title: 'Campaign “Halloween Discount” was deleted.', date: '24 Sep 2022 / 04:30 AM', type: 'overrided' }, { title: 'Campaign “Halloween Discount” was deleted.', date: '24 Sep 2022 / 04:30 AM', type: 'overrided' }]
+const items = [1, 2]
 </script>
 
 <template>
-  <div class="campaign-wrapper">
-    <!--
-      <div
-      v-for="production in items"
-      :key="production"
-      :production="production"
-      >
-      <Cardcampaign />
-      </div>
-    -->
-    <Cardcampaign />
-    <Cardcampaign />
-    <Cardcampaign />
-    <Cardcampaign />
-  </div>
-  <div class="notifications-wrapper">
-    <div
-      v-for="notification in notifications"
-      :key="notification.title"
-      :notification="notification"
+  <VRow>
+    <!-- 👉 Influencing The Influencer -->
+    <VCol
+      cols="12"
+      md="7"
     >
-      <CardNotifications
-        :type="notification.type"
-        :date="notification.date"
-        :title="notification.title"
+      <DashboardTitle
+        :title="title.calendar"
+        :button-title="btnTitle.viewAll"
       />
+      <div>Calendar</div>
+    </VCol>
+    <VCol
+      cols="12"
+      md="5"
+    >
+      <div class="campaign-wrapper">
+        <DashboardTitle
+          :title="title.campaigns"
+          :button-title="btnTitle.viewAll"
+        />
+        <div
+          v-for="production in items"
+          :key="production"
+          :production="production"
+        >
+          <Cardcampaign />
+        </div>
+        <div>
+          <RoundedButton
+            :color="btnPurple.color"
+            :button-title="btnTitle.createNewCampaign"
+            :style="btnPurple"
+            variant=""
+          />
+        </div>
+      </div>
+      <div class="notifications-wrapper">
+        <DashboardTitle
+          :title="title.notifications"
+          :button-title="btnTitle.viewAll"
+        />
+        <div
+          v-for="notification in notifications"
+          :key="notification.title"
+          :notification="notification"
+        >
+          <CardNotifications
+            :type="notification.type"
+            :date="notification.date"
+            :title="notification.title"
+          />
+        </div>
+      </div>
+    </VCol>
+  </VRow>
+  <!--
+    <div class="campaign-wrapper">
+    <DashboardTitle
+    :title="title.campaigns"
+    :button-title="btnTitle.viewAll"
+    />
+    <div
+    v-for="production in items"
+    :key="production"
+    :production="production"
+    >
+    <Cardcampaign />
     </div>
-  </div>
+    <div>
+    <RoundedButton
+    :color="btnPurple.color"
+    :button-title="btnTitle.createNewCampaign"
+    :style="btnPurple"
+    variant=""
+    />
+    </div>
+    </div>
+    <div class="notifications-wrapper">
+    <DashboardTitle
+    :title="title.notifications"
+    :button-title="btnTitle.viewAll"
+    />
+    <div
+    v-for="notification in notifications"
+    :key="notification.title"
+    :notification="notification"
+    >
+    <CardNotifications
+    :type="notification.type"
+    :date="notification.date"
+    :title="notification.title"
+    />
+    </div>
+    </div>
+  -->
 </template>
 
 <style>
-/* @media (min-width: 375px) {
+@media (min-width: 375px) {
+  .notifications-wrapper,
   .campaign-wrapper {
-
+    margin-block-end: 60px;
   }
-} */
+}
 
 @media (min-width: 768px) {
   .campaign-wrapper {
-    display: flex;
-    gap: 1rem;
+    /* display: flex; */
+
+    /* gap: 1rem; */
   }
 }
 </style>

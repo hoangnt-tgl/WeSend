@@ -1,9 +1,6 @@
 <script lang="ts">
-import DashboardTitlee from '../dashboard-title/index.vue'
-
 export default {
   name: 'CardNotifications',
-  components: { DashboardTitlee },
   props: {
     title: {
       type: String,
@@ -12,43 +9,34 @@ export default {
     date: { type: String, required: true },
     type: { type: String, required: true },
   },
-  setup() {
-    return {
-      headTitle: 'Notifications',
-      buttonTitle: 'View all',
-    }
-  },
+
 }
 </script>
 
 <template>
-  <DashboardTitlee
-    :title="headTitle"
-    :button-title="buttonTitle"
-  />
   <VCard
     :class="type === 'deleted' ? 'notification-container deleled' : type === 'overrided' ? 'notification-container overrided'
       : 'notification-container create'
     "
   >
-    <div class="d-flex flex-column-reverse flex-md-row">
-      <div>
-        <VCardItem>
-          <VCardTitle class="notification-title">
-            {{ title }}
-          </VCardTitle>
-        </VCardItem>
+    <VCardItem class="notification-title-box">
+      <VCardTitle class="notification-title">
+        {{ title }}
+      </VCardTitle>
+    </VCardItem>
 
-        <VCardText class="d-flex align-center flex-wrap text-body-1">
-          <span class="notification-date">{{ date }}</span>
-        </VCardText>
-      </div>
-    </div>
+    <VCardText class="d-flex align-center flex-wrap text-body-1">
+      <span class="notification-date">{{ date }}</span>
+    </VCardText>
   </VCard>
 </template>
 
 <style>
 @media screen and (min-width: 350px) {
+  .notification-title-box {
+    padding-block-end: 12px;
+  }
+
   .notification-title {
     color: var(--text-active);
     font-size: var(--font-size-sm);

@@ -1,6 +1,12 @@
 <script  lang="ts">
+import RounedBtn from '@/components/buttons/roundedButton/index.vue'
+import { btnOutLine } from '@/constant/buttonColor'
+
 export default {
   name: 'DashboardTitle',
+  components: {
+    RounedBtn,
+  },
   props: {
     title: {
       type: String,
@@ -11,54 +17,37 @@ export default {
       required: true,
     },
   },
+  setup() {
+    return {
+      btnOutLine,
+    }
+  },
 }
 </script>
 
 <template>
-  <VCard
-    class=" "
-  >
-    <div class="d-flex flex-column-reverse flex-md-row">
-      <div>
-        <VCardItem>
-          <VCardTitle class="notification-title">
-            {{ title }}
-          </VCardTitle>
-          <VBtnGroup>{{ buttonTitle }}</VBtnGroup>
-        </VCardItem>
-      </div>
+  <div class="dash-title-box">
+    <div class="dash-title">
+      {{ title }}
     </div>
-  </VCard>
+    <div>
+      <RounedBtn
+        :button-title="buttonTitle"
+        color="btnOutLine.color"
+        :style="btnOutLine"
+        variant="'outlined'"
+      />
+    </div>
+  </div>
 </template>
 
 <style>
 @media screen and (min-width: 350px) {
-  .notification-title {
-    color: var(--text-active);
-    font-size: var(--font-size-sm);
-    white-space: unset;
-  }
-
-  .notification-date {
-    color: var(--text-deactive);
-    font-size: var(--font-size-ssm);
-  }
-
-  .notification-container {
-    border-radius: 0 10px 10px 0;
-    margin-block-end: 10px;
-  }
-
-  .notification-container.deleled {
-    border-inline-start: 3px solid red;
-  }
-
-  .notification-container.create {
-    border-inline-start: 3px solid #10b981;
-  }
-
-  .notification-container.overrided {
-    border-inline-start: 3px solid #f59e0b;
+  .dash-title-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-block-end: 1rem;
   }
 }
 

@@ -12,6 +12,7 @@ export default {
     },
     style: { type: Object, required: true },
     variant: { type: String, required: true },
+    icon: { type: String, default: '' },
   },
 }
 </script>
@@ -23,6 +24,10 @@ export default {
     :color="color"
     class="btn-rounded"
   >
+    <VIcon
+      v-if="icon"
+      :icon="icon"
+    />
     {{ buttonTitle }}
   </VBtn>
 </template>

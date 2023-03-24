@@ -57,6 +57,7 @@ export default {
   }
 }
 
+/*
 @media screen and (min-width: 425px) {
   .notification-title {
 
@@ -65,5 +66,5 @@ export default {
   .notification-date {
 
   }
-}
+} */
 </style>

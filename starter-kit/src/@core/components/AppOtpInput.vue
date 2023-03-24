@@ -75,6 +75,13 @@ const handleKeyDown = (event: KeyboardEvent, index: number) => {
     color: #374151;
     outline: none !important;
     border: none !important;
+    border-radius: 5px;
   }
+}
+
+.v-field__outline__start,
+.v-field__outline__end {
+  border: none !important;
+  outline: none;
 }
 </style>

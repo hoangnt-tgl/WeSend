@@ -30,11 +30,16 @@ export default {
       v-for="(item, idx) in items"
       :key="item.label"
       :value="idx"
+      :prepend-icon="item.icon"
+      :style="{
+        backgroundColor: currentTab === idx ? '#FFFFFF' : '',
+        borderRadius: '10px 10px 0 0 !important',
+        border: '0px',
+        color: currentTab === idx ? '#000 !important' : '',
+        fontWeight: currentTab === idx ? 'bold' : '',
+        textTransform: 'capitalize',
+      }"
     >
-      <VIcon
-        start
-        :icon="item.icon"
-      />
       {{ item.label }}
     </VTab>
   </VTabs>

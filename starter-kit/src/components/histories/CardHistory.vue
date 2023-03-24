@@ -1,6 +1,12 @@
 <script lang="ts">
+import RounedBtn from '@/components/buttons/roundedButton/index.vue'
+import { btnOutLine } from '@/constant/buttonColor'
+
 export default {
   name: 'CardHistory',
+  components: {
+    RounedBtn,
+  },
   props: {
     title: {
       type: String,
@@ -8,6 +14,11 @@ export default {
     },
     time: { type: String, required: true },
     type: { type: String, required: true },
+  },
+  setup() {
+    return {
+      btnOutLine,
+    }
   },
 }
 </script>
@@ -22,18 +33,39 @@ export default {
           : 'notification-container created'
     "
   >
-    <div class="d-flex justify-content-between align-center">
+    <div class="d-flex justify-content-between align-center py-3">
       <div class="w-75">
         <div class="d-flex flex-sm-column-reverse flex-column">
-          <VCardTitle class="d-flex align-center flex-wrap text-body-1">
+          <VCardTitle class="text-body-1 py-0">
             <span class="notification-date">{{ time }}</span>
           </VCardTitle>
-          <VCardTitle class="notification-title">
+          <VCardTitle class="notification-title py-0">
             {{ title }}
           </VCardTitle>
         </div>
       </div>
-      <div>d</div>
+      <div
+        v-if="type === 'deleted'"
+        class="ms-auto me-10"
+        @click="() => {}"
+      >
+        <RounedBtn
+          button-title=""
+          :color="btnOutLine.color"
+          :style="btnOutLine"
+          variant="'outlined'"
+          icon="tabler-rotate-2"
+          class="d-block d-sm-none"
+        />
+        <RounedBtn
+          button-title="Restore"
+          :color="btnOutLine.color"
+          :style="btnOutLine"
+          variant="'outlined'"
+          icon="tabler-rotate-2"
+          class="d-none d-sm-block"
+        />
+      </div>
     </div>
     <!--
       <VCardItem class="notification-title-box">

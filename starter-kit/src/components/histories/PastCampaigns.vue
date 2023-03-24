@@ -79,6 +79,7 @@ export default {
                 :model-value="item.progress / item.contacts * 100"
                 color="primary"
                 rounded
+                height="6"
               />
             </div>
           </td>
@@ -119,6 +120,67 @@ export default {
     </VTable>
   </div>
   <div class="d-block d-sm-none">
-    Processed on mobile
+    <VCard class="pa-4">
+      <VCard
+        v-for="item in items"
+        :key="item.id"
+        class="card-campaign pa-4"
+      >
+        <div class="d-flex align-center">
+          <div class="d-flex flex-column w-75">
+            <VCardTitle class="notification-title py-0">
+              {{ item.name }}
+            </VCardTitle>
+            <VCardTitle class="text-body-1 py-0">
+              <span class="notification-date">{{ item.time }}</span>
+            </VCardTitle>
+            <VCardTitle class="text-body-1 py-0">
+              <span class="notification-title">
+                {{ item.progress }} / {{ item.contacts }}
+              </span>
+              <VProgressLinear
+                :model-value="item.progress / item.contacts * 100"
+                color="primary"
+                rounded
+                height="6"
+              />
+            </VCardTitle>
+          </div>
+          <div class="ms-auto">
+            <VBtn
+              icon
+              size="x-small"
+              color="default"
+              variant="text"
+              class="border rounded"
+            >
+              <VIcon
+                size="22"
+                icon="tabler-file-export"
+              />
+            </VBtn>
+          </div>
+        </div>
+      </VCard>
+    </VCard>
   </div>
 </template>
+
+<style scoped>
+.card-campaign {
+  border-radius: 0 10px 10px 0;
+  background: #f9fafb;
+}
+
+.notification-title {
+  color: var(--text-active);
+  font-size: var(--font-size);
+  margin-inline: 0;
+  white-space: unset;
+}
+
+.notification-date {
+  color: var(--text-deactive);
+  font-size: var(--font-size-sm);
+}
+</style>

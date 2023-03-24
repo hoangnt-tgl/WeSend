@@ -16,10 +16,6 @@ export default {
       type: String,
       required: true,
     },
-    action: {
-      type: Function,
-      required: true,
-    },
   },
   setup() {
     return {

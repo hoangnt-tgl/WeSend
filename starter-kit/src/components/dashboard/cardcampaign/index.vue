@@ -74,4 +74,29 @@ const percentage = 50
     flex: 1;
   }
 }
+
+@media screen and (min-width: 950px) {
+  .card-description,
+  .top-card {
+    padding: 14px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .card-description,
+  .top-card {
+    padding: 24px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .card-description,
+  .top-card {
+    padding: 14px;
+  }
+}
+@media screen and (min-width: 1550px) {
+  .card-description,
+  .top-card {
+    padding: 24px;
+  }
+}
 </style>

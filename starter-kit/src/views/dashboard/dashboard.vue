@@ -15,7 +15,7 @@ const items = [1, 2]
     <!-- 👉 Influencing The Influencer -->
     <VCol
       cols="12"
-      md="7"
+      md="8"
     >
       <DashboardTitle
         :title="title.calendar"
@@ -25,7 +25,7 @@ const items = [1, 2]
     </VCol>
     <VCol
       cols="12"
-      md="5"
+      md="4"
     >
       <div class="campaign-wrapper">
         <DashboardTitle

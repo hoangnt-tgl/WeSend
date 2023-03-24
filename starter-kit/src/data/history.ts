@@ -1,41 +1,43 @@
-export const lastAction = [
+export const lastActions = [
   {
     id: 1,
-    name: 'Campaign “Halloween Discount” was deleted.',
+    title: 'Campaign “Halloween Discount” was deleted.',
     time: '24 Sep 2020 / 10:00 AM',
-    isDeleted: true,
+    type: 'deleted',
   },
   {
     id: 2,
-    name: 'Campaign “Halloween Discount” was deleted.',
+    title: 'Campaign “Halloween Discount” was deleted.',
     time: '24 Sep 2020 / 10:00 AM',
-    isDeleted: true,
+    type: 'created',
   },
   {
     id: 3,
-    name: 'Campaign “Halloween Discount” was deleted.',
+    title: 'Campaign “Halloween Discount” was deleted.',
     time: '24 Sep 2020 / 10:00 AM',
-    isDeleted: true,
+    type: 'overrided',
   },
   {
     id: 4,
-    name: 'Campaign “Halloween Discount” was deleted.',
+    title: 'Campaign “Halloween Discount” was deleted.',
     time: '24 Sep 2020 / 10:00 AM',
-    isDeleted: true,
+    type: 'deleted',
   },
   {
     id: 5,
-    name: 'Campaign “Birthday Bash” schedule was overrided!',
+    title: 'Campaign “Birthday Bash” schedule was overrided!',
     time: '24 Sep 2020 / 10:00 AM',
-    isDeleted: false,
+    type: 'overrided',
   },
   {
     id: 6,
-    name: 'Campaign “Birthday Bash” schedule was overrided!',
+    title: 'Campaign “Birthday Bash” schedule was overrided!',
     time: '24 Sep 2020 / 10:00 AM',
-    isDeleted: false,
+    type: 'overrided',
   },
 ]
+
+export const updates = lastActions
 
 export const pastCampaigns = [
   {

@@ -72,7 +72,17 @@ export default {
 }
 
 @media (min-width: 600px) {
+  .day {
+    /* font-size: var(--font-size-h3); */
+  }
 
+  .month-box {
+    font-size: var(--font-size-sm);
+  }
+
+  .hour {
+    font-size: var(--font-size-sm);
+  }
 }
 
 @media (min-width: 768px) {
@@ -80,20 +90,73 @@ export default {
 }
 
 @media (min-width: 950px) {
+  .day {
+    font-size: var(--font-size-h4);
+  }
 
+  .month-box {
+    font-size: var(--font-size-ssm);
+  }
+
+  .hour {
+    font-size: var(--font-size-ssm);
+  }
 }
 
 @media (min-width: 1200px) {
+  .day {
+    font-size: var(--font-size-h3);
+  }
 
+  .month-box {
+    font-size: var(--font-size-sm);
+  }
+
+  .hour {
+    font-size: var(--font-size-sm);
+  }
+}
+
+@media (min-width: 1280px) {
+  .day {
+    font-size: var(--font-size-h4);
+  }
+
+  .month-box {
+    font-size: var(--font-size-ssm);
+  }
+
+  .hour {
+    font-size: var(--font-size-ssm);
+  }
 }
 
 @media (min-width: 1440px) {
+  .day {
+    font-size: var(--font-size-h3);
+  }
+
+  .month-box {
+    font-size: var(--font-size-sm);
+  }
+
+  .hour {
+    font-size: var(--font-size-sm);
+  }
 }
 
-@media (min-width: 1900px) {
-}
+@media (min-width: 1700px) {
+  .day {
+    font-size: var(--font-size-h3);
+  }
 
-@media (min-width: 2000px) {
+  .month-box {
+    font-size: var(--font-size);
+  }
+
+  .hour {
+    font-size: var(--font-size);
+  }
 }
 </style>
 

@@ -7,7 +7,7 @@ export const notifications = [
   {
     title: 'Campaign “Halloween Discount” was deleted.',
     date: '24 Sep 2022 / 04:30 AM',
-    type: 'create',
+    type: 'created',
   },
   {
     title: 'Campaign “Halloween Discount” was deleted.',

@@ -26,7 +26,7 @@ export default {
           color="success"
           class="text-uppercase chip-status"
         >
-          <div class="test">
+          <div class="chip-text">
             running
           </div>
         </VChip>
@@ -55,7 +55,7 @@ export default {
     gap: 10px;
   }
 
-  .test {
+  .chip-text {
     font-size: var(--font-size-ssm) !important;
   }
 
@@ -77,8 +77,15 @@ export default {
 
 }
 
-@media (min-width: 600px) {
+@media (min-width: 500px) {
+  .chip-text {
+    font-size: var(--font-size-sm) !important;
+  }
 
+  .progress,
+  .progressTotal {
+    font-size: var(--font-size-sm);
+  }
 }
 
 @media (min-width: 768px) {
@@ -86,20 +93,36 @@ export default {
 }
 
 @media (min-width: 950px) {
+  .chip-text {
+    font-size: var(--font-size-ssm) !important;
+  }
 
+  .progress,
+  .progressTotal {
+    font-size: var(--font-size-ssm);
+  }
 }
 
 @media (min-width: 1200px) {
+  .chip-text {
+    font-size: var(--font-size-ssm) !important;
+  }
 
+  .progress,
+  .progressTotal {
+    font-size: var(--font-size-ssm);
+  }
 }
 
-@media (min-width: 1440px) {
-}
+@media (min-width: 1700px) {
+  .chip-text {
+    font-size: var(--font-size-sm) !important;
+  }
 
-@media (min-width: 1900px) {
-}
-
-@media (min-width: 2000px) {
+  .progress,
+  .progressTotal {
+    font-size: var(--font-size-sm);
+  }
 }
 </style>
 

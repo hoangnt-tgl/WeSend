@@ -18,6 +18,7 @@ import AppOtpInput from '@/@core/components/AppOtpInput.vue';
 
           <p class="resend">Didn’t received the code. <a href="#">Resend</a> (20s)</p>
         </div>
+        <p>New to WeSend. <a href="#">Sign up</a></p>
       </div>
       <div class="verify__footer">
         <div class="verify__footer__link">
@@ -154,6 +155,11 @@ input[type=number] {
 .verify__content .resend a {
   text-decoration: underline;
   color: #374151;
+}
+
+.verify__container>p a {
+  text-decoration: underline;
+  color: #6354D9;
 }
 
 .verify__footer {

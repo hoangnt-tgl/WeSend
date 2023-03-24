@@ -175,10 +175,17 @@ export const useCalendar = (event: Ref<Event | NewEvent>, isEventHandlerSidebarA
   const calendarOptions = {
     plugins: [dayGridPlugin, interactionPlugin, timeGridPlugin, listPlugin],
 
-    initialView: 'dayGridMonth',
+    initialView: 'timeGridDay',
     headerToolbar: {
-      start: 'drawerToggler,prev,next title',
-      end: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth',
+      start: '',
+      end: '',
+    },
+    views: {
+      timeGridDay: {
+        type: 'timeGrid',
+        duration: { days: 3 },
+        buttonText: '3 day',
+      },
     },
     events: fetchEvents,
 

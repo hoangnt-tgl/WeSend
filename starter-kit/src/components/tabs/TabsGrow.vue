@@ -24,7 +24,6 @@ export default {
 <template>
   <VTabs
     v-model="currentTab"
-    grow
   >
     <VTab
       v-for="(item, idx) in items"

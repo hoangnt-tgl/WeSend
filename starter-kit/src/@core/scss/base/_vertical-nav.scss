@@ -131,8 +131,8 @@
         @extend %nav-link-active;
 
         border-radius: 0;
-        background-color: #f6f6fe !important;
-        border-inline-end: 3px solid #6366f1;
+        background: #f6f6fe !important;
+        border-inline-end: 2px solid #6366f1;
         color: #6366f1;
         font-weight: bold;
       }
@@ -143,6 +143,10 @@
 
         // Adds vuetify states
         @include vuetifyStates.states($active: false);
+
+        margin-inline: 0 !important;
+        padding-block: 1.5rem !important;
+        padding-inline-start: 2rem !important;
       }
     }
 

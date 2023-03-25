@@ -1,7 +1,7 @@
 <!-- eslint-disable @typescript-eslint/no-empty-function -->
 <script lang="ts">
 export default {
-  name: "RoundedButton",
+  name: 'RoundedButton',
   props: {
     buttonTitle: {
       type: String,
@@ -13,16 +13,16 @@ export default {
     },
     style: { type: Object, required: true },
     variant: { type: String, required: true },
-    iconB: { type: String, default: "" },
-    iconBColor: { type: String, default: "" },
-    iconA: { type: String, default: "" },
-    iconAColor: { type: String, default: "" },
+    iconB: { type: String, default: '' },
+    iconBColor: { type: String, default: '' },
+    iconA: { type: String, default: '' },
+    iconAColor: { type: String, default: '' },
     action: {
       type: Function,
       default: () => {},
     },
   },
-};
+}
 </script>
 
 <template>
@@ -33,7 +33,11 @@ export default {
     class="btn-rounded"
     @click="action"
   >
-    <VIcon v-if="iconB" :color="iconBColor" :icon="iconB" />
+    <VIcon
+      v-if="iconB"
+      :color="iconBColor"
+      :icon="iconB"
+    />
     {{ buttonTitle }}
 
     <VIcon
@@ -41,7 +45,7 @@ export default {
       :size="18"
       :icon="iconA"
       :color="iconAColor"
-      style="border-radius: 50%; margin-left: 12px; background-color: white"
+      style="border-radius: 50%; margin-left: 12px; background-color: white;"
     />
   </VBtn>
 </template>

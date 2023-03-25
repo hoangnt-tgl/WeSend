@@ -12,7 +12,10 @@ export default {
     },
     style: { type: Object, required: true },
     variant: { type: String, required: true },
-    icon: { type: String, default: '' },
+    iconB: { type: null, default: '' },
+    iconBColor: { type: String, default: '' },
+    iconA: { type: null, default: 0 },
+    iconAColor: { type: String, default: '' },
   },
 }
 </script>
@@ -25,10 +28,19 @@ export default {
     class="btn-rounded"
   >
     <VIcon
-      v-if="icon"
-      :icon="icon"
+      v-if="iconB"
+      :color="iconBColor"
+      :icon="iconB"
     />
     {{ buttonTitle }}
+
+    <VIcon
+      v-if="iconA"
+      :size="18"
+      :icon="iconA"
+      :color="iconAColor"
+      style=" border-radius: 50%;margin-left: 12px; background-color: white;"
+    />
   </VBtn>
 </template>
 

@@ -15,7 +15,7 @@ const items = [1, 2]
   <VRow>
     <VCol
       cols="12"
-      md="8"
+      md="7"
     >
       <DashboardTitle
         :title="title.calendar"
@@ -25,7 +25,7 @@ const items = [1, 2]
     </VCol>
     <VCol
       cols="12"
-      md="4"
+      md="5"
     >
       <div class="campaign-wrapper">
         <DashboardTitle
@@ -42,6 +42,8 @@ const items = [1, 2]
         </div>
         <div>
           <RoundedButton
+            icon-a="tabler-plus"
+            :icon-a-color="btnPurple.background"
             :color="btnPurple.color"
             :button-title="btnTitle.createNewCampaign"
             :style="btnPurple"
@@ -72,7 +74,7 @@ const items = [1, 2]
 </template>
 
 <style>
-@media (min-width: 375px) {
+@media (min-width: 350px) {
   .notifications-wrapper,
   .campaign-wrapper {
     margin-block-end: 60px;

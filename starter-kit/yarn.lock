@@ -330,21 +330,6 @@
   "resolved" "https://registry.npmjs.org/@casl/vue/-/vue-2.2.0.tgz"
   "version" "2.2.0"
 
-"@csstools/cascade-layer-name-parser@^1.0.0":
-  "integrity" "sha512-SAAi5DpgJJWkfTvWSaqkgyIsTawa83hMwKrktkj6ra2h+q6ZN57vOGZ6ySHq6RSo+CbP64fA3aPChPBRDDUgtw=="
-  "resolved" "https://registry.npmjs.org/@csstools/cascade-layer-name-parser/-/cascade-layer-name-parser-1.0.1.tgz"
-  "version" "1.0.1"
-
-"@csstools/css-parser-algorithms@^2.0.0":
-  "integrity" "sha512-B9/8PmOtU6nBiibJg0glnNktQDZ3rZnGn/7UmDfrm2vMtrdlXO3p7ErE95N0up80IRk9YEtB5jyj/TmQ1WH3dw=="
-  "resolved" "https://registry.npmjs.org/@csstools/css-parser-algorithms/-/css-parser-algorithms-2.0.1.tgz"
-  "version" "2.0.1"
-
-"@csstools/css-tokenizer@^2.0.0":
-  "integrity" "sha512-dtqFyoJBHUxGi9zPZdpCKP1xk8tq6KPHJ/NY4qWXiYo6IcSGwzk3L8x2XzZbbyOyBs9xQARoGveU2AsgLj6D2A=="
-  "resolved" "https://registry.npmjs.org/@csstools/css-tokenizer/-/css-tokenizer-2.1.0.tgz"
-  "version" "2.1.0"
-
 "@csstools/selector-specificity@^2.0.0", "@csstools/selector-specificity@^2.0.2":
   "integrity" "sha512-IkpVW/ehM1hWKln4fCA3NzJU8KwD+kIOvPZA4cqxoJHtE21CCzjyp+Kxbu0i5I4tBNOlXPL9mjwnWlL0VEG4Fg=="
   "resolved" "https://registry.npmjs.org/@csstools/selector-specificity/-/selector-specificity-2.0.2.tgz"
@@ -3842,16 +3827,6 @@
   "version" "5.1.3"
   dependencies:
     "browserslist" "^4.21.4"
-    "postcss-value-parser" "^4.2.0"
-
-"postcss-custom-properties@^13.1.4":
-  "integrity" "sha512-iSAdaZrM3KMec8cOSzeTUNXPYDlhqsMJHpt62yrjwG6nAnMtRHPk5JdMzGosBJtqEahDolvD5LNbcq+EZ78o5g=="
-  "resolved" "https://registry.npmjs.org/postcss-custom-properties/-/postcss-custom-properties-13.1.4.tgz"
-  "version" "13.1.4"
-  dependencies:
-    "@csstools/cascade-layer-name-parser" "^1.0.0"
-    "@csstools/css-parser-algorithms" "^2.0.0"
-    "@csstools/css-tokenizer" "^2.0.0"
     "postcss-value-parser" "^4.2.0"
 
 "postcss-discard-comments@^5.1.2":

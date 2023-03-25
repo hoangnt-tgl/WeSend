@@ -2,7 +2,7 @@ import dayGridPlugin from '@fullcalendar/daygrid'
 import interactionPlugin from '@fullcalendar/interaction'
 import listPlugin from '@fullcalendar/list'
 import timeGridPlugin from '@fullcalendar/timegrid'
-import type { CalendarApi, CalendarOptions, EventApi, EventSourceFunc } from '@fullcalendar/vue3'
+import type { CalendarApi, EventApi, EventSourceFunc } from '@fullcalendar/vue3'
 import type { Ref } from 'vue'
 import type { Event, NewEvent } from './types'
 import { useThemeConfig } from '@core/composable/useThemeConfig'
@@ -176,17 +176,19 @@ export const useCalendar = (event: Ref<Event | NewEvent>, isEventHandlerSidebarA
     plugins: [dayGridPlugin, interactionPlugin, timeGridPlugin, listPlugin],
 
     initialView: 'timeGridDay',
-    headerToolbar: {
-      start: '',
-      end: '',
-    },
+    headerToolbar: false,
+
     views: {
       timeGridDay: {
         type: 'timeGrid',
         duration: { days: 3 },
         buttonText: '3 day',
+        slotDuration: '01:00',
+        allDaySlot: false,
+
       },
     },
+
     events: fetchEvents,
 
     // ❗ We need this to be true because when its false and event is allDay event and end date is same as start data then Full calendar will set end to null

@@ -47,7 +47,7 @@ export default {
   <VRow>
     <VCol
       cols="12"
-      md="8"
+      md="7"
     >
       <DashboardTitle
         :title="title.calendar"
@@ -58,7 +58,7 @@ export default {
     </VCol>
     <VCol
       cols="12"
-      md="4"
+      md="5"
     >
       <div class="campaign-wrapper">
         <DashboardTitle
@@ -75,6 +75,8 @@ export default {
         </div>
         <div>
           <RoundedButton
+            icon-a="tabler-plus"
+            :icon-a-color="btnPurple.background"
             :color="btnPurple.color"
             :button-title="btnTitle.createNewCampaign"
             :style="btnPurple"
@@ -105,7 +107,7 @@ export default {
 </template>
 
 <style>
-@media (min-width: 375px) {
+@media (min-width: 350px) {
   .notifications-wrapper,
   .campaign-wrapper {
     margin-block-end: 60px;

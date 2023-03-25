@@ -330,7 +330,7 @@
   "resolved" "https://registry.npmjs.org/@casl/vue/-/vue-2.2.0.tgz"
   "version" "2.2.0"
 
-"@csstools/selector-specificity@^2.0.2":
+"@csstools/selector-specificity@^2.0.0", "@csstools/selector-specificity@^2.0.2":
   "integrity" "sha512-IkpVW/ehM1hWKln4fCA3NzJU8KwD+kIOvPZA4cqxoJHtE21CCzjyp+Kxbu0i5I4tBNOlXPL9mjwnWlL0VEG4Fg=="
   "resolved" "https://registry.npmjs.org/@csstools/selector-specificity/-/selector-specificity-2.0.2.tgz"
   "version" "2.0.2"
@@ -3924,6 +3924,14 @@
   dependencies:
     "postcss-selector-parser" "^6.0.5"
 
+"postcss-nesting@^11.2.1":
+  "integrity" "sha512-E6Jq74Jo/PbRAtZioON54NPhUNJYxVWhwxbweYl1vAoBYuGlDIts5yhtKiZFLvkvwT73e/9nFrW3oMqAtgG+GQ=="
+  "resolved" "https://registry.npmjs.org/postcss-nesting/-/postcss-nesting-11.2.1.tgz"
+  "version" "11.2.1"
+  dependencies:
+    "@csstools/selector-specificity" "^2.0.0"
+    "postcss-selector-parser" "^6.0.10"
+
 "postcss-normalize-charset@^5.1.0":
   "integrity" "sha512-mSgUJ+pd/ldRGVx26p2wz9dNZ7ji6Pn8VWBajMXFf8jk7vUoSrZ2lt/wZR7DtlZYKesmZI680qjr2CeFF2fbUg=="
   "resolved" "https://registry.npmjs.org/postcss-normalize-charset/-/postcss-normalize-charset-5.1.0.tgz"
@@ -4071,7 +4079,7 @@
     "picocolors" "^0.2.1"
     "source-map" "^0.6.1"
 
-"postcss@^8.0.9", "postcss@^8.1.10", "postcss@^8.2", "postcss@^8.2.15", "postcss@^8.2.2", "postcss@^8.3.11", "postcss@^8.3.3", "postcss@^8.3.9", "postcss@^8.4.0", "postcss@^8.4.18", "postcss@^8.4.19":
+"postcss@^8.0.9", "postcss@^8.1.10", "postcss@^8.2", "postcss@^8.2.15", "postcss@^8.2.2", "postcss@^8.3.11", "postcss@^8.3.3", "postcss@^8.3.9", "postcss@^8.4", "postcss@^8.4.0", "postcss@^8.4.18", "postcss@^8.4.19":
   "integrity" "sha512-h+pbPsyhlYj6N2ozBmHhHrs9DzGmbaarbLvWipMRO7RLS+v4onj26MPFXA5OBYFxyqYhUJK456SwDcY9H2/zsA=="
   "resolved" "https://registry.npmjs.org/postcss/-/postcss-8.4.19.tgz"
   "version" "8.4.19"

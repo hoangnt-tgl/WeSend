@@ -35,7 +35,10 @@ const { refCalendar, calendarOptions, addEvent, updateEvent, removeEvent, jumpTo
       <!-- `z-index: 0` Allows overlapping vertical nav on calendar -->
       <VLayout style="z-index: 0;">
         <VMain>
-          <VCard flat>
+          <VCard
+            flat
+            class="calendar-container"
+          >
             <FullCalendar
               ref="refCalendar"
               :options="calendarOptions"
@@ -64,6 +67,7 @@ const { refCalendar, calendarOptions, addEvent, updateEvent, removeEvent, jumpTo
 
   .v-card {
     overflow: visible;
+    border-radius: 20px !important;
   }
 }
 </style>

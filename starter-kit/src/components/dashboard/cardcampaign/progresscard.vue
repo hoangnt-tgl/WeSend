@@ -26,7 +26,7 @@ export default {
           color="success"
           class="text-uppercase chip-status"
         >
-          <div class="chip-text">
+          <div class="chip-text running">
             running
           </div>
         </VChip>
@@ -36,12 +36,14 @@ export default {
           color="primary"
           class="text-uppercase"
         >
-          in queue
+          <div class="chip-text queue">
+            in queue
+          </div>
         </VChip>
       </div>
     </div>
     <div>
-      <span class="progress">{{ progress }}</span> / <span class="progressTotal">{{ progressTotal }}</span>
+      <span class="progress">{{ progress }} /</span>  <span class="progressTotal">{{ progressTotal }}</span>
     </div>
   </div>
 </template>
@@ -51,12 +53,21 @@ export default {
   .progress-box {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     gap: 10px;
+  }
+
+  .queue {
+    color: #6354d9;
+  }
+
+  .running {
+    color: #059669;
   }
 
   .chip-text {
     font-size: var(--font-size-ssm) !important;
+    font-weight: 900;
   }
 
   .progress,
@@ -66,6 +77,7 @@ export default {
 
   .progress {
     color: var(--text-active);
+    font-weight: 600;
   }
 
   .progressTotal {
@@ -74,7 +86,14 @@ export default {
 }
 
 @media (min-width: 425px) {
+  /* .chip-text {
+    font-size: var(--font-size-sm) !important;
+  }
 
+  .progress,
+  .progressTotal {
+    font-size: var(--font-size-sm);
+  } */
 }
 
 @media (min-width: 500px) {
@@ -89,7 +108,14 @@ export default {
 }
 
 @media (min-width: 768px) {
+  .chip-text {
+    font-size: var(--font-size) !important;
+  }
 
+  .progress,
+  .progressTotal {
+    font-size: var(--font-size);
+  }
 }
 
 @media (min-width: 950px) {
@@ -105,12 +131,34 @@ export default {
 
 @media (min-width: 1200px) {
   .chip-text {
+    font-size: var(--font-size-sm) !important;
+  }
+
+  .progress,
+  .progressTotal {
+    font-size: var(--font-size-sm);
+  }
+}
+
+@media (min-width: 1280px) {
+  .chip-text {
     font-size: var(--font-size-ssm) !important;
   }
 
   .progress,
   .progressTotal {
     font-size: var(--font-size-ssm);
+  }
+}
+
+@media (min-width: 1440px) {
+  .chip-text {
+    font-size: var(--font-size-sm) !important;
+  }
+
+  .progress,
+  .progressTotal {
+    font-size: var(--font-size-sm);
   }
 }
 

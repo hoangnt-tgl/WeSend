@@ -12,7 +12,7 @@ export default {
 
 <template>
   <div class="date-box">
-    <div class=" me-4 day">
+    <div class="day">
       25
     </div>
     <div class="time-box">
@@ -29,9 +29,11 @@ export default {
   <style>
 @media (min-width: 350px) {
   .date-box {
+    position: relative;
     display: flex;
     align-items: center;
     color: var(--text-active);
+    gap: 10px;
   }
 
   .day {
@@ -86,25 +88,21 @@ export default {
 }
 
 @media (min-width: 768px) {
+  .day {
+    font-size: var(--font-size-h3);
+  }
 
+  .month-box {
+    font-size: var(--font-size);
+  }
+
+  .hour {
+    font-size: var(--font-size);
+  }
 }
 
 @media (min-width: 950px) {
   .day {
-    font-size: var(--font-size-h4);
-  }
-
-  .month-box {
-    font-size: var(--font-size-ssm);
-  }
-
-  .hour {
-    font-size: var(--font-size-ssm);
-  }
-}
-
-@media (min-width: 1200px) {
-  .day {
     font-size: var(--font-size-h3);
   }
 
@@ -114,39 +112,53 @@ export default {
 
   .hour {
     font-size: var(--font-size-sm);
+  }
+}
+
+@media (min-width: 1100px) {
+  .day {
+    font-size: var(--font-size-h3);
+  }
+
+  .month-box {
+    font-size: var(--font-size);
+  }
+
+  .hour {
+    font-size: var(--font-size);
   }
 }
 
 @media (min-width: 1280px) {
-  .day {
-    font-size: var(--font-size-h4);
+  /* .day {
+    font-size: var(--font-size-h3);
   }
 
   .month-box {
-    font-size: var(--font-size-ssm);
+    font-size: var(--font-size);
   }
 
   .hour {
-    font-size: var(--font-size-ssm);
-  }
+    font-size: var(--font-size);
+  } */
 }
 
 @media (min-width: 1440px) {
-  .day {
+  /* .day {
     font-size: var(--font-size-h3);
-  }
+  } */
 
-  .month-box {
+  /* .month-box {
     font-size: var(--font-size-sm);
   }
 
   .hour {
     font-size: var(--font-size-sm);
-  }
+  } */
 }
 
 @media (min-width: 1700px) {
-  .day {
+  /* .day {
     font-size: var(--font-size-h3);
   }
 
@@ -156,7 +168,7 @@ export default {
 
   .hour {
     font-size: var(--font-size);
-  }
+  } */
 }
 </style>
 

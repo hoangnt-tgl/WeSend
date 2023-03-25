@@ -1,13 +1,36 @@
+<!-- eslint-disable vue/component-api-style -->
+<script lang="ts">
+import PaymentDetail from '@/components/pricing/PaymentDetail.vue'
+import SignUp from '@/components/pricing/SignUp.vue'
+import YourDetail from '@/components/pricing/YourDetail.vue'
+import Verify from '@/components/signin/verify.vue'
 
-<script>
+const step = ref(1)
+const verify = ref(false)
 export default {
-  data: () => ({
-    step: 1
-  }),
-  computed: {
-    stepperProgress() {
-      return (100 / 3) * (this.step - 1) + '%'
+  components: {
+    Verify,
+    YourDetail,
+    PaymentDetail,
+    SignUp,
+  },
+  setup() {
+    return {
+      step,
+      verify,
     }
+  },
+  methods: {
+    nextStep() {
+      if (this.step === 1) {
+        this.step++
+      }
+      else if (this.step === 2 && this.verify === false)
+        this.verify = true
+      else if (this.step === 2 && this.verify === true) {
+        this.step++
+      }
+    },
   },
 }
 </script>
@@ -20,26 +43,57 @@ export default {
         <div class="wrapper-stepper">
           <div class="stepper">
             <div class="stepper-progress">
-              <div class="stepper-progress-bar" :style="'width:' + stepperProgress"></div>
+              <div
+                class="stepper-progress-bar"
+                :style="`width:${stepperProgress}`"
+              />
             </div>
 
-            <div class="stepper-item" :class="{ 'current': step == item, 'success': step > item }" v-for="item in 4"
-              :key="item">
+            <div
+              v-for="item in 3"
+              :key="item"
+              class="stepper-item"
+              :class="{ current: step == item, success: step > item }"
+            >
               <div class="stepper-item-counter">
-                <img class="icon-success" src="../../assets/icons/verify.svg" alt="verify">
+                <img
+                  class="icon-success"
+                  src="../../assets/icons/verify.svg"
+                  alt="verify"
+                >
                 <span class="number">
                   {{ item }}
                 </span>
               </div>
             </div>
           </div>
+          <div v-if="step === 1">
+            <SignUp :action="nextStep" />
+          </div>
+          <div v-if="step === 2 && verify === false">
+            <YourDetail :action="nextStep" />
+          </div>
+          <div v-if="step === 2 && verify === true">
+            <Verify :action="nextStep" />
+          </div>
+          <div v-if="step === 3">
+            <PaymentDetail :action="nextStep" />
+          </div>
 
-          <div class="stepper-content" v-for="item in 4" :key="item">
-            <Package></Package>
+          <div
+            v-for="item in 4"
+            :key="item"
+            class="stepper-content"
+          >
+            <Package />
           </div>
 
           <div class="controls">
-            <button class="btn btn--green-1" @click="step++" :disabled="step == 4">
+            <button
+              class="btn btn--green-1"
+              :disabled="step === 3"
+              @click="nextStep"
+            >
               Siguiente
             </button>
           </div>
@@ -63,33 +117,35 @@ export default {
 <style scoped>
 .select {
   background: url(../../assets/images/login/background.png) center / cover no-repeat;
-  min-height: 115vh;
-  padding: 0 16.5px;
+  min-block-size: 115vh;
+  padding-block: 0;
+  padding-inline: 16.5px;
 }
 
 .container {
-  max-width: 466px;
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 115vh;
+  margin-block: 0;
+  margin-inline: auto;
+  max-inline-size: 466px;
+  min-block-size: 115vh;
 }
 
 .select__container {
-  flex: 1;
   display: flex;
+  flex: 1;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
 }
 
 .select__container h1 {
-  font-weight: 700;
-  font-size: 32px;
-  line-height: 48px;
   color: #111827;
-  margin-bottom: 38px;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 48px;
+  margin-block-end: 38px;
 }
 
 .select__container h1 span {
@@ -97,41 +153,41 @@ export default {
 }
 
 .select__content {
-  background: #fff;
   border-radius: 15px;
-  padding: 40px 27.5px;
-  width: 100%;
+  background: #fff;
+  inline-size: 100%;
+  padding-block: 40px;
+  padding-inline: 27.5px;
 }
 
 .select__content p {
-  text-align: center;
-  font-size: 14px;
   color: #374151;
+  font-size: 14px;
+  text-align: center;
 }
 
 .select__content h2 {
-  text-align: center;
-  margin-bottom: 10px;
   color: #111827;
-  font-weight: 700;
   font-size: 20px;
+  font-weight: 700;
   line-height: 30px;
+  margin-block-end: 10px;
+  text-align: center;
 }
 
-.select__container>p {
-  margin-top: 30px;
-  margin-bottom: 0px;
+.select__container > p {
   color: #374151;
   font-size: 14px;
+  margin-block: 30px 0;
 }
 
-.select__container>p a {
-  color: #6354D9;
+.select__container > p a {
+  color: #6354d9;
 }
 
-.select__container>p a {
+.select__container > p a {
+  color: #6354d9;
   text-decoration: underline;
-  color: #6354D9;
 }
 
 .tx-green-1 {
@@ -141,35 +197,37 @@ export default {
 
 .wrapper-stepper {
   border-radius: 32px;
+
   /* box-shadow: ; */
 }
 
 .stepper {
+  position: relative;
+  z-index: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 400px;
-  position: relative;
-  z-index: 0;
-  margin: 0 auto 30px;
+  inline-size: 400px;
+  margin-block: 0 30px;
+  margin-inline: auto;
 }
 
 .stepper-progress {
   position: absolute;
-  background-color: #E5E7EB;
-  height: 2px;
   z-index: -1;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
+  background-color: #e5e7eb;
+  block-size: 2px;
+  inset-inline: 0;
+  margin-block: 0;
+  margin-inline: auto;
 }
 
 .stepper-progress-bar {
   position: absolute;
-  left: 0;
-  height: 100%;
-  width: 0%;
-  background-color: #11B981;
+  background-color: #11b981;
+  block-size: 100%;
+  inline-size: 0%;
+  inset-inline-start: 0;
   transition: all 0.4s;
 }
 
@@ -182,14 +240,14 @@ export default {
 }
 
 .stepper-item-counter {
-  height: 48px;
-  width: 48px;
-  display: grid;
-  place-items: center;
-  background-color: #E5E7EB;
-  border-radius: 100%;
   /* border: 2px solid $default; */
   position: relative;
+  display: grid;
+  border-radius: 100%;
+  background-color: #e5e7eb;
+  block-size: 48px;
+  inline-size: 48px;
+  place-items: center;
 }
 
 .stepper-item-counter .icon-success {
@@ -208,11 +266,10 @@ export default {
 .stepper-item-title {
   position: absolute;
   font-size: 14px;
-  bottom: -24px;
+  inset-block-end: -24px;
 }
 
 .stepper-item.success {
-
   /* .stepper-item-title {
     color: $green-1;
   } */
@@ -238,7 +295,7 @@ export default {
 .stepper-item.current .stepper-item-counter {
   /* border-color: $green-1;
   background-color: $green-1; */
-  background: #6366F1;
+  background: #6366f1;
   color: #fff;
   font-weight: 600;
 }
@@ -249,10 +306,13 @@ export default {
 
 .stepper-pane {
   color: #333;
-  text-align: center;
-  padding: 120px 60px;
+
   /* box-shadow: 0 8px 12px rgba($color: #000000, $alpha: 0.09); */
-  margin: 40px 0;
+  margin-block: 40px;
+  margin-inline: 0;
+  padding-block: 120px;
+  padding-inline: 60px;
+  text-align: center;
 }
 
 .controls {
@@ -293,7 +353,7 @@ export default {
 /* footer */
 .select__footer {
   font-size: 14px;
-  padding-bottom: 30px;
+  padding-block-end: 30px;
   text-align: center;
 }
 
@@ -307,17 +367,16 @@ export default {
 
 .select__footer__link span {
   color: #374151;
-  padding: 0 4px;
+  padding-block: 0;
+  padding-inline: 4px;
 }
 
 .select__footer p {
-  margin-bottom: 0;
   color: #374151;
-  margin-top: 10px;
+  margin-block: 10px 0;
 }
 
 @media (min-width: 479px) {
-
   p,
   .select__footer {
     font-size: 16px !important;
@@ -333,8 +392,9 @@ export default {
   }
 
   .select__content p {
-    width: 65%;
-    margin: 0 auto 10px;
+    inline-size: 65%;
+    margin-block: 0 10px;
+    margin-inline: auto;
   }
 
   .select-input-checkbox button {

@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import '@fullcalendar/core/vdom' // solves problem with Vite
-import { useDisplay } from 'vuetify'
 
 // Local imports
 
@@ -13,8 +12,6 @@ import { useResponsiveLeftSidebar } from '@core/composable/useResponsiveSidebar'
 // Components
 import CalendarEventHandler from '@/components/calendar/CalendarEventHandler.vue'
 
-const { mobile } = useDisplay()
-
 // 👉 Event
 const event = ref(structuredClone(blankEvent))
 const isEventHandlerSidebarActive = ref(false)
@@ -22,7 +19,6 @@ const isEventHandlerSidebarActive = ref(false)
 watch(isEventHandlerSidebarActive, val => {
   if (!val)
     event.value = structuredClone(blankEvent)
-  console.log('isEventHandlerSidebarActive', val)
 })
 
 const { isLeftSidebarOpen } = useResponsiveLeftSidebar()
@@ -30,17 +26,24 @@ const { isLeftSidebarOpen } = useResponsiveLeftSidebar()
 // 👉 useCalendar
 const { refCalendar, calendarOptions, addEvent, updateEvent, removeEvent, jumpToDate } = useCalendar(event, isEventHandlerSidebarActive, isLeftSidebarOpen)
 
-watch(mobile, val => {
-  if (mobile.value) {
-    calendarOptions.views = {
-      timeGridDay: {
-        type: 'timeGrid',
-        duration: { days: 1 },
-        buttonText: '3 day',
-      },
-    }
+if (window.innerWidth < 576) {
+  calendarOptions.views = {
+    timeGridDay: {
+      type: 'timeGrid',
+      duration: { days: 1 },
+      buttonText: '1 day',
+    },
   }
-})
+}
+else {
+  calendarOptions.views = {
+    timeGridDay: {
+      type: 'timeGrid',
+      duration: { days: 3 },
+      buttonText: '3 day',
+    },
+  }
+}
 
 // !SECTION
 </script>
@@ -51,10 +54,7 @@ watch(mobile, val => {
       <!-- `z-index: 0` Allows overlapping vertical nav on calendar -->
       <VLayout style="z-index: 0;">
         <VMain>
-          <VCard
-            flat
-            class="calendar-container"
-          >
+          <VCard flat>
             <FullCalendar
               ref="refCalendar"
               :options="calendarOptions"
@@ -83,7 +83,6 @@ watch(mobile, val => {
 
   .v-card {
     overflow: visible;
-    border-radius: 20px !important;
   }
 }
 </style>

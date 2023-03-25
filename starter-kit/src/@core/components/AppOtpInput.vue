@@ -9,7 +9,7 @@ interface Emit {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  totalInput: 6,
+  totalInput: 4,
   default: '',
 })
 
@@ -21,7 +21,7 @@ const refOtpComp = ref<HTMLInputElement | null>(null)
 digits.value = props.default.split('')
 
 const defaultStyle = {
-  style: 'max-width: 54px; text-align: center;',
+  style: 'min-width: 48px; text-align: center;',
 }
 
 // eslint-disable-next-line sonarjs/cognitive-complexity
@@ -58,21 +58,9 @@ const handleKeyDown = (event: KeyboardEvent, index: number) => {
 
 <template>
   <div>
-    <h6 class="text-base font-weight-bold mb-3">
-      Type your 6 digit security code
-    </h6>
-    <div
-      ref="refOtpComp"
-      class="d-flex align-center gap-4"
-    >
-      <VTextField
-        v-for="i in props.totalInput"
-        :key="i"
-        :model-value="digits[i - 1]"
-        v-bind="defaultStyle"
-        maxlength="1"
-        @keydown="handleKeyDown($event, i)"
-      />
+    <div ref="refOtpComp" class="d-flex align-center gap-4">
+      <VTextField v-for="i in props.totalInput" :key="i" :model-value="digits[i - 1]" v-bind="defaultStyle" maxlength="1"
+        @keydown="handleKeyDown($event, i)" />
     </div>
   </div>
 </template>
@@ -80,9 +68,20 @@ const handleKeyDown = (event: KeyboardEvent, index: number) => {
 <style lang="scss">
 .v-field__field {
   input {
-    padding: 0.5rem;
-    font-size: 1.25rem;
+    padding: 12px 0;
+    font-size: 16px;
     text-align: center;
+    background: #F3F4FB;
+    color: #374151;
+    outline: none !important;
+    border: none !important;
+    border-radius: 5px;
   }
+}
+
+.v-field__outline__start,
+.v-field__outline__end {
+  border: none !important;
+  outline: none;
 }
 </style>

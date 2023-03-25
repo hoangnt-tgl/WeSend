@@ -16,10 +16,6 @@ export default {
       type: String,
       required: true,
     },
-    action: {
-      type: Function,
-      required: true,
-    },
   },
   setup() {
     return {
@@ -61,6 +57,7 @@ export default {
   }
 }
 
+/*
 @media screen and (min-width: 425px) {
   .notification-title {
 
@@ -69,5 +66,5 @@ export default {
   .notification-date {
 
   }
-}
+} */
 </style>

@@ -17,6 +17,10 @@ export default defineComponent({
     nextStep() {
       this.step++
     },
+    VerifyAction() {
+      this.$router.push('/')
+    },
+
   },
 })
 </script>
@@ -61,7 +65,10 @@ export default defineComponent({
         </div>
         <p>New to WeSend. <a href="#">Sign up</a></p>
       </div>
-      <Verify v-else />
+      <Verify
+        v-else
+        :action="VerifyAction"
+      />
 
       <div class="sign-up__footer">
         <div class="sign-up__footer__link">

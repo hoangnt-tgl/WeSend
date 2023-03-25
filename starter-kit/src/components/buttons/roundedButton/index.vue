@@ -1,5 +1,5 @@
 <!-- eslint-disable @typescript-eslint/no-empty-function -->
-<script  lang="ts">
+<script lang="ts">
 export default {
   name: 'RoundedButton',
   props: {
@@ -13,11 +13,13 @@ export default {
     },
     style: { type: Object, required: true },
     variant: { type: String, required: true },
-    icon: { type: String, default: '' },
+    iconB: { type: String, default: '' },
+    iconBColor: { type: String, default: '' },
+    iconA: { type: String, default: '' },
+    iconAColor: { type: String, default: '' },
     action: {
       type: Function,
-      default: () => {
-      },
+      default: () => {},
     },
   },
 }
@@ -32,10 +34,19 @@ export default {
     @click="action"
   >
     <VIcon
-      v-if="icon"
-      :icon="icon"
+      v-if="iconB"
+      :color="iconBColor"
+      :icon="iconB"
     />
     {{ buttonTitle }}
+
+    <VIcon
+      v-if="iconA"
+      :size="18"
+      :icon="iconA"
+      :color="iconAColor"
+      style="border-radius: 50%; margin-left: 12px; background-color: white;"
+    />
   </VBtn>
 </template>
 

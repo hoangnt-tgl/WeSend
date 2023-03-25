@@ -51,7 +51,10 @@ watch(mobile, val => {
       <!-- `z-index: 0` Allows overlapping vertical nav on calendar -->
       <VLayout style="z-index: 0;">
         <VMain>
-          <VCard flat>
+          <VCard
+            flat
+            class="calendar-container"
+          >
             <FullCalendar
               ref="refCalendar"
               :options="calendarOptions"
@@ -80,6 +83,7 @@ watch(mobile, val => {
 
   .v-card {
     overflow: visible;
+    border-radius: 20px !important;
   }
 }
 </style>

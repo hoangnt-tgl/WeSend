@@ -24,6 +24,7 @@
     "chart.js": "^3.9.1",
     "jwt-decode": "^3.1.2",
     "pinia": "^2.0.24",
+    "postcss-nesting": "^11.2.1",
     "prismjs": "^1.29.0",
     "roboto-fontface": "^0.10.0",
     "sass": "^1.56.1",

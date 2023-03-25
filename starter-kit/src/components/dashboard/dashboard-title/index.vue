@@ -1,3 +1,4 @@
+<!-- eslint-disable @typescript-eslint/no-empty-function -->
 <script  lang="ts">
 import RounedBtn from '@/components/buttons/roundedButton/index.vue'
 import { btnOutLine } from '@/constant/buttonColor'
@@ -15,6 +16,10 @@ export default {
     buttonTitle: {
       type: String,
       required: true,
+    },
+    action: {
+      type: Function,
+      default: () => {},
     },
   },
   setup() {
@@ -36,6 +41,7 @@ export default {
         color="btnOutLine.color"
         :style="btnOutLine"
         variant="'outlined'"
+        @click="action"
       />
     </div>
   </div>

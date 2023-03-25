@@ -149,7 +149,7 @@ const handleNavScroll = (evt: Event) => {
             />
           </div>
         </div>
-        <div class="d-flex align-center justify-center gap-5">
+        <div class="d-flex align-center justify-center gap-5 user-info-wrapper">
           <div class="d-flex gap-2">
             <VAvatar>
               <VImg
@@ -260,6 +260,13 @@ const handleNavScroll = (evt: Event) => {
       }
     }
   }
+}
+
+.user-info-wrapper {
+  border-radius: var(--rounded-radius);
+  background: var(--background-light);
+  padding-block: 9px;
+  padding-inline: 15px;
 }
 
 .user-info {

@@ -1,7 +1,9 @@
 <script lang="ts" setup>
 import type { Component } from 'vue'
 import { PerfectScrollbar } from 'vue3-perfect-scrollbar'
-import { VNodeRenderer } from './VNodeRenderer'
+import Avatar from '@/assets/images/avatars/avatar-1.png'
+import Power from '@/assets/images/svg/power.svg'
+import WhatsAppIcon from '@/assets/images/svg/whatsapp.svg'
 import { injectionKeyIsVerticalNavHovered, useLayouts } from '@layouts'
 import { VerticalNavGroup, VerticalNavLink, VerticalNavSectionTitle } from '@layouts/components'
 import { config } from '@layouts/config'
@@ -134,10 +136,37 @@ const handleNavScroll = (evt: Event) => {
     </div>
     <div
       v-if="!hideTitleAndIcon"
-      class="d-flex mx-4 py-4 flex-column align-center border-t-4 border-b border-dark-50"
+      class="d-flex py-5 mb-8 mx-5 flex-column align-center border-t border-b border-dark-50"
     >
-      <p>Connected With</p>
-      <div></div>
+      <div class="">
+        <div class="d-flex align-center gap-2">
+          Connected With <VImg
+            :src="WhatsAppIcon"
+            alt="WhatsApp"
+            :width="30"
+          />
+        </div>
+        <div class="d-flex align-center justify-content-between">
+          <div>
+            <VAvatar>
+              <VImg
+                :src="Avatar"
+              />
+            </VAvatar>
+          </div>
+          <div class="d-flex flex-column w-100">
+            <a>John Carter</a><a>+9190011223344</a>
+          </div>
+          <div>
+            <VAvatar>
+              <VImg
+                :src="Power"
+              />
+            </VAvatar>
+          </div>
+        </div>
+      </div>
+      <div />
     </div>
     <slot name="before-nav-items">
       <div class="vertical-nav-items-shadow" />

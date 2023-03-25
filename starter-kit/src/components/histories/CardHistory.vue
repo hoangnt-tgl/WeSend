@@ -46,7 +46,7 @@ export default {
       </div>
       <div
         v-if="type === 'deleted'"
-        class="ms-auto me-10"
+        class="ms-auto me-md-4 me-2"
         @click="() => {}"
       >
         <RounedBtn

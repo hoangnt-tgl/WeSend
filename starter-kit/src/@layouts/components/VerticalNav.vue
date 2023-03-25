@@ -138,25 +138,29 @@ const handleNavScroll = (evt: Event) => {
       v-if="!hideTitleAndIcon"
       class="d-flex py-5 mb-8 mx-5 flex-column align-center border-t border-b border-dark-50"
     >
-      <div class="">
-        <div class="d-flex align-center gap-2">
-          Connected With <VImg
-            :src="WhatsAppIcon"
-            alt="WhatsApp"
-            :width="30"
-          />
-        </div>
-        <div class="d-flex align-center justify-content-between">
+      <div class="w-100">
+        <div class="d-flex align-center gap-2 justify-center w-100 contact-user mb-3">
+          <span>Connected With</span>
           <div>
+            <VImg
+              :src="WhatsAppIcon"
+              alt="WhatsApp"
+              :width="20"
+            />
+          </div>
+        </div>
+        <div class="d-flex align-center justify-center gap-5">
+          <div class="d-flex gap-2">
             <VAvatar>
               <VImg
                 :src="Avatar"
               />
             </VAvatar>
+            <div class="d-flex flex-column user-info">
+              <a>John Carter</a><a>+9190011223344</a>
+            </div>
           </div>
-          <div class="d-flex flex-column w-100">
-            <a>John Carter</a><a>+9190011223344</a>
-          </div>
+
           <div>
             <VAvatar>
               <VImg
@@ -166,7 +170,6 @@ const handleNavScroll = (evt: Event) => {
           </div>
         </div>
       </div>
-      <div />
     </div>
     <slot name="before-nav-items">
       <div class="vertical-nav-items-shadow" />
@@ -257,5 +260,17 @@ const handleNavScroll = (evt: Event) => {
       }
     }
   }
+}
+
+.user-info {
+  a {
+    color: var(--text-deactive);
+    font-size: var(--font-size-sxm);
+    font-weight: var(--font-weight-light);
+  }
+}
+
+.contact-user span {
+  font-size: var(--font-size-sm);
 }
 </style>

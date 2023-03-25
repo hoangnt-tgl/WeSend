@@ -129,6 +129,12 @@
 
       > .router-link-exact-active {
         @extend %nav-link-active;
+
+        border-radius: 0;
+        background-color: #f6f6fe !important;
+        border-inline-end: 3px solid #6366f1;
+        color: #6366f1;
+        font-weight: bold;
       }
 
       > a {

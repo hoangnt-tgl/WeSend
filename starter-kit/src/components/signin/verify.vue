@@ -1,3 +1,4 @@
+<!-- eslint-disable @typescript-eslint/no-empty-function -->
 <!-- eslint-disable vue/component-api-style -->
 <script>
 import AppOtpInput from '@/@core/components/AppOtpInput.vue'
@@ -7,9 +8,10 @@ export default {
   components: {
     AppOtpInput,
   },
-  methods: {
-    VerifyAction() {
-      this.$router.push('/')
+  props: {
+    action: {
+      type: Function,
+      default: () => {},
     },
   },
 
@@ -26,7 +28,7 @@ export default {
         <AppOtpInput />
       </div>
       <div class="verify__content-button">
-        <button @click="VerifyAction">
+        <button @click="action">
           Verify
         </button>
       </div>
@@ -36,16 +38,6 @@ export default {
       </p>
     </div>
     <p>New to WeSend. <a href="#">Sign up</a></p>
-  </div>
-  <div class="verify__footer">
-    <div class="verify__footer__link">
-      <a href="#">Contact Us</a>
-      <span>|</span>
-      <a href="#">Privacy Policy</a>
-      <span>|</span>
-      <a href="#">Terms & Conditions</a>
-    </div>
-    <p>© 2022 We Send. All Rights Reserved.</p>
   </div>
 </template>
 

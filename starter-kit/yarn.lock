@@ -330,7 +330,22 @@
   "resolved" "https://registry.npmjs.org/@casl/vue/-/vue-2.2.0.tgz"
   "version" "2.2.0"
 
-"@csstools/selector-specificity@^2.0.2":
+"@csstools/cascade-layer-name-parser@^1.0.0":
+  "integrity" "sha512-SAAi5DpgJJWkfTvWSaqkgyIsTawa83hMwKrktkj6ra2h+q6ZN57vOGZ6ySHq6RSo+CbP64fA3aPChPBRDDUgtw=="
+  "resolved" "https://registry.npmjs.org/@csstools/cascade-layer-name-parser/-/cascade-layer-name-parser-1.0.1.tgz"
+  "version" "1.0.1"
+
+"@csstools/css-parser-algorithms@^2.0.0":
+  "integrity" "sha512-B9/8PmOtU6nBiibJg0glnNktQDZ3rZnGn/7UmDfrm2vMtrdlXO3p7ErE95N0up80IRk9YEtB5jyj/TmQ1WH3dw=="
+  "resolved" "https://registry.npmjs.org/@csstools/css-parser-algorithms/-/css-parser-algorithms-2.0.1.tgz"
+  "version" "2.0.1"
+
+"@csstools/css-tokenizer@^2.0.0":
+  "integrity" "sha512-dtqFyoJBHUxGi9zPZdpCKP1xk8tq6KPHJ/NY4qWXiYo6IcSGwzk3L8x2XzZbbyOyBs9xQARoGveU2AsgLj6D2A=="
+  "resolved" "https://registry.npmjs.org/@csstools/css-tokenizer/-/css-tokenizer-2.1.0.tgz"
+  "version" "2.1.0"
+
+"@csstools/selector-specificity@^2.0.0", "@csstools/selector-specificity@^2.0.2":
   "integrity" "sha512-IkpVW/ehM1hWKln4fCA3NzJU8KwD+kIOvPZA4cqxoJHtE21CCzjyp+Kxbu0i5I4tBNOlXPL9mjwnWlL0VEG4Fg=="
   "resolved" "https://registry.npmjs.org/@csstools/selector-specificity/-/selector-specificity-2.0.2.tgz"
   "version" "2.0.2"
@@ -3829,6 +3844,16 @@
     "browserslist" "^4.21.4"
     "postcss-value-parser" "^4.2.0"
 
+"postcss-custom-properties@^13.1.4":
+  "integrity" "sha512-iSAdaZrM3KMec8cOSzeTUNXPYDlhqsMJHpt62yrjwG6nAnMtRHPk5JdMzGosBJtqEahDolvD5LNbcq+EZ78o5g=="
+  "resolved" "https://registry.npmjs.org/postcss-custom-properties/-/postcss-custom-properties-13.1.4.tgz"
+  "version" "13.1.4"
+  dependencies:
+    "@csstools/cascade-layer-name-parser" "^1.0.0"
+    "@csstools/css-parser-algorithms" "^2.0.0"
+    "@csstools/css-tokenizer" "^2.0.0"
+    "postcss-value-parser" "^4.2.0"
+
 "postcss-discard-comments@^5.1.2":
   "integrity" "sha512-+L8208OVbHVF2UQf1iDmRcbdjJkuBF6IS29yBDSiWUIzpYaAhtNl6JYnYm12FnkeCwQqF5LeklOu6rAqgfBZqQ=="
   "resolved" "https://registry.npmjs.org/postcss-discard-comments/-/postcss-discard-comments-5.1.2.tgz"
@@ -3923,6 +3948,14 @@
   "version" "5.2.1"
   dependencies:
     "postcss-selector-parser" "^6.0.5"
+
+"postcss-nesting@^11.2.1":
+  "integrity" "sha512-E6Jq74Jo/PbRAtZioON54NPhUNJYxVWhwxbweYl1vAoBYuGlDIts5yhtKiZFLvkvwT73e/9nFrW3oMqAtgG+GQ=="
+  "resolved" "https://registry.npmjs.org/postcss-nesting/-/postcss-nesting-11.2.1.tgz"
+  "version" "11.2.1"
+  dependencies:
+    "@csstools/selector-specificity" "^2.0.0"
+    "postcss-selector-parser" "^6.0.10"
 
 "postcss-normalize-charset@^5.1.0":
   "integrity" "sha512-mSgUJ+pd/ldRGVx26p2wz9dNZ7ji6Pn8VWBajMXFf8jk7vUoSrZ2lt/wZR7DtlZYKesmZI680qjr2CeFF2fbUg=="
@@ -4071,7 +4104,7 @@
     "picocolors" "^0.2.1"
     "source-map" "^0.6.1"
 
-"postcss@^8.0.9", "postcss@^8.1.10", "postcss@^8.2", "postcss@^8.2.15", "postcss@^8.2.2", "postcss@^8.3.11", "postcss@^8.3.3", "postcss@^8.3.9", "postcss@^8.4.0", "postcss@^8.4.18", "postcss@^8.4.19":
+"postcss@^8.0.9", "postcss@^8.1.10", "postcss@^8.2", "postcss@^8.2.15", "postcss@^8.2.2", "postcss@^8.3.11", "postcss@^8.3.3", "postcss@^8.3.9", "postcss@^8.4", "postcss@^8.4.0", "postcss@^8.4.18", "postcss@^8.4.19":
   "integrity" "sha512-h+pbPsyhlYj6N2ozBmHhHrs9DzGmbaarbLvWipMRO7RLS+v4onj26MPFXA5OBYFxyqYhUJK456SwDcY9H2/zsA=="
   "resolved" "https://registry.npmjs.org/postcss/-/postcss-8.4.19.tgz"
   "version" "8.4.19"

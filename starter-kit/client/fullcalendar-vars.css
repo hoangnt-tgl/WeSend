@@ -1,0 +1,8 @@
+:root {
+  --fc-border-color: green;
+  --fc-button-text-color: #f00;
+}
+
+.fc-col-header-cell {
+  background-color: #f00;
+}

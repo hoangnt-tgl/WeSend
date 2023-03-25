@@ -1,3 +1,4 @@
+<!-- eslint-disable @typescript-eslint/no-empty-function -->
 <script  lang="ts">
 export default {
   name: 'RoundedButton',
@@ -13,6 +14,11 @@ export default {
     style: { type: Object, required: true },
     variant: { type: String, required: true },
     icon: { type: String, default: '' },
+    action: {
+      type: Function,
+      default: () => {
+      },
+    },
   },
 }
 </script>
@@ -23,6 +29,7 @@ export default {
     :variant:any="variant"
     :color="color"
     class="btn-rounded"
+    @click="action"
   >
     <VIcon
       v-if="icon"

@@ -1,4 +1,5 @@
-<script setup lang="ts">
+<!-- eslint-disable vue/component-api-style -->
+<script lang="ts">
 import RoundedButton from '@/components/buttons/roundedButton/index.vue'
 import Calendar from '@/components/dashboard/calendar/index.vue'
 import CardNotifications from '@/components/dashboard/card-notifications/index.vue'
@@ -9,6 +10,37 @@ import { btnTitle, title } from '@/constant/commonTitle'
 import { notifications } from '@/data/notifications'
 
 const items = [1, 2]
+
+export default {
+  components: {
+    RoundedButton,
+    Calendar,
+    CardNotifications,
+    Cardcampaign,
+    DashboardTitle,
+  },
+  setup() {
+    return {
+      btnPurple,
+      btnTitle,
+      title,
+      notifications,
+      items,
+    }
+  },
+  methods: {
+
+    goToCampaign() {
+      this.$router.push('/campaign')
+    },
+    goToCalendar() {
+      this.$router.push('/calendar')
+    },
+    goToNotifications() {
+      this.$router.push('/history')
+    },
+  },
+}
 </script>
 
 <template>
@@ -20,6 +52,7 @@ const items = [1, 2]
       <DashboardTitle
         :title="title.calendar"
         :button-title="btnTitle.viewAll"
+        :action="goToCalendar"
       />
       <Calendar />
     </VCol>
@@ -29,7 +62,7 @@ const items = [1, 2]
     >
       <div class="campaign-wrapper">
         <DashboardTitle
-          :action="() => { }"
+          :action="goToCampaign"
           :title="title.campaigns"
           :button-title="btnTitle.viewAll"
         />
@@ -51,7 +84,7 @@ const items = [1, 2]
       </div>
       <div class="notifications-wrapper">
         <DashboardTitle
-          :action="() => { }"
+          :action="goToNotifications"
           :title="title.notifications"
           :button-title="btnTitle.viewAll"
         />

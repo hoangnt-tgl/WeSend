@@ -23,3 +23,10 @@ export const btnOutLine = {
   color: '#111827',
   border: ' 1px solid #d1d5db !important',
 }
+
+export const btnDark = {
+  background: '#374151',
+  color: '#fff',
+  border: '1px solid #374151',
+}
+

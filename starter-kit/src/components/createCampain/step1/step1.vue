@@ -2,6 +2,7 @@
 import MicrosoftExcelIcon from '@/assets/images/svg/microsoft-excel.svg'
 import WhatsAppIcon from '@/assets/images/svg/whatsapp.svg'
 import BtnRound from '@/components/buttons/roundedButton/index.vue'
+import { btnBlack } from '@/constant/buttonColor'
 
 export default {
   name: 'Step1',
@@ -18,6 +19,7 @@ export default {
     return {
       WhatsAppIcon,
       MicrosoftExcelIcon,
+      btnBlack,
     }
   },
 }
@@ -84,6 +86,17 @@ export default {
         </button>
       </div>
     </VCard>
+    <div class="my-4">
+      <div>
+        <BtnRound
+          button-title="continue"
+          :action="action"
+          color="btnBlack.color"
+          :style="btnBlack"
+          variant="contained"
+        />
+      </div>
+    </div>
   </div>
 </template>
 

@@ -1,5 +1,5 @@
 <!-- eslint-disable @typescript-eslint/no-empty-function -->
-<script>
+<script lang="ts">
 export default {
   name: 'Verify',
   props: {
@@ -21,7 +21,7 @@ export default {
           <AppOtpInput />
         </div>
         <div class="verify__content-button">
-          <button @click="action">
+          <button @click="() => action()">
             Verify
           </button>
         </div>
@@ -36,10 +36,11 @@ export default {
 
 <style scoped>
 .detail {
+  margin-block: 0;
+  margin-inline: auto;
+  max-inline-size: 480px;
   padding-block: 0;
   padding-inline: 16.5px;
-  max-width: 480px;
-  margin: 0 auto;
 }
 
 .verify__content {
@@ -122,11 +123,6 @@ input[type="number"] {
 
 .verify__content .resend a {
   color: #374151;
-  text-decoration: underline;
-}
-
-.verify__container>p a {
-  color: #6354d9;
   text-decoration: underline;
 }
 </style>

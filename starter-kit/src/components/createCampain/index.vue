@@ -4,6 +4,7 @@
 import Step1 from './step1/step1.vue'
 import Step2 from './step2/step2.vue'
 import Step3 from './step3/step3.vue'
+import Step4 from './step4/step4.vue'
 
 export default {
   name: 'CreateCampain',
@@ -11,6 +12,7 @@ export default {
     Step1,
     Step2,
     Step3,
+    Step4,
   },
   setup() {
     const step = ref(1)
@@ -21,7 +23,7 @@ export default {
   },
   methods: {
     nextStep() {
-      if (this.step < 3)
+      if (this.step < 4)
         this.step++
     },
     prevStep() {
@@ -40,7 +42,6 @@ export default {
           <div class="stepper-progress">
             <div
               class="stepper-progress-bar"
-              :style="`width:${stepperProgress}`"
             />
           </div>
 
@@ -63,16 +64,16 @@ export default {
           </div>
         </div>
       </div>
-      <div v-if="step === 0">
+      <div v-if="step === 1">
         <Step1 :action="nextStep" />
       </div>
-      <div v-else-if="step === 1">
+      <div v-else-if="step === 2">
         <Step2 :action="nextStep" />
       </div>
-      <div v-else-if="step === 2">
+      <div v-else-if="step === 3">
         <Step3 :action="nextStep" />
       </div>
-      <div v-else-if="step === 3">
+      <div v-else-if="step === 4">
         <Step4 :action="nextStep" />
       </div>
     </div>

@@ -20,38 +20,23 @@ export default {
         <h1>$12.99</h1>
         <div class="package-item-desc">
           <div class="desc-item">
-            <img
-              src="../../assets/icons/circle-check.svg"
-              alt="icon"
-            >
+            <img src="../../assets/icons/circle-check.svg" alt="icon">
             <p>Lorem ipsum dolar sit efelsd</p>
           </div>
           <div class="desc-item">
-            <img
-              src="../../assets/icons/circle-check.svg"
-              alt="icon"
-            >
+            <img src="../../assets/icons/circle-check.svg" alt="icon">
             <p>Lorem ipsum dolar</p>
           </div>
           <div class="desc-item">
-            <img
-              src="../../assets/icons/circle-check.svg"
-              alt="icon"
-            >
+            <img src="../../assets/icons/circle-check.svg" alt="icon">
             <p>Lorem ipsum dolar sit</p>
           </div>
           <div class="desc-item">
-            <img
-              src="../../assets/icons/circle-check.svg"
-              alt="icon"
-            >
+            <img src="../../assets/icons/circle-check.svg" alt="icon">
             <p>Lorem ipsum dolar</p>
           </div>
           <div class="desc-item">
-            <img
-              src="../../assets/icons/circle-check.svg"
-              alt="icon"
-            >
+            <img src="../../assets/icons/circle-check.svg" alt="icon">
             <p>Lorem ipsum dolar sit</p>
           </div>
         </div>
@@ -64,38 +49,23 @@ export default {
         <h1>$12.99</h1>
         <div class="package-item-desc">
           <div class="desc-item">
-            <img
-              src="../../assets/icons/circle-check.svg"
-              alt="icon"
-            >
+            <img src="../../assets/icons/circle-check.svg" alt="icon">
             <p>Lorem ipsum dolar sit efelsd</p>
           </div>
           <div class="desc-item">
-            <img
-              src="../../assets/icons/circle-check.svg"
-              alt="icon"
-            >
+            <img src="../../assets/icons/circle-check.svg" alt="icon">
             <p>Lorem ipsum dolar</p>
           </div>
           <div class="desc-item">
-            <img
-              src="../../assets/icons/circle-check.svg"
-              alt="icon"
-            >
+            <img src="../../assets/icons/circle-check.svg" alt="icon">
             <p>Lorem ipsum dolar sit</p>
           </div>
           <div class="desc-item">
-            <img
-              src="../../assets/icons/circle-check.svg"
-              alt="icon"
-            >
+            <img src="../../assets/icons/circle-check.svg" alt="icon">
             <p>Lorem ipsum dolar</p>
           </div>
           <div class="desc-item">
-            <img
-              src="../../assets/icons/circle-check.svg"
-              alt="icon"
-            >
+            <img src="../../assets/icons/circle-check.svg" alt="icon">
             <p>Lorem ipsum dolar sit</p>
           </div>
         </div>
@@ -108,38 +78,23 @@ export default {
         <h1>$12.99</h1>
         <div class="package-item-desc">
           <div class="desc-item">
-            <img
-              src="../../assets/icons/circle-check.svg"
-              alt="icon"
-            >
+            <img src="../../assets/icons/circle-check.svg" alt="icon">
             <p>Lorem ipsum dolar sit efelsd</p>
           </div>
           <div class="desc-item">
-            <img
-              src="../../assets/icons/circle-check.svg"
-              alt="icon"
-            >
+            <img src="../../assets/icons/circle-check.svg" alt="icon">
             <p>Lorem ipsum dolar</p>
           </div>
           <div class="desc-item">
-            <img
-              src="../../assets/icons/circle-check.svg"
-              alt="icon"
-            >
+            <img src="../../assets/icons/circle-check.svg" alt="icon">
             <p>Lorem ipsum dolar sit</p>
           </div>
           <div class="desc-item">
-            <img
-              src="../../assets/icons/circle-check.svg"
-              alt="icon"
-            >
+            <img src="../../assets/icons/circle-check.svg" alt="icon">
             <p>Lorem ipsum dolar</p>
           </div>
           <div class="desc-item">
-            <img
-              src="../../assets/icons/circle-check.svg"
-              alt="icon"
-            >
+            <img src="../../assets/icons/circle-check.svg" alt="icon">
             <p>Lorem ipsum dolar sit</p>
           </div>
         </div>
@@ -202,7 +157,7 @@ export default {
   box-shadow: 0 34px 54px rgba(0, 0, 0, 7%);
 }
 
-.package-item > p {
+.package-item>p {
   color: #4b5563;
   font-size: 16px;
   margin-block-end: 0;
@@ -229,6 +184,7 @@ export default {
 .desc-item p {
   font-size: 14px;
   margin-block-end: 0;
+  color: #111827;
 }
 
 .desc-item img {

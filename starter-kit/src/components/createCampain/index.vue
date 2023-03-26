@@ -18,20 +18,35 @@ export default {
     BtnRound,
   },
   setup() {
-    const step = ref(1)
+    const curentStep = ref(1)
 
     return {
-      step,
+      curentStep,
       btnBlack,
+      steps: [
+        {
+          title: 'Campaign Title',
+        },
+        {
+          title: 'Import Contacts',
+        },
+        {
+          title: 'Create Message',
+        },
+        {
+          title: 'Schedule',
+        },
+      ],
+
     }
   },
   methods: {
     nextStep() {
-      if (this.step < 4)
-        this.step++
+      if (this.curentStep < 4)
+        this.curentStep++
     },
     prevStep() {
-      this.step--
+      this.curentStep--
     },
   },
 }
@@ -45,16 +60,14 @@ export default {
         <div class="wrapper-stepper">
           <div class="stepper">
             <div class="stepper-progress">
-              <div
-                class="stepper-progress-bar"
-              />
+              <div class="stepper-progress-bar" />
             </div>
 
             <div
               v-for="item in 4"
               :key="item"
               class="stepper-item"
-              :class="{ current: step === item, success: step > item }"
+              :class="{ current: curentStep === item, success: curentStep > item }"
             >
               <div class="stepper-item-counter">
                 <img
@@ -66,19 +79,22 @@ export default {
                   {{ item }}
                 </span>
               </div>
+              <span class="stepper-item-title">
+                {{ steps[item - 1].title }}
+              </span>
             </div>
           </div>
         </div>
-        <div v-if="step === 1">
+        <div v-if="curentStep === 1">
           <Step1 :action="nextStep" />
         </div>
-        <div v-else-if="step === 2">
+        <div v-else-if="curentStep === 2">
           <Step2 :action="nextStep" />
         </div>
-        <div v-else-if="step === 3">
+        <div v-else-if="curentStep === 3">
           <Step3 :action="nextStep" />
         </div>
-        <div v-else-if="step === 4">
+        <div v-else-if="curentStep === 4">
           <Step4 :action="nextStep" />
         </div>
       </div>
@@ -191,7 +207,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  inline-size: 230px;
+  inline-size: 320px;
   margin-block: 0 30px;
   margin-inline: auto;
 }
@@ -249,14 +265,17 @@ export default {
 
 .stepper-item-title {
   position: absolute;
+  display: none;
+  color: #9ca3af;
   font-size: 14px;
+  inline-size: 128px;
   inset-block-end: -24px;
+  text-align: center;
 }
 
-.stepper-item.success {
-  /* .stepper-item-title {
-    color: $green-1;
-  } */
+.stepper-item.success .stepper-item-title {
+  display: none;
+  color: #10b981;
 }
 
 .stepper-item.success .stepper-item-counter {
@@ -286,7 +305,8 @@ export default {
 }
 
 .stepper-item.current .stepper-item-title {
-  color: #818181;
+  display: block;
+  color: #6366f1;
 }
 
 .stepper-pane {
@@ -355,7 +375,7 @@ export default {
 
 @media (min-width: 479px) {
   .stepper {
-    inline-size: 500px;
+    inline-size: 420px;
   }
 
   p,
@@ -403,6 +423,17 @@ export default {
     inline-size: 48px;
     opacity: 1;
     transform: scale(1);
+  }
+}
+
+@media (min-width: 550px) {
+  .stepper {
+    inline-size: 492px;
+  }
+
+  .stepper-item-title,
+  .stepper-item.success .stepper-item-title {
+    display: block;
   }
 }
 

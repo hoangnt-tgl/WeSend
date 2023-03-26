@@ -1,10 +1,12 @@
 <script lang="ts">
+import NoSchedulesCard from '@/components/campaign/Schedules/NoSchedulesCard.vue'
 import SchedulesCard from '@/components/campaign/Schedules/SchedulesCard.vue'
 
 export default {
   name: 'CampaignSchedules',
   components: {
     SchedulesCard,
+    NoSchedulesCard,
   },
   setup() {
     return {
@@ -27,7 +29,7 @@ export default {
       </div>
     </div>
     <div v-else>
-      Ko có lịck
+      <NoSchedulesCard />
     </div>
   </div>
 </template>

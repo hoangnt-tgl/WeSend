@@ -2,8 +2,8 @@
 <script lang="ts">
 import PaymentDetail from '@/components/pricing/PaymentDetail.vue'
 import SignUp from '@/components/pricing/SignUp.vue'
+import Verify from '@/components/pricing/Verify.vue'
 import YourDetail from '@/components/pricing/YourDetail.vue'
-import Verify from '@/components/signin/verify.vue'
 
 const step = ref(1)
 const verify = ref(false)
@@ -43,13 +43,24 @@ export default {
         <div class="wrapper-stepper">
           <div class="stepper">
             <div class="stepper-progress">
-              <div class="stepper-progress-bar" :style="`width:${stepperProgress}`" />
+              <div
+                class="stepper-progress-bar"
+                :style="`width:${stepperProgress}`"
+              />
             </div>
 
-            <div v-for="item in 3" :key="item" class="stepper-item"
-              :class="{ current: step == item, success: step > item }">
+            <div
+              v-for="item in 3"
+              :key="item"
+              class="stepper-item"
+              :class="{ current: step == item, success: step > item }"
+            >
               <div class="stepper-item-counter">
-                <img class="icon-success" src="../../assets/icons/verify.svg" alt="verify">
+                <img
+                  class="icon-success"
+                  src="../../assets/icons/verify.svg"
+                  alt="verify"
+                >
                 <span class="number">
                   {{ item }}
                 </span>
@@ -69,7 +80,11 @@ export default {
             <PaymentDetail :action="nextStep" />
           </div>
 
-          <div v-for="item in 4" :key="item" class="stepper-content">
+          <div
+            v-for="item in 4"
+            :key="item"
+            class="stepper-content"
+          >
             <Package />
           </div>
         </div>
@@ -94,6 +109,7 @@ export default {
   background: url(../../assets/images/login/background.png) center / cover no-repeat;
   min-block-size: 140vh;
   padding-block: 0;
+
   /* padding-inline: 16.5px; */
 }
 
@@ -103,6 +119,7 @@ export default {
   justify-content: space-between;
   margin-block: 0;
   margin-inline: auto;
+
   /* max-inline-size: 466px; */
   min-block-size: 140vh;
 }
@@ -150,17 +167,17 @@ export default {
   text-align: center;
 }
 
-.select__container>p {
+.select__container > p {
   color: #374151;
   font-size: 14px;
   margin-block: 30px 0;
 }
 
-.select__container>p a {
+.select__container > p a {
   color: #6354d9;
 }
 
-.select__container>p a {
+.select__container > p a {
   color: #6354d9;
   text-decoration: underline;
 }
@@ -171,7 +188,7 @@ export default {
 }
 
 .wrapper-stepper {
-  width: 100%;
+  inline-size: 100%;
 }
 
 .stepper {
@@ -256,9 +273,9 @@ export default {
 }
 
 .stepper-item.success .stepper-item-counter .icon-success {
+  inline-size: 36px;
   opacity: 1;
   transform: scale(1);
-  width: 36px;
 }
 
 .stepper-item.success .stepper-item-counter .number {
@@ -366,9 +383,9 @@ export default {
   }
 
   .stepper-item.success .stepper-item-counter .icon-success {
+    inline-size: 48px;
     opacity: 1;
     transform: scale(1);
-    width: 48px;
   }
 }
 </style>

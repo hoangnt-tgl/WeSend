@@ -1,7 +1,7 @@
 <!-- eslint-disable @typescript-eslint/no-empty-function -->
 <script>
 export default {
-  name: 'PaymentDetail',
+  name: 'Verify',
   props: {
     action: {
       type: Function,
@@ -14,47 +14,9 @@ export default {
 <template>
   <div class="detail">
     <div class="detail-container">
-      <h2>Payment Details</h2>
-      <div class="detail-input">
-        <div class="detail-item">
-          <p>Credit Card Number</p>
-          <input
-            type="number"
-            placeholder="XXXX XXXX XXXX XXXX"
-          >
-        </div>
-        <div class="detail-item">
-          <p>Name on Card</p>
-          <input
-            type="text"
-            placeholder="Roger"
-          >
-        </div>
-        <div class="detail-name">
-          <div class="detail-item">
-            <p>Expiry Date</p>
-            <input
-              type="text"
-              placeholder="MM/YYYY"
-            >
-          </div>
-          <div class="detail-item">
-            <p>CVV</p>
-            <input
-              type="number"
-              placeholder="XXX"
-            >
-          </div>
-        </div>
-      </div>
-      <div class="detail-checkbox">
-        <input type="checkbox">
-        <label>By signing up I agree to <a href="#">Terms & Condtions</a> and
-          <a href="#">Privacy policy</a></label>
-      </div>
       <div class="detail-button">
         <button @click="action">
-          Continue
+          Sign up
         </button>
       </div>
     </div>
@@ -152,21 +114,14 @@ input[type="number"] {
   inline-size: calc(50% - 5px);
 }
 
-.detail-checkbox {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-block-start: 20px;
-}
-
-/* @media (max-width: 480px) {
+@media (max-width: 480px) {
   .detail-name {
     flex-direction: column;
     gap: 20px;
   }
 
   .detail-name .detail-item {
-    width: 100%;
+    inline-size: 100%;
   }
-} */
+}
 </style>

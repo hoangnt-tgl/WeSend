@@ -1,14 +1,8 @@
 <script setup lang="ts">
+import CreateCampaign from '@/views/createCampaign/index.vue'
 </script>
 
 <template>
-  <h1>hello</h1>
+  <CreateCampaign />
 </template>
 
-<route lang="yaml">
-meta:
-  layout: blank
-  # action: read
-  # subject: Auth
-  # redirectIfLoggedIn: false
-  </route>

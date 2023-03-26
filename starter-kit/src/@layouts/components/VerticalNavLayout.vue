@@ -62,10 +62,20 @@ export default defineComponent({
         },
       )
 
+      // test
+      const route = useRoute()
+
+      const test = () => {
+        if (route.name)
+          return ['create-campaign'].includes(route.name.toString())
+
+        return false
+      }
+
       // 👉 Navbar
       const navbar = h(
         'header',
-        { class: ['layout-navbar', { 'navbar-blur': isNavbarBlurEnabled.value }] },
+        { class: test() ? ['layout-navbar layout-nav-campaign', { 'navbar-blur': isNavbarBlurEnabled.value }] : ['layout-navbar', { 'navbar-blur': isNavbarBlurEnabled.value }] },
         [
           h(
             'div',
@@ -129,7 +139,7 @@ export default defineComponent({
           verticalNavWrapper ? h(verticalNavWrapper, verticalNavWrapperProps, { default: () => verticalNav }) : verticalNav,
           h(
             'div',
-            { class: 'layout-content-wrapper' },
+            { class: test() ? 'layout-content-wrapper layout-campaign' : 'layout-content-wrapper ' },
             [
               navbar,
               main,
@@ -162,6 +172,11 @@ export default defineComponent({
     will-change: padding-inline-start;
   }
 
+  .layout-campaign.layout-content-wrapper {
+    padding-block: 0 !important;
+    padding-inline: 0 !important;
+  }
+
   .layout-navbar {
     z-index: variables.$layout-vertical-nav-layout-navbar-z-index;
 
@@ -182,6 +197,10 @@ export default defineComponent({
         }
       }
     }
+  }
+
+  .layout-nav-campaign.layout-navbar {
+    max-inline-size: 100vw !important;
   }
 
   &.layout-navbar-sticky .layout-navbar {

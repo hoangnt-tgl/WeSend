@@ -1,3 +1,4 @@
+<!-- eslint-disable prefer-const -->
 <script lang="ts" setup>
 import type { Component } from 'vue'
 import { PerfectScrollbar } from 'vue3-perfect-scrollbar'
@@ -28,9 +29,9 @@ const isHovered = useElementHover(refNav)
 
 provide(injectionKeyIsVerticalNavHovered, isHovered)
 
-const { isVerticalNavCollapsed: isCollapsed, isLessThanOverlayNavBreakpoint, isVerticalNavMini, isAppRtl } = useLayouts()
+let { isVerticalNavCollapsed: isCollapsed, isLessThanOverlayNavBreakpoint, isVerticalNavMini, isAppRtl } = useLayouts()
 
-const hideTitleAndIcon = isVerticalNavMini(windowWidth, isHovered)
+let hideTitleAndIcon: any = isVerticalNavMini(windowWidth, isHovered)
 
 const resolveNavItemComponent = (item: NavLink | NavSectionTitle | NavGroup) => {
   if ('heading' in item)
@@ -47,8 +48,19 @@ const resolveNavItemComponent = (item: NavLink | NavSectionTitle | NavGroup) => 
 */
 const route = useRoute()
 
+let isClose = ref(false)
+if (route.name === 'create-campaign') {
+  // props.toggleIsOverlayNavActive(false)
+  // hideTitleAndIcon = true
+  isClose.value = true
+}
 watch(() => route.name, () => {
+  // const hideTitleAndBadge = isVerticalNavMini(windowWidth)
   props.toggleIsOverlayNavActive(false)
+  if (route.name === 'create-campaign') {
+    // hideTitleAndIcon = true
+    isClose.value = true
+  }
 })
 
 const isVerticalNavScrolled = ref(false)
@@ -60,40 +72,39 @@ const handleNavScroll = (evt: Event) => {
 </script>
 
 <template>
-  <Component
-    :is="props.tag"
-    ref="refNav"
-    class="layout-vertical-nav"
-    :class="[
-      {
-        'overlay-nav': isLessThanOverlayNavBreakpoint(windowWidth),
-        'hovered': isHovered,
-        'visible': isOverlayNavActive,
-        'scrolled': isVerticalNavScrolled,
-      },
-    ]"
-  >
-    <!-- 👉 Header -->
-    <div class="nav-header">
-      <slot name="nav-header">
-        <RouterLink
-          to="/"
-          class="app-logo d-flex align-center gap-x-3 app-title-wrapper mx-auto"
-        >
-          <Transition name="vertical-nav-app-title">
-            <div
-              v-if="hideTitleAndIcon"
-              class="text"
-            >
-              <!-- <b>We</b><span>Send</span> -->
-            </div>
-            <div
-              v-else
-              class="app-title leading-normal text-xl text-h5"
-            >
-              <b>We</b><span>Send</span>
-            </div>
-          </Transition>
+  <div v-show="!isClose">
+    <Component
+      :is="props.tag"
+      ref="refNav"
+      class="layout-vertical-nav"
+      :class="[
+        {
+          'overlay-nav': isLessThanOverlayNavBreakpoint(windowWidth),
+          'hovered': isHovered,
+          'visible': isOverlayNavActive,
+          'scrolled': isVerticalNavScrolled,
+        },
+      ]"
+    >
+      <!-- 👉 Header -->
+      <div class="nav-header">
+        <slot name="nav-header">
+          <RouterLink
+            to="/"
+            class="app-logo d-flex align-center gap-x-3 app-title-wrapper mx-auto"
+          >
+            <Transition name="vertical-nav-app-title">
+              <div
+                v-if="hideTitleAndIcon"
+                class="text"
+              />
+              <div
+                v-else
+                class="app-title leading-normal text-xl text-h5"
+              >
+                <b>We</b><span>Send</span>
+              </div>
+            </Transition>
           <!--
             <Transition name="vertical-nav-app-title">
             <h1
@@ -104,96 +115,99 @@ const handleNavScroll = (evt: Event) => {
             </h1>
             </Transition>
           -->
-        </RouterLink>
+          </RouterLink>
 
-        <!-- 👉 Vertical nav actions -->
-        <!-- Show toggle collapsible in >md and close button in <md -->
-        <template v-if="!isLessThanOverlayNavBreakpoint(windowWidth)">
-          <Component
-            :is="config.app.iconRenderer || 'div'"
-            v-show="isCollapsed && !hideTitleAndIcon"
-            class="header-action"
-            v-bind="config.icons.verticalNavUnPinned"
-            @click="isCollapsed = !isCollapsed"
-          />
-          <Component
-            :is="config.app.iconRenderer || 'div'"
-            v-show="!isCollapsed && !hideTitleAndIcon"
-            class="header-action"
-            v-bind="config.icons.verticalNavPinned"
-            @click="isCollapsed = !isCollapsed"
-          />
-        </template>
-        <template v-else>
-          <Component
-            :is="config.app.iconRenderer || 'div'"
-            class="header-action"
-            v-bind="config.icons.close"
-            @click="toggleIsOverlayNavActive(false)"
-          />
-        </template>
-      </slot>
-    </div>
-    <div
-      v-if="!hideTitleAndIcon"
-      class="d-flex py-5 mb-8 mx-5 flex-column align-center border-t border-b border-dark-50"
-    >
-      <div class="w-100">
-        <div class="d-flex align-center gap-2 justify-center w-100 contact-user mb-3">
-          <span>Connected With</span>
-          <div>
-            <VImg
-              :src="WhatsAppIcon"
-              alt="WhatsApp"
-              :width="20"
+          <!-- 👉 Vertical nav actions -->
+          <!-- Show toggle collapsible in >md and close button in <md -->
+          <template v-if="!isLessThanOverlayNavBreakpoint(windowWidth)">
+            <Component
+              :is="config.app.iconRenderer || 'div'"
+              v-show="isCollapsed && !hideTitleAndIcon"
+              class="header-action"
+              v-bind="config.icons.verticalNavUnPinned"
+              @click="isCollapsed = !isCollapsed"
             />
-          </div>
-        </div>
-        <div class="d-flex align-center justify-center gap-3 user-info-wrapper">
-          <div class="d-flex gap-2 ps-2">
-            <VAvatar>
+            <Component
+              :is="config.app.iconRenderer || 'div'"
+              v-show="!isCollapsed && !hideTitleAndIcon"
+              class="header-action"
+              v-bind="config.icons.verticalNavPinned"
+              @click="isCollapsed = !isCollapsed"
+            />
+          </template>
+          <template v-else>
+            <Component
+              :is="config.app.iconRenderer || 'div'"
+              class="header-action"
+              v-bind="config.icons.close"
+              @click="toggleIsOverlayNavActive(false)"
+            />
+          </template>
+        </slot>
+      </div>
+
+      <div
+        v-if="!hideTitleAndIcon"
+        class="d-flex py-5 mb-8 mx-5 flex-column align-center border-t border-b border-dark-50"
+      >
+        <div class="w-100">
+          <div class="d-flex align-center gap-2 justify-center w-100 contact-user mb-3">
+            <span>Connected With</span>
+            <div>
               <VImg
-                :src="Avatar"
+                :src="WhatsAppIcon"
+                alt="WhatsApp"
+                :width="20"
               />
-            </VAvatar>
-            <div class="d-flex flex-column user-info">
-              <b>John Carter</b><a>+9190011223344</a>
             </div>
           </div>
+          <div class="d-flex align-center justify-center gap-3 user-info-wrapper">
+            <div class="d-flex gap-2">
+              <VAvatar>
+                <VImg
+                  :src="Avatar"
+                />
+              </VAvatar>
+              <div class="d-flex flex-column user-info">
+                <b>John Carter</b><a>+9190011223344</a>
+              </div>
+            </div>
 
-          <div class="pe-2">
-            <VAvatar>
-              <VImg
-                :src="Power"
-              />
-            </VAvatar>
+            <div>
+              <VAvatar>
+                <VImg
+                  :src="Power"
+                />
+              </VAvatar>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <slot name="before-nav-items">
-      <div class="vertical-nav-items-shadow" />
-    </slot>
-    <slot
-      name="nav-items"
-      :update-is-vertical-nav-scrolled="updateIsVerticalNavScrolled"
-    >
-      <PerfectScrollbar
-        :key="isAppRtl"
-        tag="ul"
-        class="nav-items"
-        :options="{ wheelPropagation: false }"
-        @ps-scroll-y="handleNavScroll"
+
+      <slot name="before-nav-items">
+        <div class="vertical-nav-items-shadow" />
+      </slot>
+      <slot
+        name="nav-items"
+        :update-is-vertical-nav-scrolled="updateIsVerticalNavScrolled"
       >
-        <Component
-          :is="resolveNavItemComponent(item)"
-          v-for="(item, index) in navItems"
-          :key="index"
-          :item="item"
-        />
-      </PerfectScrollbar>
-    </slot>
-  </Component>
+        <PerfectScrollbar
+          :key="isAppRtl"
+          tag="ul"
+          class="nav-items"
+          :options="{ wheelPropagation: false }"
+          @ps-scroll-y="handleNavScroll"
+        >
+          <Component
+            :is="resolveNavItemComponent(item)"
+            v-for="(item, index) in navItems"
+            :key="index"
+            :item="item"
+          />
+        </PerfectScrollbar>
+      </slot>
+    </Component>
+  </div>
 </template>
 
 <style lang="scss">
@@ -277,7 +291,7 @@ const handleNavScroll = (evt: Event) => {
   }
 
   b {
-    color: var(--text-dark);
+    color: black;
     font-size: var(--font-size-sm);
     font-weight: 600;
   }

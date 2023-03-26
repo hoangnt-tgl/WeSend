@@ -4,7 +4,6 @@ import { useThemeConfig } from '@core/composable/useThemeConfig'
 import { themeConfig } from '@themeConfig'
 
 // Components
-import Footer from '@/layouts/components/Footer.vue'
 import NavbarThemeSwitcher from '@/layouts/components/NavbarThemeSwitcher.vue'
 import UserProfile from '@/layouts/components/UserProfile.vue'
 import { HorizontalNavLayout } from '@layouts'
@@ -50,7 +49,7 @@ const { appRouteTransition } = useThemeConfig()
 
     <!-- 👉 Footer -->
     <template #footer>
-      <Footer />
+      <!-- <Footer /> -->
     </template>
 
     <!-- 👉 Customizer -->

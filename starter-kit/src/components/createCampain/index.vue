@@ -18,20 +18,35 @@ export default {
     BtnRound,
   },
   setup() {
-    const step = ref(1)
+    const curentStep = ref(1)
 
     return {
-      step,
+      curentStep,
       btnBlack,
+      steps: [
+        {
+          title: 'Campaign Title',
+        },
+        {
+          title: 'Import Contacts',
+        },
+        {
+          title: 'Create Message',
+        },
+        {
+          title: 'Schedule',
+        },
+      ],
+
     }
   },
   methods: {
     nextStep() {
-      if (this.step < 4)
-        this.step++
+      if (this.curentStep < 4)
+        this.curentStep++
     },
     prevStep() {
-      this.step--
+      this.curentStep--
     },
   },
 }
@@ -48,38 +63,51 @@ export default {
               <div class="stepper-progress-bar" />
             </div>
 
-            <div v-for="item in 4" :key="item" class="stepper-item"
-              :class="{ current: step === item, success: step > item }">
+            <div
+              v-for="item in 4"
+              :key="item"
+              class="stepper-item"
+              :class="{ current: curentStep === item, success: curentStep > item }"
+            >
               <div class="stepper-item-counter">
-                <img class="icon-success" src="../../assets/icons/verify.svg" alt="verify">
+                <img
+                  class="icon-success"
+                  src="../../assets/icons/verify.svg"
+                  alt="verify"
+                >
                 <span class="number">
                   {{ item }}
                 </span>
               </div>
               <span class="stepper-item-title">
-                Paso {{ item }}
+                {{ steps[item - 1].title }}
               </span>
             </div>
           </div>
         </div>
-        <div v-if="step === 1">
+        <div v-if="curentStep === 1">
           <Step1 :action="nextStep" />
         </div>
-        <div v-else-if="step === 2">
+        <div v-else-if="curentStep === 2">
           <Step2 :action="nextStep" />
         </div>
-        <div v-else-if="step === 3">
+        <div v-else-if="curentStep === 3">
           <Step3 :action="nextStep" />
         </div>
-        <div v-else-if="step === 4">
+        <div v-else-if="curentStep === 4">
           <Step4 :action="nextStep" />
         </div>
       </div>
     </div>
     <div class="btn-phone-container">
       <div class="btn-phone">
-        <BtnRound button-title="continue" :action="nextStep" color="btnBlack.color" :style="btnBlack"
-          variant="contained" />
+        <BtnRound
+          button-title="continue"
+          :action="nextStep"
+          color="btnBlack.color"
+          :style="btnBlack"
+          variant="contained"
+        />
       </div>
     </div>
   </div>
@@ -149,17 +177,17 @@ export default {
   text-align: center;
 }
 
-.select__container>p {
+.select__container > p {
   color: #374151;
   font-size: 14px;
   margin-block: 30px 0;
 }
 
-.select__container>p a {
+.select__container > p a {
   color: #6354d9;
 }
 
-.select__container>p a {
+.select__container > p a {
   color: #6354d9;
   text-decoration: underline;
 }
@@ -237,17 +265,17 @@ export default {
 
 .stepper-item-title {
   position: absolute;
-  font-size: 14px;
-  inset-block-end: -24px;
-  color: #9CA3AF;
   display: none;
-  width: 128px;
+  color: #9ca3af;
+  font-size: 14px;
+  inline-size: 128px;
+  inset-block-end: -24px;
   text-align: center;
 }
 
 .stepper-item.success .stepper-item-title {
-  color: #10B981;
   display: none;
+  color: #10b981;
 }
 
 .stepper-item.success .stepper-item-counter {
@@ -277,8 +305,8 @@ export default {
 }
 
 .stepper-item.current .stepper-item-title {
-  color: #6366F1;
   display: block;
+  color: #6366f1;
 }
 
 .stepper-pane {
@@ -400,7 +428,7 @@ export default {
 
 @media (min-width: 550px) {
   .stepper {
-    width: 492px;
+    inline-size: 492px;
   }
 
   .stepper-item-title,

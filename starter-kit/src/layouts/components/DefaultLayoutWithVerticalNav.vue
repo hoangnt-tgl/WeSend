@@ -11,6 +11,24 @@ import { VerticalNavLayout } from '@layouts'
 
 const { appRouteTransition, isLessThanOverlayNavBreakpoint } = useThemeConfig()
 const { width: windowWidth } = useWindowSize()
+const router = useRouter()
+const isDashboard = router.currentRoute.value.name === 'index' ? ref(true) : ref(false)
+
+watch(() => router.currentRoute.value.name, name => {
+  if (name === 'index')
+    isDashboard.value = true
+  else
+    isDashboard.value = false
+})
+
+// display time 24 September / 02:30 AM
+const displayTime = () => {
+  const date = new Date()
+  const options = { month: 'long', day: 'numeric' }
+  const time = date.toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
+
+  return `${date.toLocaleDateString('en-US', options)} / ${time}`
+}
 </script>
 
 <template>
@@ -34,7 +52,19 @@ const { width: windowWidth } = useWindowSize()
             size="24"
           />
         </VBtn>
-
+        <div
+          v-if="isDashboard"
+          class="d-none d-sm-block"
+        >
+          {{ displayTime() }}
+        </div>
+        <div
+          v-else
+          class="d-none d-sm-block"
+          @click="router.push({ name: 'index' })"
+        >
+          Back to dashboard
+        </div>
         <NavbarThemeSwitcher />
 
         <VSpacer />

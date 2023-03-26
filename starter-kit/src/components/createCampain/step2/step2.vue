@@ -43,7 +43,7 @@ export default {
           single-line
           variant="plain"
           prepend-inner-icon="tabler-search"
-          class="input-field"
+          class="input-field-icon"
         />
       </VCardItem>
       <VCardItem class="px-0 pt-4 pb-0">
@@ -122,18 +122,18 @@ export default {
     padding-inline: 0 !important;
   }
 
-  .input-field {
+  .input-field-icon {
     border-radius: var(--border-light-round);
     background-color: var(--background-light);
     padding-block: 5px;
     padding-inline: 5px;
   }
 
-  .input-field .v-field__input {
+  .input-field-icon .v-field__input {
     padding: 10px;
   }
 
-  .input-field::placeholder {
+  .input-field-icon::placeholder {
     color: var(--text-gray-light);
     font-size: var(--font-size);
   }

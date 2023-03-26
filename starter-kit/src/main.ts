@@ -7,6 +7,8 @@ import { loadFonts } from '@/plugins/webfontloader'
 import router from '@/router'
 import '@core/scss/template/index.scss'
 import '@styles/styles.scss'
+import { QuillEditor } from '@vueup/vue-quill'
+import '@vueup/vue-quill/dist/vue-quill.snow.css'
 import { createPinia } from 'pinia'
 import { createApp } from 'vue'
 
@@ -20,6 +22,7 @@ app.use(vuetify)
 app.use(createPinia())
 app.use(router)
 app.use(layoutsPlugin)
+app.component('QuillEditor', QuillEditor)
 
 // Mount vue app
 app.mount('#app')

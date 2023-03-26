@@ -19,7 +19,7 @@ export default {
     return {
       WhatsAppIcon,
       MicrosoftExcelIcon,
-      btnBlack
+      btnBlack,
     };
   },
 };
@@ -52,11 +52,21 @@ export default {
       <h4 class="mb-3">Expiry Date</h4>
       <div class="input-field input-file">
         <input type="file" class="phone-number" />
-        <button class="button-browse" type="button" @click="action()">Browse</button>
+        <button class="button-browse" type="button" @click="action()">
+          Browse
+        </button>
       </div>
     </VCard>
     <div class="my-4">
-      <BtnRound button-title="Continue" variant="contained" :style="{btnBlack}" :color="btnBlack.color"></BtnRound>
+      <div>
+        <BtnRound
+          button-title="continue"
+          :action="action"
+          color="btnBlack.color"
+          :style="btnBlack"
+          variant="contained"
+        />
+      </div>
     </div>
   </div>
 </template>

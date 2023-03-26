@@ -13,7 +13,7 @@ export default {
     Step3,
   },
   setup() {
-    const step = ref(0)
+    const step = ref(1)
 
     return {
       step,

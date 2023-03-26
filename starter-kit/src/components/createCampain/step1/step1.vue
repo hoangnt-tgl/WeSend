@@ -1,10 +1,10 @@
 <script lang="ts">
-import MicrosoftExcelIcon from "@/assets/images/svg/microsoft-excel.svg";
-import WhatsAppIcon from "@/assets/images/svg/whatsapp.svg";
-import BtnRound from "@/components/buttons/roundedButton/index.vue";
+import MicrosoftExcelIcon from '@/assets/images/svg/microsoft-excel.svg'
+import WhatsAppIcon from '@/assets/images/svg/whatsapp.svg'
+import BtnRound from '@/components/buttons/roundedButton/index.vue'
 
 export default {
-  name: "Step1",
+  name: 'Step1',
   components: {
     BtnRound,
   },
@@ -18,39 +18,70 @@ export default {
     return {
       WhatsAppIcon,
       MicrosoftExcelIcon,
-    };
+    }
   },
-};
+}
 </script>
 
 <template>
   <div class="">
     <VCard class="mb-4 pa-6">
       <div class="input-field">
-        <h3 class="mb-3">Campaign Title</h3>
-        <input type="text" placeholder="Type here" class="phone-number" />
+        <h3 class="mb-3">
+          Campaign Title
+        </h3>
+        <input
+          type="text"
+          placeholder="Type here"
+          class="phone-number"
+        >
       </div>
     </VCard>
     <VCard class="pa-6">
-      <h3 class="mb-3">Import contacts from</h3>
+      <h3 class="mb-3">
+        Import contacts from
+      </h3>
       <div class="">
         <VBtn class="button-excel button-import v-btn--rounded">
-          <VImg :src="MicrosoftExcelIcon" width="20" height="20" />
+          <VImg
+            :src="MicrosoftExcelIcon"
+            width="20"
+            height="20"
+          />
           <span>Excel</span>
         </VBtn>
         <VBtn class="button-import v-btn--rounded">
-          <VImg :src="WhatsAppIcon" width="20" height="20" />
+          <VImg
+            :src="WhatsAppIcon"
+            width="20"
+            height="20"
+          />
           Whatsapp Group
         </VBtn>
         <VBtn class="button-import v-btn--rounded">
-          <VImg :src="WhatsAppIcon" width="20" height="20" />
+          <VImg
+            :src="WhatsAppIcon"
+            width="20"
+            height="20"
+          />
           Whatsapp Contacts
         </VBtn>
       </div>
-      <h4 class="mb-3">Expiry Date</h4>
+      <h4 class="mb-3">
+        Expiry Date
+      </h4>
       <div class="input-field input-file">
-        <input type="file" class="phone-number" />
-        <button class="button-browse" type="button" @click="action()">Browse</button>
+        <input
+          type="file"
+          class="phone-number"
+        >
+        <button
+          class="button-browse"
+          type="button"
+          @click="action"
+        >
+          Browse
+        </button>
       </div>
     </VCard>
   </div>

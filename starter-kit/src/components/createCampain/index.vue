@@ -45,27 +45,20 @@ export default {
         <div class="wrapper-stepper">
           <div class="stepper">
             <div class="stepper-progress">
-              <div
-                class="stepper-progress-bar"
-              />
+              <div class="stepper-progress-bar" />
             </div>
 
-            <div
-              v-for="item in 4"
-              :key="item"
-              class="stepper-item"
-              :class="{ current: step === item, success: step > item }"
-            >
+            <div v-for="item in 4" :key="item" class="stepper-item"
+              :class="{ current: step === item, success: step > item }">
               <div class="stepper-item-counter">
-                <img
-                  class="icon-success"
-                  src="../../assets/icons/verify.svg"
-                  alt="verify"
-                >
+                <img class="icon-success" src="../../assets/icons/verify.svg" alt="verify">
                 <span class="number">
                   {{ item }}
                 </span>
               </div>
+              <span class="stepper-item-title">
+                Paso {{ item }}
+              </span>
             </div>
           </div>
         </div>
@@ -85,13 +78,8 @@ export default {
     </div>
     <div class="btn-phone-container">
       <div class="btn-phone">
-        <BtnRound
-          button-title="continue"
-          :action="nextStep"
-          color="btnBlack.color"
-          :style="btnBlack"
-          variant="contained"
-        />
+        <BtnRound button-title="continue" :action="nextStep" color="btnBlack.color" :style="btnBlack"
+          variant="contained" />
       </div>
     </div>
   </div>
@@ -161,17 +149,17 @@ export default {
   text-align: center;
 }
 
-.select__container > p {
+.select__container>p {
   color: #374151;
   font-size: 14px;
   margin-block: 30px 0;
 }
 
-.select__container > p a {
+.select__container>p a {
   color: #6354d9;
 }
 
-.select__container > p a {
+.select__container>p a {
   color: #6354d9;
   text-decoration: underline;
 }
@@ -191,7 +179,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  inline-size: 230px;
+  inline-size: 320px;
   margin-block: 0 30px;
   margin-inline: auto;
 }
@@ -251,12 +239,15 @@ export default {
   position: absolute;
   font-size: 14px;
   inset-block-end: -24px;
+  color: #9CA3AF;
+  display: none;
+  width: 128px;
+  text-align: center;
 }
 
-.stepper-item.success {
-  /* .stepper-item-title {
-    color: $green-1;
-  } */
+.stepper-item.success .stepper-item-title {
+  color: #10B981;
+  display: none;
 }
 
 .stepper-item.success .stepper-item-counter {
@@ -286,7 +277,8 @@ export default {
 }
 
 .stepper-item.current .stepper-item-title {
-  color: #818181;
+  color: #6366F1;
+  display: block;
 }
 
 .stepper-pane {
@@ -355,7 +347,7 @@ export default {
 
 @media (min-width: 479px) {
   .stepper {
-    inline-size: 500px;
+    inline-size: 420px;
   }
 
   p,
@@ -403,6 +395,17 @@ export default {
     inline-size: 48px;
     opacity: 1;
     transform: scale(1);
+  }
+}
+
+@media (min-width: 550px) {
+  .stepper {
+    width: 492px;
+  }
+
+  .stepper-item-title,
+  .stepper-item.success .stepper-item-title {
+    display: block;
   }
 }
 

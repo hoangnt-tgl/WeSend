@@ -18,32 +18,20 @@ export default {
       <div class="detail-input">
         <div class="detail-item">
           <p>Credit Card Number</p>
-          <input
-            type="number"
-            placeholder="XXXX XXXX XXXX XXXX"
-          >
+          <input type="number" placeholder="XXXX XXXX XXXX XXXX">
         </div>
         <div class="detail-item">
           <p>Name on Card</p>
-          <input
-            type="text"
-            placeholder="Roger"
-          >
+          <input type="text" placeholder="Roger">
         </div>
         <div class="detail-name">
           <div class="detail-item">
             <p>Expiry Date</p>
-            <input
-              type="text"
-              placeholder="MM/YYYY"
-            >
+            <input type="text" placeholder="MM/YYYY">
           </div>
           <div class="detail-item">
             <p>CVV</p>
-            <input
-              type="number"
-              placeholder="XXX"
-            >
+            <input type="number" placeholder="XXX">
           </div>
         </div>
       </div>
@@ -157,6 +145,11 @@ input[type="number"] {
   align-items: center;
   gap: 10px;
   margin-block-start: 20px;
+}
+
+.detail-checkbox a {
+  color: #7C3AED;
+  text-decoration: underline;
 }
 
 /* @media (max-width: 480px) {

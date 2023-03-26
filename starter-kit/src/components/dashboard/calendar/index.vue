@@ -26,6 +26,25 @@ const { isLeftSidebarOpen } = useResponsiveLeftSidebar()
 // 👉 useCalendar
 const { refCalendar, calendarOptions, addEvent, updateEvent, removeEvent, jumpToDate } = useCalendar(event, isEventHandlerSidebarActive, isLeftSidebarOpen)
 
+if (window.innerWidth < 576) {
+  calendarOptions.views = {
+    timeGridDay: {
+      type: 'timeGrid',
+      duration: { days: 1 },
+      buttonText: '1 day',
+    },
+  }
+}
+else {
+  calendarOptions.views = {
+    timeGridDay: {
+      type: 'timeGrid',
+      duration: { days: 3 },
+      buttonText: '3 day',
+    },
+  }
+}
+
 // !SECTION
 </script>
 
@@ -35,10 +54,7 @@ const { refCalendar, calendarOptions, addEvent, updateEvent, removeEvent, jumpTo
       <!-- `z-index: 0` Allows overlapping vertical nav on calendar -->
       <VLayout style="z-index: 0;">
         <VMain>
-          <VCard
-            flat
-            class="calendar-container"
-          >
+          <VCard flat>
             <FullCalendar
               ref="refCalendar"
               :options="calendarOptions"
@@ -67,7 +83,6 @@ const { refCalendar, calendarOptions, addEvent, updateEvent, removeEvent, jumpTo
 
   .v-card {
     overflow: visible;
-    border-radius: 20px !important;
   }
 }
 </style>

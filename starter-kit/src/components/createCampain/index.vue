@@ -1,114 +1,80 @@
 <!-- eslint-disable vue/component-api-style -->
-<script lang="ts">
-import PaymentDetail from '@/components/pricing/PaymentDetail.vue'
-import SignUp from '@/components/pricing/SignUp.vue'
-import YourDetail from '@/components/pricing/YourDetail.vue'
-import Verify from '@/components/signin/verify.vue'
+<!-- eslint-disable @typescript-eslint/no-empty-function -->
+<script  lang="ts">
+import Step1 from './step1/step1.vue'
+import Step2 from './step2/step2.vue'
+import Step3 from './step3/step3.vue'
+import Step4 from './step4/step4.vue'
 
-const step = ref(1)
-const verify = ref(false)
 export default {
+  name: 'CreateCampain',
   components: {
-    Verify,
-    YourDetail,
-    PaymentDetail,
-    SignUp,
+    Step1,
+    Step2,
+    Step3,
+    Step4,
   },
   setup() {
+    const step = ref(1)
+
     return {
       step,
-      verify,
     }
   },
   methods: {
     nextStep() {
-      if (this.step === 1) {
+      if (this.step < 4)
         this.step++
-      }
-      else if (this.step === 2 && this.verify === false)
-        this.verify = true
-      else if (this.step === 2 && this.verify === true) {
-        this.step++
-      }
+    },
+    prevStep() {
+      this.step--
     },
   },
 }
 </script>
 
 <template>
-  <div class="select">
-    <div class="container">
-      <div class="select__container">
-        <h1>We<span>Send</span></h1>
-        <div class="wrapper-stepper">
-          <div class="stepper">
-            <div class="stepper-progress">
-              <div
-                class="stepper-progress-bar"
-                :style="`width:${stepperProgress}`"
-              />
-            </div>
-
+  <div class="container">
+    <div class="select__container">
+      <h1>Create New Campaign</h1>
+      <div class="wrapper-stepper">
+        <div class="stepper">
+          <div class="stepper-progress">
             <div
-              v-for="item in 3"
-              :key="item"
-              class="stepper-item"
-              :class="{ current: step == item, success: step > item }"
-            >
-              <div class="stepper-item-counter">
-                <img
-                  class="icon-success"
-                  src="../../assets/icons/verify.svg"
-                  alt="verify"
-                >
-                <span class="number">
-                  {{ item }}
-                </span>
-              </div>
-            </div>
-          </div>
-          <div v-if="step === 1">
-            <SignUp :action="nextStep" />
-          </div>
-          <div v-if="step === 2 && verify === false">
-            <YourDetail :action="nextStep" />
-          </div>
-          <div v-if="step === 2 && verify === true">
-            <Verify :action="nextStep" />
-          </div>
-          <div v-if="step === 3">
-            <PaymentDetail :action="nextStep" />
+              class="stepper-progress-bar"
+            />
           </div>
 
           <div
             v-for="item in 4"
             :key="item"
-            class="stepper-content"
+            class="stepper-item"
+            :class="{ current: step === item, success: step > item }"
           >
-            <Package />
-          </div>
-
-          <div class="controls">
-            <button
-              class="btn btn--green-1"
-              :disabled="step === 3"
-              @click="nextStep"
-            >
-              Siguiente
-            </button>
+            <div class="stepper-item-counter">
+              <img
+                class="icon-success"
+                src="../../assets/icons/verify.svg"
+                alt="verify"
+              >
+              <span class="number">
+                {{ item }}
+              </span>
+            </div>
           </div>
         </div>
-        <p>New to WeSend. <a href="#">Sign up</a></p>
       </div>
-      <div class="select__footer">
-        <div class="select__footer__link">
-          <a href="#">Contact Us</a>
-          <span>|</span>
-          <a href="#">Privacy Policy</a>
-          <span>|</span>
-          <a href="#">Terms & Conditions</a>
-        </div>
-        <p>© 2022 We Send. All Rights Reserved.</p>
+      <div v-if="step === 1">
+        <Step1 :action="nextStep" />
+      </div>
+      <div v-else-if="step === 2">
+        <Step2 :action="nextStep" />
+      </div>
+      <div v-else-if="step === 3">
+        <Step3 :action="nextStep" />
+      </div>
+      <div v-else-if="step === 4">
+        <Step4 :action="nextStep" />
       </div>
     </div>
   </div>
@@ -117,9 +83,10 @@ export default {
 <style scoped>
 .select {
   background: url(../../assets/images/login/background.png) center / cover no-repeat;
-  min-block-size: 115vh;
+  min-block-size: 140vh;
   padding-block: 0;
-  padding-inline: 16.5px;
+
+  /* padding-inline: 16.5px; */
 }
 
 .container {
@@ -128,8 +95,10 @@ export default {
   justify-content: space-between;
   margin-block: 0;
   margin-inline: auto;
-  max-inline-size: 466px;
-  min-block-size: 115vh;
+
+  /* max-inline-size: 466px; */
+
+  /* min-block-size: 140vh; */
 }
 
 .select__container {
@@ -196,9 +165,7 @@ export default {
 }
 
 .wrapper-stepper {
-  border-radius: 32px;
-
-  /* box-shadow: ; */
+  inline-size: 100%;
 }
 
 .stepper {
@@ -207,7 +174,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  inline-size: 400px;
+  inline-size: 230px;
   margin-block: 0 30px;
   margin-inline: auto;
 }
@@ -245,8 +212,8 @@ export default {
   display: grid;
   border-radius: 100%;
   background-color: #e5e7eb;
-  block-size: 48px;
-  inline-size: 48px;
+  block-size: 36px;
+  inline-size: 36px;
   place-items: center;
 }
 
@@ -258,7 +225,7 @@ export default {
 }
 
 .stepper-item-counter .number {
-  font-size: 22px;
+  font-size: 16.5px;
   font-weight: 600;
   transition: all 0.4s;
 }
@@ -283,6 +250,7 @@ export default {
 }
 
 .stepper-item.success .stepper-item-counter .icon-success {
+  inline-size: 36px;
   opacity: 1;
   transform: scale(1);
 }
@@ -319,37 +287,6 @@ export default {
   display: flex;
 }
 
-/* .btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 6px 16px;
-  border: 1px solid;
-  text-align: center;
-  vertical-align: middle;
-  cursor: pointer;
-  line-height: 1.5;
-  transition: all 150ms;
-  border-radius: 4px;
-  width: fit-content;
-  font-size: 0.75rem;
-  color: #333;
-  background-color: #f0f0f0;
-  border-color: #f0f0f0;
-
-  &:disabled {
-    opacity: 0.5;
-    pointer-events: none;
-  }
-
-  &--green-1 {
-    background-color: $green-1;
-    border-color: $green-1;
-    color: #fff;
-    margin-left: auto;
-  }
-} */
-
 /* footer */
 .select__footer {
   font-size: 14px;
@@ -377,6 +314,10 @@ export default {
 }
 
 @media (min-width: 479px) {
+  .stepper {
+    inline-size: 500px;
+  }
+
   p,
   .select__footer {
     font-size: 16px !important;
@@ -408,13 +349,20 @@ export default {
   .input-checkbox label {
     font-size: 16px;
   }
+
+  .stepper-item-counter {
+    block-size: 48px;
+    inline-size: 48px;
+  }
+
+  .stepper-item-counter .number {
+    font-size: 22px;
+  }
+
+  .stepper-item.success .stepper-item-counter .icon-success {
+    inline-size: 48px;
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 </style>
-
-<route lang="yaml">
-meta:
-  layout: blank
-  action: read
-  subject: Auth
-  redirectIfLoggedIn: true
-</route>

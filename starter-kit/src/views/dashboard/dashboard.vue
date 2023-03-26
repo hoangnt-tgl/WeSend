@@ -39,6 +39,9 @@ export default {
     goToNotifications() {
       this.$router.push('/history')
     },
+    goToCreateCampaign() {
+      this.$router.push('/create-campaign')
+    },
   },
 }
 </script>
@@ -81,6 +84,7 @@ export default {
             :button-title="btnTitle.createNewCampaign"
             :style="btnPurple"
             variant=""
+            :action="goToCreateCampaign"
           />
         </div>
       </div>

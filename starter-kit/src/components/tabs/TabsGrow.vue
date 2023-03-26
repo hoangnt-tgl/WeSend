@@ -59,8 +59,3 @@ export default {
   </VWindow>
 </template>
 
-<style scoped>
-.v-slide-group {
-  inline-size: 40%;
-}
-</style>

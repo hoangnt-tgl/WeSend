@@ -24,8 +24,8 @@ export default {
 </script>
 
 <template>
-  <div class="container-step-2-create">
-    <VCard>
+  <div>
+    <VCard class="container-step-2-create">
       <VCardItem class="py-4">
         <div class="d-flex justify-space-between align-center">
           <VCardTitle class="card-title">
@@ -40,15 +40,16 @@ export default {
       <VCardItem class="py-0 px-4">
         <VTextField
           label="Type here"
-          variant="plain"
           single-line
-          prepend-inner-icon="tabler-map-pin"
+          variant="plain"
+          prepend-inner-icon="tabler-search"
           class="input-field"
         />
       </VCardItem>
-      <VCardItem class="px-0 pt-6 pb-0">
+      <VCardItem class="px-0 pt-4 pb-0">
         <VList
           lines="two"
+          class="list-contact"
         >
           <template
             v-for="(user, index) of users"
@@ -81,22 +82,29 @@ export default {
         </VList>
       </VCardItem>
     </VCard>
-    <div>
-      <BtnRound
-        button-title="continue"
-        :action="action"
-        color="btnBlack.color"
-        :style="btnBlack"
-        variant="contained"
-      />
+    <div class="my-6 btn-next">
+      <div>
+        <BtnRound
+          button-title="continue"
+          :action="action"
+          color="btnBlack.color"
+          :style="btnBlack"
+          variant="contained"
+        />
+      </div>
     </div>
   </div>
 </template>
 
-<style scoped>
+<style>
 @media (min-width: 350px) {
+  .btn-next {
+    display: none;
+  }
+
   .container-step-2-create {
-    inline-size: 40vw;
+    border-radius: 15px;
+    inline-size: 90vw;
     min-inline-size: 300px;
   }
 
@@ -121,6 +129,19 @@ export default {
     padding-inline: 5px;
   }
 
+  .input-field .v-field__input {
+    padding: 10px;
+  }
+
+  .input-field::placeholder {
+    color: var(--text-gray-light);
+    font-size: var(--font-size);
+  }
+
+  .list-contact {
+    block-size: 300px;
+  }
+
   .contact-name {
     color: var(--text-dark);
     font-size: var(--font-size);
@@ -140,22 +161,16 @@ export default {
   }
 }
 
-@media (min-width: 500px) {
+@media (min-width: 600px) {
   .container-step-2-create {
-    inline-size: 70vw;
-    min-inline-size: 400px;
+    max-inline-size: 549px;
   }
 }
-@media (min-width: 500px) {
-  .container-step-2-create {
-    inline-size: 70vw;
-    min-inline-size: 400px;
-  }
-}
-@media (min-width: 1024px) {
-  .container-step-2-create {
-    inline-size: 50vw;
-    min-inline-size: 600px;
+
+@media (min-width: 768px) {
+  .btn-next {
+    display: flex;
+    justify-content: center;
   }
 }
 </style>

@@ -86,7 +86,7 @@ export default {
         </button>
       </div>
     </VCard>
-    <div class="my-4">
+    <div class="my-6 btn-next">
       <div>
         <BtnRound
           button-title="continue"
@@ -101,6 +101,22 @@ export default {
 </template>
 
 <style scoped>
+@media (min-width: 350px) {
+  .btn-next {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .btn-next {
+    display: flex;
+    justify-content: center;
+
+    /* inline-size: 30%;
+    max-inline-size: 145px; */
+  }
+}
+
 .input-field.input-file {
   display: flex;
 }

@@ -5,6 +5,8 @@ import Step1 from './step1/step1.vue'
 import Step2 from './step2/step2.vue'
 import Step3 from './step3/step3.vue'
 import Step4 from './step4/step4.vue'
+import { btnBlack } from '@/constant/buttonColor'
+import BtnRound from '@/components/buttons/roundedButton/index.vue'
 
 export default {
   name: 'CreateCampain',
@@ -13,12 +15,14 @@ export default {
     Step2,
     Step3,
     Step4,
+    BtnRound,
   },
   setup() {
     const step = ref(1)
 
     return {
       step,
+      btnBlack,
     }
   },
   methods: {
@@ -34,47 +38,60 @@ export default {
 </script>
 
 <template>
-  <div class="container">
-    <div class="select__container">
-      <h1>Create New Campaign</h1>
-      <div class="wrapper-stepper">
-        <div class="stepper">
-          <div class="stepper-progress">
-            <div
-              class="stepper-progress-bar"
-            />
-          </div>
+  <div class="biggest-container">
+    <div class="container">
+      <div class="select__container">
+        <h1>Create New Campaign</h1>
+        <div class="wrapper-stepper">
+          <div class="stepper">
+            <div class="stepper-progress">
+              <div
+                class="stepper-progress-bar"
+              />
+            </div>
 
-          <div
-            v-for="item in 4"
-            :key="item"
-            class="stepper-item"
-            :class="{ current: step === item, success: step > item }"
-          >
-            <div class="stepper-item-counter">
-              <img
-                class="icon-success"
-                src="../../assets/icons/verify.svg"
-                alt="verify"
-              >
-              <span class="number">
-                {{ item }}
-              </span>
+            <div
+              v-for="item in 4"
+              :key="item"
+              class="stepper-item"
+              :class="{ current: step === item, success: step > item }"
+            >
+              <div class="stepper-item-counter">
+                <img
+                  class="icon-success"
+                  src="../../assets/icons/verify.svg"
+                  alt="verify"
+                >
+                <span class="number">
+                  {{ item }}
+                </span>
+              </div>
             </div>
           </div>
         </div>
+        <div v-if="step === 1">
+          <Step1 :action="nextStep" />
+        </div>
+        <div v-else-if="step === 2">
+          <Step2 :action="nextStep" />
+        </div>
+        <div v-else-if="step === 3">
+          <Step3 :action="nextStep" />
+        </div>
+        <div v-else-if="step === 4">
+          <Step4 :action="nextStep" />
+        </div>
       </div>
-      <div v-if="step === 1">
-        <Step1 :action="nextStep" />
-      </div>
-      <div v-else-if="step === 2">
-        <Step2 :action="nextStep" />
-      </div>
-      <div v-else-if="step === 3">
-        <Step3 :action="nextStep" />
-      </div>
-      <div v-else-if="step === 4">
-        <Step4 :action="nextStep" />
+    </div>
+    <div class="btn-phone-container">
+      <div class="btn-phone">
+        <BtnRound
+          button-title="continue"
+          :action="nextStep"
+          color="btnBlack.color"
+          :style="btnBlack"
+          variant="contained"
+        />
       </div>
     </div>
   </div>
@@ -313,6 +330,29 @@ export default {
   margin-block: 10px 0;
 }
 
+@media (min-width: 350px) {
+  .select__container h1 {
+    font-size: 24px;
+    margin-block-end: 25px;
+  }
+
+  .btn-phone-container {
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+    background: #fff;
+    inset-block-end: 0;
+    inset-inline: 0;
+    padding-block: 10px;
+    padding-inline: 10px;
+  }
+
+  .btn-phone {
+    inline-size: 30%;
+    max-inline-size: 145px;
+  }
+}
+
 @media (min-width: 479px) {
   .stepper {
     inline-size: 500px;
@@ -363,6 +403,12 @@ export default {
     inline-size: 48px;
     opacity: 1;
     transform: scale(1);
+  }
+}
+
+@media (min-width: 768px) {
+  .btn-phone-container {
+    display: none;
   }
 }
 </style>

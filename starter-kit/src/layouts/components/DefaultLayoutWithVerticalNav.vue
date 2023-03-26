@@ -63,7 +63,7 @@ const displayTime = () => {
           class="d-none d-sm-block"
           @click="router.push({ name: 'index' })"
         >
-          Back to Dashboard
+          Back to dashboard
         </div>
         <NavbarThemeSwitcher />
 

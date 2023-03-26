@@ -149,19 +149,19 @@ const handleNavScroll = (evt: Event) => {
             />
           </div>
         </div>
-        <div class="d-flex align-center justify-center gap-5 user-info-wrapper">
-          <div class="d-flex gap-2">
+        <div class="d-flex align-center justify-center gap-3 user-info-wrapper">
+          <div class="d-flex gap-2 ps-2">
             <VAvatar>
               <VImg
                 :src="Avatar"
               />
             </VAvatar>
             <div class="d-flex flex-column user-info">
-              <a>John Carter</a><a>+9190011223344</a>
+              <b>John Carter</b><a>+9190011223344</a>
             </div>
           </div>
 
-          <div>
+          <div class="pe-2">
             <VAvatar>
               <VImg
                 :src="Power"
@@ -274,6 +274,12 @@ const handleNavScroll = (evt: Event) => {
     color: var(--text-deactive);
     font-size: var(--font-size-sxm);
     font-weight: var(--font-weight-light);
+  }
+
+  b {
+    color: var(--text-dark);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
   }
 }
 

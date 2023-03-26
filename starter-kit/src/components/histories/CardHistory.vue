@@ -1,4 +1,5 @@
 <script lang="ts">
+import IconButton from '@/components/buttons/iconButton/index.vue'
 import RounedBtn from '@/components/buttons/roundedButton/index.vue'
 import { btnOutLine } from '@/constant/buttonColor'
 
@@ -6,6 +7,7 @@ export default {
   name: 'CardHistory',
   components: {
     RounedBtn,
+    IconButton,
   },
   props: {
     title: {
@@ -54,7 +56,7 @@ export default {
           :color="btnOutLine.color"
           :style="btnOutLine"
           variant="'outlined'"
-          icon="tabler-rotate-2"
+          icon-b="tabler-rotate-2"
           class="d-block d-sm-none"
         />
         <RounedBtn
@@ -62,7 +64,7 @@ export default {
           :color="btnOutLine.color"
           :style="btnOutLine"
           variant="'outlined'"
-          icon="tabler-rotate-2"
+          icon-b="tabler-rotate-2"
           class="d-none d-sm-block"
         />
       </div>

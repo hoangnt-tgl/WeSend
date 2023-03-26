@@ -1,5 +1,6 @@
 <!-- eslint-disable vue/component-api-style -->
 <script lang="ts">
+import { ref } from 'vue'
 import PaymentDetail from '@/components/pricing/PaymentDetail.vue'
 import SignUp from '@/components/pricing/SignUp.vue'
 import Verify from '@/components/pricing/Verify.vue'

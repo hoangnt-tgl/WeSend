@@ -54,13 +54,13 @@ const displayTime = () => {
         </VBtn>
         <div
           v-if="isDashboard"
-          class="d-none d-sm-block"
+          class="d-none d-sm-block dashboard-time"
         >
           {{ displayTime() }}
         </div>
         <div
           v-else
-          class="d-none d-sm-block"
+          class="d-none d-sm-block back-to-dashboard"
           @click="router.push({ name: 'index' })"
         >
           Back to dashboard
@@ -92,3 +92,16 @@ const displayTime = () => {
     <!-- <TheCustomizer /> -->
   </VerticalNavLayout>
 </template>
+
+<style>
+.back-to-dashboard {
+  color: var(--text-gray-light) !important;
+  font-size: var(--font-size) !important;
+}
+
+.dashboard-time {
+  color: var(--text-gray-light) !important;
+  font-size: var(--font-size-sm) !important;
+  text-transform: uppercase !important;
+}
+</style>

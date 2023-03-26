@@ -23,14 +23,12 @@ export default {
   },
   methods: {
     nextStep() {
-      if (this.step === 1) {
+      if (this.step === 1)
         this.step++
-      }
       else if (this.step === 2 && this.verify === false)
         this.verify = true
-      else if (this.step === 2 && this.verify === true) {
+      else if (this.step === 2 && this.verify === true)
         this.step++
-      }
     },
   },
 }
@@ -46,7 +44,6 @@ export default {
             <div class="stepper-progress">
               <div
                 class="stepper-progress-bar"
-                :style="`width:${stepperProgress}`"
               />
             </div>
 
@@ -54,7 +51,7 @@ export default {
               v-for="item in 3"
               :key="item"
               class="stepper-item"
-              :class="{ current: step == item, success: step > item }"
+              :class="{ current: step === item, success: step > item }"
             >
               <div class="stepper-item-counter">
                 <img
@@ -260,12 +257,6 @@ export default {
   inset-block-end: -24px;
 }
 
-.stepper-item.success {
-  /* .stepper-item-title {
-    color: $green-1;
-  } */
-}
-
 .stepper-item.success .stepper-item-counter {
   /* border-color: $green-1; */
   background-color: #c8ebc1;
@@ -360,18 +351,6 @@ export default {
     inline-size: 65%;
     margin-block: 0 10px;
     margin-inline: auto;
-  }
-
-  .select-input-checkbox button {
-    display: none;
-  }
-
-  .input-number input {
-    font-size: 16px;
-  }
-
-  .input-checkbox label {
-    font-size: 16px;
   }
 
   .stepper-item-counter {

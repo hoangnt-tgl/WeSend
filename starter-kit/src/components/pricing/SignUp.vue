@@ -103,14 +103,19 @@ export default {
         </button>
       </div>
     </div>
-
   </div>
 </template>
 
 <style scoped>
+::-webkit-scrollbar {
+  height: 10px;
+}
+
 .package {
-  min-width: 981px;
-  padding: 54px 30px 0;
+  max-width: 981px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 54px 0 0;
   background: #fff;
   border-radius: 15px;
   overflow: hidden;
@@ -120,21 +125,26 @@ export default {
   text-align: center;
   color: #111827;
   font-size: 24px;
+  padding: 0 30px;
 }
 
 .package-list {
   padding-top: 40px;
   display: grid;
-  column-gap: 30px;
+  /* column-gap: 30px; */
   grid-template-columns: repeat(3, 1fr);
   overflow-x: scroll;
   padding-bottom: 54px;
+  margin: 0 0 0 30px;
+  /* min-width: 921px; */
 }
 
 .package-item {
   background: #F6F6FE;
   border-radius: 15px;
   padding: 30px;
+  width: 287px;
+  margin-right: 30px;
 }
 
 .package-item:nth-child(2) {
@@ -190,5 +200,17 @@ export default {
 
 .package-item button:hover {
   background: rgba(17, 24, 39, 0.7);
+}
+
+/* @media (max-width: 981px) {
+  .package-list {
+    margin: 0 0 0 30px;
+  }
+} */
+
+@media (max-width: 480px) {
+  .package h2 {
+    text-align: left;
+  }
 }
 </style>

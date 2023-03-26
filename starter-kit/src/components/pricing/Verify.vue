@@ -14,16 +14,74 @@ export default {
 <template>
   <div class="detail">
     <div class="detail-container">
-      <div class="detail-button">
-        <button @click="action">
-          Sign up
-        </button>
+      <div class="verify__content">
+        <h2>Verify</h2>
+        <p>Please enter the code send on your phone for verification</p>
+        <div class="input-number">
+          <AppOtpInput />
+        </div>
+        <div class="verify__content-button">
+          <button @click="action">
+            Verify
+          </button>
+        </div>
+
+        <p class="resend">
+          Didn’t received the code. <a href="#">Resend</a> (20s)
+        </p>
       </div>
     </div>
   </div>
 </template>
 
 <style scoped>
+.detail {
+  padding-block: 0;
+  padding-inline: 16.5px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.verify__content {
+  border-radius: 15px;
+  background: #fff;
+  inline-size: 100%;
+  padding-block: 40px;
+  padding-inline: 27.5px;
+}
+
+.verify__content p {
+  color: #374151;
+  font-size: 16px;
+  text-align: center;
+}
+
+.verify__content h2 {
+  color: #111827;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 30px;
+  margin-block-end: 10px;
+  text-align: center;
+}
+
+.input-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.input-number input {
+  padding: 15px;
+  border-radius: 5px;
+  background: #f3f4fb;
+  color: #374151;
+  font-size: 16px;
+  inline-size: 48px;
+  outline: none;
+}
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   margin: 0;
@@ -34,27 +92,13 @@ input[type="number"] {
   appearance: textfield;
 }
 
-.detail {
-  padding-block: 0;
-  padding-inline: 16.5px;
-}
-
-.detail-container {
-  border-radius: 15px;
-  background: #fff;
-  margin-block: 0;
-  margin-inline: auto;
-  max-inline-size: 478px;
-  padding-block: 40px;
-  padding-inline: 30px;
-}
-
-.detail-button {
-  margin-block-start: 30px;
+.verify__content-button {
+  margin-block: 30px;
+  margin-inline: 0;
   text-align: center;
 }
 
-.detail-button button {
+.verify__content-button button {
   border-radius: 100px;
   background: #111827;
   color: #fff;
@@ -68,60 +112,21 @@ input[type="number"] {
   transition: all 0.4s;
 }
 
-.detail-button button:hover {
+.verify__content-button button:hover {
   background: rgba(17, 24, 39, 70%);
 }
 
-.detail-container h2 {
-  color: #111827;
-  font-size: 24px;
-  text-align: center;
-}
-
-.detail-input {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  margin-block-start: 24px;
-}
-
-.detail-name {
-  display: flex;
-  gap: 10px;
-}
-
-.detail-item {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.detail-item p {
+.verify__content .resend {
   color: #374151;
-  font-size: 16px;
-  margin-block-end: 0;
 }
 
-.detail-item input {
-  padding: 15px;
-  border-radius: 5px;
-  background: #f3f4fb;
+.verify__content .resend a {
   color: #374151;
-  outline: none;
+  text-decoration: underline;
 }
 
-.detail-name .detail-item {
-  inline-size: calc(50% - 5px);
-}
-
-@media (max-width: 480px) {
-  .detail-name {
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .detail-name .detail-item {
-    inline-size: 100%;
-  }
+.verify__container>p a {
+  color: #6354d9;
+  text-decoration: underline;
 }
 </style>

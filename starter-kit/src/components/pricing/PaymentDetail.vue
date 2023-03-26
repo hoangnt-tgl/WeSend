@@ -5,14 +5,168 @@ export default {
   props: {
     action: {
       type: Function,
-      default: () => {},
+      default: () => { },
     },
   },
 }
 </script>
 
 <template>
-  <button @click="action">
-    Verify
-  </button>
+  <div class="detail">
+    <div class="detail-container">
+      <h2>Payment Details</h2>
+      <div class="detail-input">
+        <div class="detail-item">
+          <p>Credit Card Number</p>
+          <input
+            type="number"
+            placeholder="XXXX XXXX XXXX XXXX"
+          >
+        </div>
+        <div class="detail-item">
+          <p>Name on Card</p>
+          <input
+            type="text"
+            placeholder="Roger"
+          >
+        </div>
+        <div class="detail-name">
+          <div class="detail-item">
+            <p>Expiry Date</p>
+            <input
+              type="text"
+              placeholder="MM/YYYY"
+            >
+          </div>
+          <div class="detail-item">
+            <p>CVV</p>
+            <input
+              type="number"
+              placeholder="XXX"
+            >
+          </div>
+        </div>
+      </div>
+      <div class="detail-checkbox">
+        <input type="checkbox">
+        <label>By signing up I agree to <a href="#">Terms & Condtions</a> and
+          <a href="#">Privacy policy</a></label>
+      </div>
+      <div class="detail-button">
+        <button @click="action">
+          Continue
+        </button>
+      </div>
+    </div>
+  </div>
 </template>
+
+<style scoped>
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  margin: 0;
+  appearance: none;
+}
+
+input[type="number"] {
+  appearance: textfield;
+}
+
+.detail {
+  padding-block: 0;
+  padding-inline: 16.5px;
+}
+
+.detail-container {
+  border-radius: 15px;
+  background: #fff;
+  margin-block: 0;
+  margin-inline: auto;
+  max-inline-size: 478px;
+  padding-block: 40px;
+  padding-inline: 30px;
+}
+
+.detail-button {
+  margin-block-start: 30px;
+  text-align: center;
+}
+
+.detail-button button {
+  border-radius: 100px;
+  background: #111827;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  min-inline-size: 122px;
+  padding-block: 11px;
+  padding-inline: 0;
+  text-align: center;
+  transition: all 0.4s;
+}
+
+.detail-button button:hover {
+  background: rgba(17, 24, 39, 70%);
+}
+
+.detail-container h2 {
+  color: #111827;
+  font-size: 24px;
+  text-align: center;
+}
+
+.detail-input {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-block-start: 24px;
+}
+
+.detail-name {
+  display: flex;
+  gap: 10px;
+}
+
+.detail-item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.detail-item p {
+  color: #374151;
+  font-size: 16px;
+  margin-block-end: 0;
+}
+
+.detail-item input {
+  padding: 15px;
+  border-radius: 5px;
+  background: #f3f4fb;
+  color: #374151;
+  outline: none;
+}
+
+.detail-name .detail-item {
+  inline-size: calc(50% - 5px);
+}
+
+.detail-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-block-start: 20px;
+}
+
+/* @media (max-width: 480px) {
+  .detail-name {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .detail-name .detail-item {
+    width: 100%;
+  }
+} */
+</style>

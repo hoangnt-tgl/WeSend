@@ -5,14 +5,212 @@ export default {
   props: {
     action: {
       type: Function,
-      default: () => {},
+      default: () => { },
     },
   },
 }
 </script>
 
 <template>
-  <button @click="action">
-    nextStep
-  </button>
+  <div class="package">
+    <h2>Select your package and Sign Up</h2>
+    <div class="package-list">
+      <div class="package-item">
+        <p>Bronze</p>
+        <h1>$12.99</h1>
+        <div class="package-item-desc">
+          <div class="desc-item">
+            <img src="../../assets/icons/circle-check.svg" alt="icon" />
+            <p>Lorem ipsum dolar sit efelsd</p>
+          </div>
+          <div class="desc-item">
+            <img src="../../assets/icons/circle-check.svg" alt="icon" />
+            <p>Lorem ipsum dolar</p>
+          </div>
+          <div class="desc-item">
+            <img src="../../assets/icons/circle-check.svg" alt="icon" />
+            <p>Lorem ipsum dolar sit</p>
+          </div>
+          <div class="desc-item">
+            <img src="../../assets/icons/circle-check.svg" alt="icon" />
+            <p>Lorem ipsum dolar</p>
+          </div>
+          <div class="desc-item">
+            <img src="../../assets/icons/circle-check.svg" alt="icon" />
+            <p>Lorem ipsum dolar sit</p>
+          </div>
+        </div>
+        <button @click="action">
+          Choose
+        </button>
+      </div>
+      <div class="package-item">
+        <p>Bronze</p>
+        <h1>$12.99</h1>
+        <div class="package-item-desc">
+          <div class="desc-item">
+            <img src="../../assets/icons/circle-check.svg" alt="icon" />
+            <p>Lorem ipsum dolar sit efelsd</p>
+          </div>
+          <div class="desc-item">
+            <img src="../../assets/icons/circle-check.svg" alt="icon" />
+            <p>Lorem ipsum dolar</p>
+          </div>
+          <div class="desc-item">
+            <img src="../../assets/icons/circle-check.svg" alt="icon" />
+            <p>Lorem ipsum dolar sit</p>
+          </div>
+          <div class="desc-item">
+            <img src="../../assets/icons/circle-check.svg" alt="icon" />
+            <p>Lorem ipsum dolar</p>
+          </div>
+          <div class="desc-item">
+            <img src="../../assets/icons/circle-check.svg" alt="icon" />
+            <p>Lorem ipsum dolar sit</p>
+          </div>
+        </div>
+        <button @click="action">
+          Choose
+        </button>
+      </div>
+      <div class="package-item">
+        <p>Bronze</p>
+        <h1>$12.99</h1>
+        <div class="package-item-desc">
+          <div class="desc-item">
+            <img src="../../assets/icons/circle-check.svg" alt="icon" />
+            <p>Lorem ipsum dolar sit efelsd</p>
+          </div>
+          <div class="desc-item">
+            <img src="../../assets/icons/circle-check.svg" alt="icon" />
+            <p>Lorem ipsum dolar</p>
+          </div>
+          <div class="desc-item">
+            <img src="../../assets/icons/circle-check.svg" alt="icon" />
+            <p>Lorem ipsum dolar sit</p>
+          </div>
+          <div class="desc-item">
+            <img src="../../assets/icons/circle-check.svg" alt="icon" />
+            <p>Lorem ipsum dolar</p>
+          </div>
+          <div class="desc-item">
+            <img src="../../assets/icons/circle-check.svg" alt="icon" />
+            <p>Lorem ipsum dolar sit</p>
+          </div>
+        </div>
+        <button @click="action">
+          Choose
+        </button>
+      </div>
+    </div>
+  </div>
 </template>
+
+<style scoped>
+::-webkit-scrollbar {
+  height: 10px;
+}
+
+.package {
+  max-width: 981px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 54px 0 0;
+  background: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.package h2 {
+  text-align: center;
+  color: #111827;
+  font-size: 24px;
+  padding: 0 30px;
+}
+
+.package-list {
+  padding-top: 40px;
+  display: grid;
+  /* column-gap: 30px; */
+  grid-template-columns: repeat(3, 1fr);
+  overflow-x: scroll;
+  padding-bottom: 54px;
+  margin: 0 0 0 30px;
+  /* min-width: 921px; */
+}
+
+.package-item {
+  background: #F6F6FE;
+  border-radius: 15px;
+  padding: 30px;
+  width: 287px;
+  margin-right: 30px;
+}
+
+.package-item:nth-child(2) {
+  background: #FFFFFF;
+  box-shadow: 0px 34px 54px rgba(0, 0, 0, 0.07);
+}
+
+.package-item>p {
+  color: #4B5563;
+  font-size: 16px;
+  margin-bottom: 0;
+}
+
+.package-item h1 {
+  color: #111827;
+  font-size: 34px;
+}
+
+.package-item-desc {
+  display: flex;
+  gap: 9px;
+  flex-direction: column;
+  margin-top: 12px;
+}
+
+.desc-item {
+  display: flex;
+  gap: 4px;
+  align-items: flex-start;
+}
+
+.desc-item p {
+  font-size: 14px;
+  margin-bottom: 0px;
+}
+
+.desc-item img {
+  width: 18px;
+  height: 18px;
+  margin-top: 1px;
+}
+
+.package-item button {
+  background: #111827;
+  border-radius: 5px;
+  padding: 15px 0;
+  width: 100%;
+  margin-top: 24px;
+  color: #fff;
+
+  transition: all 0.4s;
+}
+
+.package-item button:hover {
+  background: rgba(17, 24, 39, 0.7);
+}
+
+/* @media (max-width: 981px) {
+  .package-list {
+    margin: 0 0 0 30px;
+  }
+} */
+
+@media (max-width: 480px) {
+  .package h2 {
+    text-align: left;
+  }
+}
+</style>

@@ -2,8 +2,8 @@
 <script lang="ts">
 import PaymentDetail from '@/components/pricing/PaymentDetail.vue'
 import SignUp from '@/components/pricing/SignUp.vue'
+import Verify from '@/components/pricing/Verify.vue'
 import YourDetail from '@/components/pricing/YourDetail.vue'
-import Verify from '@/components/signin/verify.vue'
 
 const step = ref(1)
 const verify = ref(false)
@@ -87,18 +87,8 @@ export default {
           >
             <Package />
           </div>
-
-          <div class="controls">
-            <button
-              class="btn btn--green-1"
-              :disabled="step === 3"
-              @click="nextStep"
-            >
-              Siguiente
-            </button>
-          </div>
         </div>
-        <p>New to WeSend. <a href="#">Sign up</a></p>
+        <p>Already a member. <a href="#">Sign in</a></p>
       </div>
       <div class="select__footer">
         <div class="select__footer__link">
@@ -117,9 +107,10 @@ export default {
 <style scoped>
 .select {
   background: url(../../assets/images/login/background.png) center / cover no-repeat;
-  min-block-size: 115vh;
+  min-block-size: 140vh;
   padding-block: 0;
-  padding-inline: 16.5px;
+
+  /* padding-inline: 16.5px; */
 }
 
 .container {
@@ -128,8 +119,9 @@ export default {
   justify-content: space-between;
   margin-block: 0;
   margin-inline: auto;
-  max-inline-size: 466px;
-  min-block-size: 115vh;
+
+  /* max-inline-size: 466px; */
+  min-block-size: 140vh;
 }
 
 .select__container {
@@ -196,9 +188,7 @@ export default {
 }
 
 .wrapper-stepper {
-  border-radius: 32px;
-
-  /* box-shadow: ; */
+  inline-size: 100%;
 }
 
 .stepper {
@@ -207,7 +197,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  inline-size: 400px;
+  inline-size: 230px;
   margin-block: 0 30px;
   margin-inline: auto;
 }
@@ -245,8 +235,8 @@ export default {
   display: grid;
   border-radius: 100%;
   background-color: #e5e7eb;
-  block-size: 48px;
-  inline-size: 48px;
+  block-size: 36px;
+  inline-size: 36px;
   place-items: center;
 }
 
@@ -258,7 +248,7 @@ export default {
 }
 
 .stepper-item-counter .number {
-  font-size: 22px;
+  font-size: 16.5px;
   font-weight: 600;
   transition: all 0.4s;
 }
@@ -283,6 +273,7 @@ export default {
 }
 
 .stepper-item.success .stepper-item-counter .icon-success {
+  inline-size: 36px;
   opacity: 1;
   transform: scale(1);
 }
@@ -319,37 +310,6 @@ export default {
   display: flex;
 }
 
-/* .btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 6px 16px;
-  border: 1px solid;
-  text-align: center;
-  vertical-align: middle;
-  cursor: pointer;
-  line-height: 1.5;
-  transition: all 150ms;
-  border-radius: 4px;
-  width: fit-content;
-  font-size: 0.75rem;
-  color: #333;
-  background-color: #f0f0f0;
-  border-color: #f0f0f0;
-
-  &:disabled {
-    opacity: 0.5;
-    pointer-events: none;
-  }
-
-  &--green-1 {
-    background-color: $green-1;
-    border-color: $green-1;
-    color: #fff;
-    margin-left: auto;
-  }
-} */
-
 /* footer */
 .select__footer {
   font-size: 14px;
@@ -377,6 +337,10 @@ export default {
 }
 
 @media (min-width: 479px) {
+  .stepper {
+    inline-size: 300px;
+  }
+
   p,
   .select__footer {
     font-size: 16px !important;
@@ -407,6 +371,21 @@ export default {
 
   .input-checkbox label {
     font-size: 16px;
+  }
+
+  .stepper-item-counter {
+    block-size: 48px;
+    inline-size: 48px;
+  }
+
+  .stepper-item-counter .number {
+    font-size: 22px;
+  }
+
+  .stepper-item.success .stepper-item-counter .icon-success {
+    inline-size: 48px;
+    opacity: 1;
+    transform: scale(1);
   }
 }
 </style>

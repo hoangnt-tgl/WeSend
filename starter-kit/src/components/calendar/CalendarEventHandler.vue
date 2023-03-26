@@ -114,6 +114,7 @@ const dialogModelValueUpdate = (val: boolean) => {
 
 <template>
   <VNavigationDrawer
+    v-if="false"
     temporary
     location="end"
     :model-value="props.isDrawerOpen"
@@ -159,7 +160,10 @@ const dialogModelValueUpdate = (val: boolean) => {
       </VBTn>
     </div>
 
-    <PerfectScrollbar :options="{ wheelPropagation: false }">
+    <PerfectScrollbar
+
+      :options="{ wheelPropagation: false }"
+    >
       <VCard flat>
         <VCardText>
           <!-- SECTION Form -->

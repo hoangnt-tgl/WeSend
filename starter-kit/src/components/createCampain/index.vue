@@ -25,16 +25,16 @@ export default {
       btnBlack,
       steps: [
         {
-          title: 'Campaign Title',
+          title: 'Create Campaign',
         },
         {
           title: 'Import Contacts',
         },
         {
-          title: 'Create Message',
+          title: 'Build Message',
         },
         {
-          title: 'Schedule',
+          title: 'Schedule Message',
         },
       ],
 
@@ -57,7 +57,7 @@ export default {
     <div class="container">
       <div class="select__container">
         <h1>Create New Campaign</h1>
-        <div class="wrapper-stepper">
+        <div class="wrapper-stepper mb-10">
           <div class="stepper">
             <div class="stepper-progress">
               <div class="stepper-progress-bar" />

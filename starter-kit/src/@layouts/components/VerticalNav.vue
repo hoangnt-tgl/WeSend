@@ -1,5 +1,7 @@
 <!-- eslint-disable prefer-const -->
 <script lang="ts" setup>
+import type { Component } from 'vue'
+import { PerfectScrollbar } from 'vue3-perfect-scrollbar'
 import Avatar from '@/assets/images/avatars/avatar-1.png'
 import Power from '@/assets/images/svg/power.svg'
 import WhatsAppIcon from '@/assets/images/svg/whatsapp.svg'
@@ -7,8 +9,6 @@ import { injectionKeyIsVerticalNavHovered, useLayouts } from '@layouts'
 import { VerticalNavGroup, VerticalNavLink, VerticalNavSectionTitle } from '@layouts/components'
 import { config } from '@layouts/config'
 import type { NavGroup, NavLink, NavSectionTitle, VerticalNavItems } from '@layouts/types'
-import type { Component } from 'vue'
-import { PerfectScrollbar } from 'vue3-perfect-scrollbar'
 
 interface Props {
   tag?: string | Component
@@ -55,7 +55,7 @@ if (route.name === 'create-campaign' && windowWidth.value > ref(1280).value)
 
 watch(() => route.name, () => {
   props.toggleIsOverlayNavActive(false)
-  if (route.name === 'create-campaign')
+  if (route.name === 'create-campaign' && windowWidth.value > ref(1280).value)
     isClose.value = true
 })
 

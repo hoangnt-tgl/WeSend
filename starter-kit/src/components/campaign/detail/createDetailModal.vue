@@ -17,7 +17,7 @@ export default {
 <template>
   <div
     class="modal fade"
-    @click="onCloseModal"
+    @click.self="onCloseModal"
   >
     <div class="modal-dialog">
       <div class="modal-content">

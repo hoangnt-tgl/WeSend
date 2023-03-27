@@ -20,7 +20,7 @@ export default {
 
 <template>
   <div class="searchbar">
-    <div style="display: flex;">
+    <div class="campaign">
       <h1
         class="title"
         col-6
@@ -33,23 +33,30 @@ export default {
     </div>
 
     <button class="btnCreate">
-      <h1 style=" margin: auto;color: white; font-size: 20px;">
+      <h1
+        class="text"
+      >
         Create New Campaign
       </h1>
+      <img
+
+        src="@/assets/images/Vector.png"
+      >
     </button>
   </div>
   <div class="searchbar">
     <SearchButton />
     <div>
-      <div class="fillerField">
-        <p>Filler by</p>
+      <div class="filterField">
+        <p style="margin-block: 0.5rem;">
+          Filter by
+        </p>
         <input
           class="search__date"
-          type="date"
           placeholder="Date"
         >
         <input
-          class="search__date"
+          class="search__date2"
           type="text"
           placeholder="Status"
         >
@@ -59,30 +66,81 @@ export default {
 </template>
 
 <style>
-  .title {
-    font-size: 30px;
-  }
+.campaign {
+  display: flex;
+  align-items: center;
+}
 
-  .btnCreate {
-    border-style: solid;
-    border-radius: 15px;
-    background-color: black;
-  }
+.totalList {
+  display: flex;
+  align-items: center;
+  border-radius: 200px;
+  background: #e0e7ff;
+  block-size: 30px;
+  margin-inline-start: 10px;
+  padding-block: 2px;
+  padding-inline: 10px;
+}
 
-  .searchbar {
-    display: flex;
-    justify-content: space-between;
-    margin-block-start: 10px;
-  }
+.title {
+  font-size: 30px;
+}
 
-  .search__date {
-    border: 1px solid #575756;
-    border-radius: 50px;
-  }
+.btnCreate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-style: solid;
+  border-radius: 30px;
+  background-color: black;
+  block-size: 44px;
+  gap: 10px;
+  inline-size: 245px;
 
-  .fillerField {
-    display: flex;
-    margin: auto;
-  }
+  /* padding-block: 10px;
+  padding-inline: 40px; */
+}
+
+.searchbar {
+  display: flex;
+  justify-content: space-between;
+  margin-block-end: 35px;
+  margin-block-start: 10px;
+  margin-inline-start: 30px;
+}
+
+.search__date {
+  border: 1px solid #575756;
+  border-radius: 10px;
+  background: url(@/assets/images/fluent-mdl2_date-time.png) no-repeat scroll 108px 7px;
+  inline-size: 146px;
+  margin-inline: 10px;
+  padding-inline-end: 30px;
+  padding-inline-start: 10px;
+}
+
+.search__date2 {
+  border: 1px solid #575756;
+  border-radius: 10px;
+  background: url(@/assets/images/akar-icons_chevron-down.png) no-repeat scroll 108px 7px;
+  inline-size: 146px;
+  padding-inline-end: 30px;
+  padding-inline-start: 10px;
+}
+
+.filterField {
+  display: flex;
+  margin: auto;
+}
+
+.text {
+  color: white;
+  /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
+  font-family: Lato;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 19px;
+}
 </style>
 

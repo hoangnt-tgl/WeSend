@@ -39,7 +39,7 @@ export default {
 </script>
 
 <template>
-  <div style="background: #f3f4fb;">
+  <div style="background: #f5f5f5;">
     <ul class="container">
       <li class="flex-container-menu">
         <div class="descriptionmenu">
@@ -68,6 +68,7 @@ export default {
           Media Type
           <img src="@/assets/images/bxs_down-arrow.png">
         </div>
+        <div class="icon" />
       </li>
     </ul>
     <ul class="container">
@@ -96,17 +97,15 @@ export default {
         <div class="icon">
           <div style="height: 38px ;">
             <img
-              style=" width: 20px;height: 20px;"
+              class="buttonmini"
               src="@/assets/images/file-icons_microsoft-excel.png"
             >
-
             <img
-              style=" width: 20px;height: 20px;"
+              class="buttonmini"
               src="@/assets/images/copy 1.png"
             >
-
             <img
-              style=" width: 20px;height: 20px;"
+              class="buttonmini"
               src="@/assets/images/trash 1.png"
             >
           </div>
@@ -134,8 +133,6 @@ export default {
 .flex-container-menu {
   display: flex;
   block-size: 30px;
-  inset-block: 26.85% 67.36%;
-  inset-inline: 21.25% 3.06%;
   margin-block-end: 5px;
 }
 
@@ -144,8 +141,6 @@ export default {
   border-radius: 10px;
   background: #fff;
   block-size: 70px;
-  inset-block: 26.85% 67.36%;
-  inset-inline: 21.25% 3.06%;
   margin-block-end: 5px;
 }
 
@@ -190,6 +185,13 @@ export default {
 .footer {
   margin-block-start: 20px;
   text-align: center;
+}
+
+.buttonmini {
+  padding: 5px;
+  border: solid 1px #f3f4f6;
+  block-size: 30px;
+  inline-size: 30px;
 }
 </style>
 

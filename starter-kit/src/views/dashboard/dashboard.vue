@@ -5,11 +5,11 @@ import Calendar from '@/components/dashboard/calendar/index.vue'
 import CardNotifications from '@/components/dashboard/card-notifications/index.vue'
 import Cardcampaign from '@/components/dashboard/cardcampaign/index.vue'
 import DashboardTitle from '@/components/dashboard/dashboard-title/index.vue'
+import NoCampaign from '@/components/dashboard/no-campaign/index.vue'
 import { btnPurple } from '@/constant/buttonColor'
 import { btnTitle, title } from '@/constant/commonTitle'
+import { campaigns } from '@/data/campaign'
 import { notifications } from '@/data/notifications'
-
-const items = [1, 2]
 
 export default {
   components: {
@@ -18,6 +18,7 @@ export default {
     CardNotifications,
     Cardcampaign,
     DashboardTitle,
+    NoCampaign,
   },
   setup() {
     return {
@@ -25,7 +26,7 @@ export default {
       btnTitle,
       title,
       notifications,
-      items,
+      campaigns: ref(campaigns),
     }
   },
   methods: {
@@ -40,7 +41,41 @@ export default {
       this.$router.push('/history')
     },
     goToCreateCampaign() {
-      this.$router.push('/create-campaign')
+      this.addDataCampaign()
+
+      // this.$router.push('/create-campaign')
+    },
+    addDataCampaign() {
+      this.campaigns = [{
+        id: '1',
+        date: '25',
+        month: 'December',
+        time: '  05:30 AM',
+        process: 1723,
+        totalProcess: 4500,
+        status: 'RUNNING',
+        des: 'Lorem lacus vulputate amet integer diam arcu.',
+      },
+      {
+        id: '3',
+        date: '26',
+        month: 'December',
+        time: '  08:30 AM',
+        process: 0,
+        totalProcess: 4500,
+        status: 'IN QUEUE',
+        des: 'Lorem lacus vulputate amet integer diam arcu.',
+      },
+      {
+        id: '2',
+        date: '26',
+        month: 'December',
+        time: '  8:30 AM',
+        process: 1723,
+        totalProcess: 4500,
+        status: 'PAUSE',
+        des: 'Lorem lacus vulputate amet integer diam arcu.',
+      }]
     },
   },
 }
@@ -51,6 +86,7 @@ export default {
     <VCol
       cols="12"
       md="7"
+      class="pa-6"
     >
       <DashboardTitle
         :title="title.calendar"
@@ -62,6 +98,7 @@ export default {
     <VCol
       cols="12"
       md="5"
+      class="pa-6"
     >
       <div class="campaign-wrapper">
         <DashboardTitle
@@ -69,12 +106,26 @@ export default {
           :title="title.campaigns"
           :button-title="btnTitle.viewAll"
         />
-        <div
-          v-for="production in items"
-          :key="production"
-          :production="production"
-        >
-          <Cardcampaign />
+        <div v-if="campaigns.length > 0">
+          <div
+            v-for="(campaign, idx) in campaigns"
+
+            :key="campaign.id"
+          >
+            <Cardcampaign
+              v-if="idx < 2"
+              :date="campaign.date"
+              :month="campaign.month"
+              :time="campaign.time"
+              :process="campaign.process"
+              :total-process="campaign.totalProcess"
+              :status="campaign.status"
+              :des="campaign.des"
+            />
+          </div>
+        </div>
+        <div v-else>
+          <NoCampaign />
         </div>
         <div>
           <RoundedButton

@@ -7,5 +7,120 @@ export default defineComponent({
 </script>
 
 <template>
-  No schedules
+  <div class="no-card">
+    <div class="no-card-title">
+      <h6>No schedules found</h6>
+      <div class="no-card-button">
+        <button>Add Schedule</button>
+        <button>View in Calendar</button>
+      </div>
+    </div>
+    <div class="no-card-content">
+      <div class="image">
+        <img
+          src="../../../assets/images/pages/no-date.png"
+          alt="no data"
+        >
+      </div>
+      <h4>You haven’t scheduled it yet!</h4>
+      <p>Schedule this campaign to start sending messages to your contacts now.</p>
+      <button>Add Schedule</button>
+    </div>
+  </div>
 </template>
+
+<style scoped>
+  .no-card-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .no-card-title h6 {
+    color: var(--text-dark);
+    font-size: var(--font-size);
+  }
+
+  .no-card-button {
+    display: flex;
+    gap: 12px;
+  }
+
+  .no-card-button button {
+    border: 1px solid var(--color-primary);
+    border-radius: 30px;
+    background: var(--color-primary);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    padding-block: 12px;
+    padding-inline: 20px;
+    transition: var(--smooth);
+  }
+
+  .no-card-button button:last-child {
+    border-color: var(--border-gray);
+    background: #fff;
+    color: var(--text-dark);
+  }
+
+  .no-card-button button:hover {
+    border-color: rgb(99 102 241 / 80%);
+    background: rgb(99 102 241 / 80%);
+    color: #fff;
+  }
+
+  .no-card-content {
+    border-radius: 10px;
+    background: #f9f9ff;
+    margin-block-start: 18px;
+    margin-inline: 0;
+    padding-block: 80px;
+    padding-inline: 20px;
+    text-align: center;
+  }
+
+  .no-card-content .image {
+    margin-block: 0;
+    margin-inline: auto;
+    max-inline-size: 400px;
+  }
+
+  .no-card-content .image img {
+    inline-size: 100%;
+  }
+
+  .no-card-content h4 {
+    font-size: var(--font-size-md);
+    margin-block-start: 20px;
+  }
+
+  .no-card-content p {
+    color: var(--text-gray-light);
+    font-size: var(--font-size-sm);
+    margin-block-end: 16px;
+  }
+
+  .no-card-content button {
+    border-radius: 30px;
+    background: var(--text-dark);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    padding-block: 12px;
+    padding-inline: 20px;
+    transition: var(--smooth);
+  }
+
+  .no-card-content button:hover {
+    background: rgba(17, 24, 39, 80%);
+  }
+
+  @media (max-width: 768px) {
+    .no-card-title {
+      flex-direction: column;
+      justify-content: center;
+      gap: 24px;
+    }
+  }
+</style>

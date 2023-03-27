@@ -2,6 +2,7 @@
 :root {
   --border-light-round: 5px;
   --border-rounded: 30px;
+  --color-primary: #6366f1;
   --border-gray: #d1d5db;
   --text-dark: #111827;
   --text-active: #374151;
@@ -21,4 +22,36 @@
   --rounded-radius: 40px;
   --font-weight-less-bold: 600;
   --font-weight-bold: 700;
+  --smooth: all 0.4s;
+}
+
+.bg-light-calendar-primary {
+  border-radius: 10px;
+  background-color: #10b981;
+  margin-block: 0;
+  margin-inline: 2px;
+}
+
+.bg-light-calendar-success {
+  border-radius: 10px;
+  background-color: #db2777;
+  margin-inline: 2px;
+}
+
+.bg-light-calendar-warning {
+  border-radius: 10px;
+  background-color: #f59e0b;
+  margin-inline: 2px;
+}
+
+.text-calendar-primary {
+  color: #fff !important;
+}
+
+.text-calendar-success {
+  color: #fff !important;
+}
+
+.text-calendar-warning {
+  color: #fff !important;
 }

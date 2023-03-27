@@ -52,6 +52,9 @@ $header: ".layout-navbar";
     .layout-navbar {
       &.navbar-blur {
         @extend %default-layout-vertical-nav-floating-navbar-overlay;
+
+        padding: 0;
+        inset-block-start: 0 !important;
       }
     }
 

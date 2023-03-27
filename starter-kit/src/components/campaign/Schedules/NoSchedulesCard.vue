@@ -51,7 +51,7 @@ export default defineComponent({
     border-radius: 30px;
     background: var(--color-primary);
     color: #fff;
-    color: 13px;
+    font-size: 13px;
     font-weight: 600;
     padding-block: 12px;
     padding-inline: 20px;
@@ -105,7 +105,7 @@ export default defineComponent({
     border-radius: 30px;
     background: var(--text-dark);
     color: #fff;
-    color: 13px;
+    font-size: 13px;
     font-weight: 600;
     padding-block: 12px;
     padding-inline: 20px;
@@ -114,5 +114,13 @@ export default defineComponent({
 
   .no-card-content button:hover {
     background: rgba(17, 24, 39, 80%);
+  }
+
+  @media (max-width: 768px) {
+    .no-card-title {
+      flex-direction: column;
+      justify-content: center;
+      gap: 24px;
+    }
   }
 </style>

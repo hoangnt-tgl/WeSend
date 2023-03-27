@@ -58,6 +58,11 @@
     */
     .layout-page-content {
       margin-block-start: variables.$vertical-nav-floating-navbar-top;
+
+      @media (max-width: 480px) {
+        padding-block: 1.5rem 0;
+        padding-inline: 0;
+      }
     }
   }
 }

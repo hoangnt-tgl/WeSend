@@ -54,7 +54,7 @@ export default {
 
   .month-box {
     color: var(--text-active);
-    font-size: var(--font-size-ssm);
+    font-size: var(--font-size-sm);
   }
 
   .hour {
@@ -74,7 +74,7 @@ export default {
   }
 
   .month-box {
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size);
   }
 
   .hour {
@@ -88,7 +88,7 @@ export default {
   }
 
   .month-box {
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size);
   }
 
   .hour {
@@ -106,7 +106,7 @@ export default {
   }
 
   .hour {
-    font-size: var(--font-size);
+    font-size: var(--font-size-sm);
   }
 }
 
@@ -116,7 +116,7 @@ export default {
   }
 
   .month-box {
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size);
   }
 
   .hour {

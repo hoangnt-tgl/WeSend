@@ -40,6 +40,7 @@ export default {
   position: fixed;
   z-index: 1060;
   display: block;
+  background: #635d5d21;
   block-size: 100%;
   inline-size: 100%;
   inset-block-start: 0;

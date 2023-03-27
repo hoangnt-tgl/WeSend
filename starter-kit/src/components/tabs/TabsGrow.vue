@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/component-api-style -->
 <script lang="ts">
 import type { Component } from 'vue'
 
@@ -17,6 +18,14 @@ export default {
     return {
       currentTab,
     }
+  },
+  methods: {
+    removeClass() {
+      const tabs = document.getElementsByClassName('v-tab--selected')
+
+      tabs[0]?.classList.remove('v-tab--selected')
+      console.log(tabs)
+    },
   },
 }
 </script>
@@ -38,6 +47,7 @@ export default {
         fontWeight: currentTab === idx ? 'bold' : '',
         textTransform: 'capitalize',
       }"
+      :on-vnode-mounted="removeClass()"
     >
       {{ item.label }}
     </VTab>

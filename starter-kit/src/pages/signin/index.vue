@@ -28,10 +28,7 @@ export default defineComponent({
 <template>
   <div class="sign-up">
     <div class="container">
-      <div
-        v-if="step === 1"
-        class="sign-up__container"
-      >
+      <div v-if="step === 1" class="sign-up__container">
         <h1>We<span>Send</span></h1>
         <div class="sign-up__content">
           <h2>Sign In</h2>
@@ -40,24 +37,18 @@ export default defineComponent({
             to your account
           </p>
           <div class="input-number">
-            <input
-              type="number"
-              placeholder="+972"
-            >
-            <input
-              type="number"
-              placeholder="0000000000"
-              class="phone-number"
-            >
+            <input type="number" placeholder="+972">
+            <input type="number" placeholder="0000000000" class="phone-number">
             <button @click="nextStep">
               Sign in
             </button>
           </div>
           <div class="sign-up-input-checkbox">
-            <div class="input-checkbox">
-              <input type="checkbox">
+            <label class="input-checkbox">
               <label>Keep me Sign in</label>
-            </div>
+              <input type="checkbox" checked="checked">
+              <span class="checkmark"></span>
+            </label>
             <button @click="nextStep">
               Sign in
             </button>
@@ -65,10 +56,7 @@ export default defineComponent({
         </div>
         <p>New to WeSend. <a href="#">Sign up</a></p>
       </div>
-      <Verify
-        v-else
-        :action="VerifyAction"
-      />
+      <Verify v-else :action="VerifyAction" />
 
       <div class="sign-up__footer">
         <div class="sign-up__footer__link">
@@ -145,13 +133,13 @@ export default defineComponent({
   text-align: center;
 }
 
-.sign-up__container > p {
+.sign-up__container>p {
   color: #374151;
   font-size: 14px;
   margin-block: 30px 0;
 }
 
-.sign-up__container > p a {
+.sign-up__container>p a {
   color: #6354d9;
 }
 
@@ -199,10 +187,67 @@ input[type="number"] {
   margin-block-start: 32px;
 }
 
+.input-checkbox {
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.input-checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
 .input-checkbox label {
   color: #374151;
-  font-size: 14px;
-  margin-inline-start: 8px;
+  position: absolute;
+  top: 0;
+  width: 120px;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 22px;
+  width: 22px;
+  background-color: #F3F4FB;
+  border-radius: 5px;
+}
+
+.input-checkbox input:checked~.checkmark {
+  background: #6366f1;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.input-checkbox input:checked~.checkmark:after {
+  display: block;
+}
+
+.input-checkbox .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 
 .sign-up-input-checkbox button,
@@ -224,7 +269,7 @@ input[type="number"] {
   background: rgba(17, 24, 39, 70%);
 }
 
-.sign-up__container > p a {
+.sign-up__container>p a {
   color: #6354d9;
   text-decoration: underline;
 }
@@ -255,6 +300,7 @@ input[type="number"] {
 }
 
 @media (min-width: 479px) {
+
   p,
   .sign-up__footer {
     font-size: 16px !important;

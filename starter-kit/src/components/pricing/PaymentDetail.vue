@@ -36,10 +36,15 @@ export default {
         </div>
       </div>
       <div class="detail-checkbox">
-        <input type="checkbox">
-        <label>By signing up I agree to <a href="#">Terms & Condtions</a> and
-          <a href="#">Privacy policy</a></label>
+        <label class="input-checkbox">
+          <label>By signing up I agree to <a href="#">Terms & Condtions</a> and
+            <a href="#">Privacy policy</a></label>
+          <input type="checkbox" checked="checked">
+          <span class="checkmark"></span>
+        </label>
       </div>
+
+
       <div class="detail-button">
         <button @click="action">
           Continue
@@ -76,7 +81,7 @@ input[type="number"] {
 }
 
 .detail-button {
-  margin-block-start: 30px;
+  margin-block-start: 100px;
   text-align: center;
 }
 
@@ -126,6 +131,7 @@ input[type="number"] {
   color: #374151;
   font-size: 16px;
   margin-block-end: 0;
+  font-weight: 600;
 }
 
 .detail-item input {
@@ -141,15 +147,76 @@ input[type="number"] {
 }
 
 .detail-checkbox {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-block-start: 20px;
+  width: 100%;
 }
 
 .detail-checkbox a {
   color: #7C3AED;
   text-decoration: underline;
+}
+
+.input-checkbox {
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 100%;
+}
+
+.input-checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.input-checkbox label {
+  color: #374151;
+  position: absolute;
+  top: 0;
+  width: calc(100% - 30px);
+}
+
+.checkmark {
+  position: absolute;
+  top: 12px;
+  left: 0;
+  height: 22px;
+  width: 22px;
+  background-color: #F3F4FB;
+  border-radius: 5px;
+}
+
+.input-checkbox input:checked~.checkmark {
+  background: #6366f1;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.input-checkbox input:checked~.checkmark:after {
+  display: block;
+}
+
+.input-checkbox .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 
 /* @media (max-width: 480px) {

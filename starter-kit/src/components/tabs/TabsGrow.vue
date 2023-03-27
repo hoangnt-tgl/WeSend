@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/component-api-style -->
 <script lang="ts">
 import type { Component } from 'vue'
 
@@ -18,6 +19,14 @@ export default {
       currentTab,
     }
   },
+  methods: {
+    removeClass() {
+      const tabs = document.getElementsByClassName('v-tab--selected')
+
+      tabs[0]?.classList.remove('v-tab--selected')
+      console.log(tabs)
+    },
+  },
 }
 </script>
 
@@ -37,7 +46,9 @@ export default {
         color: currentTab === idx ? '#000 !important' : '',
         fontWeight: currentTab === idx ? 'bold' : '',
         textTransform: 'capitalize',
+        padding: '0px 30px',
       }"
+      :on-vnode-mounted="removeClass()"
     >
       {{ item.label }}
     </VTab>
@@ -46,6 +57,7 @@ export default {
 
   <VWindow
     v-model="currentTab"
+    class="container"
   >
     <div
       v-for="item in items"
@@ -58,4 +70,13 @@ export default {
     </div>
   </VWindow>
 </template>
+
+<style scoped>
+  .container {
+    padding: 28px;
+    border-radius: 0 10px 10px;
+    background: #fff;
+    min-block-size: 80vh;
+  }
+</style>
 

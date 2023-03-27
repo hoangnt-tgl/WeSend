@@ -3,6 +3,8 @@ import navItems from '@/navigation/vertical'
 import { useThemeConfig } from '@core/composable/useThemeConfig'
 
 // Components
+import NavBarNotificationsVue from '@/layouts/components/NavBarNotifications.vue'
+import NavBarProcess from '@/layouts/components/NavBarProcess.vue'
 import NavbarThemeSwitcher from '@/layouts/components/NavbarThemeSwitcher.vue'
 import UserProfile from '@/layouts/components/UserProfile.vue'
 
@@ -24,10 +26,12 @@ watch(() => router.currentRoute.value.name, name => {
 // display time 24 September / 02:30 AM
 const displayTime = () => {
   const date = new Date()
-  const options = { month: 'long', day: 'numeric' }
+  const options = { day: 'numeric', month: 'long' }
   const time = date.toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
 
-  return `${date.toLocaleDateString('en-US', options)} / ${time}`
+  const formattedDate = date.toLocaleDateString('en-US', options)
+
+  return `${formattedDate} / ${time}`
 }
 </script>
 
@@ -68,12 +72,14 @@ const displayTime = () => {
         <NavbarThemeSwitcher />
 
         <VSpacer />
-
+        <NavBarProcess />
+        <NavBarNotificationsVue />
         <UserProfile />
       </div>
     </template>
 
     <!-- 👉 Pages -->
+
     <RouterView v-slot="{ Component }">
       <Transition
         :name="appRouteTransition"

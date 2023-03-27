@@ -68,14 +68,15 @@ const handleKeyDown = (event: KeyboardEvent, index: number) => {
 <style lang="scss">
 .v-field__field {
   input {
-    padding: 12px 0;
-    font-size: 16px;
+    padding: 6px 0;
+    font-size: 24px;
     text-align: center;
     background: #F3F4FB;
     color: #374151;
     outline: none !important;
     border: none !important;
     border-radius: 5px;
+    font-weight: 600;
   }
 }
 

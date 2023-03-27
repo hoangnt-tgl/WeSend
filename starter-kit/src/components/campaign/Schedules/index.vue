@@ -8,6 +8,7 @@ export default {
     SchedulesCard,
     NoSchedulesCard,
   },
+
   setup() {
     return {
       items: [
@@ -20,16 +21,18 @@ export default {
 
 <template>
   <div>
-    <div v-if="items.length > 0">
+    <!--
+      <div v-if="items.length > 0">
       <div
-        v-for="item in items"
-        :key="item"
+      v-for="item in items"
+      :key="item"
       >
-        <SchedulesCard />
+      <SchedulesCard />
       </div>
-    </div>
-    <div v-else>
-      <NoSchedulesCard />
-    </div>
+      </div>
+    -->
+    <!-- <div v-else> -->
+    <NoSchedulesCard />
+    <!-- </div> -->
   </div>
 </template>

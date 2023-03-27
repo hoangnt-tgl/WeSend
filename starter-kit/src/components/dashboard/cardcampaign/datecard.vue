@@ -2,7 +2,15 @@
 export default {
   name: 'Datecard',
   props: {
-    msg: {
+    date: {
+      type: String,
+      required: true,
+    },
+    month: {
+      type: String,
+      required: true,
+    },
+    time: {
       type: String,
       required: true,
     },
@@ -13,14 +21,14 @@ export default {
 <template>
   <div class="date-box">
     <div class="day">
-      25
+      {{ date }}
     </div>
     <div class="time-box">
       <div class="text-subtitle-1">
-        <span class="hour">05:30 AM</span>
+        <span class="hour">{{ time }}</span>
       </div>
       <div class="text-subtitle-1 ">
-        <span class="month-box">December</span>
+        <span class="month-box">{{ month }}</span>
       </div>
     </div>
   </div>
@@ -52,6 +60,7 @@ export default {
   .hour {
     color: var(--text-deactive);
     font-size: var(--font-size-ssm);
+    font-weight: 400;
   }
 }
 
@@ -61,7 +70,7 @@ export default {
   }
 
   .time-box .text-subtitle-1 {
-    line-height: 1rem;
+    line-height: 1.3rem;
   }
 
   .month-box {
@@ -125,7 +134,7 @@ export default {
   }
 
   .hour {
-    font-size: var(--font-size);
+    font-size: var(--font-size-sm);
   }
 }
 

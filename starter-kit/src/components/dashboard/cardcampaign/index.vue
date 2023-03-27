@@ -1,34 +1,77 @@
-<script setup lang="ts">
+<script  lang="ts">
 import Datecard from './datecard.vue'
 import Progressbar from './progressbar.vue'
 import Progress from './progresscard.vue'
 
-const msg = '123'
-const progress = 1723
-const progressTotal = 4500
-const isRunning = false
-const percentage = 50
+// const msg = '123'
+// const progress = 1723
+// const progressTotal = 4500
+// const isRunning = false
+// const percentage = 50
+export default {
+  components: {
+    Datecard,
+    Progressbar,
+    Progress,
+  },
+  props: {
+    date: {
+      type: String,
+      required: true,
+    },
+    month: {
+      type: String,
+      required: true,
+    },
+    time: {
+      type: String,
+      required: true,
+    },
+    des: {
+      type: String,
+      required: true,
+    },
+    process: {
+      type: Number,
+      required: true,
+    },
+    totalProcess: {
+      type: Number,
+      required: true,
+    },
+    status: {
+      type: String,
+      required: true,
+    },
+  },
+
+}
 </script>
 
 <template>
   <VCard class="card-campaign">
     <div class="d-flex">
       <VCardItem class="top-card top-card-left">
-        <Datecard :msg="msg" />
+        <Datecard
+          :date="date"
+          :month="month"
+          :time="time"
+        />
       </VCardItem>
       <VCardItem class="top-card top-card-right">
         <Progress
-          :progress="progress"
-          :progress-total="progressTotal"
-          :is-running="isRunning"
+          :process="process"
+          :total-process="totalProcess"
+          :status="status"
         />
       </VCardItem>
     </div>
     <VCardText class="card-description">
-      Lorem ipsum dolor sit amet consectetur
+      {{ des }}
     </VCardText>
     <Progressbar
-      :percentage="percentage"
+      :percentage="process / totalProcess * 100"
+      :status="status"
     />
   </VCard>
 </template>
@@ -55,14 +98,16 @@ const percentage = 50
   }
 
   .card-description {
-    padding: 14px;
     font-size: var(--font-size-sm);
+    padding-block: 0 16px;
     padding-block-start: 0;
+    padding-inline: 14px;
   }
 
   .top-card {
     flex: 1;
-    padding: 14px;
+    padding-block: 10px;
+    padding-inline: 14px;
   }
 
   .top-card-left {
@@ -91,11 +136,13 @@ const percentage = 50
 
   .card-description,
   .top-card {
-    padding: 24px;
+    padding-block: 10px;
+    padding-inline: 24px;
   }
 
   .card-description {
     font-size: var(--font-size-sm);
+    padding-block: 0 16px;
     padding-block-start: 0;
   }
 
@@ -111,10 +158,12 @@ const percentage = 50
 @media screen and (min-width: 950px) {
   .card-description,
   .top-card {
-    padding: 24px;
+    padding-block: 10px;
+    padding-inline: 24px;
   }
 
   .card-description {
+    padding-block: 0 16px;
     padding-block-start: 0;
   }
 }
@@ -122,10 +171,12 @@ const percentage = 50
 @media screen and (min-width: 1440px) {
   .card-description,
   .top-card {
-    padding: 14px;
+    padding-block: 10px;
+    padding-inline: 14px;
   }
 
   .card-description {
+    padding-block: 0 16px;
     padding-block-start: 0;
   }
 }
@@ -133,10 +184,12 @@ const percentage = 50
 @media screen and (min-width: 1550px) {
   .card-description,
   .top-card {
-    padding: 24px;
+    padding-block: 10px;
+    padding-inline: 24px;
   }
 
   .card-description {
+    padding-block: 0 16px;
     padding-block-start: 0;
   }
 }

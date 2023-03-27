@@ -7,9 +7,8 @@ import Cardcampaign from '@/components/dashboard/cardcampaign/index.vue'
 import DashboardTitle from '@/components/dashboard/dashboard-title/index.vue'
 import { btnPurple } from '@/constant/buttonColor'
 import { btnTitle, title } from '@/constant/commonTitle'
+import { campaigns } from '@/data/campaign'
 import { notifications } from '@/data/notifications'
-
-const items = [1, 2]
 
 export default {
   components: {
@@ -25,7 +24,7 @@ export default {
       btnTitle,
       title,
       notifications,
-      items,
+      campaigns,
     }
   },
   methods: {
@@ -70,11 +69,20 @@ export default {
           :button-title="btnTitle.viewAll"
         />
         <div
-          v-for="production in items"
-          :key="production"
-          :production="production"
+          v-for="(campaign, idx) in campaigns"
+
+          :key="campaign.id"
         >
-          <Cardcampaign />
+          <Cardcampaign
+            v-if="idx < 2"
+            :date="campaign.date"
+            :month="campaign.month"
+            :time="campaign.time"
+            :process="campaign.process"
+            :total-process="campaign.totalProcess"
+            :status="campaign.status"
+            :des="campaign.des"
+          />
         </div>
         <div>
           <RoundedButton

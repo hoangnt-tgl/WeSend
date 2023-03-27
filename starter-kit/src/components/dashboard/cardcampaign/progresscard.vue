@@ -2,16 +2,16 @@
 export default {
   name: 'Progresscard',
   props: {
-    progress: {
+    process: {
       type: Number,
       required: true,
     },
-    progressTotal: {
+    totalProcess: {
       type: Number,
       required: true,
     },
-    isRunning: {
-      type: Boolean,
+    status: {
+      type: String,
       required: true,
     },
   },
@@ -21,29 +21,39 @@ export default {
 <template>
   <div class="progress-box">
     <div class="text-subtitle-1">
-      <div v-if="isRunning">
+      <div v-if="status === 'RUNNING'">
         <VChip
-          color="success"
+          color="#059669"
           class="text-uppercase chip-status"
         >
           <div class="chip-text running">
-            running
+            {{ status }}
+          </div>
+        </VChip>
+      </div>
+      <div v-else-if="status === 'IN QUEUE'">
+        <VChip
+          color="#6354D9"
+          class="text-uppercase"
+        >
+          <div class="chip-text queue">
+            {{ status }}
           </div>
         </VChip>
       </div>
       <div v-else>
         <VChip
-          color="primary"
+          color="#D97706"
           class="text-uppercase"
         >
-          <div class="chip-text queue">
-            in queue
+          <div class="chip-text pause">
+            {{ status }}
           </div>
         </VChip>
       </div>
     </div>
     <div>
-      <span class="progress">{{ progress }} /</span>  <span class="progressTotal">{{ progressTotal }}</span>
+      <span class="progress">{{ process }} /</span>  <span class="progressTotal">{{ totalProcess }}</span>
     </div>
   </div>
 </template>
@@ -59,6 +69,10 @@ export default {
 
   .queue {
     color: #6354d9;
+  }
+
+  .pause {
+    color: #d97706;
   }
 
   .running {

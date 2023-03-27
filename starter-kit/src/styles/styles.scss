@@ -24,3 +24,34 @@
   --font-weight-bold: 700;
   --smooth: all 0.4s;
 }
+
+.bg-light-calendar-primary {
+  border-radius: 10px;
+  background-color: #10b981;
+  margin-block: 0;
+  margin-inline: 2px;
+}
+
+.bg-light-calendar-success {
+  border-radius: 10px;
+  background-color: #db2777;
+  margin-inline: 2px;
+}
+
+.bg-light-calendar-warning {
+  border-radius: 10px;
+  background-color: #f59e0b;
+  margin-inline: 2px;
+}
+
+.text-calendar-primary {
+  color: #fff !important;
+}
+
+.text-calendar-success {
+  color: #fff !important;
+}
+
+.text-calendar-warning {
+  color: #fff !important;
+}

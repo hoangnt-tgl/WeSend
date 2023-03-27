@@ -34,6 +34,7 @@ export default {
       <VProgressLinear
         :model-value="percentage"
         bg-color="#efeff8"
+        :bg-opacity="1"
         :color="getColor(status)"
         class=""
       />
@@ -123,7 +124,7 @@ export default {
 
 @media (min-width: 1550px) {
   .progress-bar-box {
-    padding-inline: 24px;
+    padding-inline: 32px;
   }
 }
 </style>

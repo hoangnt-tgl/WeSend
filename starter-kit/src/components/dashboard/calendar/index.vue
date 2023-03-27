@@ -1,11 +1,12 @@
 <script setup lang="ts">
+import { event as calendarEvents } from '@/data/calendarEvent'
 import '@fullcalendar/core/vdom' // solves problem with Vite
+import FullCalendar from '@fullcalendar/vue3'
 
 // Local imports
 
 // import { blankEvent, useCalendar } from '@/views/apps/calendar/useCalendar'
-import FullCalendar from '@fullcalendar/vue3'
-import { blankEvent, useCalendar } from '@/components/calendar/useCalendar'
+import { useCalendar } from '@/components/calendar/useCalendar'
 
 import { useResponsiveLeftSidebar } from '@core/composable/useResponsiveSidebar'
 
@@ -13,12 +14,12 @@ import { useResponsiveLeftSidebar } from '@core/composable/useResponsiveSidebar'
 import CalendarEventHandler from '@/components/calendar/CalendarEventHandler.vue'
 
 // 👉 Event
-const event = ref(structuredClone(blankEvent))
+const event = ref(structuredClone(calendarEvents[0]))
 const isEventHandlerSidebarActive = ref(false)
 
 watch(isEventHandlerSidebarActive, val => {
   if (!val)
-    event.value = structuredClone(blankEvent)
+    event.value = structuredClone(calendarEvents[0])
 })
 
 const { isLeftSidebarOpen } = useResponsiveLeftSidebar()
@@ -32,6 +33,7 @@ if (window.innerWidth < 576) {
       type: 'timeGrid',
       duration: { days: 1 },
       buttonText: '1 day',
+      slotDuration: '01:00',
     },
   }
 }
@@ -41,6 +43,7 @@ else {
       type: 'timeGrid',
       duration: { days: 3 },
       buttonText: '3 day',
+      slotDuration: '01:00',
     },
   }
 }

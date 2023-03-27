@@ -22,12 +22,12 @@ export default {
             <input type="text" placeholder="Roger" />
           </div>
           <div class="detail-item">
-            <p>First name</p>
+            <p>Last name</p>
             <input type="text" placeholder="John" />
           </div>
         </div>
         <div class="detail-item">
-          <p>Last name</p>
+          <p>Email</p>
           <input type="email" placeholder="John@gmail.com" />
         </div>
         <div class="detail-item">
@@ -118,6 +118,7 @@ input[type="number"] {
   margin-bottom: 0;
   color: #374151;
   font-size: 16px;
+  font-weight: 600;
 }
 
 .detail-item input {

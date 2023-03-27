@@ -81,6 +81,7 @@ export default {
   font-size: 16px;
   inline-size: 48px;
   outline: none;
+  
 }
 
 input::-webkit-outer-spin-button,

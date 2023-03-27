@@ -43,7 +43,7 @@ tr {
   /* background-color: black !important; */
 }
 
-.fc-col-header-cell.fc-day ::before {
+/* .fc-col-header-cell.fc-day ::before {
   position: absolute;
   background-color: #e0e7ff;
   block-size: 2px;
@@ -51,4 +51,21 @@ tr {
   inline-size: 100%;
   inset-block-end: 0;
   inset-block-start: 0;
+} */
+.fc-timegrid-event {
+  /* inset-inline-end: auto !important;
+  inset-inline-start: auto !important; */
+}
+
+.fc .fc-event .bg-light-success {
+  background-color: blue !important;
+  opacity: 1 !important;
+}
+
+.fc .fc-event .text-success {
+  color: black !important;
+}
+
+.test-color {
+  background-color: black !important;
 }

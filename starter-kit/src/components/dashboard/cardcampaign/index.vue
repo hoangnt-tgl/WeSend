@@ -115,7 +115,7 @@ export default {
   }
 
   .top-card-right {
-    flex-grow: 1.1;
+    flex-grow: 1.2;
     padding-inline-start: 5px;
   }
 
@@ -153,6 +153,10 @@ export default {
   .top-card {
     flex: 1;
   }
+
+  .top-card-right {
+    flex-grow: 1.2;
+  }
 }
 
 @media screen and (min-width: 950px) {
@@ -185,7 +189,7 @@ export default {
   .card-description,
   .top-card {
     padding-block: 10px;
-    padding-inline: 24px;
+    padding-inline: 32px;
   }
 
   .card-description {

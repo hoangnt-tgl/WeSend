@@ -50,6 +50,7 @@ export default {
     <VCol
       cols="12"
       md="7"
+      class="pa-6"
     >
       <DashboardTitle
         :title="title.calendar"
@@ -61,6 +62,7 @@ export default {
     <VCol
       cols="12"
       md="5"
+      class="pa-6"
     >
       <div class="campaign-wrapper">
         <DashboardTitle

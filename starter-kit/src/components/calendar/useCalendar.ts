@@ -38,8 +38,8 @@ export const useCalendar = (event: Ref<Event | NewEvent>, isEventHandlerSidebarA
 
   // 👉 Calendar colors
   const calendarsColor = {
-    Business: 'primary',
-    Holiday: 'success',
+    Business: 'success',
+    Holiday: 'primary',
     Personal: 'error',
     Family: 'warning',
     ETC: 'info',
@@ -176,20 +176,79 @@ export const useCalendar = (event: Ref<Event | NewEvent>, isEventHandlerSidebarA
     plugins: [dayGridPlugin, interactionPlugin, timeGridPlugin, listPlugin],
 
     initialView: 'timeGridDay',
+    slotEventOverlap: false,
     headerToolbar: false,
-
+    allDaySlot: false,
     views: {
       timeGridDay: {
         type: 'timeGrid',
         duration: { days: 3 },
         buttonText: '3 day',
         slotDuration: '01:00',
-        allDaySlot: false,
-
       },
     },
 
-    events: fetchEvents,
+    events: [{
+      id: '1',
+      url: '',
+      title: 'Design Review',
+      start: new Date(),
+      end: new Date(new Date().getTime() + 4 * 60 * 60 * 1000),
+      allDay: false,
+      extendedProps: {
+        calendar: 'Business',
+        guests: [],
+        location: '',
+        description: '',
+      },
+      display: {
+        backgroundColor: 'red',
+        eventDisplay: 'block',
+      },
+    }, {
+      id: '2',
+      url: '',
+      title: 'Design Review2',
+      start: new Date(),
+      end: new Date(new Date().getTime() + 2 * 60 * 60 * 1000),
+      allDay: false,
+      extendedProps: {
+        calendar: 'Holiday',
+        guests: [],
+        location: '',
+        description: '',
+      },
+
+    }, {
+      id: '3',
+      url: '',
+      title: 'Design Review3',
+      start: new Date(new Date().getTime() + 1 * 60 * 60 * 1000),
+      end: new Date(new Date().getTime() + 6 * 60 * 60 * 1000),
+      allDay: false,
+      extendedProps: {
+        calendar: 'Holiday',
+        guests: [],
+        location: '',
+        description: '',
+      },
+
+    }, {
+      id: '3',
+      url: '',
+      title: '',
+      start: new Date(new Date().getTime() + 24 * 60 * 60 * 1000),
+      end: new Date(new Date().getTime() + 26 * 60 * 60 * 1000),
+      allDay: false,
+      extendedProps: {
+        calendar: 'Holiday',
+        guests: [],
+        location: '',
+        description: '',
+      },
+
+    }],
+    eventOverlap: false,
 
     // ❗ We need this to be true because when its false and event is allDay event and end date is same as start data then Full calendar will set end to null
     forceEventDuration: true,
@@ -216,7 +275,7 @@ export const useCalendar = (event: Ref<Event | NewEvent>, isEventHandlerSidebarA
     Max number of events within a given day
     Docs: https://fullcalendar.io/docs/dayMaxEvents
   */
-    dayMaxEvents: 2,
+    dayMaxEvents: 4,
 
     /*
     Determines if day names and week names are clickable
@@ -229,7 +288,7 @@ export const useCalendar = (event: Ref<Event | NewEvent>, isEventHandlerSidebarA
 
       return [
         // Background Color
-        `bg-light-${colorName} text-${colorName}`,
+        `bg-light-calendar-${colorName} text-calendar-${colorName}`,
       ]
     },
 

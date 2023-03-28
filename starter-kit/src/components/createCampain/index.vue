@@ -7,6 +7,7 @@ import Step3 from './step3/step3.vue'
 import Step4 from './step4/step4.vue'
 import { btnBlack } from '@/constant/buttonColor'
 import BtnRound from '@/components/buttons/roundedButton/index.vue'
+import ImportContact from './importcontact/importContact.vue'
 
 export default {
   name: 'CreateCampain',
@@ -16,9 +17,10 @@ export default {
     Step3,
     Step4,
     BtnRound,
-  },
+    ImportContact
+},
   setup() {
-    const curentStep = ref(1)
+    const curentStep = ref(3)
 
     return {
       curentStep,
@@ -42,7 +44,7 @@ export default {
   },
   methods: {
     nextStep() {
-      if (this.curentStep < 4)
+      if (this.curentStep < 5)
         this.curentStep++
     },
     prevStep() {
@@ -92,9 +94,12 @@ export default {
           <Step2 :action="nextStep" />
         </div>
         <div v-else-if="curentStep === 3">
-          <Step3 :action="nextStep" />
+          <ImportContact :action="nextStep" />
         </div>
         <div v-else-if="curentStep === 4">
+          <Step3 :action="nextStep" />
+        </div>
+        <div v-else-if="curentStep === 5">
           <Step4 :action="nextStep" />
         </div>
       </div>

@@ -39,34 +39,48 @@ export default {
 </script>
 
 <template>
-  <div style="background: #f5f5f5;">
+  <div style="background: d6d4e4;">
     <ul class="container">
       <li class="flex-container-menu">
         <div class="descriptionmenu">
-          <div style="font-size: 18px;">
-            Campaign Name
+          <div
+            clas="menutitle"
+          >
+            CAMPAIGN NAME
             <img src="@/assets/images/bxs_down-arrow.png">
           </div>
         </div>
         <div class="date">
-          <div style="font-size: 18px;">
-            Date
+          <div
+            clas="menutitle"
+          >
+            CREATE DATE
             <img src="@/assets/images/bxs_down-arrow.png">
           </div>
         </div>
         <div class="contact">
-          <div style="font-size: 18px;">
-            Contract
+          <div
+            clas="menutitle"
+          >
+            CONTRACT
             <img src="@/assets/images/bxs_down-arrow.png">
           </div>
         </div>
         <div class="status">
-          Status
-          <img src="@/assets/images/bxs_down-arrow.png">
+          <div
+            clas="menutitle"
+          >
+            STATUS
+            <img src="@/assets/images/bxs_down-arrow.png">
+          </div>
         </div>
         <div class="mediatype">
-          Media Type
-          <img src="@/assets/images/bxs_down-arrow.png">
+          <div
+            clas="menutitle"
+          >
+            MEDIA TYPE
+            <img src="@/assets/images/bxs_down-arrow.png">
+          </div>
         </div>
         <div class="icon" />
       </li>
@@ -114,7 +128,11 @@ export default {
     </ul>
 
     <div class="footer">
-      1   2   3   4   5
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+      <div>5</div>
     </div>
   </div>
   <CreateDetail
@@ -124,6 +142,13 @@ export default {
 </template>
 
 <style>
+.menutitle {
+  /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: medium;
+}
+
 .container {
   margin-block-start: 20px;
   margin-inline-end: 15px;
@@ -133,6 +158,7 @@ export default {
 .flex-container-menu {
   display: flex;
   block-size: 30px;
+  inline-size: 1090px;
   margin-block-end: 5px;
 }
 
@@ -141,37 +167,70 @@ export default {
   border-radius: 10px;
   background: #fff;
   block-size: 70px;
+  block-size: 64px;
+  inline-size: 1090px;
   margin-block-end: 5px;
 }
 
 .description {
   margin: 10px;
+  block-size: 38px;
+  fill: Solid#374151;
+  /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
+  font-family: Lato;
+  font-size: 16px;
+  font-style: regular;
   inline-size: 350px;
+  scroll-snap-type: gray/700;
 }
 
 .descriptionmenu {
   margin: auto;
+  /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: medium;
   inline-size: 350px;
 }
 
 .date {
   align-items: center;
   margin: auto;
+  block-size: 38px;
+  /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
+  font-family: Lato;
+  font-size: 16px;
+  font-style: regular;
   inline-size: 150px;
 }
 
 .contact {
   margin: auto;
+  block-size: 38px;
+  /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
+  font-family: Lato;
+  font-size: 16px;
+  font-style: regular;
   inline-size: 140px;
 }
 
 .mediatype {
   margin: auto;
+  block-size: 38px;
+  /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
+  font-family: Lato;
+  font-size: 16px;
+  font-style: regular;
   inline-size: 140px;
 }
 
 .status {
   margin: auto;
+  block-size: 38px;
+  /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
+  font-family: Lato;
+  font-size: 16px;
+  font-style: regular;
   inline-size: 120px;
 }
 
@@ -179,19 +238,25 @@ export default {
   display: flex;
   justify-content: center;
   margin: auto;
-  inline-size: 130px;
+  block-size: 38px;
+  inline-size: 150px;
 }
 
 .footer {
-  margin-block-start: 20px;
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  block-size: 19px;
+  inline-size: 98px;
+  margin-block-start: 30px;
 }
 
 .buttonmini {
   padding: 5px;
   border: solid 1px #f3f4f6;
-  block-size: 30px;
-  inline-size: 30px;
+  block-size: 36px;
+  inline-size: 36px;
+  margin-inline: 5px;
 }
 </style>
 

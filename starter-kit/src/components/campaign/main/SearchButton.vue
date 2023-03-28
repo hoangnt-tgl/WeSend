@@ -43,6 +43,7 @@ export default {
   background-position: 95% center;
   background-repeat: no-repeat;
   background-size: 18px 18px;
+  block-size: 40px;
   color: #575756;
   font-size: 14px;
   inline-size: 100%;

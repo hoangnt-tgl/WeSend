@@ -1,5 +1,5 @@
 <script lang="ts">
-import SearchButton from '@/components/campaign/main/SearchButton.vue'
+import SearchButton from '@/components/campaign/main/SearchButton.vue';
 
 export default {
   name: 'List',
@@ -23,7 +23,6 @@ export default {
     <div class="campaign">
       <h1
         class="title"
-        col-6
       >
         Campaign
       </h1>
@@ -39,7 +38,7 @@ export default {
         Create New Campaign
       </h1>
       <img
-
+        style="width: 20px;height: 20px;"
         src="@/assets/images/Vector.png"
       >
     </button>
@@ -83,7 +82,7 @@ export default {
 }
 
 .title {
-  font-size: 30px;
+  font-size: 24px;
 }
 
 .btnCreate {
@@ -104,13 +103,14 @@ export default {
 .searchbar {
   display: flex;
   justify-content: space-between;
+  block-size: 40px;
   margin-block-end: 35px;
   margin-block-start: 10px;
   margin-inline-start: 30px;
 }
 
 .search__date {
-  border: 1px solid #575756;
+  border: 1px solid #d6d4e4;
   border-radius: 10px;
   background: url(@/assets/images/fluent-mdl2_date-time.png) no-repeat scroll 108px 7px;
   inline-size: 146px;
@@ -120,10 +120,10 @@ export default {
 }
 
 .search__date2 {
-  border: 1px solid #575756;
+  border: 1px solid #d6d4e4;
   border-radius: 10px;
-  background: url(@/assets/images/akar-icons_chevron-down.png) no-repeat scroll 108px 7px;
-  inline-size: 146px;
+  background: url(@/assets/images/akar-icons_chevron-down.png) no-repeat scroll 182px 7px;
+  inline-size: 219px;
   padding-inline-end: 30px;
   padding-inline-start: 10px;
 }
@@ -140,7 +140,12 @@ export default {
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
+  inline-size: 158px;
   line-height: 19px;
+}
+
+.page-content-container {
+  background-color: #f5f5f5;
 }
 </style>
 

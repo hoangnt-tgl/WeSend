@@ -39,7 +39,7 @@ export default {
 </script>
 
 <template>
-  <div style="background: d6d4e4;">
+  <div>
     <ul class="container">
       <li class="flex-container-menu">
         <div class="descriptionmenu">
@@ -165,7 +165,6 @@ export default {
 .flex-container {
   display: flex;
   border-radius: 10px;
-  background: #fff;
   block-size: 70px;
   block-size: 64px;
   inline-size: 1090px;

@@ -1,5 +1,5 @@
 <script lang="ts">
-import SearchButton from '@/components/campaign/main/SearchButton.vue';
+import SearchButton from '@/components/campaign/main/SearchButton.vue'
 
 export default {
   name: 'List',

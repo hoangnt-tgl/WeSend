@@ -47,7 +47,7 @@ export default {
             clas="menutitle"
           >
             CAMPAIGN NAME
-            <img src="@/assets/images/bxs_down-arrow.png">
+            <img src="@/assets/images/arrows-sort 5.png">
           </div>
         </div>
         <div class="date">
@@ -55,7 +55,7 @@ export default {
             clas="menutitle"
           >
             CREATE DATE
-            <img src="@/assets/images/bxs_down-arrow.png">
+            <img src="@/assets/images/arrows-sort 5.png">
           </div>
         </div>
         <div class="contact">
@@ -63,7 +63,7 @@ export default {
             clas="menutitle"
           >
             CONTRACT
-            <img src="@/assets/images/bxs_down-arrow.png">
+            <img src="@/assets/images/arrows-sort 5.png">
           </div>
         </div>
         <div class="status">
@@ -71,7 +71,7 @@ export default {
             clas="menutitle"
           >
             STATUS
-            <img src="@/assets/images/bxs_down-arrow.png">
+            <img src="@/assets/images/arrows-sort 5.png">
           </div>
         </div>
         <div class="mediatype">
@@ -79,7 +79,7 @@ export default {
             clas="menutitle"
           >
             MEDIA TYPE
-            <img src="@/assets/images/bxs_down-arrow.png">
+            <img src="@/assets/images/arrows-sort 5.png">
           </div>
         </div>
         <div class="icon" />
@@ -165,6 +165,7 @@ export default {
 .flex-container {
   display: flex;
   border-radius: 10px;
+  background-color: white;
   block-size: 70px;
   block-size: 64px;
   inline-size: 1090px;

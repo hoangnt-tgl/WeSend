@@ -1,10 +1,8 @@
 <script lang="ts">
-import SearchButton from '@/components/campaign/main/SearchButton.vue'
-
 export default {
   name: 'List',
   components: {
-    SearchButton,
+
   },
   setup() {
     return {
@@ -32,19 +30,22 @@ export default {
     </div>
 
     <button class="btnCreate">
+      <img
+        style="width: 24px;height: 24px;"
+        src="@/assets/images/Vector1.png"
+      >
       <h1
         class="text"
       >
         Create New Campaign
       </h1>
-      <img
-        style="width: 20px;height: 20px;"
-        src="@/assets/images/Vector.png"
-      >
     </button>
   </div>
   <div class="searchbar">
-    <SearchButton />
+    <input
+      class="search__input"
+      placeholder="Search"
+    >
     <div>
       <div class="filterField">
         <p style="margin-block: 0.5rem;">
@@ -52,7 +53,11 @@ export default {
         </p>
         <input
           class="search__date"
-          placeholder="Date"
+          placeholder="Date from"
+        >
+        <input
+          class="search__date"
+          placeholder="Date to"
         >
         <input
           class="search__date2"
@@ -92,9 +97,9 @@ export default {
   border-style: solid;
   border-radius: 30px;
   background-color: black;
-  block-size: 44px;
+  block-size: 46px;
   gap: 10px;
-  inline-size: 245px;
+  inline-size: 213px;
 
   /* padding-block: 10px;
   padding-inline: 40px; */
@@ -112,7 +117,7 @@ export default {
 .search__date {
   border: 1px solid #d6d4e4;
   border-radius: 10px;
-  background: url(@/assets/images/fluent-mdl2_date-time.png) no-repeat scroll 108px 7px;
+  background: url(@/assets/images/calendar-plus1.png) no-repeat scroll 110px 10px;
   inline-size: 146px;
   margin-inline: 10px;
   padding-inline-end: 30px;
@@ -144,8 +149,15 @@ export default {
   line-height: 19px;
 }
 
-.page-content-container {
-  background-color: #f5f5f5;
+.search__input {
+  position: relative;
+  border: 1px solid #d6d4e4;
+  border-radius: 10px;
+  background: url(@/assets/images/Vector.png) no-repeat scroll 12px 10px;
+  background-color: white;
+  block-size: 40px;
+  inline-size: 219px;
+  padding-inline-start: 30px;
 }
 </style>
 

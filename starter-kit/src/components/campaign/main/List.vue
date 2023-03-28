@@ -47,7 +47,7 @@ export default {
             clas="menutitle"
           >
             CAMPAIGN NAME
-            <img src="@/assets/images/arrows-sort 5.png">
+            <img src="@/assets/images/arrows-sort5.png">
           </div>
         </div>
         <div class="date">
@@ -55,7 +55,7 @@ export default {
             clas="menutitle"
           >
             CREATE DATE
-            <img src="@/assets/images/arrows-sort 5.png">
+            <img src="@/assets/images/arrows-sort5.png">
           </div>
         </div>
         <div class="contact">
@@ -63,7 +63,7 @@ export default {
             clas="menutitle"
           >
             CONTRACT
-            <img src="@/assets/images/arrows-sort 5.png">
+            <img src="@/assets/images/arrows-sort5.png">
           </div>
         </div>
         <div class="status">
@@ -71,7 +71,7 @@ export default {
             clas="menutitle"
           >
             STATUS
-            <img src="@/assets/images/arrows-sort 5.png">
+            <img src="@/assets/images/arrows-sort5.png">
           </div>
         </div>
         <div class="mediatype">
@@ -79,7 +79,7 @@ export default {
             clas="menutitle"
           >
             MEDIA TYPE
-            <img src="@/assets/images/arrows-sort 5.png">
+            <img src="@/assets/images/arrows-sort5.png">
           </div>
         </div>
         <div class="icon" />
@@ -116,7 +116,7 @@ export default {
             >
             <img
               class="buttonmini"
-              src="@/assets/images/copy 1.png"
+              src="@/assets/images/copy1.png"
             >
             <img
               class="buttonmini"

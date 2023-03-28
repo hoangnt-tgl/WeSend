@@ -174,8 +174,14 @@ export const useCalendar = (event: Ref<Event | NewEvent>, isEventHandlerSidebarA
   // 👉 Calendar options
   const calendarOptions = {
     plugins: [dayGridPlugin, interactionPlugin, timeGridPlugin, listPlugin],
-
     initialView: 'timeGridDay',
+
+    // dayHeaderFormat: { weekday: 'short', day: 'numeric' },
+    dayHeaderFormat(date: Date | string) {
+      console.log(date)
+
+      return `${date?.date?.marker?.toString().split(' ')[0]} ${date?.date?.day}`
+    },
     slotEventOverlap: false,
     headerToolbar: false,
     allDaySlot: false,
@@ -276,6 +282,8 @@ export const useCalendar = (event: Ref<Event | NewEvent>, isEventHandlerSidebarA
     Docs: https://fullcalendar.io/docs/dayMaxEvents
   */
     dayMaxEvents: 4,
+
+    displayEventTime: false,
 
     /*
     Determines if day names and week names are clickable

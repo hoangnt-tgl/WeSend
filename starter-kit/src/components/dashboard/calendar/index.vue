@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { event as calendarEvents } from '@/data/calendarEvent'
-import '@fullcalendar/core/vdom'; // solves problem with Vite
+import '@fullcalendar/core/vdom' // solves problem with Vite
 import FullCalendar from '@fullcalendar/vue3'
 
 // Local imports

@@ -99,7 +99,7 @@ const displayTime = () => {
   </VerticalNavLayout>
 </template>
 
-<style>
+<style scoped>
 .back-to-dashboard {
   color: var(--text-gray-light) !important;
   font-size: var(--font-size) !important;
@@ -110,4 +110,5 @@ const displayTime = () => {
   font-size: var(--font-size-sm) !important;
   text-transform: uppercase !important;
 }
+
 </style>

@@ -1,6 +1,6 @@
 <template>
-  <div class="d-none d-sm-block container-process">
-    <div class="mx-5 d-flex align-center gap-10">
+  <div class="d-none d-md-block container-process">
+    <div class="mx-5 d-flex align-center gap-20">
       <div
         class="d-flex flex-column"
       >

@@ -1,12 +1,12 @@
 <script lang="ts">
 import NoSchedulesCard from '@/components/campaign/Schedules/NoSchedulesCard.vue'
 
-// import SchedulesCard from '@/components/campaign/Schedules/SchedulesCard.vue'
+import SchedulesCard from '@/components/campaign/Schedules/SchedulesCard.vue'
 
 export default {
   name: 'CampaignSchedules',
   components: {
-    // SchedulesCard,
+    SchedulesCard,
     NoSchedulesCard,
   },
 

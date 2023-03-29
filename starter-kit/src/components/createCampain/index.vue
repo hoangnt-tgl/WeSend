@@ -1,16 +1,16 @@
 <!-- eslint-disable vue/component-api-style -->
 <!-- eslint-disable @typescript-eslint/no-empty-function -->
-<script  lang="ts">
-import ImportContact from './importcontact/importContact.vue'
-import Step1 from './step1/step1.vue'
-import Step2 from './step2/step2.vue'
-import Step3 from './step3/step3.vue'
-import Step4 from './step4/step4.vue'
-import { btnBlack } from '@/constant/buttonColor'
-import BtnRound from '@/components/buttons/roundedButton/index.vue'
+<script lang="ts">
+import ImportContact from "./importcontact/importContact.vue";
+import Step1 from "./step1/step1.vue";
+import Step2 from "./step2/step2.vue";
+import Step3 from "./step3/step3.vue";
+import Step4 from "./step4/step4.vue";
+import { btnBlack } from "@/constant/buttonColor";
+import BtnRound from "@/components/buttons/roundedButton/index.vue";
 
 export default {
-  name: 'CreateCampain',
+  name: "CreateCampain",
   components: {
     Step1,
     Step2,
@@ -20,51 +20,44 @@ export default {
     ImportContact,
   },
   setup() {
-    const curentStep = ref(3)
+    const curentStep = ref(3);
 
     return {
       curentStep,
       btnBlack,
       steps: [
         {
-          title: 'Create Campaign',
+          title: "Create Campaign",
         },
         {
-          title: 'Import Contacts',
+          title: "Import Contacts",
         },
         {
-          title: 'Build Message',
+          title: "Build Message",
         },
         {
-          title: 'Schedule Message',
+          title: "Schedule Message",
         },
       ],
-
-    }
+    };
   },
   methods: {
     nextStep() {
-      if (this.curentStep < 5)
-        this.curentStep++
+      if (this.curentStep < 5) this.curentStep++;
     },
     prevStep() {
-      this.curentStep--
+      this.curentStep--;
     },
   },
-}
+};
 </script>
 
 <template>
   <div class="biggest-container">
     <div class="container">
       <div class="select__container">
-        <h1 v-show="curentStep !== 3">
-          Create New Campaign
-        </h1>
-        <div
-          v-show="curentStep !== 3"
-          class="wrapper-stepper mb-10"
-        >
+        <h1 v-show="curentStep !== 3">Create New Campaign</h1>
+        <div v-show="curentStep !== 3" class="wrapper-stepper mb-10">
           <div class="stepper">
             <div class="stepper-progress">
               <div class="stepper-progress-bar" />
@@ -74,14 +67,17 @@ export default {
               v-for="item in 4"
               :key="item"
               class="stepper-item"
-              :class="{ current: curentStep === item, success: curentStep > item }"
+              :class="{
+                current: curentStep === item,
+                success: curentStep > item,
+              }"
             >
               <div class="stepper-item-counter">
                 <img
                   class="icon-success"
                   src="../../assets/icons/verify.svg"
                   alt="verify"
-                >
+                />
                 <span class="number">
                   {{ item }}
                 </span>
@@ -110,10 +106,7 @@ export default {
       </div>
     </div>
     <div class="btn-phone-container">
-      <div
-        v-if="curentStep !== 3"
-        class="btn-phone"
-      >
+      <div v-if="curentStep !== 3" class="btn-phone">
         <BtnRound
           button-title="continue"
           :action="nextStep"
@@ -122,10 +115,7 @@ export default {
           variant="contained"
         />
       </div>
-      <div
-        v-else
-        class="btn-phone"
-      >
+      <div v-else class="btn-phone">
         <BtnRound
           button-title="next"
           :action="nextStep"
@@ -142,7 +132,8 @@ export default {
 
 <style scoped>
 .select {
-  background: url(../../assets/images/login/background.png) center / cover no-repeat;
+  background: url(../../assets/images/login/background.png) center / cover
+    no-repeat;
   min-block-size: 140vh;
   padding-block: 0;
 

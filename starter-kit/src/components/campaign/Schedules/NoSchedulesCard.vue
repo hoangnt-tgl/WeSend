@@ -1,8 +1,27 @@
+<!-- eslint-disable vue/component-api-style -->
 <script lang="ts">
 import { defineComponent } from 'vue'
+import CampaignSchedule from '@/components/modal/CampaignSchedule.vue'
 
 export default defineComponent({
   name: 'NoSchedulesCard',
+  components: {
+    CampaignSchedule,
+  },
+  setup() {
+    return {
+      isModalOpen: ref(false),
+    }
+  },
+  methods: {
+    openModal() {
+      this.isModalOpen = true
+    },
+    closeModal() {
+      this.isModalOpen = false
+      console.log('close')
+    },
+  },
 })
 </script>
 
@@ -11,7 +30,14 @@ export default defineComponent({
     <div class="no-card-title">
       <h6>No schedules found</h6>
       <div class="no-card-button">
-        <button>Add Schedule</button>
+        <CampaignSchedule
+          v-if="isModalOpen"
+          @close="closeModal"
+        />
+
+        <button @click="openModal">
+          Add Schedule
+        </button>
         <button>View in Calendar</button>
       </div>
     </div>

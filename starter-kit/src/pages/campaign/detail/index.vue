@@ -1,12 +1,12 @@
 <script lang="ts">
-import { defineComponent } from 'vue'
-import CampaignContacts from '@/components/campaign/Contacts/index.vue'
-import CampaignMessage from '@/components/campaign/Messages/index.vue'
-import CampaignSchedules from '@/components/campaign/Schedules/index.vue'
-import TabsGrow from '@/components/tabs/TabsGrow.vue'
+import { defineComponent } from "vue";
+import CampaignContacts from "@/components/campaignDetail/Contacts/index.vue";
+import CampaignMessage from "@/components/campaignDetail/Messages/index.vue";
+import CampaignSchedules from "@/components/campaignDetail/Schedules/index.vue";
+import TabsGrow from "@/components/tabs/TabsGrow.vue";
 
 export default defineComponent({
-  name: 'CampaignDetail',
+  name: "CampaignDetail",
   components: {
     TabsGrow,
   },
@@ -14,24 +14,24 @@ export default defineComponent({
     return {
       items: [
         {
-          label: 'Schedules',
-          icon: 'tabler-calendar-event',
+          label: "Schedules",
+          icon: "tabler-calendar-event",
           body: CampaignSchedules,
         },
         {
-          label: 'Contacts',
-          icon: 'tabler-phone',
+          label: "Contacts",
+          icon: "tabler-phone",
           body: CampaignContacts,
         },
         {
-          label: 'Messages',
-          icon: 'mdi-message-text',
+          label: "Messages",
+          icon: "mdi-message-text",
           body: CampaignMessage,
         },
       ],
-    }
+    };
   },
-})
+});
 </script>
 
 <template>

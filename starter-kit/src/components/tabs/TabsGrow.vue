@@ -1,30 +1,17 @@
-<!-- eslint-disable vue/component-api-style -->
 <script lang="ts">
-import type { Component } from 'vue'
-
-const currentTab = ref(0)
 export default {
   props: {
-    items: {
-      type: Array<{
-        label: string
-        body: Component
-        icon?: string
-      }>,
+    currentTab: {
+      type: String,
       required: true,
     },
-  },
-  setup() {
-    return {
-      currentTab,
-    }
-  },
-  methods: {
-    removeClass() {
-      const tabs = document.getElementsByClassName('v-tab--selected')
-
-      tabs[0]?.classList.remove('v-tab--selected')
-      console.log(tabs)
+    items: {
+      type: Array,
+      required: true,
+    },
+    tabItemText: {
+      type: String,
+      required: true,
     },
   },
 }
@@ -32,51 +19,29 @@ export default {
 
 <template>
   <VTabs
-    v-model="currentTab"
+    :v-model="currentTab"
+    grow
   >
     <VTab
-      v-for="(item, idx) in items"
-      :key="item.label"
-      :value="idx"
-      :prepend-icon="item.icon"
-      :style="{
-        backgroundColor: currentTab === idx ? '#FFFFFF' : '',
-        borderRadius: '10px 10px 0 0 !important',
-        border: '0px',
-        color: currentTab === idx ? '#000 !important' : '',
-        fontWeight: currentTab === idx ? 'bold' : '',
-        textTransform: 'capitalize',
-        padding: '0px 30px',
-      }"
-      :on-vnode-mounted="removeClass()"
+      v-for="item in items"
+      :key="item"
+      :value="item"
     >
-      {{ item.label }}
+      {{ item }}
     </VTab>
   </VTabs>
-  <!-- <VDivider /> -->
+  <VDivider />
 
   <VWindow
-    v-model="currentTab"
-    class="container"
+    :v-model="currentTab"
+    class="mt-6"
   >
-    <div
+    <VWindowItem
       v-for="item in items"
-      :key="item.label"
-      :value="item.label"
+      :key="item"
+      :value="item"
     >
-      <VWindowItem>
-        <Component :is="item.body" />
-      </VWindowItem>
-    </div>
+      {{ tabItemText }}
+    </VWindowItem>
   </VWindow>
 </template>
-
-<style scoped>
-  .container {
-    padding: 28px;
-    border-radius: 0 10px 10px;
-    background: #fff;
-    min-block-size: 80vh;
-  }
-</style>
-

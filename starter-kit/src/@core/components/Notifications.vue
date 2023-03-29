@@ -23,26 +23,21 @@ defineEmits<{
   <VBadge
     :model-value="!!props.badgeProps"
     v-bind="props.badgeProps"
-    color="error"
-    class="mx-4"
   >
     <VBtn
       icon
       variant="text"
       color="default"
-      :style="{ backgroundColor: '#F3F4FB' }"
+      size="small"
     >
       <VBadge
         :model-value="!!props.notifications.length"
-        color="#3B82F6"
-        class="notification-badge"
-        bordered
-        dot
+        color="error"
+        content="4"
       >
         <VIcon
-          icon="tabler-bell-filled"
+          icon="tabler-bell"
           size="24"
-          color="#000"
         />
       </VBadge>
 

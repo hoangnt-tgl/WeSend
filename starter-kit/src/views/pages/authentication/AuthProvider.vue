@@ -26,6 +26,7 @@ const authProviders = [
       :color="link.color"
       class="rounded"
     >
+    <v-checkbox label="Con Cac"></v-checkbox>
       <VIcon
         size="18"
         :icon="link.icon"

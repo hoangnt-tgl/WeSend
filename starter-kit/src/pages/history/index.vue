@@ -1,8 +1,5 @@
 <script lang="ts">
-import TabsGrow from '@/components/tabs/TabsGrow.vue'
-import LastActions from '@/components/histories/LastActions.vue'
-import PastCampaigns from '@/components/histories/PastCampaigns.vue'
-import Updates from '@/components/histories/Updates.vue'
+import TabsGrow from '../../components/tabs/TabsGrow.vue'
 
 export default {
   name: 'History',
@@ -11,11 +8,9 @@ export default {
   },
   setup() {
     return {
-      items: [
-        { label: 'Last Actions', icon: 'tabler-history', body: LastActions },
-        { label: 'Past Campaigns', icon: 'tabler-message-forward', body: PastCampaigns },
-        { label: 'Updates', icon: 'tabler-bell', body: Updates },
-      ],
+      currentTab: 'Tab 1',
+      items: ['Tab 1', 'Tab 2', 'Tab 3'],
+      tabItemText: 'Tab item text',
     }
   },
 }
@@ -24,7 +19,9 @@ export default {
 <template>
   <div>
     <TabsGrow
+      :current-tab="currentTab"
       :items="items"
+      :tab-item-text="tabItemText"
     />
   </div>
 </template>

@@ -36,21 +36,11 @@
 
         @at-root {
           // Move logo a bit to align center with the icons in vertical nav mini variant
-          .layout-vertical-nav-collapsed#{$sl-layout-nav-type-vertical}:not(
-          .hovered
-        )
-          .nav-header
-          .app-logo {
-            transform:
-              translateX(
-                variables.$vertical-nav-header-logo-translate-x-when-vertical-nav-mini
-              );
+          .layout-vertical-nav-collapsed#{$sl-layout-nav-type-vertical}:not(.hovered) .nav-header .app-logo {
+            transform: translateX(variables.$vertical-nav-header-logo-translate-x-when-vertical-nav-mini);
 
             @include layoutsMixins.rtl {
-              transform:
-                translateX(
-                  -(variables.$vertical-nav-header-logo-translate-x-when-vertical-nav-mini)
-                );
+              transform: translateX(-(variables.$vertical-nav-header-logo-translate-x-when-vertical-nav-mini));
             }
           }
         }
@@ -139,12 +129,6 @@
 
       > .router-link-exact-active {
         @extend %nav-link-active;
-
-        border-radius: 0;
-        background: #f6f6fe !important;
-        border-inline-end: 2px solid #6366f1;
-        color: #6366f1;
-        font-weight: bold;
       }
 
       > a {
@@ -153,10 +137,6 @@
 
         // Adds vuetify states
         @include vuetifyStates.states($active: false);
-
-        margin-inline: 0 !important;
-        padding-block: 1.5rem !important;
-        padding-inline-start: 1.5rem !important;
       }
     }
 
@@ -183,10 +163,7 @@
       .nav-group-arrow {
         flex-shrink: 0;
         transform-origin: center;
-        transition:
-          transform
-          variables.$vertical-nav-nav-group-arrow-transition-duration
-          variables.$vertical-nav-nav-group-arrow-transition-timing-function;
+        transition: transform variables.$vertical-nav-nav-group-arrow-transition-duration variables.$vertical-nav-nav-group-arrow-transition-timing-function;
         will-change: transform;
       }
 

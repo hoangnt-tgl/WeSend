@@ -14,6 +14,5 @@ const themes: ThemeSwitcherTheme[] = [
 </script>
 
 <template>
-  <h1 />
-<!-- <ThemeSwitcher :themes="themes" /> -->
+  <ThemeSwitcher :themes="themes" />
 </template>

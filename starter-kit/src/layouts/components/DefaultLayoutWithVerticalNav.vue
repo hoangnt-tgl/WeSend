@@ -3,8 +3,7 @@ import navItems from '@/navigation/vertical'
 import { useThemeConfig } from '@core/composable/useThemeConfig'
 
 // Components
-import NavBarNotificationsVue from '@/layouts/components/NavBarNotifications.vue'
-import NavBarProcess from '@/layouts/components/NavBarProcess.vue'
+import Footer from '@/layouts/components/Footer.vue'
 import NavbarThemeSwitcher from '@/layouts/components/NavbarThemeSwitcher.vue'
 import UserProfile from '@/layouts/components/UserProfile.vue'
 
@@ -13,26 +12,6 @@ import { VerticalNavLayout } from '@layouts'
 
 const { appRouteTransition, isLessThanOverlayNavBreakpoint } = useThemeConfig()
 const { width: windowWidth } = useWindowSize()
-const router = useRouter()
-const isDashboard = router.currentRoute.value.name === 'index' ? ref(true) : ref(false)
-
-watch(() => router.currentRoute.value.name, name => {
-  if (name === 'index')
-    isDashboard.value = true
-  else
-    isDashboard.value = false
-})
-
-// display time 24 September / 02:30 AM
-const displayTime = () => {
-  const date = new Date()
-  const options = { day: 'numeric', month: 'long' }
-  const time = date.toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
-
-  const formattedDate = date.toLocaleDateString('en-US', options)
-
-  return `${formattedDate} / ${time}`
-}
 </script>
 
 <template>
@@ -56,30 +35,16 @@ const displayTime = () => {
             size="24"
           />
         </VBtn>
-        <div
-          v-if="isDashboard"
-          class="d-none d-sm-block dashboard-time"
-        >
-          {{ displayTime() }}
-        </div>
-        <div
-          v-else
-          class="d-none d-sm-block back-to-dashboard"
-          @click="router.push({ name: 'index' })"
-        >
-          Back to dashboard
-        </div>
+
         <NavbarThemeSwitcher />
 
         <VSpacer />
-        <NavBarProcess />
-        <NavBarNotificationsVue />
+
         <UserProfile />
       </div>
     </template>
 
     <!-- 👉 Pages -->
-
     <RouterView v-slot="{ Component }">
       <Transition
         :name="appRouteTransition"
@@ -91,24 +56,10 @@ const displayTime = () => {
 
     <!-- 👉 Footer -->
     <template #footer>
-      <!-- <Footer /> -->
+      <Footer />
     </template>
 
     <!-- 👉 Customizer -->
     <!-- <TheCustomizer /> -->
   </VerticalNavLayout>
 </template>
-
-<style scoped>
-.back-to-dashboard {
-  color: var(--text-gray-light) !important;
-  font-size: var(--font-size) !important;
-}
-
-.dashboard-time {
-  color: var(--text-gray-light) !important;
-  font-size: var(--font-size-sm) !important;
-  text-transform: uppercase !important;
-}
-
-</style>

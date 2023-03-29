@@ -17,6 +17,8 @@ export default {
     iconBColor: { type: String, default: '' },
     iconA: { type: String, default: '' },
     iconAColor: { type: String, default: '' },
+    iconANB: { type: String, default: '' },
+    iconAColorNB: { type: String, default: '' },
     action: {
       type: Function,
       default: () => {},
@@ -46,6 +48,12 @@ export default {
       :icon="iconA"
       :color="iconAColor"
       style="border-radius: 50%; margin-left: 12px; background-color: white;"
+    />
+    <VIcon
+      v-if="iconANB"
+      :size="22"
+      :icon="iconANB"
+      :color="iconAColorNB"
     />
   </VBtn>
 </template>

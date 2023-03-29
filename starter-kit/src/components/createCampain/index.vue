@@ -1,13 +1,13 @@
 <!-- eslint-disable vue/component-api-style -->
 <!-- eslint-disable @typescript-eslint/no-empty-function -->
 <script  lang="ts">
+import ImportContact from './importcontact/importContact.vue'
 import Step1 from './step1/step1.vue'
 import Step2 from './step2/step2.vue'
 import Step3 from './step3/step3.vue'
 import Step4 from './step4/step4.vue'
 import { btnBlack } from '@/constant/buttonColor'
 import BtnRound from '@/components/buttons/roundedButton/index.vue'
-import ImportContact from './importcontact/importContact.vue'
 
 export default {
   name: 'CreateCampain',
@@ -17,8 +17,8 @@ export default {
     Step3,
     Step4,
     BtnRound,
-    ImportContact
-},
+    ImportContact,
+  },
   setup() {
     const curentStep = ref(3)
 
@@ -58,8 +58,13 @@ export default {
   <div class="biggest-container">
     <div class="container">
       <div class="select__container">
-        <h1>Create New Campaign</h1>
-        <div class="wrapper-stepper mb-10">
+        <h1 v-show="curentStep !== 3">
+          Create New Campaign
+        </h1>
+        <div
+          v-show="curentStep !== 3"
+          class="wrapper-stepper mb-10"
+        >
           <div class="stepper">
             <div class="stepper-progress">
               <div class="stepper-progress-bar" />
@@ -105,13 +110,30 @@ export default {
       </div>
     </div>
     <div class="btn-phone-container">
-      <div class="btn-phone">
+      <div
+        v-if="curentStep !== 3"
+        class="btn-phone"
+      >
         <BtnRound
           button-title="continue"
           :action="nextStep"
           color="btnBlack.color"
           :style="btnBlack"
           variant="contained"
+        />
+      </div>
+      <div
+        v-else
+        class="btn-phone"
+      >
+        <BtnRound
+          button-title="next"
+          :action="nextStep"
+          color="btnBlack.color"
+          :style="btnBlack"
+          variant="contained"
+          icon-a-n-b="tabler-chevron-right"
+          :icon-a-color-n-b="btnBlack.color"
         />
       </div>
     </div>

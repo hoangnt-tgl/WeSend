@@ -13,11 +13,11 @@ export default {
       items: [
         { text: 'Cupcake sesame snaps dessert marzipan.', date: '24 Sep 2022', contact: 'Active', status: 'Y', mediatype: 'image' },
         { text: 'Jelly beans jelly-o gummi bears chupa chups marshmallow.', date: '10/10/2023', contact: '22', status: 'Y', mediatype: 'img' },
-        { text: 'Bonbon macaroon gummies pie jelly', date: '10/10/2023', contact: '22', status: 'Y', mediatype: 'img', icon: 'tabler-brand-twitter' },
+        { text: 'Bonbon macaroon gummies pie jelly', date: '10/10/2023', contact: '22', status: 'Scheduled(10)', mediatype: 'img', icon: 'tabler-brand-twitter' },
         { text: 'Cupcake sesame snaps dessert marzipan.', date: '10/10/2023', contact: 'Active', status: 'Y', mediatype: 'fasfasdf' },
+        { text: 'Cupcake sesame snaps dessert marzipan.', date: '10/10/2023', contact: 'Scheduled(10)', status: 'Y', mediatype: 'fasfasdf' },
         { text: 'Cupcake sesame snaps dessert marzipan.', date: '10/10/2023', contact: 'Active', status: 'Y', mediatype: 'fasfasdf' },
-        { text: 'Cupcake sesame snaps dessert marzipan.', date: '10/10/2023', contact: 'Active', status: 'Y', mediatype: 'fasfasdf' },
-        { text: 'Cupcake sesame snaps dessert marzipan.', date: '10/10/2023', contact: 'Active', status: 'Y', mediatype: 'fasfasdf' },
+        { text: 'Cupcake sesame snaps dessert marzipan.', date: '10/10/2023', contact: 'Scheduled(10)', status: 'Y', mediatype: 'fasfasdf' },
         { text: 'Cupcake sesame snaps dessert marzipan.', date: '10/10/2023', contact: 'Active', status: 'Y', mediatype: 'fasfasdf' },
         { text: 'Cupcake sesame snaps dessert marzipan.', date: '10/10/2023', contact: 'Active', status: 'Y', mediatype: 'fasfasdf' },
         { text: 'Cupcake sesame snaps dessert marzipan.', date: '10/10/2023', contact: 'Active', status: 'Y', mediatype: 'fasfasdf' },
@@ -33,6 +33,7 @@ export default {
       this.isShowModal = !this.isShowModal
       console.log('trigger!!!!!')
     },
+
   },
 
 }
@@ -88,7 +89,7 @@ export default {
     <ul class="container">
       <li
         v-for="item in items"
-        :key="item.text"
+        :key="item.status"
         class="flex-container"
         :value="item.icon"
         @click="onDetail"
@@ -189,7 +190,6 @@ export default {
 }
 
 .descriptionmenu {
-  margin: 10px;
   block-size: 38px;
   /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
   font-family: Poppins;
@@ -205,7 +205,7 @@ export default {
   font-family: Lato;
   font-size: 16px;
   font-style: regular;
-  inline-size: 300px;
+  inline-size: 250px;
 }
 
 .contact {
@@ -215,7 +215,7 @@ export default {
   font-family: Lato;
   font-size: 16px;
   font-style: regular;
-  inline-size: 200px;
+  inline-size: 220px;
 }
 
 .mediatype {
@@ -266,6 +266,28 @@ export default {
 
 .itemfooter {
   margin: auto;
+}
+
+.statusActive {
+  display: flex;
+  align-items: center;
+  border-radius: 200px;
+  background: #ecfdf5;
+  block-size: 29px;
+  inline-size: 70px;
+  padding-block: 2px;
+  padding-inline: 10px;
+}
+
+.statusSchedule {
+  display: flex;
+  align-items: center;
+  border-radius: 200px;
+  background: #e0e7ff;
+  block-size: 29px;
+  inline-size: 123px;
+  padding-block: 2px;
+  padding-inline: 18px;
 }
 </style>
 

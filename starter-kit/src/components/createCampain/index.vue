@@ -20,7 +20,7 @@ export default {
     ImportContact,
   },
   setup() {
-    const curentStep = ref(3)
+    const curentStep = ref(4)
 
     return {
       curentStep,
@@ -44,7 +44,7 @@ export default {
   },
   methods: {
     nextStep() {
-      if (this.curentStep < 5)
+      if (this.curentStep < 4)
         this.curentStep++
     },
     prevStep() {

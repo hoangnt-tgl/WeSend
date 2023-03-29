@@ -12,6 +12,17 @@ export default {
     tabItemText: {
       type: String,
       required: true,
+  },
+  setup() {
+    return {
+      
+    }
+  },
+  methods: {
+    removeClass() {
+      const tabs = document.getElementsByClassName('v-tab--selected')
+
+      tabs[0]?.classList.remove('v-tab--selected')
     },
   },
 }

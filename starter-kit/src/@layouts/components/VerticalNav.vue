@@ -46,7 +46,11 @@ const resolveNavItemComponent = (item: NavLink | NavSectionTitle | NavGroup) => 
 const route = useRoute()
 
 watch(() => route.name, () => {
+  let isClose = ref(false);
   props.toggleIsOverlayNavActive(false)
+  if (route.name === 'create-campaign' && windowWidth.value > ref(1280).value)
+    isClose.value = true
+  else isClose.value = false
 })
 
 const isVerticalNavScrolled = ref(false)

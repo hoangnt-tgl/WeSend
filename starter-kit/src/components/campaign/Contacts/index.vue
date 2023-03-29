@@ -28,7 +28,6 @@ export default {
         <label class="input-checkbox">
           <input
             type="checkbox"
-            checked="checked"
           >
           <span class="checkmark" />
         </label>
@@ -60,7 +59,6 @@ export default {
         <label class="input-checkbox">
           <input
             type="checkbox"
-            checked="checked"
           >
           <span class="checkmark" />
         </label>
@@ -135,7 +133,6 @@ export default {
         <label class="input-checkbox">
           <input
             type="checkbox"
-            checked="checked"
           >
           <span class="checkmark" />
         </label>
@@ -202,6 +199,113 @@ export default {
           <button class="delete">
             <VIcon icon="tabler-x" />
           </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-container-mobile">
+    <div class="contact-item active">
+      <div class="contact-item-left">
+        <h4>Varun Gupta</h4>
+        <div class="item">
+          <VIcon icon="tabler-phone" /><input
+            type="text"
+            value="+91-9999123456"
+            disabled
+          >
+        </div>
+        <div class="item">
+          <VIcon icon="tabler-gender-male" />
+          <input
+            type="text"
+            value="38, Male"
+            disabled
+          >
+        </div>
+        <div class="item">
+          <VIcon icon="tabler-map-pin" />
+          <input
+            type="text"
+            value="Mbeya, Tanzania"
+            disabled
+          >
+        </div>
+      </div>
+      <div class="contact-item-right">
+        <div class="contact-content-action">
+          <div class="action-1">
+            <button>
+              <VIcon icon="tabler-edit" />
+            </button>
+            <button>
+              <VIcon icon="tabler-trash" />
+            </button>
+          </div>
+          <div class="action-2">
+            <button class="save">
+              <img
+                src="../../../assets/icons/save.svg"
+                alt="save"
+              >
+            </button>
+
+            <button class="delete">
+              <VIcon icon="tabler-x" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-item-left">
+        <h4>Varun Gupta</h4>
+        <div class="item">
+          <VIcon icon="tabler-phone" /><input
+            type="text"
+            value="+91-9999123456"
+            disabled
+          >
+        </div>
+        <div class="item">
+          <VIcon icon="tabler-gender-male" />
+          <input
+            type="text"
+            value="38, Male"
+            disabled
+          >
+        </div>
+        <div class="item">
+          <VIcon icon="tabler-map-pin" />
+          <input
+            type="text"
+            value="Mbeya, Tanzania"
+            disabled
+          >
+        </div>
+      </div>
+      <div class="contact-item-right">
+        <div class="contact-content-action">
+          <div class="action-1">
+            <button>
+              <VIcon icon="tabler-edit" />
+            </button>
+            <button>
+              <VIcon icon="tabler-trash" />
+            </button>
+          </div>
+          <div class="action-2">
+            <button class="save">
+              <img
+                src="../../../assets/icons/save.svg"
+                alt="save"
+              >
+            </button>
+
+            <button class="delete">
+              <VIcon icon="tabler-x" />
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -491,6 +595,10 @@ export default {
   background: rgba(239, 68, 68, 80%);
 }
 
+.contact-container-mobile {
+  display: none;
+}
+
 @media (max-width: 900px) {
   .contact-button {
     display: none;
@@ -514,6 +622,82 @@ export default {
     border-color: rgba(17, 24, 39, 70%);
     background: rgba(17, 24, 39, 70%);
     color: #fff;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-container {
+    display: none;
+  }
+
+  .contact-container-mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    border: 1px solid #e0e7ff;
+    border-radius: 12px;
+    gap: 16px;
+  }
+
+  .contact-item-left {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .contact-item-left h4 {
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .contact-item-left .item {
+    display: flex;
+    align-items: center;
+    color: #6b7280;
+    gap: 4px;
+  }
+
+  .contact-item-left input {
+    flex: 1;
+    border-radius: 5px;
+    background: #fff;
+    color: #6b7280;
+    padding-block: 4px;
+    padding-inline: 0;
+  }
+
+  .contact-item-right .contact-content-action {
+    inline-size: auto;
+  }
+
+  .contact-item-right .action-1,
+  .contact-item-right .action-2 {
+    flex-direction: column;
+  }
+
+  .contact-item.active {
+    background: #f5f3ff;
+  }
+
+  .contact-item.active .item input {
+    padding: 10px;
+  }
+
+  .contact-item.active .action-1 {
+    display: none;
+  }
+
+  .contact-item.active .action-2 {
+    display: flex;
+    gap: 8px;
   }
 }
 

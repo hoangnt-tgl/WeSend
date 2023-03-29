@@ -120,7 +120,7 @@ export default {
             >
             <img
               class="buttonmini"
-              src="@/assets/images/trash 1.png"
+              src="@/assets/images/trash1.png"
             >
           </div>
         </div>
@@ -128,11 +128,27 @@ export default {
     </ul>
 
     <div class="footer">
-      <div>1</div>
-      <div>2</div>
-      <div>3</div>
-      <div>4</div>
-      <div>5</div>
+      <div class="itemfooter">
+        <img src="@/assets/images/Icon.png">
+      </div>
+      <div class="itemfooter">
+        1
+      </div>
+      <div class="itemfooter">
+        2
+      </div>
+      <div class="itemfooter">
+        ...
+      </div>
+      <div class="itemfooter">
+        9
+      </div>
+      <div class="itemfooter">
+        10
+      </div>
+      <div class="itemfooter">
+        <img src="@/assets/images/Icon1.png">
+      </div>
     </div>
   </div>
   <CreateDetail
@@ -142,13 +158,6 @@ export default {
 </template>
 
 <style>
-.menutitle {
-  /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
-  font-family: Poppins;
-  font-size: 14px;
-  font-style: medium;
-}
-
 .container {
   margin-block-start: 20px;
   margin-inline-end: 15px;
@@ -158,7 +167,6 @@ export default {
 .flex-container-menu {
   display: flex;
   block-size: 30px;
-  inline-size: 1090px;
   margin-block-end: 5px;
 }
 
@@ -168,29 +176,25 @@ export default {
   background-color: white;
   block-size: 70px;
   block-size: 64px;
-  inline-size: 1090px;
   margin-block-end: 5px;
 }
 
 .description {
-  margin: 10px;
   block-size: 38px;
-  fill: Solid#374151;
   /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
   font-family: Lato;
   font-size: 16px;
-  font-style: regular;
-  inline-size: 350px;
-  scroll-snap-type: gray/700;
+  inline-size: 500px;
+  margin-inline-start: 10px;
 }
 
 .descriptionmenu {
-  margin: auto;
+  margin: 10px;
+  block-size: 38px;
   /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
   font-family: Poppins;
-  font-size: 14px;
-  font-style: medium;
-  inline-size: 350px;
+  font-size: 16px;
+  inline-size: 500px;
 }
 
 .date {
@@ -201,7 +205,7 @@ export default {
   font-family: Lato;
   font-size: 16px;
   font-style: regular;
-  inline-size: 150px;
+  inline-size: 300px;
 }
 
 .contact {
@@ -211,7 +215,7 @@ export default {
   font-family: Lato;
   font-size: 16px;
   font-style: regular;
-  inline-size: 140px;
+  inline-size: 200px;
 }
 
 .mediatype {
@@ -221,7 +225,7 @@ export default {
   font-family: Lato;
   font-size: 16px;
   font-style: regular;
-  inline-size: 140px;
+  inline-size: 200px;
 }
 
 .status {
@@ -231,7 +235,7 @@ export default {
   font-family: Lato;
   font-size: 16px;
   font-style: regular;
-  inline-size: 120px;
+  inline-size: 220px;
 }
 
 .icon {
@@ -239,15 +243,16 @@ export default {
   justify-content: center;
   margin: auto;
   block-size: 38px;
-  inline-size: 150px;
+  inline-size: 250px;
 }
 
 .footer {
   display: flex;
   justify-content: space-between;
   margin: auto;
-  block-size: 19px;
-  inline-size: 98px;
+  background-color: white;
+  block-size: 37px;
+  inline-size: 284px;
   margin-block-start: 30px;
 }
 
@@ -257,6 +262,10 @@ export default {
   block-size: 36px;
   inline-size: 36px;
   margin-inline: 5px;
+}
+
+.itemfooter {
+  margin: auto;
 }
 </style>
 

@@ -16,11 +16,11 @@ export default {
         { text: 'Bonbon macaroon gummies pie jelly', date: '10/10/2023', contact: '22', status: 'Scheduled(10)', mediatype: 'img', icon: 'tabler-brand-twitter' },
         { text: 'Cupcake sesame snaps dessert marzipan.', date: '10/10/2023', contact: 'Active', status: 'Y', mediatype: 'fasfasdf' },
         { text: 'Cupcake sesame snaps dessert marzipan.', date: '10/10/2023', contact: 'Scheduled(10)', status: 'Y', mediatype: 'fasfasdf' },
-        { text: 'Cupcake sesame snaps dessert marzipan.', date: '10/10/2023', contact: 'Active', status: 'Y', mediatype: 'fasfasdf' },
+        { text: 'Cupcake sesame snaps dessert marzipan.', date: '10/10/2023', contact: 'Active', status: 'Active', mediatype: 'fasfasdf' },
         { text: 'Cupcake sesame snaps dessert marzipan.', date: '10/10/2023', contact: 'Scheduled(10)', status: 'Y', mediatype: 'fasfasdf' },
-        { text: 'Cupcake sesame snaps dessert marzipan.', date: '10/10/2023', contact: 'Active', status: 'Y', mediatype: 'fasfasdf' },
-        { text: 'Cupcake sesame snaps dessert marzipan.', date: '10/10/2023', contact: 'Active', status: 'Y', mediatype: 'fasfasdf' },
-        { text: 'Cupcake sesame snaps dessert marzipan.', date: '10/10/2023', contact: 'Active', status: 'Y', mediatype: 'fasfasdf' },
+        { text: 'Cupcake sesame snaps dessert marzipan.', date: '10/10/2023', contact: 'Active', status: 'Active', mediatype: 'fasfasdf' },
+        { text: 'Cupcake sesame snaps dessert marzipan.', date: '10/10/2023', contact: 'Active', status: 'Scheduled(10)', mediatype: 'fasfasdf' },
+        { text: 'Cupcake sesame snaps dessert marzipan.', date: '10/10/2023', contact: 'Active', status: 'Scheduled(10)', mediatype: 'fasfasdf' },
       ],
 
     }
@@ -103,8 +103,15 @@ export default {
         <div class="contact">
           {{ item.contact }}
         </div>
-        <div class="status">
-          {{ item.status }}
+        <div
+          class="status"
+        >
+          <div
+            class=""
+            :class="item.status === 'Scheduled(10)' ? 'statusSchedule' : item.status === 'Active' ? 'statusActive' : 'statusNone'"
+          >
+            {{ item.status }}
+          </div>
         </div>
         <div class="mediatype">
           {{ item.mediatype }}
@@ -284,6 +291,17 @@ export default {
   align-items: center;
   border-radius: 200px;
   background: #e0e7ff;
+  block-size: 29px;
+  inline-size: 123px;
+  padding-block: 2px;
+  padding-inline: 18px;
+}
+
+.statusNone {
+  display: flex;
+  align-items: center;
+  border-radius: 200px;
+  background: #f3f4f6;
   block-size: 29px;
   inline-size: 123px;
   padding-block: 2px;

@@ -2,10 +2,15 @@
 import CampaignList from '@/components/campaign/main/List.vue'
 import SearchBar from '@/components/campaign/main/SearchBar.vue'
 
-export default { components: { CampaignList, SearchBar } }
+export default {
+  name: 'Campaign',
+  components: { CampaignList, SearchBar },
+}
 </script>
 
 <template>
-  <SearchBar />
-  <CampaignList />
+  <div>
+    <SearchBar />
+    <CampaignList />
+  </div>
 </template>

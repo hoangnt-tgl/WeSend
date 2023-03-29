@@ -1,8 +1,27 @@
+<!-- eslint-disable vue/component-api-style -->
 <script lang="ts">
 import { defineComponent } from 'vue'
+import CampaignSchedule from '@/components/modal/CampaignSchedule.vue'
 
 export default defineComponent({
   name: 'NoSchedulesCard',
+  components: {
+    CampaignSchedule,
+  },
+  setup() {
+    return {
+      isModalOpen: ref(false),
+    }
+  },
+  methods: {
+    openModal() {
+      this.isModalOpen = true
+    },
+    closeModal() {
+      this.isModalOpen = false
+      console.log('close')
+    },
+  },
 })
 </script>
 

@@ -1,23 +1,20 @@
 <script lang="ts">
-import CreateDetail from '@/components/campaign/detail/createDetailModal.vue'
-
 export default {
   name: 'List',
   components: {
-    CreateDetail,
+
   },
   // eslint-disable-next-line vue/component-api-style
   data() {
     return {
-      isShowModal: false,
       items: [
-        { text: 'Cupcake sesame snaps dessert marzipan.', date: '24 Sep 2022', contact: 'Active', status: 'Y', mediatype: 'image' },
-        { text: 'Jelly beans jelly-o gummi bears chupa chups marshmallow.', date: '10/10/2023', contact: '22', status: 'Y', mediatype: 'img' },
+        { text: 'Cupcake sesame snaps dessert marzipan.', date: '24 Sep 2022', contact: 'Active', status: 'Unschedule', mediatype: 'image' },
+        { text: 'Jelly beans jelly-o gummi bears chupa chups marshmallow.', date: '10/10/2023', contact: '22', status: 'Unschedule', mediatype: 'img' },
         { text: 'Bonbon macaroon gummies pie jelly', date: '10/10/2023', contact: '22', status: 'Scheduled(10)', mediatype: 'img', icon: 'tabler-brand-twitter' },
-        { text: 'Cupcake sesame snaps dessert marzipan.', date: '10/10/2023', contact: 'Active', status: 'Y', mediatype: 'fasfasdf' },
-        { text: 'Cupcake sesame snaps dessert marzipan.', date: '10/10/2023', contact: 'Scheduled(10)', status: 'Y', mediatype: 'fasfasdf' },
+        { text: 'Cupcake sesame snaps dessert marzipan.', date: '10/10/2023', contact: 'Active', status: 'Unschedule', mediatype: 'fasfasdf' },
+        { text: 'Cupcake sesame snaps dessert marzipan.', date: '10/10/2023', contact: 'Scheduled(10)', status: 'Unschedule', mediatype: 'fasfasdf' },
         { text: 'Cupcake sesame snaps dessert marzipan.', date: '10/10/2023', contact: 'Active', status: 'Active', mediatype: 'fasfasdf' },
-        { text: 'Cupcake sesame snaps dessert marzipan.', date: '10/10/2023', contact: 'Scheduled(10)', status: 'Y', mediatype: 'fasfasdf' },
+        { text: 'Cupcake sesame snaps dessert marzipan.', date: '10/10/2023', contact: 'Scheduled(10)', status: 'Unschedule', mediatype: 'fasfasdf' },
         { text: 'Cupcake sesame snaps dessert marzipan.', date: '10/10/2023', contact: 'Active', status: 'Active', mediatype: 'fasfasdf' },
         { text: 'Cupcake sesame snaps dessert marzipan.', date: '10/10/2023', contact: 'Active', status: 'Scheduled(10)', mediatype: 'fasfasdf' },
         { text: 'Cupcake sesame snaps dessert marzipan.', date: '10/10/2023', contact: 'Active', status: 'Scheduled(10)', mediatype: 'fasfasdf' },
@@ -28,11 +25,6 @@ export default {
 
   // eslint-disable-next-line vue/component-api-style
   methods: {
-
-    onDetail() {
-      this.isShowModal = !this.isShowModal
-      console.log('trigger!!!!!')
-    },
 
   },
 
@@ -92,7 +84,6 @@ export default {
         :key="item.status"
         class="flex-container"
         :value="item.icon"
-        @click="onDetail"
       >
         <div class="description">
           {{ item.text }}
@@ -159,10 +150,6 @@ export default {
       </div>
     </div>
   </div>
-  <CreateDetail
-    v-if="isShowModal"
-    @cancel="onDetail"
-  />
 </template>
 
 <style>

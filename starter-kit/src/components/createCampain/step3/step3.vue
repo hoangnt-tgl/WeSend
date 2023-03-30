@@ -29,106 +29,108 @@ export default {
 
 <template>
   <div>
-    <!--
-      <div class="container-step-3">
-      <div class="d-flex flex-column flex-sm-row gap-4 row">
-      <div class="col-md-7 col-12">
-      <h4 class="title-message">
-      Message
-      </h4>
-      <div class="icon-box me-3">
-      <div>
-      <VIcon
-      size="17"
-      icon="tabler-arrows-move"
-      />
-      </div>
-      <div>
-      <VIcon
-      size="18"
-      icon="tabler-trash"
-      />
-      </div>
-      </div>
-      <div class="mb-15 d-flex">
-      <QuillEditorCustomer />
-      </div>
-      <div class="icon-box me-3">
-      <div>
-      <VIcon
-      size="17"
-      icon="tabler-arrows-move"
-      />
-      </div>
-      <div>
-      <VIcon
-      size="18"
-      icon="tabler-trash"
-      />
-      </div>
-      </div>
-      <div class="mb-15 d-flex">
-      <QuillEditorCustomer />
-      </div>
-      <div class="add-mess">
-      <div>Add another message</div>
-      </div>
-      </div>
-      <div class="col-md-5 col-12">
-      <h4>Preview</h4>
-      <div class="review-box">
-      <div class="header-review">
-      <div class="avatar-review" />
-      <div class="name-review" />
-      </div>
-      <div class="body-review">
-      <div class="item-review">
-      <div class="icon-review">
-      <img src="@/assets/images/pages/message.png">
-      </div>
-      <div
-      class="text-review"
-      >
-      <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-      </div>
-      </div>
-      </div>
-      <div class="footer-review">
-      <VIcon
-      size="18"
-      icon="tabler-plus"
-      color="#6366f1"
-      />
-      <div class="input-box">
-      <input
-      type="text"
-      class="input-chat"
-      >
-      <VIcon
-      size="18"
-      icon="tabler-file"
-      class="icon-file"
-      color="#6366f1"
-      />
-      </div>
+    <div class="step-3-wrapper">
+      <!--
+        <div class="container-step-3">
+        <div class="d-flex flex-column flex-sm-row gap-4 row">
+        <div class="col-md-7 col-12">
+        <h4 class="title-message">
+        Message
+        </h4>
+        <div class="icon-box me-3">
+        <div>
+        <VIcon
+        size="17"
+        icon="tabler-arrows-move"
+        />
+        </div>
+        <div>
+        <VIcon
+        size="18"
+        icon="tabler-trash"
+        />
+        </div>
+        </div>
+        <div class="mb-15 d-flex">
+        <QuillEditorCustomer />
+        </div>
+        <div class="icon-box me-3">
+        <div>
+        <VIcon
+        size="17"
+        icon="tabler-arrows-move"
+        />
+        </div>
+        <div>
+        <VIcon
+        size="18"
+        icon="tabler-trash"
+        />
+        </div>
+        </div>
+        <div class="mb-15 d-flex">
+        <QuillEditorCustomer />
+        </div>
+        <div class="add-mess">
+        <div>Add another message</div>
+        </div>
+        </div>
+        <div class="col-md-5 col-12">
+        <h4>Preview</h4>
+        <div class="review-box">
+        <div class="header-review">
+        <div class="avatar-review" />
+        <div class="name-review" />
+        </div>
+        <div class="body-review">
+        <div class="item-review">
+        <div class="icon-review">
+        <img src="@/assets/images/pages/message.png">
+        </div>
+        <div
+        class="text-review"
+        >
+        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        </div>
+        </div>
+        <div class="footer-review">
+        <VIcon
+        size="18"
+        icon="tabler-plus"
+        color="#6366f1"
+        />
+        <div class="input-box">
+        <input
+        type="text"
+        class="input-chat"
+        >
+        <VIcon
+        size="18"
+        icon="tabler-file"
+        class="icon-file"
+        color="#6366f1"
+        />
+        </div>
 
-      <VIcon
-      size="18"
-      icon="tabler-camera"
-      color="#6366f1"
-      />
-      <VIcon
-      size="18"
-      icon="tabler-microphone"
-      color="#6366f1"
-      />
-      </div>
-      </div>
-      </div>
-      </div>
-      </div>
-    -->
-    <Message :action="action" />
+        <VIcon
+        size="18"
+        icon="tabler-camera"
+        color="#6366f1"
+        />
+        <VIcon
+        size="18"
+        icon="tabler-microphone"
+        color="#6366f1"
+        />
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+      -->
+      <Message :action="action" />
+    </div>
     <div class="my-6 btn-next">
       <div>
         <BtnRound
@@ -145,6 +147,15 @@ export default {
 
 <style>
 @media (min-width: 350px) {
+  .step-3-wrapper {
+    border-radius: 15px;
+    background: #fff;
+    inline-size: 73vw;
+    margin-block-end: 30px;
+    padding-block: 24px;
+    padding-inline: 40px;
+  }
+
   .btn-next {
     display: none;
   }

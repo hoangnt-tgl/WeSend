@@ -1,6 +1,6 @@
 <script lang="ts">
-import RounedBtn from '@/components/buttons/roundedButton/index.vue'
-import { btnOutLine } from '@/constant/buttonColor'
+import RounedBtn from '@/components/buttons/roundedButton/index.vue';
+import { btnOutLine } from '@/constant/buttonColor';
 
 export default {
   name: 'CardHistory',
@@ -46,21 +46,26 @@ export default {
       </div>
       <div
         v-if="type === 'deleted'"
-        class="ms-auto me-md-4 me-2"
+        class="ms-auto me-md-7 me-4"
         @click="() => {}"
       >
-        <RounedBtn
+        <!--
+          <RounedBtn
           button-title=""
           :color="btnOutLine.color"
           :style="btnOutLine"
           variant="'outlined'"
           icon-b="tabler-rotate-2"
           class="d-block d-sm-none"
-        />
+          />
+        -->
+        <div class="d-block d-sm-none icon-reload-phone">
+          <VIcon icon="tabler-rotate-2" />
+        </div>
         <RounedBtn
           button-title="Restore"
           :color="btnOutLine.color"
-          :style="btnOutLine"
+          :style="{ ...btnOutLine, height: '45px' }"
           variant="'outlined'"
           icon-b="tabler-rotate-2"
           class="d-none d-sm-block"
@@ -115,6 +120,12 @@ export default {
 
   .notification-container.overrided {
     border-inline-start: 3px solid #f59e0b;
+  }
+
+  .icon-reload-phone {
+    padding: 8px;
+    border: 1px solid #d1d5db;
+    border-radius: 50%;
   }
 }
 

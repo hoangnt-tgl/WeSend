@@ -2,13 +2,17 @@
 <script lang="ts">
 import BtnRound from '@/components/buttons/roundedButton/index.vue'
 import CampaignScheduleSetting from '@/components/modal/CampaignScheduleSetting.vue'
+import { btnBlack } from '@/constant/buttonColor'
 
 const btnOutLine = {
   background: 'transparent',
   color: '#111827',
   border: ' 1px solid #000 !important',
+  padding: '5px 15px',
+  fontSize: '12px',
 }
 
+const switchOn = ref('on')
 export default {
   name: 'CampaignSchedule',
   components: {
@@ -20,6 +24,8 @@ export default {
       defaultValue: true,
       isModalSettingOpen: ref(false),
       btnOutLine,
+      btnBlack,
+      switchOn,
     }
   },
   methods: {
@@ -40,7 +46,7 @@ export default {
   <VDialog
     v-model="defaultValue"
     persistent
-    class="v-dialog-sm"
+    class="v-dialog-lg "
   >
     <DialogCloseBtn
       class="close__btn"
@@ -48,7 +54,10 @@ export default {
     />
 
     <!-- Dialog Content -->
-    <VCard title="Campaign schedule">
+    <VCard
+      title="Campaign schedule"
+      class="campaign-schedule-modal"
+    >
       <div class="px-6 py-4">
         <div class="modal__label">
           Select Campaign
@@ -59,7 +68,7 @@ export default {
             value="Christmas Campaign 1"
           >
         </div>
-        <div class="d-flex gap-4 flex-column flex-sm-row my-4">
+        <div class="d-flex gap-4 flex-column flex-sm-row my-6">
           <div class="w-100">
             <div class="modal__label">
               Date
@@ -83,7 +92,7 @@ export default {
             </div>
           </div>
         </div>
-        <div class="d-flex gap-4 flex-column flex-sm-row my-4">
+        <div class="d-flex gap-4 flex-column flex-sm-row my-6">
           <div class="w-100">
             <div class="modal__label">
               No. of contacts to send
@@ -108,7 +117,7 @@ export default {
           </div>
         </div>
 
-        <div class="modal__setting">
+        <div class="modal__setting pa-7">
           <div class="setting__title">
             This campaign will run for <span>1000 contacts </span>starting from<span> 100 to 1100</span>
             and up to <span>30 mins.</span>
@@ -122,23 +131,45 @@ export default {
             <BtnRound
               button-title="Edit settings"
               :color="btnOutLine.color"
-              :style="{ ...btnOutLine, width: 'fit-content' }"
+              :style="{ ...btnOutLine, width: 'fit-content', height: '42px' }"
               variant="'outlined'"
               :action="openModalSetting"
             />
           </div>
         </div>
-        <div class="d-flex flex-column flex-sm-row justify-content-sm-between">
-          <div class="w-100">
-            <div>fd</div><div>fd</div>
+        <div class="d-flex flex-column flex-sm-row justify-content-sm-between mt-6 mb-2">
+          <div class="w-100 d-flex align-center gap-5 bottom-schedule">
+            <div>
+              <VSwitch
+                v-model="switchOn"
+                label="Active"
+                value="on"
+                color="success"
+              />
+            </div>
+            <div class="d-flex align-center">
+              <VCheckbox
+                key="color"
+                class="checkbox"
+                color="success"
+                value="success"
+              />
+              <span class="text-ar"> Send to Archive</span>
+            </div>
           </div>
-          <div class="w-100">
+          <div class="w-100 d-flex justify-end align-center gap-1">
             <button class="delete">
               <VIcon icon="tabler-trash" />
             </button>
-            <button class="delete">
-              <VIcon icon="tabler-trash" /><span>Save</span>
-            </button>
+            <div>
+              <BtnRound
+                button-title="Save"
+                :color="btnBlack.color"
+                :style="{ ...btnBlack, padding: '0px 35px', height: '45px' }"
+                variant="'contained'"
+                :action="openModalSetting"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -150,7 +181,21 @@ export default {
   </VDialog>
 </template>
 
-<style scoped>
+<style>
+.campaign-schedule-modal .v-card-title {
+  color: var(--text-dark) !important;
+  font-size: var(--font-size-md);
+  opacity: 1 !important;
+}
+
+.campaign-schedule-modal .v-card-item {
+  padding: 24px !important;
+}
+
+.campaign-schedule-modal .v-dialog-close-btn:hover {
+  transform: translate(0.5rem, 1rem) !important;
+}
+
 .close__btn {
   position: absolute;
   margin: 16px;
@@ -213,5 +258,24 @@ export default {
 
 .setting__des span {
   color: #111827;
+}
+
+.bottom-schedule .v-switch__thumb {
+  background-color: white !important;
+  block-size: 12px !important;
+  inline-size: 12px !important;
+}
+
+.bottom-schedule .v-switch__track {
+  block-size: 18px;
+}
+
+.bottom-schedule .v-label {
+  color: var(--text-dark) !important;
+  opacity: 1;
+}
+
+.text-ar {
+  color: var(--text-dark);
 }
 </style>

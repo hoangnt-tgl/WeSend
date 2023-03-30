@@ -43,10 +43,13 @@ export default {
   methods: {
     nextStep() {
       if (this.curentStep < 4) {
-        if (this.curentStep === 1 && !this.importContact)
+        if (this.curentStep === 1 && !this.importContact) {
           this.importContact = true
-        else
+        }
+        else {
           this.curentStep++
+          this.importContact = false
+        }
       }
       else {
         this.$router.push('/campaign')
@@ -117,9 +120,19 @@ export default {
         </div>
       </div>
     </div>
-    <div class="btn-phone-container">
+    <div
+      class="btn-phone-container"
+      :style="curentStep === 3 ? 'justify-content: between; padding: 10px 20px' : 'justify-content: end '"
+    >
       <div
-        v-if="curentStep !== 3"
+        v-if="curentStep === 3"
+        class="btn-text-preview"
+        style="color: #374151;"
+      >
+        <span>Preview</span>
+      </div>
+      <div
+        v-if="!importContact"
         class="btn-phone"
       >
         <BtnRound
@@ -131,7 +144,7 @@ export default {
         />
       </div>
       <div
-        v-else
+        v-if="curentStep === 1 && importContact"
         class="btn-phone"
       >
         <BtnRound
@@ -150,7 +163,8 @@ export default {
 
 <style scoped>
 .select {
-  background: url(../../assets/images/login/background.png) center / cover
+  background:
+    url(../../assets/images/login/background.png) center / cover
     no-repeat;
   min-block-size: 140vh;
   padding-block: 0;
@@ -387,6 +401,11 @@ export default {
 }
 
 @media (min-width: 350px) {
+  .btn-text-preview {
+    color: var(--text-active);
+    font-size: var(font-size);
+  }
+
   .select__container h1 {
     font-size: 24px;
     margin-block-end: 25px;

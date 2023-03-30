@@ -14,7 +14,7 @@ export default {
   setup() {
     return {
       defaultValue: true,
-      isModalOpen: ref(false),
+      isModalOpen: ref(true),
       btnBlack,
     }
   },
@@ -41,7 +41,10 @@ export default {
     <!-- Dialog Content -->
     <VCard>
       <div class="modal__title text-center">
-        <div class="close-modal">
+        <div
+          class="close-modal"
+          @click="close"
+        >
           <VIcon icon="tabler-x" />
         </div>
         <div class="modal-title">
@@ -169,13 +172,17 @@ export default {
           <VIcon icon="tabler-chevron-down" />
         </div>
 
-        <button>Continue</button>
+        <button @close="openModal">
+          Continue
+        </button>
       </div>
     </VCard>
-    <RemoveDuplicateResult
+    <!--
+      <RemoveDuplicateResult
       v-if="isModalOpen"
       @close="closeModal"
-    />
+      />
+    -->
   </VDialog>
 </template>
 

@@ -32,44 +32,51 @@ export default {
     <button class="btnCreate">
       <img
         style="width: 24px;height: 24px;"
-        src="@/assets/images/Vector1.png"
+        src="@/assets/images/Vector1.svg"
       >
       <h1
         class="text"
       >
-        Create New Campaign
+        Create New <span>Campaign</span>
       </h1>
     </button>
   </div>
-  <div class="searchbar">
-    <input
-      class="search__input"
-      placeholder="Search"
-    >
-    <div>
-      <div class="filterField">
-        <p style="margin-block: 0.5rem;">
-          Filter by
-        </p>
-        <input
-          class="search__date"
-          placeholder="Date from"
-        >
-        <input
-          class="search__date"
-          placeholder="Date to"
-        >
-        <input
-          class="search__date2"
-          type="text"
-          placeholder="Status"
-        >
-      </div>
+  <div class="contact-header">
+    <div class="contact-search">
+      <VIcon icon="tabler-search" />
+      <input
+        type="text"
+        placeholder="Search by name"
+      >
     </div>
+    <div class="contact-button">
+      <h6>FILTER BY</h6>
+      <button><span>Date from:</span><VIcon icon="tabler-calendar-due" /></button>
+      <button><span>Date to:</span><VIcon icon="tabler-calendar-due" /></button>
+      <button class="status">
+        <span>Status</span><VIcon icon="tabler-chevron-down" />
+      </button>
+    </div>
+    <button class="contact-button-mobile">
+      <h6>FILTER BY</h6>
+      <button>
+        <img
+          src="../../../assets/icons/filter.svg"
+          alt="filter"
+        >
+      </button>
+    </button>
   </div>
 </template>
 
 <style>
+.searchbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-block-end: 30px;
+}
+
 .campaign {
   display: flex;
   align-items: center;
@@ -80,13 +87,16 @@ export default {
   align-items: center;
   border-radius: 200px;
   background: #e0e7ff;
-  block-size: 30px;
+  color: var(--color-primary);
+  font-size: 14px;
+  font-weight: 600;
   margin-inline-start: 10px;
   padding-block: 2px;
   padding-inline: 10px;
 }
 
 .title {
+  color: var(--text-dark);
   font-size: 24px;
 }
 
@@ -94,70 +104,155 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+  border: 0;
   border-style: solid;
   border-radius: 30px;
-  background-color: black;
+  background-color: var(--text-dark);
   block-size: 46px;
   gap: 10px;
-  inline-size: 213px;
-
-  /* padding-block: 10px;
-  padding-inline: 40px; */
+  padding-block: 6px;
+  padding-inline: 12px;
+  transition: var(--smooth);
 }
 
-.searchbar {
-  display: flex;
-  justify-content: space-between;
-  block-size: 40px;
-  margin-block-end: 35px;
-  margin-block-start: 10px;
-  margin-inline-start: 30px;
-}
-
-.search__date {
-  border: 1px solid #d6d4e4;
-  border-radius: 10px;
-  background: url(@/assets/images/calendar-plus1.png) no-repeat scroll 110px 10px;
-  inline-size: 146px;
-  margin-inline: 10px;
-  padding-inline-end: 30px;
-  padding-inline-start: 10px;
-}
-
-.search__date2 {
-  border: 1px solid #d6d4e4;
-  border-radius: 10px;
-  background: url(@/assets/images/akar-icons_chevron-down.png) no-repeat scroll 182px 7px;
-  inline-size: 219px;
-  padding-inline-end: 30px;
-  padding-inline-start: 10px;
-}
-
-.filterField {
-  display: flex;
-  margin: auto;
+.btnCreate:hover {
+  background: rgba(17, 24, 39, 80%);
 }
 
 .text {
   color: white;
-  /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
-  font-family: Lato;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  inline-size: 158px;
-  line-height: 19px;
+  font-size: 15px;
+  font-weight: 600;
 }
 
-.search__input {
-  position: relative;
-  border: 1px solid #d6d4e4;
-  border-radius: 10px;
-  background: url(@/assets/images/Vector.png) no-repeat scroll 12px 10px;
-  background-color: white;
-  block-size: 40px;
-  inline-size: 219px;
-  padding-inline-start: 30px;
+.contact-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-block-end: 40px;
+}
+
+.contact-search {
+  display: flex;
+  border-radius: 6px;
+  background: #fff;
+  color: var(--text-gray-light);
+  gap: 10px;
+  inline-size: 258px;
+  padding-block: 8.75px;
+  padding-inline: 12px;
+}
+
+.contact-search input {
+  flex: 1;
+  color: var(--text-dark);
+  font-size: 13px;
+  font-weight: 600;
+  outline: none;
+}
+
+.contact-search svg {
+  cursor: pointer;
+}
+
+.contact-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.contact-button h6,
+.contact-button-mobile h6 {
+  color: var(--text-gray-light);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.contact-button button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  background: #fff;
+  color: var(--text-dark);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 400;
+  gap: 6px;
+  inline-size: 146px;
+  padding-block: 11px;
+  padding-inline: 20px;
+  text-align: center;
+  transition: all 0.4s;
+}
+
+.contact-button button.status {
+  block-size: 43.5px;
+  inline-size: 200px;
+}
+
+.contact-button button:hover {
+  border-color: var(--text-dark);
+}
+
+.contact-button-mobile {
+  display: none;
+}
+
+@media (max-width: 950px) {
+  .contact-button {
+    display: none;
+  }
+
+  .contact-button-mobile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .contact-button-mobile button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    background-color: #fff;
+    block-size: 43.5px;
+    inline-size: 43.5px;
+    transition: var(--smooth);
+  }
+
+  .contact-button-mobile button:hover {
+    border-color: var(--text-dark);
+  }
+}
+
+@media (max-width: 480px) {
+  .text span {
+    display: none;
+  }
+
+  .contact-search input {
+    display: none;
+  }
+
+  .contact-search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 1px solid transparent;
+    block-size: 43.5px;
+    cursor: pointer;
+    inline-size: 43.5px;
+    transition: var(--smooth);
+  }
+
+  .contact-search:hover {
+    border-color: var(--text-dark);
+  }
 }
 </style>
 

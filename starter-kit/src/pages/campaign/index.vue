@@ -9,8 +9,17 @@ export default {
 </script>
 
 <template>
-  <div>
+  <div class="campaign-container">
     <SearchBar />
     <CampaignList />
   </div>
 </template>
+
+<style scoped>
+@media (max-width: 480px) {
+  .campaign-container {
+    padding-block: 0;
+    padding-inline: 16px;
+  }
+}
+</style>

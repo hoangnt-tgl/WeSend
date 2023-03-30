@@ -182,10 +182,10 @@ export default {
                 color="success"
                 value="success"
               />
-              <span class="text-ar"> Send to Archive</span>
+              <span class="text-ar-1"> Send to Archive</span>
             </div>
           </div>
-          <div class="w-100 d-flex justify-end align-center gap-1 bottom-schedule-1">
+          <div class="w-100 d-flex justify-end align-center gap-2 bottom-schedule-1">
             <button class="delete">
               <VIcon icon="tabler-trash" />
             </button>
@@ -214,7 +214,9 @@ export default {
   inset-block-start: 0;
   inset-inline-end: 0;
 }
-
+.text-ar-1{
+  font-size: var(--font-size-ssm);
+}
 .modal__group__input {
   margin-block-end: 4px;
 }

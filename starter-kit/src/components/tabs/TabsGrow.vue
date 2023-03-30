@@ -24,7 +24,6 @@ export default {
       const tabs = document.getElementsByClassName('v-tab--selected')
 
       tabs[0]?.classList.remove('v-tab--selected')
-      console.log(tabs)
     },
   },
 }

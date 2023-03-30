@@ -1,6 +1,7 @@
 <!-- eslint-disable vue/component-api-style -->
 <!-- eslint-disable @typescript-eslint/no-empty-function -->
-<script  lang="ts">
+<script lang="ts">
+import ImportContact from './importcontact/importContact.vue'
 import Step1 from './step1/step1.vue'
 import Step2 from './step2/step2.vue'
 import Step3 from './step3/step3.vue'
@@ -16,12 +17,12 @@ export default {
     Step3,
     Step4,
     BtnRound,
+    ImportContact,
   },
   setup() {
-    const curentStep = ref(1)
-
     return {
-      curentStep,
+      curentStep: ref(1),
+      importContact: ref(false),
       btnBlack,
       steps: [
         {
@@ -37,13 +38,22 @@ export default {
           title: 'Schedule Message',
         },
       ],
-
     }
   },
   methods: {
     nextStep() {
-      if (this.curentStep < 4)
-        this.curentStep++
+      if (this.curentStep < 4) {
+        if (this.curentStep === 1 && !this.importContact) {
+          this.importContact = true
+        }
+        else {
+          this.curentStep++
+          this.importContact = false
+        }
+      }
+      else {
+        this.$router.push('/campaign')
+      }
     },
     prevStep() {
       this.curentStep--
@@ -56,8 +66,13 @@ export default {
   <div class="biggest-container">
     <div class="container">
       <div class="select__container">
-        <h1>Create New Campaign</h1>
-        <div class="wrapper-stepper mb-10">
+        <h1 v-show="curentStep !== 1 || importContact !== true">
+          Create New Campaign
+        </h1>
+        <div
+          v-show="curentStep !== 1 || importContact !== true"
+          class="wrapper-stepper mb-10"
+        >
           <div class="stepper">
             <div class="stepper-progress">
               <div class="stepper-progress-bar" />
@@ -67,7 +82,10 @@ export default {
               v-for="item in 4"
               :key="item"
               class="stepper-item"
-              :class="{ current: curentStep === item, success: curentStep > item }"
+              :class="{
+                current: curentStep === item,
+                success: curentStep > item,
+              }"
             >
               <div class="stepper-item-counter">
                 <img
@@ -85,11 +103,14 @@ export default {
             </div>
           </div>
         </div>
-        <div v-if="curentStep === 1">
+        <div v-if="curentStep === 1 && !importContact">
           <Step1 :action="nextStep" />
         </div>
         <div v-else-if="curentStep === 2">
           <Step2 :action="nextStep" />
+        </div>
+        <div v-else-if="curentStep === 1 && importContact">
+          <ImportContact :action="nextStep" />
         </div>
         <div v-else-if="curentStep === 3">
           <Step3 :action="nextStep" />
@@ -99,8 +120,21 @@ export default {
         </div>
       </div>
     </div>
-    <div class="btn-phone-container">
-      <div class="btn-phone">
+    <div
+      class="btn-phone-container"
+      :style="curentStep === 3 ? 'justify-content: between; padding: 10px 20px' : 'justify-content: end '"
+    >
+      <div
+        v-if="curentStep === 3"
+        class="btn-text-preview"
+        style="color: #374151;"
+      >
+        <span>Preview</span>
+      </div>
+      <div
+        v-if="!importContact"
+        class="btn-phone"
+      >
         <BtnRound
           button-title="continue"
           :action="nextStep"
@@ -109,13 +143,29 @@ export default {
           variant="contained"
         />
       </div>
+      <div
+        v-if="curentStep === 1 && importContact"
+        class="btn-phone"
+      >
+        <BtnRound
+          button-title="next"
+          :action="nextStep"
+          color="btnBlack.color"
+          :style="btnBlack"
+          variant="contained"
+          icon-a-n-b="tabler-chevron-right"
+          :icon-a-color-n-b="btnBlack.color"
+        />
+      </div>
     </div>
   </div>
 </template>
 
 <style scoped>
 .select {
-  background: url(../../assets/images/login/background.png) center / cover no-repeat;
+  background:
+    url(../../assets/images/login/background.png) center / cover
+    no-repeat;
   min-block-size: 140vh;
   padding-block: 0;
 
@@ -351,6 +401,11 @@ export default {
 }
 
 @media (min-width: 350px) {
+  .btn-text-preview {
+    color: var(--text-active);
+    font-size: var(font-size);
+  }
+
   .select__container h1 {
     font-size: 24px;
     margin-block-end: 25px;

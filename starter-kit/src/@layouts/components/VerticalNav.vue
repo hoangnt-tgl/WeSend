@@ -57,6 +57,7 @@ watch(() => route.name, () => {
   props.toggleIsOverlayNavActive(false)
   if (route.name === 'create-campaign' && windowWidth.value > ref(1280).value)
     isClose.value = true
+  else isClose.value = false
 })
 
 const isVerticalNavScrolled = ref(false)

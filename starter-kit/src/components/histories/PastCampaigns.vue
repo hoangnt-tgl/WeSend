@@ -123,7 +123,7 @@ export default {
     <VCard
       v-for="item in items"
       :key="item.id"
-      class="card-campai pa-4"
+      class="card-campai pa-4 mb-2"
     >
       <div class="d-flex align-center">
         <div class="d-flex flex-column w-75">

@@ -1,9 +1,9 @@
 <!-- eslint-disable vue/component-api-style -->
 <script lang="ts">
 import { defineComponent } from 'vue'
-import CampaignContacts from '@/components/campaign/Contacts/index.vue'
-import CampaignMessage from '@/components/campaign/Messages/index.vue'
-import CampaignSchedules from '@/components/campaign/Schedules/index.vue'
+import CampaignContacts from '@/components/campaignDetail/Contacts/index.vue'
+import CampaignMessage from '@/components/campaignDetail/Messages/index.vue'
+import CampaignSchedules from '@/components/campaignDetail/Schedules/index.vue'
 import RunCampaign from '@/components/modal/RunCampaign.vue'
 import TabsGrow from '@/components/tabs/TabsGrow.vue'
 

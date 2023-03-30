@@ -2,8 +2,8 @@
 <script lang="ts">
 import type { Ref } from 'vue'
 import { ref } from 'vue'
-import NoSchedulesCard from '@/components/campaign/Schedules/NoSchedulesCard.vue'
-import SchedulesCard from '@/components/campaign/Schedules/SchedulesCard.vue'
+import NoSchedulesCard from '@/components/campaignDetail/Schedules/NoSchedulesCard.vue'
+import SchedulesCard from '@/components/campaignDetail/Schedules/SchedulesCard.vue'
 import CampaignSchedule from '@/components/modal/CampaignSchedule.vue'
 
 export default {

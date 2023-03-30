@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/component-api-style -->
 <script lang="ts">
 import RemoveDuplicate from '@/components/modal/RemoveDuplicate.vue'
 

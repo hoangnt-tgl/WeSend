@@ -1,15 +1,18 @@
 <!-- eslint-disable vue/component-api-style -->
 <script lang="ts">
+import RemoveDuplicateResult from '@/components/modal/RemoveDuplicateResult.vue'
 import { btnBlack } from '@/constant/buttonColor'
 
 export default {
   name: 'RemoveDuplicate',
   components: {
-
+    RemoveDuplicateResult,
   },
+
   setup() {
     return {
-      isModalOpen: true,
+      defaultValue: true,
+      isModalOpen: ref(false),
       btnBlack,
     }
   },
@@ -17,13 +20,19 @@ export default {
     close() {
       this.$emit('close')
     },
+    openModal() {
+      this.isModalOpen = true
+    },
+    closeModal() {
+      this.isModalOpen = false
+    },
   },
 }
 </script>
 
 <template>
   <VDialog
-    v-model="isModalOpen"
+    v-model="defaultValue"
     persistent
     class="v-dialog-xl"
   >
@@ -49,12 +58,16 @@ export default {
               :color="btnBlack.color"
               :style="btnBlack"
               variant="'outlined'"
-              :action="close"
+              :action="openModal"
             />
           </div>
         </div>
       </div>
     </VCard>
+    <RemoveDuplicateResult
+      v-if="isModalOpen"
+      @close="closeModal"
+    />
   </VDialog>
 </template>
 

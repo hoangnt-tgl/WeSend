@@ -15,7 +15,7 @@ export default {
 </script>
 
 <template>
-  <VCard class="pt-5">
+  <VCard class="">
     <div
       v-for="(item, idx) in lastActions"
       :key="idx"

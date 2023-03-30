@@ -80,7 +80,6 @@ export default {
         <button
           class="button-browse"
           type="button"
-          @click="action"
         >
           Browse
         </button>

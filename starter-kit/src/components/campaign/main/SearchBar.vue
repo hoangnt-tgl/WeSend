@@ -67,7 +67,7 @@ export default {
       <h6>FILTER BY</h6>
       <button>
         <img
-          src="../../../assets/icons/filter.svg"
+          src="@/assets/icons/filter.svg"
           alt="filter"
         >
       </button>

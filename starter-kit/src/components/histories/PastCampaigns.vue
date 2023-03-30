@@ -12,7 +12,7 @@ export default {
 
 <template>
   <div class="d-none d-sm-inline">
-    <VTable class="text-no-wrap pa-10">
+    <VTable class="text-no-wrap pa-4">
       <!-- 👉 table head -->
       <thead>
         <tr>
@@ -120,54 +120,52 @@ export default {
     </VTable>
   </div>
   <div class="d-block d-sm-none">
-    <VCard class="pa-4">
-      <VCard
-        v-for="item in items"
-        :key="item.id"
-        class="card-campaign pa-4"
-      >
-        <div class="d-flex align-center">
-          <div class="d-flex flex-column w-75">
-            <VCardTitle class="notification-title py-0">
-              {{ item.name }}
-            </VCardTitle>
-            <VCardTitle class="text-body-1 py-0">
-              <span class="notification-date">{{ item.time }}</span>
-            </VCardTitle>
-            <VCardTitle class="text-body-1 py-0">
-              <span class="notification-title">
-                {{ item.progress }} / {{ item.contacts }}
-              </span>
-              <VProgressLinear
-                :model-value="item.progress / item.contacts * 100"
-                color="primary"
-                rounded
-                height="6"
-              />
-            </VCardTitle>
-          </div>
-          <div class="ms-auto">
-            <VBtn
-              icon
-              size="x-small"
-              color="default"
-              variant="text"
-              class="border rounded"
-            >
-              <VIcon
-                size="22"
-                icon="tabler-file-export"
-              />
-            </VBtn>
-          </div>
+    <VCard
+      v-for="item in items"
+      :key="item.id"
+      class="card-campai pa-4"
+    >
+      <div class="d-flex align-center">
+        <div class="d-flex flex-column w-75">
+          <VCardTitle class="notification-title py-0">
+            {{ item.name }}
+          </VCardTitle>
+          <VCardTitle class="text-body-1 py-0">
+            <span class="notification-date">{{ item.time }}</span>
+          </VCardTitle>
+          <VCardTitle class="text-body-1 py-0">
+            <span class="notification-title">
+              {{ item.progress }} / {{ item.contacts }}
+            </span>
+            <VProgressLinear
+              :model-value="item.progress / item.contacts * 100"
+              color="primary"
+              rounded
+              height="6"
+            />
+          </VCardTitle>
         </div>
-      </VCard>
+        <div class="ms-auto">
+          <VBtn
+            icon
+            size="x-small"
+            color="default"
+            variant="text"
+            class="border rounded"
+          >
+            <VIcon
+              size="22"
+              icon="tabler-file-export"
+            />
+          </VBtn>
+        </div>
+      </div>
     </VCard>
   </div>
 </template>
 
 <style scoped>
-.card-campaign {
+.card-campai {
   border-radius: 0 10px 10px 0;
   background: #f9fafb;
 }

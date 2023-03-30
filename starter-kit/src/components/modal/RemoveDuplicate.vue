@@ -1,5 +1,6 @@
 <!-- eslint-disable vue/component-api-style -->
 <script lang="ts">
+import BtnRound from '@/components/buttons/roundedButton/index.vue'
 import RemoveDuplicateResult from '@/components/modal/RemoveDuplicateResult.vue'
 import { btnBlack } from '@/constant/buttonColor'
 
@@ -7,6 +8,7 @@ export default {
   name: 'RemoveDuplicate',
   components: {
     RemoveDuplicateResult,
+    BtnRound,
   },
 
   setup() {
@@ -50,19 +52,14 @@ export default {
         <p class="text-alter py-4">
           Would you like to run this schedule now? It will stop the other schedule.
         </p>
-        <div class="d-flex justify-center gap-3">
-          <div />
-          <div>
-            <BtnRound
-              button-title="Yes"
-              :color="btnBlack.color"
-              :style="btnBlack"
-              variant="'outlined'"
-              :action="openModal"
-            />
-          </div>
-        </div>
       </div>
+      <BtnRound
+        button-title="fdjfdshjhhsf"
+        :color="btnBlack.color"
+        :style="btnBlack"
+        variant="outlined"
+        :action="openModal"
+      />
     </VCard>
     <RemoveDuplicateResult
       v-if="isModalOpen"

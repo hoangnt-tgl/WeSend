@@ -30,8 +30,8 @@ export default {
     <!-- Dialog Content -->
     <VCard>
       <div class="modal__title text-center">
-        <h2>Remove Duplicates</h2>
-        <span>Select contacts to be used as reference</span>
+        <h2>Found 200 duplicate contacts</h2>
+        <span>The following contacts are present in both lists and will be deleted from the current campaign (Campaign Name).</span>
       </div>
       <div class="text-center py-15 px-4">
         <div class="text-dark">

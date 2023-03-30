@@ -1,5 +1,4 @@
 <script lang="ts">
-import IconButton from '@/components/buttons/iconButton/index.vue'
 import RounedBtn from '@/components/buttons/roundedButton/index.vue'
 import { btnOutLine } from '@/constant/buttonColor'
 
@@ -7,7 +6,6 @@ export default {
   name: 'CardHistory',
   components: {
     RounedBtn,
-    IconButton,
   },
   props: {
     title: {

@@ -157,7 +157,7 @@ export default {
               <span class="text-ar"> Send to Archive</span>
             </div>
           </div>
-          <div class="w-100 d-flex justify-end align-center gap-1">
+          <div class="w-100 d-flex justify-end align-center gap-1 bottom-schedule-1">
             <button class="delete">
               <VIcon icon="tabler-trash" />
             </button>
@@ -277,5 +277,16 @@ export default {
 
 .text-ar {
   color: var(--text-dark);
+}
+
+@media (max-width: 600px) {
+  .bottom-schedule {
+    justify-content: center !important;
+  }
+
+  .bottom-schedule-1 {
+    justify-content: center !important;
+    margin-block-start: 30px;
+  }
 }
 </style>

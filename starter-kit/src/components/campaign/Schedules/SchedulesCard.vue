@@ -1,11 +1,32 @@
 <script lang="ts">
+import CampaignSchedule from '@/components/modal/CampaignSchedule.vue'
+
 export default {
   name: 'CampaignSchedulesCard',
+  components: {
+    CampaignSchedule,
+  },
+  setup() {
+    return {
+      isModalOpen: ref(false),
+    }
+  },
+  methods: {
+    closeModal() {
+      this.isModalOpen = false
+    },
+    openModal() {
+      this.isModalOpen = true
+    },
+  },
 }
 </script>
 
 <template>
-  <div class="card-item">
+  <div
+    class="card-item"
+    @click="openModal"
+  >
     <div class="card-item-content">
       <div class="card-item-date">
         <h1>23</h1>
@@ -41,6 +62,10 @@ export default {
         </div>
       </div>
     </div>
+    <CampaignSchedule
+      v-if="isModalOpen"
+      @close="closeModal"
+    />
   </div>
 </template>
 
@@ -49,6 +74,7 @@ export default {
   overflow: hidden;
   border: 1px solid #e0e7ff;
   border-radius: 15px;
+  cursor: pointer;
 }
 
 .card-item-content {

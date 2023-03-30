@@ -1,7 +1,6 @@
 <!-- eslint-disable vue/component-api-style -->
 <script lang="ts">
 import BtnRound from '@/components/buttons/roundedButton/index.vue'
-import CampaignScheduleSetting from '@/components/modal/CampaignScheduleSetting.vue'
 
 const btnOutLine = {
   background: 'transparent',
@@ -13,12 +12,10 @@ export default {
   name: 'CampaignSchedule',
   components: {
     BtnRound,
-    CampaignScheduleSetting,
   },
   setup() {
     return {
-      defaultValue: true,
-      isModalSettingOpen: ref(false),
+      isModalOpen: true,
       btnOutLine,
     }
   },
@@ -26,19 +23,13 @@ export default {
     close() {
       this.$emit('close')
     },
-    openModalSetting() {
-      this.isModalSettingOpen = true
-    },
-    closeModalSetting() {
-      this.isModalSettingOpen = false
-    },
   },
 }
 </script>
 
 <template>
   <VDialog
-    v-model="defaultValue"
+    v-model="isModalOpen"
     persistent
     class="v-dialog-sm"
   >
@@ -53,16 +44,16 @@ export default {
         <div class="modal__label">
           Select Campaign
         </div>
-        <div class="modal__input">
+        <div class="modal__input mb-4">
           <input
             type="text"
             value="Christmas Campaign 1"
           >
         </div>
-        <div class="d-flex gap-4 flex-column flex-sm-row my-4">
+        <div class="d-flex gap-4 flex-column flex-sm-row">
           <div class="w-100">
             <div class="modal__label">
-              Date
+              No. of contacts per schedule
             </div>
             <div class="modal__input">
               <input
@@ -70,10 +61,13 @@ export default {
                 value="Wednesday, 26 Oct, 2022"
               >
             </div>
+            <div class="modal__input__des">
+              Recommended: 200
+            </div>
           </div>
           <div class="w-100">
             <div class="modal__label">
-              Time
+              Starting from contact no.
             </div>
             <div class="modal__input">
               <input
@@ -81,12 +75,13 @@ export default {
                 value="1000"
               >
             </div>
+            <div class="modal__input__des" />
           </div>
         </div>
-        <div class="d-flex gap-4 flex-column flex-sm-row my-4">
+        <div class="d-flex gap-4 flex-column flex-sm-row">
           <div class="w-100">
             <div class="modal__label">
-              No. of contacts to send
+              Total schedules
             </div>
             <div class="modal__input">
               <input
@@ -94,40 +89,63 @@ export default {
                 value="04:00 AM"
               >
             </div>
+            <div class="modal__input__des">
+              Max: 20 (4000 / 200)
+            </div>
           </div>
           <div class="w-100">
             <div class="modal__label">
-              Starts From
+              Time gap between schedules
             </div>
             <div class="modal__input">
               <input
                 type="text"
                 value="100"
               >
+              <span>Min</span>
+            </div>
+
+            <div class="modal__input__des">
+              Recommended: 40 min
             </div>
           </div>
         </div>
-
-        <div class="modal__setting">
-          <div class="setting__title">
-            This campaign will run for <span>1000 contacts </span>starting from<span> 100 to 1100</span>
-            and up to <span>30 mins.</span>
-          </div>
-          <div class="setting__des">
-            We will run this campaign in <span>chunks of 200 contacts</span> with a delay of
-            <span>10 mins</span> between each chunk to follow WhatsApp guidelines. Read more.
-          </div>
-
-          <div class="py-2">
-            <BtnRound
-              button-title="Edit settings"
-              :color="btnOutLine.color"
-              :style="{ ...btnOutLine, width: 'fit-content' }"
-              variant="'outlined'"
-              :action="openModalSetting"
-            />
-          </div>
+        <div class="modal__label mt-4">
+          Select Campaign
         </div>
+        <VChip
+          variant="outlined"
+          closable
+          class="me-2 mb-2"
+          @click:close="{}"
+        >
+          01 - 200 / 04:00 AM
+        </VChip>
+        <VChip
+          variant="outlined"
+          closable
+          class="me-2 mb-2"
+          @click:close="{}"
+        >
+          201 - 600 / 04:20 AM
+        </VChip>
+        <VChip
+          variant="outlined"
+          closable
+          class="me-2 mb-2"
+          @click:close="{}"
+        >
+          601  - 800 / 04:40 AM
+        </VChip>
+        <VChip
+          variant="outlined"
+          closable
+          class="me-2 mb-2"
+          @click:close="{}"
+        >
+          801 - 1000 / 05:00 AM
+        </VChip>
+
         <div class="d-flex flex-column flex-sm-row justify-content-sm-between">
           <div class="w-100">
             <div>fd</div><div>fd</div>
@@ -143,10 +161,6 @@ export default {
         </div>
       </div>
     </VCard>
-    <CampaignScheduleSetting
-      v-if="isModalSettingOpen"
-      @close="closeModalSetting"
-    />
   </VDialog>
 </template>
 
@@ -174,6 +188,7 @@ export default {
 }
 
 .modal__input input {
+  position: relative;
   padding: 15px;
   border-radius: 5px;
   background: #f3f4fb;
@@ -181,7 +196,22 @@ export default {
   color: #374151;
   font-size: 14px;
   inline-size: 100%;
+  margin-block-end: 5px;
   outline: none;
+}
+
+.modal__input span {
+  position: absolute;
+  inset-inline-end: 8px;
+  transform: translate(-100%, 50%);
+}
+
+.modal__input__des {
+  block-size: 17px;
+  color: #6b7280;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 17px;
 }
 
 .modal__setting {

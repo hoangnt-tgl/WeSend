@@ -64,6 +64,7 @@ export default {
     border: 1px solid #d1d5db !important;
     border-radius: 30px;
     inline-size: 100%;
+    letter-spacing: 0.5px;
     padding-block: 3px;
     padding-inline: 20px;
     text-transform: capitalize;

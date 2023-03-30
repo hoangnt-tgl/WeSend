@@ -1,6 +1,24 @@
 <script lang="ts">
+import RemoveDuplicate from '@/components/modal/RemoveDuplicate.vue'
+
 export default {
   name: 'CampaignDetail',
+  components: {
+    RemoveDuplicate,
+  },
+  setup() {
+    return {
+      isModalOpen: ref(false),
+    }
+  },
+  methods: {
+    closeModal() {
+      this.isModalOpen = false
+    },
+    openModal() {
+      this.isModalOpen = true
+    },
+  },
 }
 </script>
 
@@ -14,13 +32,19 @@ export default {
       <VIcon icon="tabler-search" />
     </div>
     <div class="contact-button">
-      <button><VIcon icon="tabler-copy-off" /><span>Remove Duplicates</span></button>
+      <button @click="openModal">
+        <VIcon icon="tabler-copy-off" /><span>Remove Duplicates</span>
+      </button>
       <button><VIcon icon="tabler-plus" /><span>Add more</span></button>
       <button><VIcon icon="tabler-download" /><span>View in Calendar</span></button>
     </div>
     <button class="contact-button-mobile">
       <VIcon icon="tabler-dots-vertical" />
     </button>
+    <RemoveDuplicate
+      v-if="isModalOpen"
+      @close="closeModal"
+    />
   </div>
   <div class="contact-container">
     <div class="contact-title">

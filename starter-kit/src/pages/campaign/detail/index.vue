@@ -1,14 +1,17 @@
+<!-- eslint-disable vue/component-api-style -->
 <script lang="ts">
 import { defineComponent } from 'vue'
 import CampaignContacts from '@/components/campaign/Contacts/index.vue'
 import CampaignMessage from '@/components/campaign/Messages/index.vue'
 import CampaignSchedules from '@/components/campaign/Schedules/index.vue'
+import RunCampaign from '@/components/modal/RunCampaign.vue'
 import TabsGrow from '@/components/tabs/TabsGrow.vue'
 
 export default defineComponent({
   name: 'CampaignDetail',
   components: {
     TabsGrow,
+    RunCampaign,
   },
   setup() {
     return {
@@ -29,28 +32,44 @@ export default defineComponent({
           body: CampaignMessage,
         },
       ],
+      isModalOpen: ref(false),
     }
   },
+  methods: {
+    runCampaign() {
+      this.isModalOpen = true
+    },
+    closeModal() {
+      this.isModalOpen = false
+    },
+  },
+
 })
 </script>
 
 <template>
-  <div class="detail-title">
-    <h2>Campaign Name</h2>
-    <div class="detail-title-button">
-      <button>
-        <VIcon icon="tabler-player-play-filled" /><span>Run Campaign Now</span>
-      </button>
-      <button class="delete">
-        <VIcon icon="tabler-copy" /><span>Duplicate</span>
-      </button>
-      <button class="delete">
-        <VIcon icon="tabler-trash" /><span>Delete</span>
-      </button>
-    </div>
-  </div>
   <div>
-    <TabsGrow :items="items" />
+    <div class="detail-title">
+      <h2>Campaign Name</h2>
+      <div class="detail-title-button">
+        <button @click="runCampaign">
+          <VIcon icon="tabler-player-play-filled" /><span>Run Campaign Now</span>
+        </button>
+        <button class="delete">
+          <VIcon icon="tabler-copy" /><span>Duplicate</span>
+        </button>
+        <button class="delete">
+          <VIcon icon="tabler-trash" /><span>Delete</span>
+        </button>
+      </div>
+    </div>
+    <div>
+      <TabsGrow :items="items" />
+    </div>
+    <RunCampaign
+      v-if="isModalOpen"
+      @close="closeModal"
+    />
   </div>
 </template>
 

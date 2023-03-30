@@ -1,21 +1,36 @@
+<!-- eslint-disable vue/component-api-style -->
 <script lang="ts">
+import type { Ref } from 'vue'
+import { ref } from 'vue'
 import NoSchedulesCard from '@/components/campaign/Schedules/NoSchedulesCard.vue'
-
 import SchedulesCard from '@/components/campaign/Schedules/SchedulesCard.vue'
+import CampaignSchedule from '@/components/modal/CampaignSchedule.vue'
 
 export default {
   name: 'CampaignSchedules',
   components: {
+    CampaignSchedule,
     SchedulesCard,
     NoSchedulesCard,
   },
 
   setup() {
     return {
-      items: [
-        1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
-      ],
+      isModalOpen: ref(false),
+      items: ref([]) as Ref<number[]>,
     }
+  },
+  methods: {
+    addSchedule() {
+      // this.isModalOpen = true
+      this.items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    },
+    closeModal() {
+      this.isModalOpen = false
+    },
+    viewInCalendar() {
+      this.$router.push('/calendar')
+    },
   },
 }
 </script>
@@ -23,10 +38,14 @@ export default {
 <template>
   <div>
     <div class="no-card-title">
-      <h6>No schedules found</h6>
+      <h6>{{ items.length ? items.length : 'No' }} schedules found</h6>
       <div class="no-card-button">
-        <button>Add Schedule</button>
-        <button>View in Calendar</button>
+        <button @click="addSchedule">
+          Add Schedule
+        </button>
+        <button @click="viewInCalendar">
+          View in Calendar
+        </button>
       </div>
     </div>
     <div
@@ -44,6 +63,11 @@ export default {
     <div v-else>
       <NoSchedulesCard />
     </div>
+
+    <CampaignSchedule
+      v-if="isModalOpen"
+      @close="closeModal"
+    />
   </div>
 </template>
 

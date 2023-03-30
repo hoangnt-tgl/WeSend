@@ -1,6 +1,7 @@
 <!-- eslint-disable vue/component-api-style -->
 <script lang="ts">
 import BtnRound from '@/components/buttons/roundedButton/index.vue'
+import { btnBlack } from '@/constant/buttonColor'
 
 const btnOutLine = {
   background: 'transparent',
@@ -8,6 +9,7 @@ const btnOutLine = {
   border: ' 1px solid #000 !important',
 }
 
+const switchOn = ref('on')
 export default {
   name: 'CampaignSchedule',
   components: {
@@ -17,6 +19,8 @@ export default {
     return {
       isModalOpen: true,
       btnOutLine,
+      switchOn,
+      btnBlack,
     }
   },
   methods: {
@@ -146,17 +150,54 @@ export default {
           801 - 1000 / 05:00 AM
         </VChip>
 
-        <div class="d-flex flex-column flex-sm-row justify-content-sm-between">
+        <!--
+          <div class="d-flex flex-column flex-sm-row justify-content-sm-between">
           <div class="w-100">
-            <div>fd</div><div>fd</div>
+          <div>fd</div><div>fd</div>
           </div>
           <div class="w-100">
+          <button class="delete">
+          <VIcon icon="tabler-trash" />
+          </button>
+          <button class="delete">
+          <VIcon icon="tabler-trash" /><span>Save</span>
+          </button>
+          </div>
+          </div>
+        -->
+        <div class="d-flex flex-column flex-sm-row justify-content-sm-between mt-6 mb-2">
+          <div class="w-100 d-flex align-center gap-5 bottom-schedule">
+            <div>
+              <VSwitch
+                v-model="switchOn"
+                label="Active"
+                value="on"
+                color="success"
+              />
+            </div>
+            <div class="d-flex align-center">
+              <VCheckbox
+                key="color"
+                class="checkbox"
+                color="success"
+                value="success"
+              />
+              <span class="text-ar"> Send to Archive</span>
+            </div>
+          </div>
+          <div class="w-100 d-flex justify-end align-center gap-1 bottom-schedule-1">
             <button class="delete">
               <VIcon icon="tabler-trash" />
             </button>
-            <button class="delete">
-              <VIcon icon="tabler-trash" /><span>Save</span>
-            </button>
+            <div>
+              <BtnRound
+                button-title="Save"
+                :color="btnBlack.color"
+                :style="{ ...btnBlack, padding: '0px 35px', height: '45px' }"
+                variant="'contained'"
+                :action="close"
+              />
+            </div>
           </div>
         </div>
       </div>

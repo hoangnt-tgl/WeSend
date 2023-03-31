@@ -1,14 +1,20 @@
 <script lang="ts">
+import Datepicker from '@/components/datepicker/DatePicker.vue'
+
+const date = null
+const items = ['Foo', 'Bar', 'Fizz', 'Buzz']
 export default {
   name: 'List',
   components: {
-
+    Datepicker,
   },
   setup() {
     return {
-
+      date,
+      items,
     }
   },
+
   // eslint-disable-next-line vue/component-api-style
   methods: {
     createCampaign() {
@@ -57,11 +63,29 @@ export default {
     </div>
     <div class="contact-button">
       <h6>FILTER BY</h6>
-      <button><span>Date from:</span><VIcon icon="tabler-calendar-due" /></button>
-      <button><span>Date to:</span><VIcon icon="tabler-calendar-due" /></button>
-      <button class="status">
-        <span>Status</span><VIcon icon="tabler-chevron-down" />
+
+      <button>
+        <span>Date from:</span>
+        <Datepicker />
       </button>
+      <button>
+        <span>Date to:</span>
+        <Datepicker />
+      </button>
+      <button class="status">
+        <span>Status</span>
+        <VSelect
+          :items="items"
+          variant="plain"
+          single-line
+        />
+      </button>
+
+      <!--
+        <button class="status">
+        <span>Status</span><VIcon icon="tabler-chevron-down" />
+        </button>
+      -->
     </div>
     <button class="contact-button-mobile">
       <h6>FILTER BY</h6>
@@ -76,6 +100,19 @@ export default {
 </template>
 
 <style>
+/* .dp__main {
+  flex: 1;
+  inline-size: fit-content;
+}
+
+.dp-custom-cell {
+  border-radius: 50%;
+}
+
+.dp__input {
+  display: none;
+} */
+
 .searchbar {
   display: flex;
   align-items: center;
@@ -186,7 +223,7 @@ export default {
   cursor: pointer;
   font-size: 13px;
   font-weight: 400;
-  gap: 6px;
+  gap: 15px;
   inline-size: 146px;
   padding-block: 11px;
   padding-inline: 20px;
@@ -197,6 +234,10 @@ export default {
 .contact-button button.status {
   block-size: 43.5px;
   inline-size: 200px;
+}
+
+.contact-button button.status .v-field__append-inner {
+  padding-block-start: 3px;
 }
 
 .contact-button button:hover {

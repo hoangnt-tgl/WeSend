@@ -1,22 +1,74 @@
 <script lang="ts">
+import { dataCampaigns2 } from '@/data/campaign'
+
 export default {
   name: 'List',
 
   setup() {
     return {
       isShowModal: false,
+      dataCampaigns2: ref(dataCampaigns2),
+      asc: true,
     }
   },
 
   methods: {
-
     viewCampaign() {
       console.log('view campaign', this.$router)
       this.$router.push({
         path: '/campaign/detail',
       })
     },
+    getClassStatus(status: string) {
+      if (status.includes('Active'))
+        return 'active'
+
+      else if (status.includes('Unscheduled'))
+        return ''
+
+      else if (status.includes('Scheduled'))
+        return 'scheduled'
+    },
+    sortData(key: string) {
+      console.log(this.asc)
+
+      const result = this.dataCampaigns2.sort((a: any, b: any) => {
+        if (this.asc) {
+          if (a[key] < b[key]) {
+            console.log('vao -1')
+
+            return -1
+          }
+
+          if (a[key] > b[key]) {
+            console.log('vao 1')
+
+            return 1
+          }
+        }
+        else {
+          if (a[key] > b[key]) {
+            console.log('vao -1')
+
+            return -1
+          }
+
+          if (a[key] < b[key]) {
+            console.log('vao 1')
+
+            return 1
+          }
+        }
+
+        return 0
+      })
+
+      this.asc = !this.asc
+      console.log([...result])
+      this.dataCampaigns2 = [...result]
+    },
   },
+
 }
 </script>
 
@@ -25,19 +77,34 @@ export default {
     <div class="contact-container">
       <div class="contact-title">
         <div class="contact-title-name">
-          <span>Campaign Name</span><img src="../../../assets/icons/arrows.svg">
+          <span>Campaign Name</span><img
+            src="../../../assets/icons/arrows.svg"
+            @click="sortData('campaignName')"
+          >
         </div>
         <div class="contact-title-phone">
-          <span>CreAted Date</span><img src="../../../assets/icons/arrows.svg">
+          <span>Created Date</span><img
+            src="../../../assets/icons/arrows.svg"
+            @click="sortData('campaignDate')"
+          >
         </div>
         <div class="contact-title-gender">
-          <span>Contacts</span><img src="../../../assets/icons/arrows.svg">
+          <span>Contacts</span><img
+            src="../../../assets/icons/arrows.svg"
+            @click="sortData('contacts')"
+          >
         </div>
         <div class="contact-title-age">
-          <span>Status</span><img src="../../../assets/icons/arrows.svg">
+          <span>Status</span><img
+            src="../../../assets/icons/arrows.svg"
+            @click="sortData('campaignStatus')"
+          >
         </div>
         <div class="contact-title-country">
-          <span>MEdia Type</span><img src="../../../assets/icons/arrows.svg">
+          <span>MEdia Type</span><img
+            src="../../../assets/icons/arrows.svg"
+            @click="sortData('mediaType')"
+          >
         </div>
         <div class="contact-title-action">
           <span />
@@ -45,97 +112,25 @@ export default {
       </div>
 
       <div
+        v-for="(campaign, idx) in dataCampaigns2"
+        :key="idx"
         class="contact-content"
         @click="viewCampaign"
       >
         <div class="contact-content-name">
-          <p>Duis senectus ultrices dignissim aliquam ultrices</p>
+          <p>{{ campaign.campaignName }}</p>
         </div>
         <div class="contact-content-phone">
-          <p>24 Sep, 2022</p>
+          <p>{{ campaign.campaignDate }}</p>
         </div>
         <div class="contact-content-gender">
-          <p>4500</p>
+          <p>{{ campaign.contacts }}</p>
         </div>
         <div class="contact-content-age">
-          <span>Unscheduled</span>
+          <span :class="getClassStatus(campaign.campaignStatus)">{{ campaign.campaignStatus }}</span>
         </div>
         <div class="contact-content-country">
-          <p>Image</p>
-        </div>
-        <div class="contact-content-action">
-          <div class="action-1">
-            <button>
-              <img
-                src="../../../assets/icons/excel.svg"
-                alt="excel icon"
-              >
-            </button>
-            <button>
-              <VIcon icon="tabler-copy" />
-            </button>
-
-            <button>
-              <VIcon icon="tabler-trash" />
-            </button>
-          </div>
-        </div>
-      </div>
-      <div
-        class="contact-content"
-        @click="viewCampaign"
-      >
-        <div class="contact-content-name">
-          <p>Duis senectus ultrices dignissim aliquam ultrices</p>
-        </div>
-        <div class="contact-content-phone">
-          <p>24 Sep, 2022</p>
-        </div>
-        <div class="contact-content-gender">
-          <p>4500</p>
-        </div>
-        <div class="contact-content-age">
-          <span class="scheduled">Scheduled (10)</span>
-        </div>
-        <div class="contact-content-country">
-          <p>Image</p>
-        </div>
-        <div class="contact-content-action">
-          <div class="action-1">
-            <button>
-              <img
-                src="../../../assets/icons/excel.svg"
-                alt="excel icon"
-              >
-            </button>
-            <button>
-              <VIcon icon="tabler-copy" />
-            </button>
-
-            <button>
-              <VIcon icon="tabler-trash" />
-            </button>
-          </div>
-        </div>
-      </div>
-      <div
-        class="contact-content"
-        @click="viewCampaign"
-      >
-        <div class="contact-content-name">
-          <p>Duis senectus ultrices dignissim aliquam ultrices</p>
-        </div>
-        <div class="contact-content-phone">
-          <p>24 Sep, 2022</p>
-        </div>
-        <div class="contact-content-gender">
-          <p>4500</p>
-        </div>
-        <div class="contact-content-age">
-          <span class="active">Active</span>
-        </div>
-        <div class="contact-content-country">
-          <p>Image</p>
+          <p>{{ campaign.mediaType }}</p>
         </div>
         <div class="contact-content-action">
           <div class="action-1">
@@ -157,6 +152,8 @@ export default {
       </div>
     </div>
     <div
+      v-for="(campaign, idx) in dataCampaigns2"
+      :key="idx"
       class="campaign-mobile"
       @click="viewCampaign"
     >
@@ -164,99 +161,23 @@ export default {
         class="campaign-item"
         @click="viewCampaign"
       >
-        <p>Duis senectus ultrices dignissim aliquam ultrices</p>
+        <p>{{ campaign.campaignName }}</p>
         <div class="item">
           <VIcon icon="tabler-calendar-due" />
-          <span>24 Sep, 2022</span>
+          <span>{{ campaign.campaignDate }}</span>
         </div>
         <div class="item-list">
           <div class="item">
             <VIcon icon="tabler-phone" />
-            <span>4500</span>
+            <span>{{ campaign.contacts }}</span>
           </div>
           <div class="item">
             <VIcon icon="tabler-video-plus" />
-            <span>Image</span>
+            <span>{{ campaign.mediaType }}</span>
           </div>
         </div>
         <div class="item-footer">
-          <span class="active">Active</span>
-          <div class="action-1">
-            <button>
-              <img
-                src="../../../assets/icons/excel.svg"
-                alt="excel icon"
-              >
-            </button>
-            <button>
-              <VIcon icon="tabler-copy" />
-            </button>
-
-            <button>
-              <VIcon icon="tabler-trash" />
-            </button>
-          </div>
-        </div>
-      </div>
-      <div
-        class="campaign-item"
-        @click="viewCampaign"
-      >
-        <p>Duis senectus ultrices dignissim aliquam ultrices</p>
-        <div class="item">
-          <VIcon icon="tabler-calendar-due" />
-          <span>24 Sep, 2022</span>
-        </div>
-        <div class="item-list">
-          <div class="item">
-            <VIcon icon="tabler-phone" />
-            <span>4500</span>
-          </div>
-          <div class="item">
-            <VIcon icon="tabler-video-plus" />
-            <span>Image</span>
-          </div>
-        </div>
-        <div class="item-footer">
-          <span class="scheduled">Scheduled (10)</span>
-          <div class="action-1">
-            <button>
-              <img
-                src="../../../assets/icons/excel.svg"
-                alt="excel icon"
-              >
-            </button>
-            <button>
-              <VIcon icon="tabler-copy" />
-            </button>
-
-            <button>
-              <VIcon icon="tabler-trash" />
-            </button>
-          </div>
-        </div>
-      </div>
-      <div
-        class="campaign-item"
-        @click="viewCampaign"
-      >
-        <p>Duis senectus ultrices dignissim aliquam ultrices</p>
-        <div class="item">
-          <VIcon icon="tabler-calendar-due" />
-          <span>24 Sep, 2022</span>
-        </div>
-        <div class="item-list">
-          <div class="item">
-            <VIcon icon="tabler-phone" />
-            <span>4500</span>
-          </div>
-          <div class="item">
-            <VIcon icon="tabler-video-plus" />
-            <span>Image</span>
-          </div>
-        </div>
-        <div class="item-footer">
-          <span>Unscheduled</span>
+          <span :class="getClassStatus(campaign.campaignStatus)">{{ campaign.campaignStatus }}</span>
           <div class="action-1">
             <button>
               <img

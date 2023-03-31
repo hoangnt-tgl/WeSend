@@ -126,7 +126,7 @@ export default {
                   >
                   <VIcon
                     size="18"
-                    icon="tabler-file"
+                    icon="tabler-note"
                     class="icon-file"
                     color="#6366f1"
                   />
@@ -269,7 +269,8 @@ export default {
   .item-review {
     position: absolute;
     padding: 15px;
-    border: 2px solid red;
+
+    /* border: 2px solid red; */
     border-radius: 12px 12px 12px 0;
     background: white;
     block-size: 314px;

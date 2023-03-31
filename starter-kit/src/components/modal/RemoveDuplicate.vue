@@ -220,7 +220,7 @@ export default {
 }
 
 .close-modal {
-  position: absolute;
+  position: fixed;
   display: flex;
   align-items: center;
   justify-content: center;

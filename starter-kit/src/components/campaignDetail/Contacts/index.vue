@@ -1,6 +1,7 @@
 <!-- eslint-disable vue/component-api-style -->
 <script lang="ts">
 import RemoveDuplicate from '@/components/modal/RemoveDuplicate.vue'
+import { contacts } from '@/data/campaign'
 
 export default {
   name: 'CampaignDetail',
@@ -10,6 +11,8 @@ export default {
   setup() {
     return {
       isModalOpen: ref(false),
+      contacts,
+      selectedEdit: ref(0),
     }
   },
   methods: {
@@ -48,7 +51,10 @@ export default {
     />
   </div>
   <div class="contact-container">
-    <div class="contact-title">
+    <div
+
+      class="contact-title"
+    >
       <div class="contact-title-checkbox">
         <label class="input-checkbox">
           <input
@@ -79,7 +85,12 @@ export default {
         <span>Actions</span>
       </div>
     </div>
-    <div class="contact-content active">
+    <div
+      v-for="(contact, idx) in contacts"
+      :key="idx"
+      class="contact-content"
+      :class="{ active: selectedEdit === idx }"
+    >
       <div class="contact-content-checkbox">
         <label class="input-checkbox">
           <input
@@ -92,120 +103,47 @@ export default {
         <input
           type="text"
           value="Varun Gupta"
-          disabled
+          :disabled="selectedEdit !== idx"
         >
       </div>
       <div class="contact-content-phone">
         <input
           type="text"
           value="+91-9999123456"
-          disabled
+          :disabled="selectedEdit !== idx"
         >
       </div>
       <div class="contact-content-gender">
         <input
           type="text"
           value="M"
-          disabled
+          :disabled="selectedEdit !== idx"
         >
       </div>
       <div class="contact-content-age">
         <input
           type="text"
           value="38"
-          disabled
+          :disabled="selectedEdit !== idx"
         >
       </div>
       <div class="contact-content-country">
         <input
           type="text"
           value="Israel"
-          disabled
+          :disabled="selectedEdit !== idx"
         >
       </div>
       <div class="contact-content-city">
         <input
           type="text"
           value="Israel"
+          :disabled="selectedEdit !== idx"
         >
       </div>
       <div class="contact-content-action">
         <div class="action-1">
-          <button>
-            <VIcon icon="tabler-edit" />
-          </button>
-
-          <button>
-            <VIcon icon="tabler-trash" />
-          </button>
-        </div>
-        <div class="action-2">
-          <button class="save">
-            <img
-              src="../../../assets/icons/save.svg"
-              alt="save"
-            >
-          </button>
-
-          <button class="delete">
-            <VIcon icon="tabler-x" />
-          </button>
-        </div>
-      </div>
-    </div>
-    <div class="contact-content">
-      <div class="contact-content-checkbox">
-        <label class="input-checkbox">
-          <input
-            type="checkbox"
-          >
-          <span class="checkmark" />
-        </label>
-      </div>
-      <div class="contact-content-name">
-        <input
-          type="text"
-          value="Varun Gupta"
-          disabled
-        >
-      </div>
-      <div class="contact-content-phone">
-        <input
-          type="text"
-          value="+91-9999123456"
-          disabled
-        >
-      </div>
-      <div class="contact-content-gender">
-        <input
-          type="text"
-          value="M"
-          disabled
-        >
-      </div>
-      <div class="contact-content-age">
-        <input
-          type="text"
-          value="38"
-          disabled
-        >
-      </div>
-      <div class="contact-content-country">
-        <input
-          type="text"
-          value="Israel"
-          disabled
-        >
-      </div>
-      <div class="contact-content-city">
-        <input
-          type="text"
-          value="Israel"
-        >
-      </div>
-      <div class="contact-content-action">
-        <div class="action-1">
-          <button>
+          <button @click="selectedEdit = idx">
             <VIcon icon="tabler-edit" />
           </button>
 

@@ -14,7 +14,7 @@ export default {
   setup() {
     return {
       defaultValue: true,
-      isModalOpen: ref(true),
+      isModalOpen: ref(false),
       btnBlack,
     }
   },
@@ -172,17 +172,16 @@ export default {
           <VIcon icon="tabler-chevron-down" />
         </div>
 
-        <button @close="openModal">
+        <button @click="openModal">
           Continue
         </button>
       </div>
     </VCard>
-    <!--
-      <RemoveDuplicateResult
+
+    <RemoveDuplicateResult
       v-if="isModalOpen"
       @close="closeModal"
-      />
-    -->
+    />
   </VDialog>
 </template>
 

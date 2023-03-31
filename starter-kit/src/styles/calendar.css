@@ -69,3 +69,21 @@ tr {
 .test-color {
   background-color: black !important;
 }
+
+.fc-col-header-cell-cushion {
+  font-size: 20px !important;
+  font-weight: 700;
+  inline-size: 80px;
+  white-space: normal;
+}
+
+.fc-col-header-cell-cushion::first-line {
+  font-size: 16px !important;
+  font-weight: 400;
+
+  /* // line-height: 20px; */
+}
+
+.fc-day-today .fc-col-header-cell-cushion {
+  color: #6366f1 !important;
+}

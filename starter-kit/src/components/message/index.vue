@@ -295,7 +295,7 @@ export default {
     border-radius: 0 0 10px 10px;
     background: #f3f4f6;
     block-size: auto;
-    padding-block: 5px 20px;
+    padding-block: 5px 28px;
     padding-inline: 10px 10px;
   }
 

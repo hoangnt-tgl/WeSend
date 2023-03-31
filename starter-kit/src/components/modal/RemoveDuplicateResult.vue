@@ -160,7 +160,7 @@ export default {
 }
 
 .close-modal {
-  position: absolute;
+  position: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -224,7 +224,7 @@ export default {
   display: flex;
   justify-content: space-between;
   gap: 16px;
-  inline-size: 500px;
+  min-inline-size: 500px;
   text-align: start;
 }
 

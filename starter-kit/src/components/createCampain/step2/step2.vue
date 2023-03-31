@@ -1,10 +1,10 @@
 <script lang="ts">
-import BtnRound from '@/components/buttons/roundedButton/index.vue'
-import { btnBlack } from '@/constant/buttonColor'
-import { users } from '@/data/contact'
+import BtnRound from "@/components/buttons/roundedButton/index.vue";
+import { btnBlack } from "@/constant/buttonColor";
+import { users } from "@/data/contact";
 
 export default {
-  name: 'Step2',
+  name: "Step2",
   components: {
     BtnRound,
   },
@@ -18,9 +18,9 @@ export default {
     return {
       users,
       btnBlack,
-    }
+    };
   },
-}
+};
 </script>
 
 <template>
@@ -28,9 +28,7 @@ export default {
     <VCard class="container-step-2-create">
       <VCardItem class="py-4">
         <div class="d-flex justify-space-between align-center">
-          <VCardTitle class="card-title">
-            Campaign Title
-          </VCardTitle>
+          <VCardTitle class="card-title"> Select Contacts </VCardTitle>
           <VCardSubtitle class="contact-count">
             232 of 233 contacts
           </VCardSubtitle>
@@ -47,20 +45,11 @@ export default {
         />
       </VCardItem>
       <VCardItem class="px-0 pt-4 pb-0">
-        <VList
-          lines="two"
-          class="list-contact"
-        >
-          <template
-            v-for="(user, index) of users"
-            :key="user.name"
-          >
+        <VList lines="two" class="list-contact">
+          <template v-for="(user, index) of users" :key="user.name">
             <VListItem class="py-5">
               <template #prepend>
-                <VAvatar
-                  :image="user.avatar"
-                  size="45"
-                />
+                <VAvatar :image="user.avatar" size="45" />
               </template>
               <VListItemTitle class="contact-name">
                 {{ user.name }}

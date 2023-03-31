@@ -131,3 +131,30 @@ export const dataCampaigns = [
     bgColor: '#fff',
   },
 ]
+
+export const contacts = [
+  {
+    name: 'Elizabetth',
+    phone: '991234567',
+    gender: 'M',
+    age: 20,
+    country: 'India',
+    city: 'Mumbai',
+  },
+  {
+    name: 'Steve',
+    phone: '991234567',
+    gender: 'M',
+    age: 20,
+    country: 'India',
+    city: 'Mumbai',
+  },
+  {
+    name: 'John',
+    phone: '991234567',
+    gender: 'M',
+    age: 20,
+    country: 'India',
+    city: 'Mumbai',
+  },
+]

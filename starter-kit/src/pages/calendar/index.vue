@@ -13,7 +13,12 @@ import { btnOutLine } from "@/constant/buttonColor";
 import EditCreateNewLabel from "@/components/modal/EditCreateNewLabel.vue";
 import CampaignSchedule from "@/components/modal/CampaignSchedule.vue";
 
+import CalendarWeek from "@/components/calendarWeek/CalendarWeek.vue";
+import CalendarDay from "@/components/calendarWeek/CalendarDay.vue";
+import Datepicker from "@/components/datepicker/DatePicker.vue";
+
 const items = ["week", "day"];
+const label = ["label", "label2", "label3"];
 export default defineComponent({
   name: "Calendar",
   components: {
@@ -27,6 +32,9 @@ export default defineComponent({
     CampaignSchedule,
     Reminder1,
     Reminder2,
+    CalendarWeek,
+    CalendarDay,
+    Datepicker,
   },
   setup() {
     return {
@@ -41,9 +49,18 @@ export default defineComponent({
       btnOutLine,
       items,
       toggle: ref(false),
+      isWeek: ref(true),
+      selected: ref("week"),
+      label,
+      selectedLabel: "label",
     };
   },
-
+  watch: {
+    selected() {
+      if (this.selected === "week") this.isWeek = true;
+      else this.isWeek = false;
+    },
+  },
   methods: {
     handleMouseClick(e) {
       const element = document.querySelector(".pick-drop");
@@ -109,19 +126,40 @@ export default defineComponent({
     <div class="calendar-header d-flex">
       <div class="calender-title">Schedule</div>
       <div class="calender-button d-flex gap-5">
-        <VCheckbox label="Event & Labels" color="primary" />
-        <VCheckbox label="Campaigns" color="primary" />
-        <VSelect
-          v-model="items[0]"
-          variant="solo"
-          single-line
-          :items="items"
-          class="select-duration"
-        />
+        <div class="d-flex gap-5 calendar-checkbox">
+          <VCheckbox label="Event & Labels" color="primary" />
+          <VCheckbox label="Campaigns" color="primary" />
+        </div>
+        <div class="d-flex gap-5">
+          <div class="date-picker-box">
+            <Datepicker />
+          </div>
+          <VSelect
+            v-model="selectedLabel"
+            variant="solo"
+            single-line
+            :items="label"
+            class="selected-label"
+          />
+        </div>
+        <div>
+          <VSelect
+            v-model="selected"
+            variant="solo"
+            single-line
+            :items="items"
+            class="select-duration"
+          />
+        </div>
       </div>
     </div>
     <VRow>
-      <VCol cols="12" md="3" @click="openEditCreateLabelModal">
+      <VCol
+        cols="12"
+        md="3"
+        class="calendarpicker-box"
+        @click="openEditCreateLabelModal"
+      >
         <Calendarpicker />
       </VCol>
       <VCol
@@ -130,7 +168,12 @@ export default defineComponent({
         class="calendar-box"
         @click="($event) => handleMouseClick($event)"
       >
-        <CalendarDate />
+        <div v-if="isWeek" class="calendar-wrapper">
+          <CalendarWeek />
+        </div>
+        <div v-else class="calendar-wrapper">
+          <CalendarDay />
+        </div>
 
         <div class="pick-drop" v-show="toggle">
           <p @click="openMeetingModal">Add Meeting</p>
@@ -208,7 +251,7 @@ export default defineComponent({
 .calender-title {
   color: var(--text-dark);
   font-size: var(--font-size-lg);
-  font-weight: var(--font-weight);
+  font-weight: var(--font-weight-bold);
 }
 
 .select-duration {
@@ -219,5 +262,66 @@ export default defineComponent({
   color: var(--text-dark) !important;
   font-size: var(--font-size);
   font-weight: var(--font-weigth-light);
+  opacity: 1 !important;
+}
+
+.calender-button .v-field--variant-solo {
+  box-shadow: none !important;
+}
+
+.select-label {
+  display: none;
+}
+
+.date-picker-box {
+  display: none;
+}
+
+@media (max-width: 960px) {
+  .calendarpicker-box {
+    display: none;
+  }
+
+  .calendar-header {
+    display: block !important;
+    padding-block: 0;
+    padding-inline: 10px;
+  }
+
+  .calendar-wrapper {
+    padding-block: 0;
+    padding-inline: 10px;
+  }
+
+  .calendar-checkbox {
+    display: none !important;
+  }
+
+  .select-label {
+    display: block;
+  }
+
+  .date-picker-box {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    background: #fff;
+    block-size: 40px;
+    inline-size: 40px;
+  }
+
+  .date-picker-box .dp__input_icon {
+    position: relative;
+  }
+
+  .date-picker-box .dp__main {
+    display: flex;
+    justify-content: center;
+  }
+
+  .calender-button {
+    justify-content: space-between;
+    margin-block-start: 10px;
+  }
 }
 </style>

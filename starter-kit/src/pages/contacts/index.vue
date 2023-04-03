@@ -1,402 +1,482 @@
-<script>
-import Whatsapp from '../../assets/images/iconify-svg/WhatsApp.svg.webp'
+<script lang="ts">
+import HeaderContact from '../../components/contact/SearchBar.vue'
+import { dataCampaignsContact } from '@/data/campaign'
 
 export default {
-  name: 'Contacts',
-  data: () => {
+  name: 'List',
+  components: {
+    HeaderContact,
+  },
+  setup() {
     return {
-      page: '1',
-      desserts: [
-        {
-          name: 'NAME',
-          mobileNumber: 'name',
-          gender: 'name',
-          age: 'name',
-        },
-        {
-          name: 'NAME',
-          mobileNumber: 'name',
-          gender: 'name',
-          age: 'name',
-        },
-        {
-          name: 'NAME',
-          mobileNumber: 'name',
-          gender: 'name',
-          age: 'name',
-        },
-        {
-          name: 'NAME',
-          mobileNumber: 'name',
-          gender: 'name',
-          age: 'name',
-        },
-        {
-          name: 'NAME',
-          mobileNumber: 'name',
-          gender: 'name',
-          age: 'name',
-        },
-        {
-          name: 'NAME',
-          mobileNumber: 'name',
-          gender: 'name',
-          age: 'name',
-        },
-        {
-          name: 'NAME',
-          mobileNumber: 'name',
-          gender: 'name',
-          age: 'name',
-        },
-        {
-          name: 'NAME',
-          mobileNumber: 'name',
-          gender: 'name',
-          age: 'name',
-        },
-      ],
+      isShowModal: false,
+      dataCampaigns2: ref(dataCampaignsContact),
+      asc: true,
     }
   },
+
   methods: {
-    //
+    viewCampaign() {
+      console.log('view campaign', this.$router)
+      this.$router.push({
+        path: '/campaign/detail',
+      })
+    },
+    getClassStatus(status: string) {
+      if (status.includes('Active'))
+        return 'active'
+
+      else if (status.includes('Unscheduled'))
+        return ''
+
+      else if (status.includes('Scheduled'))
+        return 'scheduled'
+    },
+    sortData(key: string) {
+      console.log(this.asc)
+
+      const result = this.dataCampaigns2.sort((a: any, b: any) => {
+        if (this.asc) {
+          if (a[key] < b[key]) {
+            console.log('vao -1')
+
+            return -1
+          }
+
+          if (a[key] > b[key]) {
+            console.log('vao 1')
+
+            return 1
+          }
+        }
+        else {
+          if (a[key] > b[key]) {
+            console.log('vao -1')
+
+            return -1
+          }
+
+          if (a[key] < b[key]) {
+            console.log('vao 1')
+
+            return 1
+          }
+        }
+
+        return 0
+      })
+
+      this.asc = !this.asc
+      console.log([...result])
+      this.dataCampaigns2 = [...result]
+    },
   },
 }
 </script>
 
 <template>
-  <div id="main">
-    <VContainer
-      id="content"
-      flex
+  <div class="container-contact">
+    <HeaderContact />
+    <div class="contact-container">
+      <div class="contact-title">
+        <div class="contact-title-name">
+          <span>NAME</span><img
+            src="../../assets/icons/arrows.svg"
+            @click="sortData('campaignName')"
+          >
+        </div>
+        <div class="contact-title-phone">
+          <span>MOBILE NUMBER</span><img
+            src="../../assets/icons/arrows.svg"
+            @click="sortData('campaignDate')"
+          >
+        </div>
+        <div class="contact-title-gender">
+          <span>GENDER</span><img
+            src="../../assets/icons/arrows.svg"
+            @click="sortData('contacts')"
+          >
+        </div>
+
+        <div class="contact-title-country">
+          <span>AGE</span><img
+            src="../../assets/icons/arrows.svg"
+            @click="sortData('mediaType')"
+          >
+        </div>
+        <div class="contact-title-action">
+          <span />
+        </div>
+      </div>
+
+      <div
+        v-for="(campaign, idx) in dataCampaigns2"
+        :key="idx"
+        class="contact-content"
+        @click="viewCampaign"
+      >
+        <div class="contact-content-name">
+          <p>{{ campaign.campaignName }}</p>
+        </div>
+        <div class="contact-content-phone">
+          <p>{{ campaign.campaignDate }}</p>
+        </div>
+        <div class="contact-content-gender">
+          <p>{{ campaign.contacts }}</p>
+        </div>
+
+        <div class="contact-content-country">
+          <p>{{ campaign.mediaType }}</p>
+        </div>
+        <div class="contact-content-action">
+          <div class="action-1">
+            <button>
+              <VIcon icon="tabler-edit" />
+            </button>
+            <button>
+              <VIcon icon="tabler-ban" />
+            </button>
+            <button>
+              <VIcon icon="tabler-trash" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      v-for="(campaign, idx) in dataCampaigns2"
+      :key="idx"
+      class="campaign-mobile"
+      @click="viewCampaign"
     >
-      <div class="d-flex childContent">
-        <div class="d-flex childContent2">
-          <p><b>Contact List</b></p>
-          <VTextField
-            class="search"
-            prepend-inner-icon="mdi-magnify"
-            label="Search"
-          />
+      <div
+        class="campaign-item"
+        @click="viewCampaign"
+      >
+        <p>{{ campaign.campaignName }}</p>
+        <div class="item">
+          <VIcon icon="tabler-calendar-due" />
+          <span>{{ campaign.campaignDate }}</span>
         </div>
-        <div class="d-flex contentBtn">
-          <VBtn
-            class="text-none btnWS"
-            width="171px"
-            height="46px"
-            color="medium-emphasis"
-            variant="outlined"
-          >
-            <img src="../../assets/images/iconify-svg/WhatsApp.svg.webp">
-            <p><b>Whatsapp Sync</b></p>
-          </VBtn>
-          <VBtn
-            class="text-none btnEp"
-            prepend-icon="mdi-file-export"
-            color="medium-emphasis"
-            height="46px"
-            width="111px"
-            variant="outlined"
-          >
-            <b>Export</b>
-          </VBtn>
-          <VBtn
-            class="text-none btnAn"
-            width="122px"
-            height="46px"
-            prepend-icon="mdi-add"
-            color="medium-emphasis"
-            variant="outlined"
-          >
-            <b>Add new</b>
-          </VBtn>
+        <div class="item-list">
+          <div class="item">
+            <VIcon icon="tabler-phone" />
+            <span>{{ campaign.contacts }}</span>
+          </div>
+          <div class="item">
+            <VIcon icon="tabler-video-plus" />
+            <span>{{ campaign.mediaType }}</span>
+          </div>
+        </div>
+        <div class="item-footer">
+          <div class="action-1">
+            <button>
+              <VIcon icon="tabler-edit" />
+            </button>
+            <button>
+              <VIcon icon="tabler-ban" />
+            </button>
+            <button>
+              <VIcon icon="tabler-trash" />
+            </button>
+          </div>
         </div>
       </div>
-      <div class="tableDt">
-        <VTable>
-          <thead class="contentTt">
-            <tr class="titleCt">
-              <th class="text-left">
-                <div>
-                  NAME
-                  <img src="../../assets/icons/arrows.svg">
-                </div>
-              </th>
-              <th class="text-left">
-                <div>
-                  MOBILE NUMBER
-                  <img src="../../assets/icons/arrows.svg">
-                </div>
-              </th>
-              <th class="text-left">
-                <div>
-                  GENDER
-                  <img src="../../assets/icons/arrows.svg">
-                </div>
-              </th>
-              <th class="text-left">
-                <div>
-                  AGE
-                  <img src="../../assets/icons/arrows.svg">
-                </div>
-              </th>
-              <th class="text-left" />
-            </tr>
-          </thead>
-          <tbody>
-            <tr
-              v-for="item in desserts"
-              :key="item.name"
-            >
-              <td>{{ item.name }}</td>
-              <td>{{ item.mobileNumber }}</td>
-              <td>{{ item.gender }}</td>
-              <td>{{ item.age }}</td>
-              <td class="d-flex threeBtn">
-                <button class="btn1">
-                  <img src="../../assets/images/iconify-svg/Group 501.png">
-                </button>
-                <div class="btn2">
-                  <button>
-                    <img
-                      src="../../assets/images/iconify-svg/material-symbols_block.png"
-                    >
-                  </button>
-                </div>
-                <div class="btn3">
-                  <button>
-                    <img src="../../assets/images/iconify-svg/trash 1.png">
-                  </button>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </VTable>
+    </div>
+    <div class="footer">
+      <div class="itemfootericon">
+        <VIcon icon="tabler-arrow-left" />
       </div>
-      <div class="footerPn">
-        <VPagination
-          v-model="page"
-          active-color="white"
-          :length="desserts.length"
-          :total-visible="3"
-          rounded="0"
-        />
+      <div class="itemfooter active">
+        1
       </div>
-    </VContainer>
+      <div class="itemfooter">
+        2
+      </div>
+      <div class="itemfooter active">
+        ...
+      </div>
+      <div class="itemfooter">
+        9
+      </div>
+      <div
+        class="itemfooter"
+        style="border-right: 0;"
+      >
+        10
+      </div>
+      <div class="itemfootericon">
+        <VIcon icon="tabler-arrow-right" />
+      </div>
+    </div>
   </div>
 </template>
 
 <style>
-#content {
-  align-content: center;
-  padding: 0;
-  margin: 0;
-}
-
-.childContent {
-  align-items: center;
-  block-size: 50px;
-  margin-block-start: 36px;
-}
-
-.childContent2 {
-  align-content: center;
-  justify-content: space-between;
-  inline-size: 384px;
-}
-
-.childContent2 p {
-  block-size: 36px;
-  font-size: 24px;
-  inline-size: 145px;
-}
-
-.childContent2 .search {
-  max-block-size: 40px;
-  max-inline-size: 219px;
-}
-
-.contentBtn {
-  justify-content: space-between;
-  inline-size: 50%;
-  padding-inline-start: 282px;
-}
-
-.btnWS {
-  border: 1px solid #d1d5db;
-  border-radius: 30px;
-  background-color: #10b981;
-}
-
-.btnWS img {
-  block-size: 18px;
-  inline-size: 20px;
-  margin-inline-end: 10px;
-}
-
-.btnWS p {
-  padding-block-start: 14px;
-}
-
-.btnWS p b {
-  color: white;
-  font-size: 13px;
-}
-
-.btnEp {
-  border: 1px solid #d1d5db;
-  border-radius: 30px;
-  margin-inline-start: 13px;
-}
-
-.btnAn {
-  border: 1px solid #d1d5db;
-  border-radius: 30px;
-  margin-inline-start: 7px;
-}
-
-.tableDt {
-  block-size: 400px;
-  margin-block-start: 40px;
-}
-
-.contentTt {
-  background-color: ghostwhite;
-}
-
-.titleCt th div {
+.footer {
   display: flex;
-  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #e5e7eb;
+  border-radius: 7px;
+  margin: auto;
+  background-color: white;
+  block-size: 36px;
+  inline-size: fit-content;
+  margin-block-start: 30px;
 }
 
-.titleCt img {
-  margin-inline-start: 5px;
+.buttonmini {
+  padding: 5px;
+  border: solid 1px #f3f4f6;
+  block-size: 36px;
+  inline-size: 36px;
+  margin-inline: 5px;
 }
 
-.threeBtn {
+.itemfooter {
   display: flex;
   align-items: center;
   justify-content: center;
-  inline-size: 100%;
+  border-inline-end: 1px solid var(--border-gray);
+  color: #9ca3af;
+  cursor: pointer;
+  font-size: 16px;
+  inline-size: 36px;
 }
 
-.btn1 {
-  block-size: 35px;
-  margin-inline-end: 10px;
+.itemfootericon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-dark);
+  cursor: pointer;
+  font-size: 16px;
+  inline-size: 36px;
 }
 
-.btn1 img {
-  block-size: 35px;
-  inline-size: 35px;
+.itemfooter.active {
+  color: var(--text-dark);
 }
 
-.btn2 {
-  padding: 5px;
-  border: 1px #e5e7eb solid;
-  border-radius: 5px;
-  block-size: 35px;
-  inline-size: 35px;
-  margin-inline-end: 10px;
+.statusActive {
+  display: flex;
+  align-items: center;
+  border-radius: 200px;
+  background: #ecfdf5;
+  block-size: 29px;
+  inline-size: 70px;
+  padding-block: 2px;
+  padding-inline: 10px;
 }
 
-.btn3 {
-  padding: 5px;
-  border: 1px #e5e7eb solid;
-  border-radius: 5px;
-  block-size: 35px;
-  inline-size: 35px;
+.statusSchedule {
+  display: flex;
+  align-items: center;
+  border-radius: 200px;
+  background: #e0e7ff;
+  block-size: 29px;
+  inline-size: 123px;
+  padding-block: 2px;
+  padding-inline: 18px;
 }
 
-.btn2 button,
-.btn3 button {
-  block-size: 100%;
-  widows: 100%;
+.contact-container {
+  overflow-x: scroll;
 }
 
-.btn2 button img,
-.btn3 button img {
-  block-size: 23px;
-  widows: 23px;
+.contact-title {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-block-end: 16px;
+  min-inline-size: 980px;
+  padding-block: 0;
+  padding-inline: 20px;
 }
 
-.footerPn {
-  margin-block-start: 60px;
+.contact-title > div {
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
-.v-pagination__item {
-  border-inline-end: 1px darkgrey solid;
+.contact-title span {
+  color: var(--text-gray-light);
+  font-size: var(--font-size-sm);
+  text-transform: uppercase;
 }
 
-.v-pagination__item:nth-last-child(2) {
-  border: none !important;
+.contact-title img {
+  cursor: pointer;
 }
 
-.v-pagination__item,
-.v-pagination__first,
-.v-pagination__prev,
-.v-pagination__next,
-.v-pagination__last {
-  margin: 0 !important;
+.contact-title-name,
+.contact-content-name {
+  flex: 1;
 }
 
-#main {
-  padding: 0;
+.contact-title-phone,
+.contact-content-phone {
+  inline-size: 16%;
+}
+
+.contact-title-gender,
+.contact-content-gender {
+  inline-size: 12%;
+  min-inline-size: 100px;
+}
+
+.contact-title-country,
+.contact-content-country {
+  inline-size: 14%;
+  min-inline-size: 100px;
+}
+
+.contact-content-age,
+.contact-title-age {
+  inline-size: 16%;
+  min-inline-size: 120px;
+}
+
+.contact-title-action,
+.contact-content-action {
+  inline-size: 130px;
+}
+
+.contact-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  border-block-end: 1px solid var(--border-gray);
+  gap: 10px;
+  min-inline-size: 980px;
+  padding-block: 20px;
+  padding-inline: 20px;
+}
+
+.contact-content p {
   margin: 0;
+  color: var(--text-dark);
 }
 
-#content {
-  color: black;
+.contact-content span {
+  border-radius: 50px;
+  background: #f3f4f6;
+  color: #6b7280;
+  font-weight: 600;
+  padding-block: 6px;
+  padding-inline: 12px;
 }
 
-.v-pagination__prev .v-btn .v-btn__content {
+.contact-content span.active {
+  background: #ecfdf5;
+  color: #10b981;
+}
+
+.contact-content span.scheduled {
+  background: #e0e7ff;
+  color: #6366f1;
+}
+
+.action-1 {
+  display: flex;
+  gap: 8px;
+}
+
+.action-1 button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-gray);
+  border-radius: 5px;
+  background: #fff;
+  block-size: 35px;
+  color: var(--text-dark);
+  inline-size: 35px;
+  transition: var(--smooth);
+}
+
+.action-1 button svg {
+  block-size: 22px;
+  inline-size: 22px;
+}
+
+.action-1 button:hover {
+  border-color: var(--text-dark);
+}
+
+.campaign-mobile {
   display: none;
-
-  /* Left */
 }
 
-.v-pagination__next .v-btn .v-btn__content {
-  display: none;
-
-  /* Right */
+.container-contact .contact-content-name {
+  flex: 0.5;
 }
 
-@media only screen and (max-width: 1230px) {
-  .childContent {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .contentBtn {
-    padding: 0;
-  }
-
-  .tableDt {
-    margin-block-start: 60px;
-  }
+.container-contact .contact-title-name {
+  flex: 0.5;
 }
 
-@media only screen and (max-width: 480px) {
-  .childContent {
+@media (max-width: 768px) {
+  .contact-container {
+    display: none;
+  }
+
+  .campaign-mobile {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    gap: 12px;
   }
 
-  .contentBtn {
+  .campaign-item {
     display: flex;
     flex-direction: column;
-    padding: 0;
+    padding: 20px;
+    background: #fff;
+    color: var(--text-dark);
+    gap: 16px;
   }
 
-  .btnAn,
-  .btnEp {
-    margin: 0;
-    margin-block-start: 20px;
+  .campaign-item p {
+    margin-block-end: 0;
   }
 
-  .tableDt {
-    margin-block-start: 200px;
+  .campaign-item .item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .item-list {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .item-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .item-footer span {
+    border-radius: 50px;
+    background: #f3f4f6;
+    color: #6b7280;
+    font-weight: 600;
+    padding-block: 6px;
+    padding-inline: 12px;
+  }
+
+  .item-footer span.active {
+    background: #ecfdf5;
+    color: #10b981;
+  }
+
+  .item-footer span.scheduled {
+    background: #e0e7ff;
+    color: #6366f1;
   }
 }
 </style>

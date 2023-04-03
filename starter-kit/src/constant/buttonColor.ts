@@ -30,3 +30,8 @@ export const btnDark = {
   border: '1px solid #374151',
 }
 
+export const btnGreen = {
+  background: '#10B981',
+  color: '#fff',
+  border: '1px solid #6366F1 !important',
+}

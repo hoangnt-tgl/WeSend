@@ -30,3 +30,20 @@ export default defineComponent({
     />
   </div>
 </template>
+
+<style>
+.ql-container {
+  border: 1px solid #e0e7ff;
+  border-radius: 0 0 10px 10px;
+  block-size: 212px;
+}
+
+.ql-toolbar {
+  display: flex;
+  align-items: center;
+  border: 1px solid #e0e7ff;
+  border-radius: 10px 10px 0 0;
+  background: #f6f6fe;
+  block-size: 70px;
+}
+</style>

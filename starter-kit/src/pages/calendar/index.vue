@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/component-api-style -->
 <script>
 import { defineComponent } from 'vue'
 import Meeting1 from '@/components/modal/Meeting1.vue'
@@ -21,20 +22,44 @@ export default defineComponent({
   },
   setup() {
     return {
-      openMeeting1: ref(false),
-      openMeeting2: ref(false),
-      openMeeting3: ref(false),
-      openEditCreateLabel: ref(true),
+      openMeeting1: ref(true),
+      openMeeting2: ref(true),
+      openMeeting3: ref(true),
+      openEditCreateLabel: ref(false),
       btnOutLine,
       items,
     }
+  },
+
+  methods: {
+    openMeetingModal() {
+      this.openMeeting1 = true
+    },
+    closeMeeting1Modal() {
+      this.openMeeting1 = false
+    },
+    closeMeeting2Modal() {
+      this.openMeeting2 = false
+    },
+    closeMeeting3Modal() {
+      this.openMeeting3 = false
+    },
+    openEditCreateLabelModal() {
+      this.openEditCreateLabel = true
+    },
+    closeEditCreateLabelModal() {
+      this.openEditCreateLabel = false
+    },
+    jumpToDate(date) {
+      console.log(date)
+    },
   },
 })
 </script>
 
 <template>
   <div>
-    <div class="calendar-header  d-flex  ">
+    <div class="calendar-header d-flex">
       <div class="calender-title">
         Schedule
       </div>
@@ -180,10 +205,20 @@ export default defineComponent({
         <CalendarDate />
       </VCol>
     </VRow>
-    <Meeting1 v-if="openMeeting1" />
-    <Meeting2 v-if="openMeeting1" />
-    <Meeting3 v-if="openMeeting1" />
+    <Meeting1
+      v-if="openMeeting1"
+      @close="closeMeeting1Modal"
+    />
     <EditCreateNewLabel v-if="openEditCreateLabel" />
+    <Meeting2
+      v-if="openMeeting2"
+      @close="closeMeeting2Modal"
+    />
+    <Meeting3
+      v-if="openMeeting3"
+      @close="closeMeeting3Modal"
+    />
+    Hello World
   </div>
 </template>
 
@@ -305,8 +340,8 @@ export default defineComponent({
 .calendar-date-picker {
   display: none;
 
-  +.flatpickr-input {
-    +.flatpickr-calendar.inline {
+  + .flatpickr-input {
+    + .flatpickr-calendar.inline {
       border: none;
       border-radius: 0;
       background-color: transparent;

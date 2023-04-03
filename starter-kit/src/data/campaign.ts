@@ -188,3 +188,30 @@ export const dataCampaigns2 = [
     mediaType: 'Image',
   },
 ]
+
+export const dataCampaignsContact = [
+  {
+    campaignName: 'Roger Kadama',
+    campaignDate: '+01 1234567890',
+    contacts: 'Male',
+    mediaType: '34',
+  },
+  {
+    campaignName: 'Roger Kadama',
+    campaignDate: '+01 1234567890',
+    contacts: 'Male',
+    mediaType: '34',
+  },
+  {
+    campaignName: 'Roger Kadama',
+    campaignDate: '+01 1234567890',
+    contacts: 'Male',
+    mediaType: '34',
+  },
+  {
+    campaignName: 'Roger Kadama',
+    campaignDate: '+01 1234567890',
+    contacts: 'Male',
+    mediaType: '34',
+  },
+]

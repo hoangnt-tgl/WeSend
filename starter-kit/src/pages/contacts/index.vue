@@ -4,15 +4,18 @@
       <div class="d-flex childContent">
         <div class="d-flex childContent2">
           <p><b>Contact List</b></p>
-          <v-text-field class="search" prepend-inner-icon="mdi-magnify" label="Search"></v-text-field>
+          <div id="searchContact">
+          <v-text-field class="search" prepend-inner-icon="mdi-magnify" variant="plain" label="Search"></v-text-field>
+          </div>
         </div>
         <div class="d-flex contentBtn">
           <v-btn class="text-none btnWS" width="171px" height="46px" color="medium-emphasis" variant="outlined">
             <img src="../../assets/images/iconify-svg/WhatsApp.svg.webp">
             <p><b>Whatsapp Sync</b></p>
           </v-btn>
-          <v-btn class="text-none btnEp" prepend-icon="mdi-file-export" color="medium-emphasis" height="46px"
+          <v-btn class="text-none btnEp" color="medium-emphasis" height="46px"
             width="111px" variant="outlined">
+            <img src="../../assets/images/iconify-svg/exportIcon.svg">
             <b>Export</b>
           </v-btn>
           <v-btn class="text-none btnAn" width="122px" height="46px" prepend-icon="mdi-add" color="medium-emphasis"
@@ -69,7 +72,7 @@
           </tbody>
         </v-table>
       </div>
-      <div class="footerPn">
+      <div class="footerPn footerContact">
         <v-pagination v-model="page" active-color="white" :length="desserts.length" :total-visible="3"
           rounded="0"></v-pagination>
       </div>
@@ -142,7 +145,7 @@ export default {
 };
 
 </script>
-<style>
+<style scoped>
 #content {
   margin: 0;
   padding: 0;
@@ -153,6 +156,9 @@ export default {
   margin-top: 36px;
   height: 50px;
   align-items: center;
+}
+.btnEp b, .btnAn b{
+  color: black;
 }
 
 .childContent2 {
@@ -167,9 +173,13 @@ export default {
   height: 36px;
 }
 
-.childContent2 .search {
+.childContent2 .search{
   max-height: 40px;
   max-width: 219px;
+}
+#searchContact {
+  width: 219px; 
+  height: 40px;
 }
 
 .contentBtn {
@@ -177,7 +187,9 @@ export default {
   padding-left: 282px;
   width: 50%;
 }
-
+.btnEp img{
+  margin-right: 5px;
+}
 .btnWS {
   background-color: #10B981;
   border: 1px solid #D1D5DB;
@@ -278,24 +290,6 @@ export default {
 .footerPn {
   margin-top: 60px;
 }
-
-.v-pagination__item {
-  border-right: 1px darkgrey solid;
-}
-
-.v-pagination__item:nth-last-child(2) {
-  border: none !important;
-}
-
-.v-pagination__item,
-.v-pagination__first,
-.v-pagination__prev,
-.v-pagination__next,
-.v-pagination__last {
-  margin: 0 !important;
-  ;
-}
-
 #main {
   margin: 0;
   padding: 0;
@@ -305,14 +299,6 @@ export default {
   color: black;
 }
 
-.v-pagination__prev .v-btn .v-btn__content{
-  display: none;
-/* Left */
-}
-.v-pagination__next .v-btn .v-btn__content{
-  display: none;
-/* Right */
-}
 @media only screen and (max-width: 1230px){
     .childContent{
       display: flex; flex-direction: column; align-items: flex-start;
@@ -338,5 +324,34 @@ export default {
   .tableDt{
     margin-top: 200px;
   }
+}
+</style>
+<style>
+.footerContact .v-pagination__item {
+  border-right: 1px darkgrey solid;
+}
+
+.footerContact .v-pagination__item:nth-last-child(2) {
+  border: none !important;
+}
+
+.footerContact .v-pagination__item,
+.footerContact .v-pagination__first,
+.footerContact .v-pagination__prev,
+.footerContact .v-pagination__next,
+.footerContact .v-pagination__last {
+  margin: 0 !important;
+  ;
+}
+#searchContact .v-input__control{
+  background-color: white;
+}
+.footerContact .v-pagination__prev .v-btn .v-btn__content{
+  display: none;
+/* Left */
+}
+.footerContact .v-pagination__next .v-btn .v-btn__content{
+  display: none;
+/* Right */
 }
 </style>

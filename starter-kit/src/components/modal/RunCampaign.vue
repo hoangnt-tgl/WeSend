@@ -1,13 +1,7 @@
 <!-- eslint-disable vue/component-api-style -->
 <script lang="ts">
 import BtnRound from '@/components/buttons/roundedButton/index.vue'
-import { btnBlack } from '@/constant/buttonColor'
-
-const btnOutLine = {
-  background: 'transparent',
-  color: '#111827',
-  border: ' 1px solid #000 !important',
-}
+import { btnBlack, btnOutLine } from '@/constant/buttonColor'
 
 export default {
   name: 'RunCampaign',
@@ -43,7 +37,8 @@ export default {
           Schedules are overlapping
         </div>
         <p class="text-alter py-4">
-          Would you like to run this schedule now? It will stop the other schedule.
+          Would you like to run this schedule now? It will stop the other
+          schedule.
         </p>
         <div class="d-flex justify-center gap-3">
           <div>

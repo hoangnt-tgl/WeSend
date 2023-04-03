@@ -4,7 +4,6 @@ import '@fullcalendar/core/vdom' // solves problem with Vite
 import FullCalendar from '@fullcalendar/vue3'
 
 // Local imports
-
 // import { blankEvent, useCalendar } from '@/views/apps/calendar/useCalendar'
 import { useCalendar } from '@/components/calendar/useCalendar'
 

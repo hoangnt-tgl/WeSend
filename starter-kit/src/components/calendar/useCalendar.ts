@@ -178,9 +178,21 @@ export const useCalendar = (event: Ref<Event | NewEvent>, isEventHandlerSidebarA
 
     // dayHeaderFormat: { weekday: 'short', day: 'numeric' },
     dayHeaderFormat(date: Date | string) {
-      console.log(date)
+      const newDiv = document.createElement('div')
+      const newContent = document.createTextNode(date?.date?.marker?.toString().split(' ')[0])
+      const newDiv1 = document.createElement('div')
+      const newContent2 = document.createTextNode(date?.date?.day)
+      const bigDiv = document.createElement('div')
 
-      return `${date?.date?.marker?.toString().split(' ')[0]} ${date?.date?.day}`
+      newDiv.appendChild(newContent)
+      newDiv1.appendChild(newContent2)
+      bigDiv.appendChild(newDiv)
+      bigDiv.appendChild(newDiv1)
+      console.log(bigDiv)
+
+      return `${date?.date?.marker?.toString().split(' ')[0]}   ${date?.date?.day}`
+
+      // return newDiv1.toString()
     },
     slotEventOverlap: false,
     headerToolbar: false,

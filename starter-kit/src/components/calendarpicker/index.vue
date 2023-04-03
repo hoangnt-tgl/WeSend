@@ -128,7 +128,7 @@ export default defineComponent({
 
 <style lang="scss">
 .event-list {
-  inline-size: 75%;
+  inline-size: 237px;
 }
 
 .event-title {
@@ -155,7 +155,6 @@ export default defineComponent({
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
   margin-block: 10px;
   margin-inline: auto;
 }

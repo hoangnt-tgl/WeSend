@@ -75,6 +75,7 @@ tr {
   font-weight: 700;
   inline-size: 83px;
   white-space: normal;
+  word-spacing: 200px;
 }
 
 .fc-col-header-cell-cushion::first-line {

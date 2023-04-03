@@ -1,49 +1,53 @@
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent } from "vue";
 
 // const icons = qill.import('ui/icons')
 
 // icons.bold = '<i class="fa fa-bold" aria-hidden="true"></i>'
 export default defineComponent({
-  name: 'QuillEditorCustomer',
+  name: "QuillEditorCustomer",
   props: {
     theme: {
       type: String,
-      default: 'snow',
+      default: "snow",
     },
   },
   setup() {
-    return {
-    }
+    return {};
   },
-})
+});
 </script>
 
 <template>
   <div>
     <QuillEditor
       :theme="theme"
-      :toolbar="['bold',
-                 'italic',
-                 'underline',
-                 'strike', 'image', 'video', 'link']"
+      :toolbar="[
+        'bold',
+        'italic',
+        'underline',
+        'strike',
+        'image',
+        'video',
+        'link',
+      ]"
     />
   </div>
 </template>
 
 <style>
-  .ql-container {
-    border: 1px solid #e0e7ff;
-    border-radius: 0 0 10px 10px;
-    block-size: 212px;
-  }
+.ql-container {
+  border: 1px solid #e0e7ff;
+  border-radius: 0 0 10px 10px;
+  block-size: 212px;
+}
 
-  .ql-toolbar {
-    display: flex;
-    align-items: center;
-    border: 1px solid #e0e7ff;
-    border-radius: 5px 5px 0 0;
-    background: #f6f6fe;
-    block-size: 50px;
-  }
+.ql-toolbar {
+  display: flex;
+  align-items: center;
+  border: 1px solid #e0e7ff;
+  border-radius: 10px 10px 0 0;
+  background: #f6f6fe;
+  block-size: 70px;
+}
 </style>

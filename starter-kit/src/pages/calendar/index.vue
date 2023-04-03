@@ -22,9 +22,12 @@ export default defineComponent({
   },
   setup() {
     return {
-      openMeeting1: ref(true),
-      openMeeting2: ref(true),
-      openMeeting3: ref(true),
+      openMeeting1: ref(false),
+      openMeeting2: ref(false),
+      openMeeting3: ref(false),
+      openCampaign: ref(false),
+      openReminder1: ref(false),
+      openReminder2: ref(false),
       openEditCreateLabel: ref(false),
       btnOutLine,
       items,
@@ -42,6 +45,8 @@ export default defineComponent({
     },
     openMeetingModal() {
       this.openMeeting1 = true
+      this.openMeeting2 = true
+      this.openMeeting3 = true
     },
     closeMeeting1Modal() {
       this.openMeeting1 = false
@@ -58,6 +63,23 @@ export default defineComponent({
     closeEditCreateLabelModal() {
       this.openEditCreateLabel = false
     },
+    openCampaignModal() {
+      this.openCampaign = true
+    },
+    closeCampaignModal() {
+      this.openCampaign = false
+    },
+    openReminderModal() {
+      this.openReminder1 = true
+      this.openReminder2 = true
+    },
+    closeReminderModal1() {
+      this.openReminder1 = false
+    },
+    closeReminderModal2() {
+      this.openReminder2 = false
+    },
+
     jumpToDate(date) {
       console.log(date)
     },
@@ -93,6 +115,7 @@ export default defineComponent({
       <VCol
         cols="12"
         md="3"
+        @click="openEditCreateLabelModal"
       >
         <Calendarpicker />
       </VCol>
@@ -108,11 +131,17 @@ export default defineComponent({
           class="pick-drop"
         >
           <div v-if="toggle">
-            <p>Add Meeting</p>
+            <p @click="openMeetingModal">
+              Add Meeting
+            </p>
             <VDivider />
-            <p>Add Campaign</p>
+            <p @click="openCampaignModal">
+              Add Campaign
+            </p>
             <VDivider />
-            <p>Add Reminder</p>
+            <p @click="openReminderModal">
+              Add Reminder
+            </p>
           </div>
         </div>
       </VCol>
@@ -121,7 +150,10 @@ export default defineComponent({
       v-if="openMeeting1"
       @close="closeMeeting1Modal"
     />
-    <EditCreateNewLabel v-if="openEditCreateLabel" />
+    <EditCreateNewLabel
+      v-if="openEditCreateLabel"
+      @close="closeEditCreateLabelModal"
+    />
     <Meeting2
       v-if="openMeeting2"
       @close="closeMeeting2Modal"

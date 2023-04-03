@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { event as calendarEvents } from '@/data/calendarEvent'
-import '@fullcalendar/core/vdom' // solves problem with Vite
+import '@fullcalendar/core/vdom'; // solves problem with Vite
 import FullCalendar from '@fullcalendar/vue3'
 
 // Local imports
@@ -26,25 +26,13 @@ const { isLeftSidebarOpen } = useResponsiveLeftSidebar()
 // 👉 useCalendar
 const { refCalendar, calendarOptions, addEvent, updateEvent, removeEvent, jumpToDate } = useCalendar(event, isEventHandlerSidebarActive, isLeftSidebarOpen)
 
-if (window.innerWidth < 576) {
-  calendarOptions.views = {
-    timeGridDay: {
-      type: 'timeGrid',
-      duration: { days: 1 },
-      buttonText: '1 day',
-      slotDuration: '01:00',
-    },
-  }
-}
-else {
-  calendarOptions.views = {
-    timeGridDay: {
-      type: 'timeGrid',
-      duration: { days: 3 },
-      buttonText: '3 day',
-      slotDuration: '01:00',
-    },
-  }
+calendarOptions.views = {
+  timeGridDay: {
+    type: 'timeGrid',
+    duration: { days: 1 },
+    buttonText: '1 day',
+    slotDuration: '01:00',
+  },
 }
 
 // !SECTION

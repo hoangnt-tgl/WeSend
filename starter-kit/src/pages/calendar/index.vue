@@ -19,7 +19,7 @@ export default defineComponent({
   },
   setup() {
     return {
-      openMeeting1: ref(false),
+      openMeeting1: ref(true),
       openMeeting2: ref(false),
       openMeeting3: ref(false),
       btnOutLine,

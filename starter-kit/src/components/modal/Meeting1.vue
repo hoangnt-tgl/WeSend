@@ -43,21 +43,21 @@ export default {
     />
 
     <!-- Dialog Content -->
-    <VCard title="Campaign schedule">
+    <VCard title="Meeting">
       <div class="px-6 py-4">
         <div class="modal__label">
-          Select Campaign
+          Select Title
         </div>
         <div class="modal__input mb-4">
           <input
             type="text"
-            value="Christmas Campaign 1"
+            value="New Year Greeting"
           >
         </div>
         <div class="d-flex gap-4 flex-column flex-sm-row">
           <div class="w-100">
             <div class="modal__label">
-              No. of contacts per schedule
+              Date and Time
             </div>
             <div class="modal__input">
               <input
@@ -65,27 +65,10 @@ export default {
                 value="Wednesday, 26 Oct, 2022"
               >
             </div>
-            <div class="modal__input__des">
-              Recommended: 200
-            </div>
           </div>
-          <div class="w-100">
+          <div class="w-50">
             <div class="modal__label">
-              Starting from contact no.
-            </div>
-            <div class="modal__input">
-              <input
-                type="text"
-                value="1000"
-              >
-            </div>
-            <div class="modal__input__des" />
-          </div>
-        </div>
-        <div class="d-flex gap-4 flex-column flex-sm-row">
-          <div class="w-100">
-            <div class="modal__label">
-              Total schedules
+              To
             </div>
             <div class="modal__input">
               <input
@@ -93,29 +76,40 @@ export default {
                 value="04:00 AM"
               >
             </div>
-            <div class="modal__input__des">
-              Max: 20 (4000 / 200)
-            </div>
           </div>
-          <div class="w-100">
+          <div class="w-50">
             <div class="modal__label">
-              Time gap between schedules
+              From
             </div>
             <div class="modal__input">
               <input
                 type="text"
-                value="100"
+                value="--/--"
               >
-              <span>Min</span>
-            </div>
-
-            <div class="modal__input__des">
-              Recommended: 40 min
             </div>
           </div>
         </div>
-        <div class="modal__label mt-4">
-          Select Campaign
+        <div class="d-flex gap-4 flex-column flex-sm-row">
+          <div class="w-100">
+            <div class="modal__label">
+              Select Contacts
+            </div>
+            <div class="modal__input">
+              <input
+                type="text"
+                value="Siddhant Jain / +91971v1469568"
+              >
+              <div class="d-flex align-center icon-checkbox">
+                <VCheckbox
+                  key="color"
+                  class="checkbox"
+                  color="success"
+                  value="success"
+                />
+                <span class="text-ar-1"> Include me</span>
+              </div>
+            </div>
+          </div>
         </div>
         <VChip
           variant="outlined"
@@ -149,22 +143,6 @@ export default {
         >
           801 - 1000 / 05:00 AM
         </VChip>
-
-        <!--
-          <div class="d-flex flex-column flex-sm-row justify-content-sm-between">
-          <div class="w-100">
-          <div>fd</div><div>fd</div>
-          </div>
-          <div class="w-100">
-          <button class="delete">
-          <VIcon icon="tabler-trash" />
-          </button>
-          <button class="delete">
-          <VIcon icon="tabler-trash" /><span>Save</span>
-          </button>
-          </div>
-          </div>
-        -->
         <div class="d-flex flex-column flex-sm-row justify-content-sm-between mt-6 mb-2">
           <div class="w-100 d-flex align-center gap-5 bottom-schedule">
             <div>
@@ -214,9 +192,11 @@ export default {
   inset-block-start: 0;
   inset-inline-end: 0;
 }
-.text-ar-1{
+
+.text-ar-1 {
   font-size: var(--font-size-ssm);
 }
+
 .modal__group__input {
   margin-block-end: 4px;
 }
@@ -230,6 +210,18 @@ export default {
   margin-block-end: 8px;
 }
 
+.modal__input {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.modal__input .icon-checkbox span {
+  color: var(--text-dark);
+  font-size: 14px;
+  inline-size: 124px;
+}
+
 .modal__input input {
   position: relative;
   padding: 15px;
@@ -239,11 +231,10 @@ export default {
   color: #374151;
   font-size: 14px;
   inline-size: 100%;
-  margin-block-end: 5px;
   outline: none;
 }
 
-.modal__input span {
+.modal__input > span {
   position: absolute;
   inset-inline-end: 8px;
   transform: translate(-100%, 50%);

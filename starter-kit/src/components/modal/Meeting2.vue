@@ -36,7 +36,7 @@ export default {
     />
 
     <!-- Dialog Content -->
-    <VCard title="Meeting">
+    <VCard title="Create/Edit Meeting">
       <div class="px-6 py-4">
         <div class="modal__label">
           Select Title

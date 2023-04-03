@@ -1,12 +1,12 @@
 <!-- eslint-disable vue/component-api-style -->
 <script lang="ts">
-import BtnRound from "@/components/buttons/roundedButton/index.vue";
-import QuillEditorCustomer from "@/components/InputEditor/QuillEditor.vue";
-import { btnBlack, btnOutLine } from "@/constant/buttonColor";
+import BtnRound from '@/components/buttons/roundedButton/index.vue'
+import QuillEditorCustomer from '@/components/InputEditor/QuillEditor.vue'
+import { btnBlack, btnOutLine } from '@/constant/buttonColor'
 
-const switchOn = ref("on");
+const switchOn = ref('on')
 export default {
-  name: "CampaignSchedule",
+  name: 'CampaignSchedule',
   components: {
     BtnRound,
     QuillEditorCustomer,
@@ -17,28 +17,42 @@ export default {
       btnOutLine,
       switchOn,
       btnBlack,
-    };
+    }
   },
   methods: {
     close() {
-      this.$emit("close");
+      this.$emit('close')
     },
   },
-};
+}
 </script>
 
 <template>
-  <VDialog v-model="isModalOpen" persistent class="v-dialog-sm">
-    <DialogCloseBtn class="close__btn" @click="close" />
+  <VDialog
+    v-model="isModalOpen"
+    persistent
+    class="v-dialog-sm"
+  >
+    <DialogCloseBtn
+      class="close__btn"
+      @click="close"
+    />
 
     <!-- Dialog Content -->
     <VCard title="Edit / Create new label">
       <div class="px-6 py-4">
-        <div class="modal__label">Campaign Title</div>
-        <div class="modal__input mb-4">
-          <input type="text" value="New Year Greeting" />
+        <div class="modal__label">
+          Campaign Title
         </div>
-        <div class="modal__label">Message</div>
+        <div class="modal__input mb-4">
+          <input
+            type="text"
+            value="New Year Greeting"
+          >
+        </div>
+        <div class="modal__label">
+          Message
+        </div>
         <div class="modal__input mb-4">
           <QuillEditorCustomer />
         </div>
@@ -64,7 +78,7 @@ export default {
             </div>
           </div>
           <div
-            class="w-100 d-flex justify-end align-center gap-2 bottom-schedule-1"
+            class="w-100 d-flex justify-center align-center gap-2 bottom-schedule-1"
           >
             <button class="delete">
               <VIcon icon="tabler-trash" />

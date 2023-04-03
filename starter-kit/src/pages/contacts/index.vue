@@ -71,7 +71,6 @@ export default {
       this.dataCampaigns2 = [...result]
     },
   },
-
 }
 </script>
 

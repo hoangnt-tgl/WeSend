@@ -320,8 +320,6 @@ export default {
     inset-inline-end: 5%;
     transform: translateY(-50%);
   }
-
-
 }
 
 @media (min-width: 768px) {

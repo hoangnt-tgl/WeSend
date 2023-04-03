@@ -13,8 +13,8 @@ export default defineComponent({
   },
   setup() {
     return {
-      openMeeting1: ref(true),
-      openMeeting2: ref(false),
+      openMeeting1: ref(false),
+      openMeeting2: ref(true),
       openMeeting3: ref(false),
     }
   },
@@ -24,8 +24,8 @@ export default defineComponent({
 <template>
   <div>
     <Meeting1 v-if="openMeeting1" />
-    <Meeting2 v-if="openMeeting1" />
-    <Meeting3 v-if="openMeeting1" />
+    <Meeting2 v-if="openMeeting2" />
+    <Meeting3 v-if="openMeeting3" />
     Hello World
   </div>
 </template>

@@ -6,6 +6,7 @@ import Meeting3 from '@/components/modal/Meeting3.vue'
 import CalendarDate from '@/components/dashboard/calendar/index.vue'
 import RoundedButton from '@/components/buttons/roundedButton/index.vue'
 import { btnOutLine } from '@/constant/buttonColor'
+import EditCreateNewLabel from '@/components/modal/EditCreateNewLabel.vue'
 
 const items = ['week', 'day']
 export default defineComponent({
@@ -16,12 +17,14 @@ export default defineComponent({
     Meeting3,
     CalendarDate,
     RoundedButton,
+    EditCreateNewLabel,
   },
   setup() {
     return {
-      openMeeting1: ref(true),
+      openMeeting1: ref(false),
       openMeeting2: ref(false),
       openMeeting3: ref(false),
+      openEditCreateLabel: ref(true),
       btnOutLine,
       items,
     }
@@ -180,6 +183,7 @@ export default defineComponent({
     <Meeting1 v-if="openMeeting1" />
     <Meeting2 v-if="openMeeting1" />
     <Meeting3 v-if="openMeeting1" />
+    <EditCreateNewLabel v-if="openEditCreateLabel" />
   </div>
 </template>
 

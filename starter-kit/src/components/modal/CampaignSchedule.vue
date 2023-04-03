@@ -46,7 +46,7 @@ export default {
   <VDialog
     v-model="defaultValue"
     persistent
-    class="v-dialog-lg "
+    class="v-dialog-lg"
   >
     <DialogCloseBtn
       class="close__btn"

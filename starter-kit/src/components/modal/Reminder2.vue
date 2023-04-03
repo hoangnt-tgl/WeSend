@@ -39,7 +39,7 @@ export default {
     />
 
     <!-- Dialog Content -->
-    <VCard title="Create/Edit Meeting">
+    <VCard title="Reminder">
       <div class="px-6 py-4">
         <div class="modal__label">
           Select Title
@@ -139,127 +139,10 @@ export default {
           ...
         </VChip>
 
-        <div class="meeting">
-          <div class="meeting-left">
-            <VCheckbox
-              key="color"
-              class="checkbox"
-              color="success"
-              value="success"
-            />
-            <p class="text-ar-1">
-              <span>Message</span>
-              <img
-                src="../../assets/icons/question.svg"
-                alt="icon"
-              >
-            </p>
-          </div>
-          <div class="meeting-right">
-            <div class="meeting-header">
-              <div class="meeting-header-left">
-                <p>Label</p>
-                <div class="d-flex gap-1 align-items-center button-toggle">
-                  <div class="toggle-1">
-                    <input
-                      id="switch"
-                      type="checkbox"
-                      class="switch-input"
-                    >
-                    <label
-                      for="switch"
-                      class="switch"
-                    />
-                  </div>
-                  <span class="text-ar-1">Custom message</span>
-                </div>
-              </div>
-              <div class="meeting-header-right">
-                <VIcon icon="tabler-search" />
-                <input
-                  type="text"
-                  placeholder="Search"
-                >
-              </div>
-            </div>
-            <div class="meeting-container">
-              <QuillEditor />
-            </div>
-          </div>
-        </div>
-
-        <div class="meeting">
-          <div class="meeting-left">
-            <VCheckbox
-              key="color"
-              class="checkbox"
-              color="success"
-              value="success"
-            />
-            <p class="text-ar-1">
-              <span>Reminder</span>
-              <img
-                src="../../assets/icons/question.svg"
-                alt="icon"
-              >
-            </p>
-          </div>
-          <div class="meeting-right">
-            <div class="meeting-header">
-              <div class="meeting-header-left">
-                <p>Label</p>
-                <div class="d-flex gap-1 align-items-center button-toggle">
-                  <div class="toggle-1">
-                    <input
-                      id="switch"
-                      type="checkbox"
-                      class="switch-input"
-                    >
-                    <label
-                      for="switch"
-                      class="switch"
-                    />
-                  </div>
-                  <span class="text-ar-1">Custom message</span>
-                </div>
-              </div>
-              <div class="meeting-header-select">
-                <div class="modal-select">
-                  <select class="modal-option">
-                    <option>15 min</option>
-                    <option>30 min</option>
-                    <option>1 hour</option>
-                  </select>
-                  <VIcon icon="tabler-chevron-down" />
-                </div>
-                <span>Delay Sending time</span>
-              </div>
-            </div>
-            <div class="meeting-container">
-              <QuillEditor />
-            </div>
-          </div>
-        </div>
-
         <div class="meeting-mobile">
           <div class="meeting-right">
             <div class="meeting-header">
               <div class="meeting-header-left">
-                <div class="meeting-left">
-                  <VCheckbox
-                    key="color"
-                    class="checkbox"
-                    color="success"
-                    value="success"
-                  />
-                  <p class="text-ar-1">
-                    <span>Message</span>
-                    <img
-                      src="../../assets/icons/question.svg"
-                      alt="icon"
-                    >
-                  </p>
-                </div>
                 <p>Label</p>
                 <div class="d-flex gap-1 align-items-center button-toggle">
                   <div class="toggle-1">
@@ -275,66 +158,6 @@ export default {
                   </div>
                   <span class="text-ar-1">Custom message</span>
                 </div>
-              </div>
-              <div class="meeting-header-right">
-                <VIcon icon="tabler-search" />
-                <input
-                  type="text"
-                  placeholder="Search"
-                >
-              </div>
-            </div>
-            <div class="meeting-container">
-              <QuillEditor />
-            </div>
-          </div>
-        </div>
-
-        <div class="meeting-mobile">
-          <div class="meeting-right">
-            <div class="meeting-header">
-              <div class="meeting-header-left">
-                <div class="meeting-left">
-                  <VCheckbox
-                    key="color"
-                    class="checkbox"
-                    color="success"
-                    value="success"
-                  />
-                  <p class="text-ar-1">
-                    <span>Reminder</span>
-                    <img
-                      src="../../assets/icons/question.svg"
-                      alt="icon"
-                    >
-                  </p>
-                </div>
-                <p>Label</p>
-                <div class="d-flex gap-1 align-items-center button-toggle">
-                  <div class="toggle-1">
-                    <input
-                      id="switch"
-                      type="checkbox"
-                      class="switch-input"
-                    >
-                    <label
-                      for="switch"
-                      class="switch"
-                    />
-                  </div>
-                  <span class="text-ar-1">Custom message</span>
-                </div>
-              </div>
-              <div class="meeting-header-select">
-                <div class="modal-select">
-                  <select class="modal-option">
-                    <option>15 min</option>
-                    <option>30 min</option>
-                    <option>1 hour</option>
-                  </select>
-                  <VIcon icon="tabler-chevron-down" />
-                </div>
-                <span>Delay Sending time</span>
               </div>
             </div>
             <div class="meeting-container">
@@ -368,15 +191,6 @@ export default {
                 value="success"
               />
               <span class="text-ar-1"> Send to Archive</span>
-            </div>
-            <div class="d-flex align-center">
-              <VCheckbox
-                key="color"
-                class="checkbox"
-                color="success"
-                value="success"
-              />
-              <span class="text-ar-1"> Ask Confirmation</span>
             </div>
           </div>
           <div class="d-flex justify-end align-center gap-2 bottom-schedule-1 ">
@@ -595,10 +409,6 @@ export default {
   margin-inline: 0;
 }
 
-.meeting-mobile {
-  display: none;
-}
-
 .meeting-left {
   display: flex;
   align-items: flex-start;
@@ -628,6 +438,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-block: 16px;
 }
 
 .meeting-header-left {

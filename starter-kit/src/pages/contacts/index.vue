@@ -1,72 +1,75 @@
 <script>
-import Whatsapp from "../../assets/images/iconify-svg/WhatsApp.svg.webp";
+import Whatsapp from '../../assets/images/iconify-svg/WhatsApp.svg.webp'
 
 export default {
-  name: "Contacts",
+  name: 'Contacts',
   data: () => {
     return {
-      page: "1",
+      page: '1',
       desserts: [
         {
-          name: "NAME",
-          mobileNumber: "name",
-          gender: "name",
-          age: "name",
+          name: 'NAME',
+          mobileNumber: 'name',
+          gender: 'name',
+          age: 'name',
         },
         {
-          name: "NAME",
-          mobileNumber: "name",
-          gender: "name",
-          age: "name",
+          name: 'NAME',
+          mobileNumber: 'name',
+          gender: 'name',
+          age: 'name',
         },
         {
-          name: "NAME",
-          mobileNumber: "name",
-          gender: "name",
-          age: "name",
+          name: 'NAME',
+          mobileNumber: 'name',
+          gender: 'name',
+          age: 'name',
         },
         {
-          name: "NAME",
-          mobileNumber: "name",
-          gender: "name",
-          age: "name",
+          name: 'NAME',
+          mobileNumber: 'name',
+          gender: 'name',
+          age: 'name',
         },
         {
-          name: "NAME",
-          mobileNumber: "name",
-          gender: "name",
-          age: "name",
+          name: 'NAME',
+          mobileNumber: 'name',
+          gender: 'name',
+          age: 'name',
         },
         {
-          name: "NAME",
-          mobileNumber: "name",
-          gender: "name",
-          age: "name",
+          name: 'NAME',
+          mobileNumber: 'name',
+          gender: 'name',
+          age: 'name',
         },
         {
-          name: "NAME",
-          mobileNumber: "name",
-          gender: "name",
-          age: "name",
+          name: 'NAME',
+          mobileNumber: 'name',
+          gender: 'name',
+          age: 'name',
         },
         {
-          name: "NAME",
-          mobileNumber: "name",
-          gender: "name",
-          age: "name",
+          name: 'NAME',
+          mobileNumber: 'name',
+          gender: 'name',
+          age: 'name',
         },
       ],
-    };
+    }
   },
   methods: {
     //
   },
-};
+}
 </script>
 
 <template>
   <div id="main">
-    <VContainer id="content" flex>
+    <VContainer
+      id="content"
+      flex
+    >
       <div class="d-flex childContent">
         <div class="d-flex childContent2">
           <p><b>Contact List</b></p>
@@ -84,7 +87,7 @@ export default {
             color="medium-emphasis"
             variant="outlined"
           >
-            <img src="../../assets/images/iconify-svg/WhatsApp.svg.webp" />
+            <img src="../../assets/images/iconify-svg/WhatsApp.svg.webp">
             <p><b>Whatsapp Sync</b></p>
           </VBtn>
           <VBtn
@@ -116,50 +119,53 @@ export default {
               <th class="text-left">
                 <div>
                   NAME
-                  <img src="../../assets/icons/arrows.svg" />
+                  <img src="../../assets/icons/arrows.svg">
                 </div>
               </th>
               <th class="text-left">
                 <div>
                   MOBILE NUMBER
-                  <img src="../../assets/icons/arrows.svg" />
+                  <img src="../../assets/icons/arrows.svg">
                 </div>
               </th>
               <th class="text-left">
                 <div>
                   GENDER
-                  <img src="../../assets/icons/arrows.svg" />
+                  <img src="../../assets/icons/arrows.svg">
                 </div>
               </th>
               <th class="text-left">
                 <div>
                   AGE
-                  <img src="../../assets/icons/arrows.svg" />
+                  <img src="../../assets/icons/arrows.svg">
                 </div>
               </th>
               <th class="text-left" />
             </tr>
           </thead>
           <tbody>
-            <tr v-for="item in desserts" :key="item.name">
+            <tr
+              v-for="item in desserts"
+              :key="item.name"
+            >
               <td>{{ item.name }}</td>
               <td>{{ item.mobileNumber }}</td>
               <td>{{ item.gender }}</td>
               <td>{{ item.age }}</td>
               <td class="d-flex threeBtn">
                 <button class="btn1">
-                  <img src="../../assets/images/iconify-svg/Group 501.png" />
+                  <img src="../../assets/images/iconify-svg/Group 501.png">
                 </button>
                 <div class="btn2">
                   <button>
                     <img
                       src="../../assets/images/iconify-svg/material-symbols_block.png"
-                    />
+                    >
                   </button>
                 </div>
                 <div class="btn3">
                   <button>
-                    <img src="../../assets/images/iconify-svg/trash 1.png" />
+                    <img src="../../assets/images/iconify-svg/trash 1.png">
                   </button>
                 </div>
               </td>

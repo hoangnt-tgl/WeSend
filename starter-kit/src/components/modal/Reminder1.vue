@@ -5,7 +5,7 @@ import { btnBlack } from '@/constant/buttonColor'
 
 const switchOn = ref('on')
 export default {
-  name: 'Meeting2',
+  name: 'Reminder1',
   components: {
     BtnRound,
   },

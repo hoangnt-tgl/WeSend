@@ -1,13 +1,7 @@
 <!-- eslint-disable vue/component-api-style -->
 <script lang="ts">
 import BtnRound from '@/components/buttons/roundedButton/index.vue'
-import { btnBlack } from '@/constant/buttonColor'
-
-const btnOutLine = {
-  background: 'transparent',
-  color: '#111827',
-  border: ' 1px solid #000 !important',
-}
+import { btnBlack, btnOutLine } from '@/constant/buttonColor'
 
 const switchOn = ref('on')
 export default {
@@ -214,9 +208,11 @@ export default {
   inset-block-start: 0;
   inset-inline-end: 0;
 }
-.text-ar-1{
+
+.text-ar-1 {
   font-size: var(--font-size-ssm);
 }
+
 .modal__group__input {
   margin-block-end: 4px;
 }

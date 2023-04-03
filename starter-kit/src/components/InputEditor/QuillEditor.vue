@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 import { defineComponent } from 'vue'
 
 // const icons = qill.import('ui/icons')
@@ -13,8 +13,7 @@ export default defineComponent({
     },
   },
   setup() {
-    return {
-    }
+    return {}
   },
 })
 </script>
@@ -23,10 +22,15 @@ export default defineComponent({
   <div>
     <QuillEditor
       :theme="theme"
-      :toolbar="['bold',
-                 'italic',
-                 'underline',
-                 'strike', 'image', 'video', 'link']"
+      :toolbar="[
+        'bold',
+        'italic',
+        'underline',
+        'strike',
+        'image',
+        'video',
+        'link',
+      ]"
     />
   </div>
 </template>
@@ -44,6 +48,6 @@ export default defineComponent({
   border: 1px solid #e0e7ff;
   border-radius: 10px 10px 0 0;
   background: #f6f6fe;
-  block-size: 70px;
+  block-size: 50px;
 }
 </style>

@@ -1,17 +1,20 @@
 <!-- eslint-disable vue/component-api-style -->
 <script lang="ts">
 import BtnRound from '@/components/buttons/roundedButton/index.vue'
+import QuillEditor from '@/components/InputEditor/QuillEditor.vue'
 import { btnBlack } from '@/constant/buttonColor'
 
 const switchOn = ref('on')
 export default {
-  name: 'Meeting2',
+  name: 'Reminder2',
   components: {
     BtnRound,
+    QuillEditor,
   },
   setup() {
     return {
       isModalOpen: true,
+
       switchOn,
       btnBlack,
     }
@@ -36,7 +39,7 @@ export default {
     />
 
     <!-- Dialog Content -->
-    <VCard title="Meeting">
+    <VCard title="Create/Edit Meeting">
       <div class="px-6 py-4">
         <div class="modal__label">
           Select Title
@@ -180,47 +183,7 @@ export default {
               </div>
             </div>
             <div class="meeting-container">
-              <div class="meeting-item active">
-                <div class="meeting-item-left">
-                  <span class="red" />
-                  <p>New Year Greeting</p>
-                </div>
-                <img
-                  src="../../assets/icons/check.svg"
-                  alt="icon"
-                >
-              </div>
-
-              <div class="meeting-item">
-                <div class="meeting-item-left">
-                  <span class="orange" />
-                  <p>Birthday Wish</p>
-                </div>
-                <img
-                  src="../../assets/icons/check.svg"
-                  alt="icon"
-                >
-              </div>
-              <div class="meeting-item">
-                <div class="meeting-item-left">
-                  <span class="green" />
-                  <p>Weekend Offer</p>
-                </div>
-                <img
-                  src="../../assets/icons/check.svg"
-                  alt="icon"
-                >
-              </div>
-              <div class="meeting-item">
-                <div class="meeting-item-left">
-                  <span class="blue" />
-                  <p>3O% Discount Week</p>
-                </div>
-                <img
-                  src="../../assets/icons/check.svg"
-                  alt="icon"
-                >
-              </div>
+              <QuillEditor />
             </div>
           </div>
         </div>
@@ -273,47 +236,7 @@ export default {
               </div>
             </div>
             <div class="meeting-container">
-              <div class="meeting-item active">
-                <div class="meeting-item-left">
-                  <span class="red" />
-                  <p>New Year Greeting</p>
-                </div>
-                <img
-                  src="../../assets/icons/check.svg"
-                  alt="icon"
-                >
-              </div>
-
-              <div class="meeting-item">
-                <div class="meeting-item-left">
-                  <span class="orange" />
-                  <p>Birthday Wish</p>
-                </div>
-                <img
-                  src="../../assets/icons/check.svg"
-                  alt="icon"
-                >
-              </div>
-              <div class="meeting-item">
-                <div class="meeting-item-left">
-                  <span class="green" />
-                  <p>Weekend Offer</p>
-                </div>
-                <img
-                  src="../../assets/icons/check.svg"
-                  alt="icon"
-                >
-              </div>
-              <div class="meeting-item">
-                <div class="meeting-item-left">
-                  <span class="blue" />
-                  <p>3O% Discount Week</p>
-                </div>
-                <img
-                  src="../../assets/icons/check.svg"
-                  alt="icon"
-                >
-              </div>
+              <QuillEditor />
             </div>
           </div>
         </div>
@@ -362,47 +285,7 @@ export default {
               </div>
             </div>
             <div class="meeting-container">
-              <div class="meeting-item active">
-                <div class="meeting-item-left">
-                  <span class="red" />
-                  <p>New Year Greeting</p>
-                </div>
-                <img
-                  src="../../assets/icons/check.svg"
-                  alt="icon"
-                >
-              </div>
-
-              <div class="meeting-item">
-                <div class="meeting-item-left">
-                  <span class="orange" />
-                  <p>Birthday Wish</p>
-                </div>
-                <img
-                  src="../../assets/icons/check.svg"
-                  alt="icon"
-                >
-              </div>
-              <div class="meeting-item">
-                <div class="meeting-item-left">
-                  <span class="green" />
-                  <p>Weekend Offer</p>
-                </div>
-                <img
-                  src="../../assets/icons/check.svg"
-                  alt="icon"
-                >
-              </div>
-              <div class="meeting-item">
-                <div class="meeting-item-left">
-                  <span class="blue" />
-                  <p>3O% Discount Week</p>
-                </div>
-                <img
-                  src="../../assets/icons/check.svg"
-                  alt="icon"
-                >
-              </div>
+              <QuillEditor />
             </div>
           </div>
         </div>
@@ -455,47 +338,7 @@ export default {
               </div>
             </div>
             <div class="meeting-container">
-              <div class="meeting-item active">
-                <div class="meeting-item-left">
-                  <span class="red" />
-                  <p>New Year Greeting</p>
-                </div>
-                <img
-                  src="../../assets/icons/check.svg"
-                  alt="icon"
-                >
-              </div>
-
-              <div class="meeting-item">
-                <div class="meeting-item-left">
-                  <span class="orange" />
-                  <p>Birthday Wish</p>
-                </div>
-                <img
-                  src="../../assets/icons/check.svg"
-                  alt="icon"
-                >
-              </div>
-              <div class="meeting-item">
-                <div class="meeting-item-left">
-                  <span class="green" />
-                  <p>Weekend Offer</p>
-                </div>
-                <img
-                  src="../../assets/icons/check.svg"
-                  alt="icon"
-                >
-              </div>
-              <div class="meeting-item">
-                <div class="meeting-item-left">
-                  <span class="blue" />
-                  <p>3O% Discount Week</p>
-                </div>
-                <img
-                  src="../../assets/icons/check.svg"
-                  alt="icon"
-                >
-              </div>
+              <QuillEditor />
             </div>
           </div>
         </div>

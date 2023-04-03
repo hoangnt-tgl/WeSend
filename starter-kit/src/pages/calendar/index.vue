@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/component-api-style -->
 <script>
 import { defineComponent } from 'vue'
 import Meeting1 from '@/components/modal/Meeting1.vue'
@@ -5,8 +6,8 @@ import Meeting2 from '@/components/modal/Meeting2.vue'
 import Meeting3 from '@/components/modal/Meeting3.vue'
 import CalendarDate from '@/components/dashboard/calendar/index.vue'
 import Calendarpicker from '@/components/calendarpicker/index.vue'
-import RoundedButton from '@/components/buttons/roundedButton/index.vue'
 import { btnOutLine } from '@/constant/buttonColor'
+import EditCreateNewLabel from '@/components/modal/EditCreateNewLabel.vue'
 
 const items = ['week', 'day']
 export default defineComponent({
@@ -17,17 +18,20 @@ export default defineComponent({
     Meeting3,
     CalendarDate,
     Calendarpicker,
+    EditCreateNewLabel,
   },
   setup() {
     return {
-      openMeeting1: ref(false),
-      openMeeting2: ref(false),
-      openMeeting3: ref(false),
+      openMeeting1: ref(true),
+      openMeeting2: ref(true),
+      openMeeting3: ref(true),
+      openEditCreateLabel: ref(false),
       btnOutLine,
       items,
       toggle: ref(false),
     }
   },
+
   methods: {
     handleMouseClick(e) {
       const element = document.querySelector('.pick-drop')
@@ -36,14 +40,34 @@ export default defineComponent({
       element.style.top = `${e.clientY}px`
       this.toggle = !this.toggle
     },
+    openMeetingModal() {
+      this.openMeeting1 = true
+    },
+    closeMeeting1Modal() {
+      this.openMeeting1 = false
+    },
+    closeMeeting2Modal() {
+      this.openMeeting2 = false
+    },
+    closeMeeting3Modal() {
+      this.openMeeting3 = false
+    },
+    openEditCreateLabelModal() {
+      this.openEditCreateLabel = true
+    },
+    closeEditCreateLabelModal() {
+      this.openEditCreateLabel = false
+    },
+    jumpToDate(date) {
+      console.log(date)
+    },
   },
-
 })
 </script>
 
 <template>
   <div>
-    <div class="calendar-header  d-flex  ">
+    <div class="calendar-header d-flex">
       <div class="calender-title">
         Schedule
       </div>
@@ -93,9 +117,20 @@ export default defineComponent({
         </div>
       </VCol>
     </VRow>
-    <Meeting1 v-if="openMeeting1" />
-    <Meeting2 v-if="openMeeting1" />
-    <Meeting3 v-if="openMeeting1" />
+    <Meeting1
+      v-if="openMeeting1"
+      @close="closeMeeting1Modal"
+    />
+    <EditCreateNewLabel v-if="openEditCreateLabel" />
+    <Meeting2
+      v-if="openMeeting2"
+      @close="closeMeeting2Modal"
+    />
+    <Meeting3
+      v-if="openMeeting3"
+      @close="closeMeeting3Modal"
+    />
+    Hello World
   </div>
 </template>
 

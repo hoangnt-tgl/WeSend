@@ -259,46 +259,4 @@ export default {
 .setting__des span {
   color: #111827;
 }
-
-.bottom-schedule .v-switch__thumb {
-  background-color: white !important;
-  block-size: 12px !important;
-  inline-size: 12px !important;
-}
-
-.bottom-schedule .v-switch__track {
-  block-size: 18px;
-}
-
-.bottom-schedule .v-label {
-  color: var(--text-dark) !important;
-  opacity: 1;
-}
-
-.text-ar {
-  color: var(--text-dark);
-}
-
-.delete {
-  padding: 8px;
-  border: 1px solid #d1d5db;
-  border-radius: 50%;
-}
-
-@media (max-width: 600px) {
-  .bottom-schedule {
-    justify-content: center !important;
-  }
-
-  .bottom-schedule-1 {
-    justify-content: center !important;
-    margin-block-start: 30px;
-  }
-}
-
-@media (max-width: 991px) {
-  .text-ar {
-    font-size: var(--font-size-ssm) !important;
-  }
-}
 </style>

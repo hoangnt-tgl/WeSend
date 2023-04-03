@@ -1,12 +1,12 @@
 <!-- eslint-disable vue/component-api-style -->
 <script lang="ts">
-import BtnRound from '@/components/buttons/roundedButton/index.vue'
-import QuillEditorCustomer from '@/components/InputEditor/QuillEditor.vue'
-import { btnBlack, btnOutLine } from '@/constant/buttonColor'
+import BtnRound from "@/components/buttons/roundedButton/index.vue";
+import QuillEditorCustomer from "@/components/InputEditor/QuillEditor.vue";
+import { btnBlack, btnOutLine } from "@/constant/buttonColor";
 
-const switchOn = ref('on')
+const switchOn = ref("on");
 export default {
-  name: 'CampaignSchedule',
+  name: "CampaignSchedule",
   components: {
     BtnRound,
     QuillEditorCustomer,
@@ -17,49 +17,33 @@ export default {
       btnOutLine,
       switchOn,
       btnBlack,
-    }
+    };
   },
   methods: {
     close() {
-      this.$emit('close')
+      this.$emit("close");
     },
   },
-}
+};
 </script>
 
 <template>
-  <VDialog
-    v-model="isModalOpen"
-    persistent
-    class="v-dialog-sm"
-  >
-    <DialogCloseBtn
-      class="close__btn"
-      @click="close"
-    />
+  <VDialog v-model="isModalOpen" persistent class="v-dialog-sm">
+    <DialogCloseBtn class="close__btn" @click="close" />
 
     <!-- Dialog Content -->
     <VCard title="Edit / Create new label">
       <div class="px-6 py-4">
-        <div class="modal__label">
-          Campaign Title
-        </div>
+        <div class="modal__label">Campaign Title</div>
         <div class="modal__input mb-4">
-          <input
-            type="text"
-            value="New Year Greeting"
-          >
+          <input type="text" value="New Year Greeting" />
         </div>
-        <div class="modal__label">
-          Message
-        </div>
-        <div
-          class="container-step-3 mb-4"
-        >
+        <div class="modal__label">Message</div>
+        <div class="modal__input mb-4">
           <QuillEditorCustomer />
         </div>
 
-        <div class="d-flex flex-column flex-sm-row justify-content-sm-between mt-6 mb-2">
+        <div class="d-flex flex-column mt-6 mb-2">
           <div class="w-100 d-flex align-center gap-5 bottom-schedule">
             <div>
               <VSwitch
@@ -79,7 +63,9 @@ export default {
               <span class="text-ar-1"> Send to Archive</span>
             </div>
           </div>
-          <div class="w-100 d-flex justify-end align-center gap-2 bottom-schedule-1">
+          <div
+            class="w-100 d-flex justify-end align-center gap-2 bottom-schedule-1"
+          >
             <button class="delete">
               <VIcon icon="tabler-trash" />
             </button>
@@ -111,6 +97,10 @@ export default {
 
 .text-ar-1 {
   font-size: var(--font-size-ssm);
+}
+
+.modal__group__input {
+  margin-block-end: 4px;
 }
 
 .modal__label {
@@ -147,5 +137,36 @@ export default {
   font-size: 12px;
   font-weight: 400;
   line-height: 17px;
+}
+
+.modal__setting {
+  padding: 16px;
+  border-radius: 5px;
+  background: #f3f4fb;
+}
+
+.setting__title {
+  color: #111827;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.setting__title span {
+  color: #6354d9;
+  font-weight: 700;
+}
+
+.setting__des {
+  color: #6b7280;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 17px;
+}
+
+.setting__des span {
+  color: #111827;
 }
 </style>

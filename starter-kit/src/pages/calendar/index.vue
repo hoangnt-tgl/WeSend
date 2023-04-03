@@ -27,7 +27,7 @@ export default defineComponent({
       openMeeting1: ref(false),
       openMeeting2: ref(false),
       openMeeting3: ref(false),
-      openMeetingDetail: ref(false),
+      openMeetingDetail: ref(true),
       openCampaign: ref(false),
       openReminder1: ref(false),
       openReminder2: ref(false),

@@ -1,17 +1,16 @@
 <!-- eslint-disable vue/component-api-style -->
 <script>
-import { defineComponent } from "vue";
-import Meeting1 from "@/components/modal/Meeting1.vue";
-import Meeting2 from "@/components/modal/Meeting2.vue";
-import Meeting3 from "@/components/modal/Meeting3.vue";
-import Reminder1 from "@/components/modal/Reminder1.vue";
-import Reminder2 from "@/components/modal/Reminder2.vue";
-import MeetingDetail from "@/components/modal/MeetingDetail.vue";
-import CalendarDate from "@/components/dashboard/calendar/index.vue";
-import Calendarpicker from "@/components/calendarpicker/index.vue";
-import { btnOutLine } from "@/constant/buttonColor";
-import EditCreateNewLabel from "@/components/modal/EditCreateNewLabel.vue";
-import CampaignSchedule from "@/components/modal/CampaignSchedule.vue";
+import { defineComponent } from 'vue'
+import Meeting1 from '@/components/modal/Meeting1.vue'
+import Meeting2 from '@/components/modal/Meeting2.vue'
+import Meeting3 from '@/components/modal/Meeting3.vue'
+import Reminder1 from '@/components/modal/Reminder1.vue'
+import Reminder2 from '@/components/modal/Reminder2.vue'
+import MeetingDetail from '@/components/modal/MeetingDetail.vue'
+import Calendarpicker from '@/components/calendarpicker/index.vue'
+import { btnOutLine } from '@/constant/buttonColor'
+import EditCreateNewLabel from '@/components/modal/EditCreateNewLabel.vue'
+import CampaignSchedule from '@/components/modal/CampaignSchedule.vue'
 
 import CalendarWeek from "@/components/calendarWeek/CalendarWeek.vue";
 import CalendarDay from "@/components/calendarWeek/CalendarDay.vue";
@@ -25,7 +24,6 @@ export default defineComponent({
     Meeting1,
     Meeting2,
     Meeting3,
-    CalendarDate,
     Calendarpicker,
     EditCreateNewLabel,
     MeetingDetail,

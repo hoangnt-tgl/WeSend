@@ -1,6 +1,7 @@
 <!-- eslint-disable vue/component-api-style -->
 <script lang="ts">
 import BtnRound from '@/components/buttons/roundedButton/index.vue'
+
 import { btnBlack, btnOutLine } from '@/constant/buttonColor'
 
 const switchOn = ref('on')

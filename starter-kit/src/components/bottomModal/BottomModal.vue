@@ -25,7 +25,7 @@ export default {
           class="drop-down-select"
         />
       </div>
-      <div class="dropdown-select px-2">
+      <div class="dropdown-select dropdown-select-minu px-2">
         <VSelect
           v-model="items1[0]"
           :items="items1"
@@ -95,9 +95,10 @@ export default {
 
 @media (max-width: 992px) {
   .bottom-label {
-    justify-content: center;
     flex-wrap: wrap;
+    justify-content: center;
   }
   .text-delay { display: none; }
+  .dropdown-select-minu { display: none; }
 }
 </style>

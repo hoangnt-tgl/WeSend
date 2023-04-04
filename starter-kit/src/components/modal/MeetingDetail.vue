@@ -1,7 +1,6 @@
 <!-- eslint-disable vue/component-api-style -->
 <script lang="ts">
 import BtnRound from '@/components/buttons/roundedButton/index.vue'
-import QuillEditor from '@/components/InputEditor/QuillEditor.vue'
 import { btnBlack } from '@/constant/buttonColor'
 
 const switchOn = ref('on')
@@ -9,12 +8,11 @@ export default {
   name: 'MeetingDetail',
   components: {
     BtnRound,
-    QuillEditor,
   },
   setup() {
     return {
       isModalOpen: true,
-
+      currentTab: ref('1'),
       switchOn,
       btnBlack,
     }
@@ -42,12 +40,22 @@ export default {
     <VCard>
       <div class="px-6 py-4">
         <div class="meeting-title">
-          <h5>Meeting Details</h5>
-          <h5 class="active">
+          <h5
+            :class="[{ active: currentTab === '1' }]"
+            @click="$event => { currentTab = '1' }"
+          >
+            Meeting Details
+          </h5>
+          <h5
+            :class="[{ active: currentTab === '2' }]"
+            @click="$event => { currentTab = '2' }"
+          >
             08 Confirmations
           </h5>
         </div>
-        <div class="meeting-container">
+        <div
+          class="meeting-container"
+        >
           <div class="meeting-container-title">
             <div class="title-left">
               <div class="name">
@@ -145,21 +153,28 @@ export default {
             </div>
           </div>
         </div>
+
         <div class="d-flex justify-content-sm-between mt-4 mb-2 gap-3 modal-footer">
           <div class="w-100 d-flex align-center gap-3 bottom-schedule">
             <div class="d-flex gap-1 align-items-center button-toggle">
-              <div class="toggle-1">
-                <input
+              <div class="">
+                <!--
+                  <input
                   id="switch"
                   type="checkbox"
                   class="switch-input"
-                >
-                <label
+                  >
+                  <label
                   for="switch"
                   class="switch"
+                  />
+                -->
+                <VSwitch
+                  label="Active"
+                  value="on"
+                  color="success"
                 />
               </div>
-              <span class="text-ar-1">Active</span>
             </div>
 
             <div class="d-flex align-center">

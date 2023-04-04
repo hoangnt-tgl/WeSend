@@ -22,16 +22,7 @@ export default {
         path: '/campaign/detail',
       })
     },
-    getClassStatus(status: string) {
-      if (status.includes('Active'))
-        return 'active'
 
-      else if (status.includes('Unscheduled'))
-        return ''
-
-      else if (status.includes('Scheduled'))
-        return 'scheduled'
-    },
     sortData(key: string) {
       console.log(this.asc)
 

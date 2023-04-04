@@ -195,7 +195,6 @@ export default defineComponent({
     <CampaignSchedule v-if="openCampaign" @close="closeCampaignModal" />
     <Reminder1 v-if="openReminder1" @close="closeReminderModal1" />
     <Reminder2 v-if="openReminder2" @close="closeReminderModal2" />
-    Hello World
   </div>
 </template>
 

@@ -1,6 +1,7 @@
 <!-- eslint-disable vue/component-api-style -->
 <script lang="ts">
 import BtnRound from '@/components/buttons/roundedButton/index.vue'
+import DatePicker from '@/components/datepicker/DatePicker.vue'
 import CampaignScheduleSetting from '@/components/modal/CampaignScheduleSetting.vue'
 import { btnBlack } from '@/constant/buttonColor'
 
@@ -13,11 +14,13 @@ const btnOutLine = {
 }
 
 const switchOn = ref('on')
+
 export default {
   name: 'CampaignSchedule',
   components: {
     BtnRound,
     CampaignScheduleSetting,
+    DatePicker,
   },
   setup() {
     return {
@@ -26,8 +29,10 @@ export default {
       btnOutLine,
       btnBlack,
       switchOn,
+      date: ref(''),
     }
   },
+
   methods: {
     close() {
       this.$emit('close')
@@ -38,7 +43,13 @@ export default {
     closeModalSetting() {
       this.isModalSettingOpen = false
     },
+    format(date) {
+      console.log(date.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric' }))
+
+      return date.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric' })
+    },
   },
+
 }
 </script>
 
@@ -73,11 +84,21 @@ export default {
             <div class="modal__label">
               Date
             </div>
-            <div class="modal__input">
-              <input
+            <div class="modal__input date-picker">
+              <!--
+                <input
                 type="text"
-                value="Wednesday, 26 Oct, 2022"
-              >
+                :value="date"
+                readonly
+                for="date-pick"
+                @click="$event => refs.DatePicker.click()"
+                >
+              -->
+              <DatePicker
+                id="date-pick"
+                ref="DatePicker"
+                v-model="date"
+              />
             </div>
           </div>
           <div class="w-100">
@@ -182,6 +203,19 @@ export default {
 </template>
 
 <style>
+.date-picker .dp__input {
+  display: block;
+  border: none;
+}
+
+.date-picker .dp__input_icon {
+  display: none;
+}
+
+.date-picker .dp_main {
+  inline-size: 100% !important;
+}
+
 .campaign-schedule-modal .v-card-title {
   color: var(--text-dark) !important;
   font-size: var(--font-size-md);

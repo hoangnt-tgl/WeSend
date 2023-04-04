@@ -98,6 +98,7 @@ export default {
                 id="date-pick"
                 ref="DatePicker"
                 v-model="date"
+              
               />
             </div>
           </div>
@@ -212,7 +213,7 @@ export default {
   display: none;
 }
 
-.date-picker .dp_main {
+.date-picker .dp__main {
   inline-size: 100% !important;
 }
 

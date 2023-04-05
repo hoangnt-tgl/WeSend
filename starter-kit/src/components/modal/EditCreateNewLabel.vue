@@ -1,5 +1,6 @@
 <!-- eslint-disable vue/component-api-style -->
 <script lang="ts">
+import BottomModal from '@/components/bottomModal/BottomModal.vue'
 import BtnRound from '@/components/buttons/roundedButton/index.vue'
 import QuillEditorCustomer from '@/components/InputEditor/QuillEditor.vue'
 import { btnBlack, btnOutLine } from '@/constant/buttonColor'
@@ -10,6 +11,7 @@ export default {
   components: {
     BtnRound,
     QuillEditorCustomer,
+    BottomModal,
   },
   setup() {
     return {
@@ -17,6 +19,8 @@ export default {
       btnOutLine,
       switchOn,
       btnBlack,
+      items: ['Select Label Color'],
+      items1: ['10 min'],
     }
   },
   methods: {
@@ -31,7 +35,7 @@ export default {
   <VDialog
     v-model="isModalOpen"
     persistent
-    class="v-dialog-sm"
+    class="v-dialog-lg"
   >
     <DialogCloseBtn
       class="close__btn"
@@ -58,31 +62,10 @@ export default {
         </div>
 
         <div class="d-flex flex-column mt-6 mb-2">
-          <div class="w-100 d-flex align-center gap-5 bottom-schedule">
-            <div>
-              <VSwitch
-                v-model="switchOn"
-                label="Active"
-                value="on"
-                color="success"
-              />
-            </div>
-            <div class="d-flex align-center">
-              <VCheckbox
-                key="color"
-                class="checkbox"
-                color="success"
-                value="success"
-              />
-              <span class="text-ar-1"> Send to Archive</span>
-            </div>
-          </div>
+          <BottomModal />
           <div
             class="w-100 d-flex justify-center align-center gap-2 bottom-schedule-1"
           >
-            <button class="delete">
-              <VIcon icon="tabler-trash" />
-            </button>
             <div>
               <BtnRound
                 button-title="Save"

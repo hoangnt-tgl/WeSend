@@ -13,6 +13,11 @@ export default {
       date,
     }
   },
+  methods: {
+    format(date) {
+      return date.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric' })
+    },
+  },
 }
 </script>
 
@@ -21,6 +26,8 @@ export default {
     v-model="date"
     calendar-cell-class-name="dp-custom-cell"
     :offset="30"
+    :format="format"
+    auto-apply
   >
     <template #input-icon>
       <VIcon icon="tabler-calendar-due" />

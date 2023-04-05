@@ -1,5 +1,5 @@
 <template>
-  <VCard>
+  <div class="profile">
     <div class="EditProfile">
       <div class="EditMenu">
         <div class="editMenuText">
@@ -13,9 +13,9 @@
             <button class="btnImg">
               Select Image
             </button>
-            <p class="textImg">
-              Max size: 20mb Recommed: 400x400
-            </p>
+            <div class="textImg">
+              <span>Max size: 20mb</span> <span>Recommed: 400x400</span>
+            </div>
           </div>
         </div>
       </div>
@@ -70,39 +70,38 @@
         </div>
       </div>
     </div>
-  </VCard>
+  </div>
 </template>
 
 <style scoped>
-.EditProfile {
+p {
+  margin-block-end: 8px;
+}
+
+input {
+  color: #111827;
+  inline-size: 100%;
+  outline: 0;
+}
+
+.profile {
+  padding: 20px;
   border-radius: 15px;
   background: #fff;
-  block-size: 577px;
-  margin-block-start: 35px;
-}
-
-.EditMenu {
-  block-size: 195px;
-}
-
-.EditProfileDetail {
-  block-size: 377px;
-  margin-inline-start: 30px;
 }
 
 .editMenuText {
-  block-size: 24px;
   color: #111827;
   font-size: 16px;
-  inline-size: 86px;
-  margin-block-start: 30px;
-  margin-inline-start: 30px;
+  font-weight: 700;
+  margin-block-end: 20px;
 }
 
 .editMenuImg {
   display: flex;
-  margin-block-start: 20px;
-  margin-inline-start: 30px;
+  align-items: center;
+  gap: 20px;
+  margin-block-end: 25px;
 }
 
 .img {
@@ -110,24 +109,25 @@
   inline-size: 100px;
 }
 
-.imgDetail {
-  margin-inline-start: 17px;
-}
-
 .btnImg {
   border: 1px solid #e5e7eb;
   border-radius: 30px;
-  block-size: 42px;
+  color: #111827;
   font-size: 15px;
-  inline-size: 124px;
-  margin-block-start: 10px;
+  font-weight: 600;
+  padding-block: 10px;
+  padding-inline: 24px;
+  transition: var(--smooth);
+}
+
+.btnImg:hover {
+  border-color: var(--text-dark);
 }
 
 .textImg {
-  block-size: 20px;
   color: #6b7280;
   font-size: 14px;
-  inline-size: 247px;
+  margin-block-end: 0;
   margin-block-start: 10px;
 }
 
@@ -135,15 +135,27 @@
   block-size: 22px;
 }
 
+.EditProfileDetail {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 .name {
   display: flex;
+  justify-content: space-between;
+}
+
+.firstName,
+.lastName {
+  inline-size: 49%;
 }
 
 .inputFirstName {
   border-radius: 5px;
   background: #f3f4fb;
   block-size: 48px;
-  inline-size: 224px;
+  inline-size: 100%;
   padding-block: 13px;
   padding-inline-start: 15px;
 }
@@ -152,7 +164,7 @@
   border-radius: 5px;
   background: #f3f4fb;
   block-size: 48px;
-  inline-size: 221px;
+  inline-size: 100%;
   padding-block: 13px;
   padding-inline-start: 15px;
 }
@@ -161,31 +173,21 @@
   border-radius: 5px;
   background: #f3f4fb;
   block-size: 48px;
-  inline-size: 460px;
   padding-block: 13px;
   padding-inline-start: 15px;
 }
 
-.textFirstName {
+.textFirstName,
+.textLastName,
+.textEmail {
+  color: #111827;
   font-size: 18px;
+  font-weight: 600;
 }
 
-.textLastName {
-  font-size: 18px;
-}
-
-.firstName {
-  inline-size: 224px;
-}
-
-.lastName {
-  inline-size: 221px;
-  margin-inline-start: 15px;
-}
-
-.email {
-  inline-size: 460px;
-  margin-block-start: 20px;
+.emailbar a {
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 .emailbar {
@@ -194,8 +196,7 @@
 }
 
 .saveChange {
-  margin-block-start: 20px;
-  margin-inline-start: 341px;
+  text-align: end;
 }
 
 .btnSaveChange {
@@ -205,5 +206,34 @@
   color: #fff;
   font-size: 14px;
   inline-size: 129px;
+  transition: var(--smooth);
+}
+
+.btnSaveChange:hover {
+  background: rgba(17, 24, 39, 80%);
+}
+
+@media (max-width: 480px) {
+  .textImg {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-block: 10px 0;
+    margin-inline: 0;
+  }
+
+  .textImg span {
+    display: block;
+  }
+
+  .name {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .firstName,
+  .lastName {
+    inline-size: 100%;
+  }
 }
 </style>

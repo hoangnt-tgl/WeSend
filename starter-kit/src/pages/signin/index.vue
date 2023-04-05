@@ -28,8 +28,16 @@ export default defineComponent({
 <template>
   <div class="sign-up">
     <div class="container">
-      <div v-if="step === 1" class="sign-up__container">
-        <h1>We<span>Send</span></h1>
+      <div
+        v-if="step === 1"
+        class="sign-up__container"
+      >
+        <h1>
+          <img
+            src="../../assets/images/logo.png"
+            alt="logo"
+          >
+        </h1>
         <div class="sign-up__content">
           <h2>Sign In</h2>
           <p>
@@ -37,8 +45,15 @@ export default defineComponent({
             to your account
           </p>
           <div class="input-number">
-            <input type="number" placeholder="+972">
-            <input type="number" placeholder="0000000000" class="phone-number">
+            <input
+              type="number"
+              placeholder="+972"
+            >
+            <input
+              type="number"
+              placeholder="0000000000"
+              class="phone-number"
+            >
             <button @click="nextStep">
               Sign in
             </button>
@@ -46,8 +61,11 @@ export default defineComponent({
           <div class="sign-up-input-checkbox">
             <label class="input-checkbox">
               <label>Keep me Sign in</label>
-              <input type="checkbox" checked="checked">
-              <span class="checkmark"></span>
+              <input
+                type="checkbox"
+                checked="checked"
+              >
+              <span class="checkmark" />
             </label>
             <button @click="nextStep">
               Sign in
@@ -56,7 +74,10 @@ export default defineComponent({
         </div>
         <p>New to WeSend. <a href="#">Sign up</a></p>
       </div>
-      <Verify v-else :action="VerifyAction" />
+      <Verify
+        v-else
+        :action="VerifyAction"
+      />
 
       <div class="sign-up__footer">
         <div class="sign-up__footer__link">
@@ -73,6 +94,10 @@ export default defineComponent({
 </template>
 
 <style scoped>
+h1 img {
+  inline-size: 150px;
+}
+
 .sign-up {
   background: url(../../assets/images/login/background.png) center / cover no-repeat;
   min-block-size: 115vh;
@@ -133,13 +158,13 @@ export default defineComponent({
   text-align: center;
 }
 
-.sign-up__container>p {
+.sign-up__container > p {
   color: #374151;
   font-size: 14px;
   margin-block: 30px 0;
 }
 
-.sign-up__container>p a {
+.sign-up__container > p a {
   color: #6354d9;
 }
 
@@ -188,65 +213,63 @@ input[type="number"] {
 }
 
 .input-checkbox {
-  display: block;
   position: relative;
-  padding-left: 30px;
-  margin-bottom: 20px;
+  display: block;
   cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
+  margin-block-end: 20px;
+  padding-inline-start: 30px;
+  user-select: none;
+  user-select: none;
   user-select: none;
 }
 
 .input-checkbox input {
   position: absolute;
-  opacity: 0;
+  block-size: 0;
   cursor: pointer;
-  height: 0;
-  width: 0;
+  inline-size: 0;
+  opacity: 0;
 }
 
 .input-checkbox label {
-  color: #374151;
   position: absolute;
-  top: 0;
-  width: 120px;
+  color: #374151;
+  inline-size: 120px;
+  inset-block-start: 0;
 }
 
 .checkmark {
   position: absolute;
-  top: 0;
-  left: 0;
-  height: 22px;
-  width: 22px;
-  background-color: #F3F4FB;
   border-radius: 5px;
+  background-color: #f3f4fb;
+  block-size: 22px;
+  inline-size: 22px;
+  inset-block-start: 0;
+  inset-inline-start: 0;
 }
 
-.input-checkbox input:checked~.checkmark {
+.input-checkbox input:checked ~ .checkmark {
   background: #6366f1;
 }
 
-.checkmark:after {
-  content: "";
+.checkmark::after {
   position: absolute;
   display: none;
+  content: "";
 }
 
-.input-checkbox input:checked~.checkmark:after {
+.input-checkbox input:checked ~ .checkmark::after {
   display: block;
 }
 
-.input-checkbox .checkmark:after {
-  left: 9px;
-  top: 5px;
-  width: 5px;
-  height: 10px;
+.input-checkbox .checkmark::after {
   border: solid white;
   border-width: 0 3px 3px 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
+  block-size: 10px;
+  inline-size: 5px;
+  inset-block-start: 5px;
+  inset-inline-start: 9px;
+  transform: rotate(45deg);
   transform: rotate(45deg);
 }
 
@@ -269,7 +292,7 @@ input[type="number"] {
   background: rgba(17, 24, 39, 70%);
 }
 
-.sign-up__container>p a {
+.sign-up__container > p a {
   color: #6354d9;
   text-decoration: underline;
 }
@@ -300,7 +323,6 @@ input[type="number"] {
 }
 
 @media (min-width: 479px) {
-
   p,
   .sign-up__footer {
     font-size: 16px !important;

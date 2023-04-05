@@ -1,6 +1,6 @@
 <template>
-  <VCard>
-    <div>
+  <div>
+    <div class="detail">
       <div class="moneyBar">
         <div class="money">
           <div class="mini">
@@ -22,54 +22,64 @@
         </div>
       </div>
     </div>
-  </VCard>
+  </div>
 </template>
 
 <style scoped>
+.detail {
+
+}
+
 .moneyBar {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  border-radius: 10px;
-  background-color: rgb(123, 123, 219);
-  block-size: 148px;
+  padding: 20px;
+  border-radius: 15px;
+  background: url("../../assets/images/layer.png") center right / cover no-repeat;
+  block-size: 180px;
+  gap: 16px;
 
   /* inline-size: 520px; */
 }
 
 .changePackage {
-  margin-block: 51px;
-  margin-inline-end: 30px;
+
 }
 
 .btnChangePackage {
+  border: 1px solid transparent;
   border-radius: 30px;
   background: #fff;
   block-size: 46px;
+  color: #374151;
   inline-size: 149px;
+  transition: var(--smooth);
+}
+
+.btnChangePackage:hover {
+  border-color: var(--text-dark);
 }
 
 .textChangePackage {
-  color: #111827;
+  color: #374151;
   font-size: 15px;
+  font-weight: 600;
 }
 
 .money {
-  block-size: 88px;
-  inline-size: 172px;
-  margin-block: 30px;
-  margin-inline-start: 30px;
+  flex: 1;
 }
 
 .moneyMini {
   color: #fff;
   font-size: 34px;
+  font-weight: 600;
 }
 
 .dateMini {
-  block-size: 22px;
   color: #fff;
   font-size: 15px;
-  inline-size: 172px;
 }
 
 .mini {

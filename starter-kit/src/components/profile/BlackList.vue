@@ -65,7 +65,7 @@ export default {
           </div>
           <div class="buttonReLoad">
             <button class="btnReLoad">
-              <img src="@/assets/images/rotate-2 1.svg">
+              <img src="@/assets/images/rotate-21.svg">
             </button>
           </div>
         </div>

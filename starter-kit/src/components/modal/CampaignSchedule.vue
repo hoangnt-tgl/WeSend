@@ -98,7 +98,6 @@ export default {
                 id="date-pick"
                 ref="DatePicker"
                 v-model="date"
-              
               />
             </div>
           </div>

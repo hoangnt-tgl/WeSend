@@ -1,54 +1,69 @@
-<script>
+<!-- eslint-disable vue/component-api-style -->
+<script lang="ts">
+import Switch from '@/components/CustomSwitches/index.vue'
+
 export default {
-  data() {
+  name: 'WhatsAppBot',
+  components: {
+    Switch,
+  },
+  setup() {
     return {
       model: false,
       label: 'Deactive',
     }
   },
-  watch: {
-    model(e) {
-      console.log(e)
-      e ? this.label = 'Active' : this.label = 'Deactive'
+  methods: {
+    openBotSetting() {
+      this.$router.push('/bot-setting')
     },
   },
 }
 </script>
 
 <template>
-  <div>
+  <div class="what-apps">
     <div class="title">
-      <VRow class="ma-0 rowTitle">
-        <p><b>WhatsApp Bots</b></p>
-        <VSpacer />
-        <VBtn prepend-icon="mdi-add">
-          <p>Create New Bot</p>
-        </VBtn>
-      </VRow>
+      <p><b>WhatsApp Bots</b></p>
+      <button>
+        <img
+          src="../../assets/icons/plus.svg"
+          alt="icon plus"
+        >
+        <p>Create New Bot</p>
+      </button>
     </div>
     <div class="data">
-      <VCard v-for="i in 12">
-        <VCardContent class="v-card-content">
-          <b>Haircut Menu Bot</b>
-        </VCardContent>
-        <VCardText class="v-card-text1">
-          Last updated: 20 mins ago
-        </VCardText>
-        <VCardText class="v-card-text2">
-          “Hey thanks for contacting. WeSend team will contact you shortly otherwise select...”
-        </VCardText>
-        <VCardText class="v-card-text3">
-          <p><b>Options:</b> 2</p>
-          <p id="p1">
-            <b>Refresh:</b> 15 mins
-          </p>
-        </VCardText>
+      <VCard
+        v-for="(item, idx) in 12"
+        :key="idx"
+      >
+        <div
+          class="data-content"
+          @click="openBotSetting"
+        >
+          <VCardContent class="v-card-content">
+            Haircut Menu Bot
+          </VCardContent>
+          <VCardText class="v-card-text1">
+            Last updated: 20 mins ago
+          </VCardText>
+          <VCardText class="v-card-text2">
+            “Hey thanks for contacting. WeSend team will contact you shortly otherwise select...”
+          </VCardText>
+          <VCardText class="v-card-text3">
+            <p><b>Options:</b> 2</p>
+            <p id="p1">
+              <b>Refresh:</b> 15 mins
+            </p>
+          </VCardText>
+        </div>
         <VCardAction class="v-card-action">
-          <VSwitch
+          <Switch
             v-model="model"
-            hide-details
-            inset
-            :label="`${label}`"
+            label="Active"
+            value="on"
+            color="success"
           />
           <button>
             <img src="../../assets/images/trash.svg">
@@ -61,37 +76,46 @@ export default {
 
 <style scoped>
 .title {
-  block-size: 114px;
-  padding-block: 33px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-block-end: 20px;
 }
 
-.rowTitle {
+.title {
   block-size: 100%;
   inline-size: 100%;
 }
 
-.rowTitle p {
+.title p {
   margin: 0;
   color: #111827;
-  font-family: Poppins;
-  font-feature-settings: "pnum" on, "lnum" on;
   font-size: 24px;
   font-style: normal;
   font-weight: 500;
   line-height: 36px;
 }
 
-.rowTitle button {
+.title button {
+  display: flex;
+  align-items: center;
   border-radius: 30px;
+  background: var(--text-dark);
   block-size: 100%;
+  gap: 10px;
+  padding-block: 14px;
+  padding-inline: 24px;
+  transition: var(--smooth);
 }
 
-.rowTitle button p {
-  z-index: 1;
+.title button:hover {
+  background: rgba(17, 24, 39, 80%);
+}
+
+.title button p {
   margin: 0;
   block-size: 100%;
   color: #fff;
-  font-family: Lato;
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
@@ -99,9 +123,12 @@ export default {
 }
 
 .data {
-  display: flex;
+  display: grid;
   flex-wrap: wrap;
   justify-content: space-between;
+  column-gap: 16px;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: 16px;
 }
 
 .data .v-card {
@@ -109,16 +136,16 @@ export default {
   border-radius: 15px;
   margin: 0;
   background-color: white;
-  block-size: 233px;
-  inline-size: 250px;
-  padding-block-start: 20px;
-  padding-inline: 23px;
+  min-inline-size: 200px;
+}
+
+.data-content {
+  padding: 20px;
 }
 
 .data .v-card .v-card-content {
   block-size: 24px;
   color: #374151;
-  font-family: Poppins;
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
@@ -129,7 +156,6 @@ export default {
   padding: 0;
   block-size: 18px;
   color: #9ca3af;
-  font-family: Poppins;
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
@@ -141,7 +167,6 @@ export default {
   padding: 0;
   block-size: 54px;
   color: #374151;
-  font-family: Lato;
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
@@ -166,7 +191,6 @@ export default {
 
 .v-card .v-card-text3 p b {
   color: #111827;
-  font-family: Lato;
   font-size: 12px;
   font-style: normal;
   font-weight: 700;
@@ -174,18 +198,16 @@ export default {
 }
 
 .v-card-action {
-  position: absolute;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0;
   margin: 0;
   background-color: #f9f9ff;
-  block-size: 50px;
   inset-block-end: 0;
   inset-inline: 0;
-  margin-block-start: 15px;
-  padding-inline: 23px;
+  padding-block: 10px;
+  padding-inline: 20px;
 }
 
 .v-card-action button {
@@ -205,19 +227,10 @@ export default {
 
 .v-switch .v-label {
   color: #374151;
-  font-family: Lato;
-  font-size: 9.18347px;
+  font-size: 10px;
   font-style: normal;
   font-weight: 400;
   line-height: 11px;
-}
-
-.v-selection-control--dirty .v-selection-control__wrapper .v-switch__track {
-  background-color: #1faf38;
-}
-
-.v-switch--inset .v-switch__track {
-  background-color: #ebebf8;
 }
 
 .v-switch--inset .v-switch__thumb {
@@ -231,9 +244,9 @@ export default {
   inline-size: 37px;
 }
 
-.data > div:nth-child(n+5) {
+/* .data > div:nth-child(n+5) {
   margin-block-start: 25px;
-}
+} */
 
 .v-btn__underlay {
   border-radius: 30px;
@@ -244,5 +257,44 @@ svg.iconify {
   border-radius: 50%;
   background-color: white;
   color: black;
+}
+
+@media (max-width: 1024px) {
+  .data {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .data {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .data {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .what-apps {
+    padding-block: 0;
+    padding-inline: 20px;
+  }
+}
+
+@media (max-width: 435px) {
+  .title button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border-radius: 50%;
+    block-size: 45px;
+    inline-size: 45px;
+  }
+
+  .title button p {
+    display: none;
+  }
 }
 </style>

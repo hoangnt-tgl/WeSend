@@ -13,6 +13,7 @@ export default {
         { name: 'Varun Gupta', phoneNumber: '+91-99921312312' },
         { name: 'Varun Gupta', phoneNumber: '+91-99921312312' },
         { name: 'Varun Gupta', phoneNumber: '+91-99921312312' },
+        { name: 'Varun Gupta', phoneNumber: '+91-99921312312' },
       ],
     }
   },
@@ -21,14 +22,14 @@ export default {
 </script>
 
 <template>
-  <VCard>
+  <div class="black-list">
     <div class="blacklList">
       <div class="blackListBar">
         <p class="textBlackList">
           Black List
         </p>
         <button class="btnAdd">
-          Add New
+          + Add New
         </button>
       </div>
       <div class="menu">
@@ -44,7 +45,7 @@ export default {
         </div>
       </div>
 
-      <div style="overflow: auto;">
+      <div class="list-item">
         <div
           v-for="item in items"
           :key="item.name"
@@ -64,34 +65,49 @@ export default {
           </div>
           <div class="buttonReLoad">
             <button class="btnReLoad">
-              <img src="@/assets/images/rotate-21.png">
+              <img src="@/assets/images/rotate-21.svg">
             </button>
           </div>
         </div>
       </div>
     </div>
-  </VCard>
+  </div>
 </template>
 
 <style scoped>
-.blacklList {
-  block-size: 493px;
-  margin-block-start: 22px;
-  margin-inline-start: 30px;
+p {
+  margin: 0 !important;
 }
+
+.black-list {
+  border-radius: 15px;
+  background: #fff;
+  padding-block: 20px;
+  padding-inline: 20px 0;
+}
+
+/* .blacklList {
+  block-size: 493px;
+} */
 
 .first {
   display: flex;
+  flex: 1;
+  gap: 16px;
 }
 
 .blackListBar {
   display: flex;
+  align-items: center;
   justify-content: space-between;
+  margin-block-end: 30px;
+  padding-inline-end: 20px;
 }
 
 .textBlackList {
   color: #111827;
   font-size: 16px;
+  font-weight: 700;
   margin-block-start: 8px;
 }
 
@@ -104,29 +120,38 @@ export default {
   border: 1px solid #d1d5db;
   border-radius: 100px;
   block-size: 40px;
+  color: var(--text-dark);
   font-size: 13px;
+  font-weight: 600;
   inline-size: 109px;
-  margin-inline-end: 21px;
+  transition: var(--smooth);
 }
 
 .menu {
   display: flex;
+  gap: 16px;
+  inline-size: calc(100% - 52px);
+  padding-inline-end: 20px;
 }
 
-/* .phoneBlackList {
-
+.list-item {
+  block-size: 300px;
+  overflow-y: scroll;
+  padding-inline-end: 20px;
 }
-
-.phoneInBlackList {
-
-} */
 
 .listBlackList {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  block-size: 62px;
   border-block-end: 1px solid #e5e7eb;
-  border-block-start: 1px solid #e5e7eb;
+  gap: 16px;
+  padding-block: 20px;
+  padding-inline: 0;
+}
+
+.listBlackList:last-child {
+  border-block-end: 0;
 }
 
 .textInBlackList {
@@ -136,12 +161,34 @@ export default {
 }
 
 .nameBlackList {
-  inline-size: 176px;
+  inline-size: 45%;
+  min-inline-size: 100px;
 }
 
 .btnReLoad {
-  align-self: right;
-  margin-block: 20px;
-  margin-inline-end: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-gray);
+  border-radius: 5px;
+  block-size: 36px;
+  inline-size: 36px;
+  transition: var(--smooth);
+}
+
+.btnReLoad:hover,
+.btnAdd:hover {
+  border-color: var(--text-dark);
+}
+
+@media (max-width: 480px) {
+  .menu {
+    display: none;
+  }
+
+  .first {
+    flex-direction: column;
+    gap: 10px;
+  }
 }
 </style>

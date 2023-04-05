@@ -12,14 +12,14 @@ import { btnOutLine } from '@/constant/buttonColor'
 import EditCreateNewLabel from '@/components/modal/EditCreateNewLabel.vue'
 import CampaignSchedule from '@/components/modal/CampaignSchedule.vue'
 
-import CalendarWeek from "@/components/calendarWeek/CalendarWeek.vue";
-import CalendarDay from "@/components/calendarWeek/CalendarDay.vue";
-import Datepicker from "@/components/datepicker/DatePicker.vue";
+import CalendarWeek from '@/components/calendarWeek/CalendarWeek.vue'
+import CalendarDay from '@/components/calendarWeek/CalendarDay.vue'
+import Datepicker from '@/components/datepicker/DatePicker.vue'
 
-const items = ["week", "day"];
-const label = ["label", "label2", "label3"];
+const items = ['week', 'day']
+const label = ['label', 'label2', 'label3']
 export default defineComponent({
-  name: "Calendar",
+  name: 'Calendar',
   components: {
     Meeting1,
     Meeting2,
@@ -48,85 +48,94 @@ export default defineComponent({
       items,
       toggle: ref(false),
       isWeek: ref(true),
-      selected: ref("week"),
+      selected: ref('week'),
       label,
-      selectedLabel: "label",
-    };
+      selectedLabel: 'label',
+    }
   },
   watch: {
     selected() {
-      if (this.selected === "week") this.isWeek = true;
-      else this.isWeek = false;
+      if (this.selected === 'week')
+        this.isWeek = true
+      else this.isWeek = false
     },
   },
   methods: {
     handleMouseClick(e) {
-      const element = document.querySelector(".pick-drop");
+      const element = document.querySelector('.pick-drop')
 
-      element.style.left = `${e.clientX}px `;
-      element.style.top = `${e.clientY}px`;
-      this.toggle = !this.toggle;
+      element.style.left = `${e.clientX}px `
+      element.style.top = `${e.clientY}px`
+      this.toggle = !this.toggle
     },
     openMeetingModal() {
-      this.openMeeting1 = true;
-      this.openMeeting2 = true;
-      this.openMeeting3 = true;
-      this.openMeetingDetail = true;
+      this.openMeeting1 = true
+      this.openMeeting2 = true
+      this.openMeeting3 = true
+      this.openMeetingDetail = true
     },
     closeMeeting1Modal() {
-      this.openMeeting1 = false;
+      this.openMeeting1 = false
     },
     closeMeeting2Modal() {
-      this.openMeeting2 = false;
+      this.openMeeting2 = false
     },
     closeMeeting3Modal() {
-      this.openMeeting3 = false;
+      this.openMeeting3 = false
     },
     closeMeetingDetailModal() {
-      this.openMeetingDetail = false;
+      this.openMeetingDetail = false
     },
     openEditCreateLabelModal() {
-      this.openEditCreateLabel = true;
+      this.openEditCreateLabel = true
     },
     closeEditCreateLabelModal() {
-      this.openEditCreateLabel = false;
+      this.openEditCreateLabel = false
     },
     openCampaignModal() {
-      this.openCampaign = true;
+      this.openCampaign = true
     },
     closeCampaignModal() {
-      this.openCampaign = false;
+      this.openCampaign = false
     },
     openReminderModal() {
-      this.openReminder1 = true;
-      this.openReminder2 = true;
+      this.openReminder1 = true
+      this.openReminder2 = true
     },
     closeReminderModal1() {
-      this.openReminder1 = false;
+      this.openReminder1 = false
     },
     closeReminderModal2() {
-      this.openReminder2 = false;
+      this.openReminder2 = false
     },
 
     openMeetingDetailModal() {
-      this.openMeetingDetail = true;
+      this.openMeetingDetail = true
     },
 
     jumpToDate(date) {
-      console.log(date);
+      console.log(date)
     },
   },
-});
+})
 </script>
 
 <template>
   <div>
     <div class="calendar-header d-flex">
-      <div class="calender-title">Schedule</div>
+      <div class="calender-title">
+        Schedule
+      </div>
       <div class="calender-button d-flex gap-5">
         <div class="d-flex gap-5 calendar-checkbox">
-          <VCheckbox label="Event & Labels" color="primary" />
-          <VCheckbox label="Campaigns" color="primary" />
+          <VCheckbox
+            label="Event & Labels"
+            color="primary"
+          />
+          <VCheckbox
+            label="Campaigns"
+            color="primary"
+          />
         </div>
         <div class="d-flex gap-5">
           <div class="date-picker-box">
@@ -166,33 +175,69 @@ export default defineComponent({
         class="calendar-box"
         @click="($event) => handleMouseClick($event)"
       >
-        <div v-if="isWeek" class="calendar-wrapper">
+        <div
+          v-if="isWeek"
+          class="calendar-wrapper"
+        >
           <CalendarWeek />
         </div>
-        <div v-else class="calendar-wrapper">
+        <div
+          v-else
+          class="calendar-wrapper"
+        >
           <CalendarDay />
         </div>
 
-        <div class="pick-drop" v-show="toggle">
-          <p @click="openMeetingModal">Add Meeting</p>
+        <div
+          v-show="toggle"
+          class="pick-drop"
+        >
+          <p @click="openMeetingModal">
+            Add Meeting
+          </p>
           <VDivider />
-          <p @click="openCampaignModal">Add Campaign</p>
+          <p @click="openCampaignModal">
+            Add Campaign
+          </p>
           <VDivider />
-          <p @click="openReminderModal">Add Reminder</p>
+          <p @click="openReminderModal">
+            Add Reminder
+          </p>
         </div>
       </VCol>
     </VRow>
-    <Meeting1 v-if="openMeeting1" @close="closeMeeting1Modal" />
+    <Meeting1
+      v-if="openMeeting1"
+      @close="closeMeeting1Modal"
+    />
     <EditCreateNewLabel
       v-if="openEditCreateLabel"
       @close="closeEditCreateLabelModal"
     />
-    <Meeting2 v-if="openMeeting2" @close="closeMeeting2Modal" />
-    <Meeting3 v-if="openMeeting3" @close="closeMeeting3Modal" />
-    <MeetingDetail v-if="openMeetingDetail" @close="closeMeetingDetailModal" />
-    <CampaignSchedule v-if="openCampaign" @close="closeCampaignModal" />
-    <Reminder1 v-if="openReminder1" @close="closeReminderModal1" />
-    <Reminder2 v-if="openReminder2" @close="closeReminderModal2" />
+    <Meeting2
+      v-if="openMeeting2"
+      @close="closeMeeting2Modal"
+    />
+    <Meeting3
+      v-if="openMeeting3"
+      @close="closeMeeting3Modal"
+    />
+    <MeetingDetail
+      v-if="openMeetingDetail"
+      @close="closeMeetingDetailModal"
+    />
+    <CampaignSchedule
+      v-if="openCampaign"
+      @close="closeCampaignModal"
+    />
+    <Reminder1
+      v-if="openReminder1"
+      @close="closeReminderModal1"
+    />
+    <Reminder2
+      v-if="openReminder2"
+      @close="closeReminderModal2"
+    />
   </div>
 </template>
 

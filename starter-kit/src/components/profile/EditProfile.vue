@@ -1,3 +1,17 @@
+<!-- eslint-disable vue/component-api-style -->
+<script lang="ts">
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  name: 'EditProfile',
+  methods: {
+    chooseFiles() {
+      document.getElementById('fileUpload')?.click()
+    },
+  },
+})
+</script>
+
 <template>
   <div class="profile">
     <div class="EditProfile">
@@ -10,9 +24,17 @@
             <img src="@/assets/images/Ellipse20.png">
           </div>
           <div class="imgDetail">
-            <button class="btnImg">
+            <button
+              class="btnImg"
+              @click="chooseFiles"
+            >
               Select Image
             </button>
+            <input
+              id="fileUpload"
+              type="file"
+              style="display: none;"
+            >
             <div class="textImg">
               <span>Max size: 20mb</span> <span>Recommed: 400x400</span>
             </div>

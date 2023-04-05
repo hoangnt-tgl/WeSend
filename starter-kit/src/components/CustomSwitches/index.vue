@@ -14,7 +14,7 @@ export default {
   <div class="custom-switch">
     <VSwitch
       v-model="switchOn"
-      label="Active"
+      :label="switchOn ? 'Active' : 'Deactive'"
       value="on"
       color="success"
     />

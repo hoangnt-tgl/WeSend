@@ -1,15 +1,21 @@
-<script>
+<!-- eslint-disable vue/component-api-style -->
+<script lang="ts">
+import Switch from '@/components/CustomSwitches/index.vue'
+
 export default {
-  data() {
+  name: 'WhatsAppBot',
+  components: {
+    Switch,
+  },
+  setup() {
     return {
       model: false,
       label: 'Deactive',
     }
   },
-  watch: {
-    model(e) {
-      console.log(e)
-      e ? this.label = 'Active' : this.label = 'Deactive'
+  methods: {
+    openBotSetting() {
+      this.$router.push('/bot-setting')
     },
   },
 }
@@ -28,8 +34,14 @@ export default {
       </button>
     </div>
     <div class="data">
-      <VCard v-for="i in 12">
-        <div class="data-content">
+      <VCard
+        v-for="(item, idx) in 12"
+        :key="idx"
+      >
+        <div
+          class="data-content"
+          @click="openBotSetting"
+        >
           <VCardContent class="v-card-content">
             Haircut Menu Bot
           </VCardContent>
@@ -47,11 +59,11 @@ export default {
           </VCardText>
         </div>
         <VCardAction class="v-card-action">
-          <VSwitch
+          <Switch
             v-model="model"
-            hide-details
-            inset
-            :label="`${label}`"
+            label="Active"
+            value="on"
+            color="success"
           />
           <button>
             <img src="../../assets/images/trash.svg">

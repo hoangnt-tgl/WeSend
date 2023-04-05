@@ -16,13 +16,7 @@
             1 min
           </p>
         </div>
-        <div class="containerTime">
-          <div class="timeFill" />
-          <div class="imgTime">
-            <img src="@/assets/images/Ellipse30.png">
-          </div>
-          <div class="timeSpace" />
-        </div>
+        <div class="containerTime" />
         <div class="saveChange">
           <button class="btnSaveChange">
             Save Changes
@@ -35,28 +29,24 @@
 
 <style scoped>
 .container {
+  padding: 20px;
   border-radius: 15px;
   background-color: #fff;
-  block-size: 231px;
-}
-
-.containerInside {
-  margin-block-start: 30px;
-  margin-inline: 30px;
-  margin-inline-end: 30px;
 }
 
 .txtTitle {
   block-size: 24px;
   color: #111827;
   font-size: 16px;
+  font-weight: 600;
+  margin-block-end: 6px;
 }
 
 .txtTitle2 {
   block-size: 20px;
   color: #4b5563;
   font-size: 14px;
-  margin-block-start: 4px;
+  margin-block-end: 30px;
 }
 
 .btnSaveChange {
@@ -67,6 +57,12 @@
   font-size: 14px;
   inline-size: 129px;
   inset-inline-end: 0;
+  margin-block-start: 30px;
+  transition: var(--smooth);
+}
+
+.btnSaveChange:hover {
+  background: rgba(17, 24, 39, 80%);
 }
 
 .txtTime {
@@ -84,34 +80,38 @@
   block-size: 7px;
 }
 
-.timeFill {
-  border-radius: 5px;
-  background: #8b5cf6;
-  inline-size: 163px;
-  margin-block: 10px;
-}
-
-.timeSpace {
-  border-radius: 5px;
-  background: #f3f4f6;
-  inline-size: 300px;
-  margin-block: 10px;
-}
-
-.imgTime {
-  block-size: 27px;
-  inline-size: 27px;
-  margin-block-end: 5px;
-}
-
 .saveChange {
-  margin-block-start: 20px;
-  margin-inline-start: 341px;
+  text-align: end;
 }
 
 .containerTime {
   position: relative;
-  display: flex;
-  block-size: 27px;
+  border-radius: 30px;
+  background: #f3f4f6;
+  block-size: 7px;
+}
+
+.containerTime::after {
+  position: absolute;
+  border-radius: 30px 0 0 30px;
+  background: #8b5cf6;
+  block-size: 7px;
+  content: "";
+  inline-size: 40%;
+  inset-block-start: 0;
+}
+
+.containerTime::before {
+  position: absolute;
+  z-index: 10;
+  border-radius: 50%;
+  background: #c7d2fe;
+  block-size: 26px;
+  content: "";
+  cursor: pointer;
+  inline-size: 26px;
+  inset-block-start: 0;
+  inset-block-start: -10px;
+  inset-inline-start: 39%;
 }
 </style>

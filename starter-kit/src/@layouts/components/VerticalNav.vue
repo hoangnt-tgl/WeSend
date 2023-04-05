@@ -99,7 +99,10 @@ const handleNavScroll = (evt: Event) => {
                 v-else
                 class="app-title leading-normal text-xl text-h5"
               >
-                <b>We</b><span>Send</span>
+                <img
+                  src="../../assets/images/logo.png"
+                  alt="logo"
+                >
               </div>
             </Transition>
           <!--
@@ -214,6 +217,7 @@ const handleNavScroll = (evt: Event) => {
 @use "@layouts/styles/mixins";
 
 // 👉 Vertical Nav
+
 .layout-vertical-nav {
   position: fixed;
   z-index: variables.$layout-vertical-nav-z-index;
@@ -232,6 +236,11 @@ const handleNavScroll = (evt: Event) => {
 
     .header-action {
       cursor: pointer;
+    }
+
+    .app-title img {
+      display: block;
+      inline-size: 90px;
     }
   }
 

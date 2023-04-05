@@ -38,7 +38,12 @@ export default {
   <div class="select">
     <div class="container">
       <div class="select__container">
-        <h1>We<span>Send</span></h1>
+        <h1>
+          <img
+            src="../../assets/images/logo.png"
+            alt="logo"
+          >
+        </h1>
         <div class="wrapper-stepper">
           <div class="stepper">
             <div class="stepper-progress">
@@ -103,6 +108,10 @@ export default {
 </template>
 
 <style scoped>
+h1 img {
+  inline-size: 150px;
+}
+
 .select {
   background: url(../../assets/images/login/background.png) center / cover no-repeat;
   min-block-size: 140vh;

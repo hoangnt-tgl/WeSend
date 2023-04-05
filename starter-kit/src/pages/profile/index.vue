@@ -16,13 +16,15 @@ export default {
 
 <template>
   <div>
-    <div><h2>Profile</h2></div>
-    <div class="container-profile justify-content-around gap-4">
-      <div class="d-flex flex-column w-100 gap-5">
+    <h2 class="title-profile">
+      Profile
+    </h2>
+    <div class="container-profile">
+      <div class="profile-item">
         <ProfileDetail />
         <EditProfile />
       </div>
-      <div class="d-flex flex-column w-100 gap-5">
+      <div class="profile-item">
         <BlackList />
         <DelayMessage />
       </div>
@@ -30,18 +32,45 @@ export default {
   </div>
 </template>
 
-<style>
-@media screen and (max-width: 768px) {
+<style scoped>
+.title-profile {
+  color: var(--text-dark);
+  margin-block-end: 20px;
+}
+
+.profile-item {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  inline-size: 49%;
+}
+
+.container-profile {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 850px) {
   .container-profile {
     display: flex;
     flex-direction: column;
+    gap: 30px;
+  }
+
+  .profile-item {
+    inline-size: 100%;
   }
 }
 
-@media screen and (min-width: 768px) {
+@media (max-width: 480px) {
+  .title-profile {
+    padding-block: 0;
+    padding-inline: 20px;
+  }
+
   .container-profile {
-    display: flex;
-    flex-direction: row;
+    padding-block: 0;
+    padding-inline: 20px;
   }
 }
 </style>

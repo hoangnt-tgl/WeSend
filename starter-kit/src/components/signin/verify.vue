@@ -20,7 +20,12 @@ export default {
 
 <template>
   <div class="verify__container">
-    <h1>We<span>Send</span></h1>
+    <h1>
+      <img
+        src="../../assets/images/logo.png"
+        alt="logo"
+      >
+    </h1>
     <div class="verify__content">
       <h2>Verify</h2>
       <p>Please enter the code send on your phone for verification</p>
@@ -42,6 +47,10 @@ export default {
 </template>
 
 <style scoped>
+h1 img {
+  inline-size: 150px;
+}
+
 .verify__container {
   display: flex;
   flex: 1;

@@ -1,3 +1,15 @@
+<!-- eslint-disable vue/component-api-style -->
+<script lang="ts">
+import Progress from '@/components/CustomProgress/index.vue'
+
+export default {
+  name: 'DelayMessage',
+  components: {
+    Progress,
+  },
+}
+</script>
+
 <template>
   <VCard>
     <div class="container">
@@ -10,13 +22,16 @@
         </p>
         <div class="min">
           <p class="txtTime">
-            6s
+            6sec
           </p>
           <p class="txtTime">
             1 min
           </p>
         </div>
-        <div class="containerTime" />
+        <div class="rate">
+          <Progress />
+        </div>
+
         <div class="saveChange">
           <button class="btnSaveChange">
             Save Changes
